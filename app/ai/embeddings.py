@@ -8,5 +8,5 @@ load_dotenv(find_dotenv())
 EMBEDDINGS_MODEL = "text-embedding-3-large"
 
 @lru_cache(maxsize=1)
-def get_embeddings() -> Embeddings:
+def get_embedder() -> Embeddings:
     return OpenAIEmbeddings(model=EMBEDDINGS_MODEL)

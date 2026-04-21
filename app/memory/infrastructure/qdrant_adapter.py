@@ -1,10 +1,12 @@
-from qdrant_client import AsyncQdrantClient, QdrantClient
+from qdrant_client import AsyncQdrantClient
 from qdrant_client.models import Distance, VectorParams, PointStruct
-from enum import Enum
 import logging
 import uuid
 
+from app.shared.models import MemoryEntry
 from app.shared.types import Collection, Vector
+from app.memory.domain.interfaces import MemoryStore
+from .mappers import memory_to_payload, payload_to_memory
 
 
 REST_PORT = 6333
@@ -16,14 +18,14 @@ DISTANCE_METRIC = Distance.COSINE
 logger = logging.getLogger(__name__)
 
 
-class QdrantAdapter:
+class QdrantAdapter(MemoryStore):
     def __init__(self):
         self.client = AsyncQdrantClient(url=QDRANT_URL)
     
     async def init_collections(self) -> None:
         # Create collections if not present
         for collection in Collection:
-            if not await self.client.collection_exists(collection.value):
+            if not await self.client.collection_exists(collection):
 
                 await self.client.create_collection(
                     collection_name=collection,
@@ -33,8 +35,9 @@ class QdrantAdapter:
                     )
                 )
     
-    async def insert(self, vector: Vector, payload: dict, collection: Collection) -> None:
+    async def insert(self, vector: Vector, memory_entry: MemoryEntry, collection: Collection) -> None:
         point_id = str(uuid.uuid4())
+        payload = memory_to_payload(memory_entry)
         point = PointStruct(id=point_id, vector=vector, payload=payload)
 
         await self.client.upsert(
@@ -43,11 +46,11 @@ class QdrantAdapter:
             points=[point]
         )
 
-    async def search(self, vector: Vector, collection: Collection, k: int) -> list[dict]:
+    async def search(self, vector: Vector, collection: Collection, k: int) -> list[MemoryEntry]:
         results = await self.client.query_points(
             collection_name=collection,
             query=vector,
             with_payload=True,
             limit=k,
         )
-        return [result.payload for result in results.points]
+        return [payload_to_memory(result.payload) for result in results.points]

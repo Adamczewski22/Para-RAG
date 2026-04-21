@@ -1,9 +1,8 @@
 from pydantic import BaseModel
 from .types import Vector
-import datetime
+from datetime import datetime
 
 
-class MemoryEntry:
+class MemoryEntry(BaseModel):
     content: str
-    embedding: Vector
     date: datetime
