@@ -4,6 +4,8 @@ from enum import Enum
 import logging
 import uuid
 
+from app.shared.types import Collection, Vector
+
 
 REST_PORT = 6333
 QDRANT_URL = f"http://localhost:{REST_PORT}"
@@ -12,10 +14,6 @@ VECTOR_SIZE = 3072 # Matches openai text-embedding-3-large
 DISTANCE_METRIC = Distance.COSINE
 
 logger = logging.getLogger(__name__)
-
-
-class Collection(str, Enum):
-    ASSERTIONS = "assertions"
 
 
 class QdrantAdapter:
@@ -35,7 +33,7 @@ class QdrantAdapter:
                     )
                 )
     
-    async def insert(self, vector: list[float], payload: dict, collection: Collection) -> None:
+    async def insert(self, vector: Vector, payload: dict, collection: Collection) -> None:
         point_id = str(uuid.uuid4())
         point = PointStruct(id=point_id, vector=vector, payload=payload)
 
@@ -45,7 +43,7 @@ class QdrantAdapter:
             points=[point]
         )
 
-    async def search(self, vector: list[float], collection: Collection, k: int) -> list[dict]:
+    async def search(self, vector: Vector, collection: Collection, k: int) -> list[dict]:
         results = await self.client.query_points(
             collection_name=collection,
             query=vector,

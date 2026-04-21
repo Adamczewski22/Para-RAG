@@ -9,6 +9,4 @@ EMBEDDINGS_MODEL = "text-embedding-3-large"
 
 @lru_cache(maxsize=1)
 def get_embeddings() -> Embeddings:
-    return OpenAIEmbeddings(
-        model=EMBEDDINGS_MODEL,
-    )
+    return OpenAIEmbeddings(model=EMBEDDINGS_MODEL)
