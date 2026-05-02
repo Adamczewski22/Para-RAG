@@ -1,4 +1,6 @@
 from langchain_core.embeddings import Embeddings
+from datetime import datetime
+import uuid
 
 from app.memory.domain.interfaces import MemoryStore
 from app.shared.models import MemoryEntry
@@ -19,3 +21,12 @@ class MemoryUpdateService:
             memory_entry=memory_entry,
             collection=collection,
         )
+    
+    async def update_memory_from_content(self, content: str, collection: Collection):
+        """Handles the intialization of memory entry, embeds it and inserts into the underlying memory store"""
+        memory = MemoryEntry(
+            id=str(uuid.uuid4()),
+            content=content,
+            date=datetime.now(),
+        )
+        await self.update_memory(memory, collection)

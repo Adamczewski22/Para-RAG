@@ -41,8 +41,6 @@ async def call_retrieve(state: GraphState) -> dict:
     if len(state["sub_queries"]) == 0:
         return {}
     
-    print(state["sub_queries"])
-    
     results = await asyncio.gather(
         *[
             retrieve(query)
@@ -50,8 +48,10 @@ async def call_retrieve(state: GraphState) -> dict:
         ]
     )
 
-    memories = []
+    # Aggregate and deduplicate memories
+    all_memories: dict[str, MemoryEntry] = {}
     for _, memories in results:
-        memories.extend(memories)
+        for memory in memories:
+            all_memories[memory.id] = memory
 
-    return {"memories": memories}
+    return {"memories": list(all_memories.values())}

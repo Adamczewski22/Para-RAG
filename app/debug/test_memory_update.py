@@ -8,11 +8,6 @@ from app.shared.models import MemoryEntry
 from app.shared.types import Collection
 
 
-memory = MemoryEntry(
-    content="User likes cats very much",
-    date=datetime.now()
-)
-
 async def main():
     qdrant = QdrantAdapter()
     await qdrant.init_collections()
@@ -22,9 +17,12 @@ async def main():
         embedder=get_embedder(),
     )
 
-    await update_service.update_memory(
-        memory_entry=memory,
-        collection=Collection.ASSERTIONS,
-    )
+    while True:
+        content = input("Memory: ")
+        if content.strip().lower() == "exit":
+            break
+
+        await update_service.update_memory_from_content(content, Collection.ASSERTIONS)
+
 
 asyncio.run(main())

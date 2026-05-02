@@ -4,6 +4,7 @@ from textwrap import dedent
 
 
 class MemoryEntry(BaseModel):
+    id: str
     content: str
     date: datetime
 
