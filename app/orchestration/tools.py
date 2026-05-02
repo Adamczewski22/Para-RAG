@@ -6,7 +6,6 @@ from app.shared.types import Collection
 from app.ai.embeddings import get_embedder
 
 
-@tool(response_format="content_and_artifact")
 async def retrieve(query: str):
     """Retrieve relevant memories based on semantic search"""
     store = QdrantAdapter()

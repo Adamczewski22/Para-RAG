@@ -9,7 +9,7 @@ from app.shared.types import Collection
 
 
 memory = MemoryEntry(
-    content="The canals of Amsterdam are very romantic",
+    content="User likes cats very much",
     date=datetime.now()
 )
 

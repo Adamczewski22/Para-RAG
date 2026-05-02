@@ -4,6 +4,7 @@ from langgraph.graph import add_messages
 from typing import TypedDict, Annotated, List
 from pydantic import BaseModel, Field
 from uuid import uuid4
+import asyncio
 
 from app.orchestration.prompts import QUERY_DECOMPOSITION_PROMPT
 from app.orchestration.tools import retrieve
@@ -36,25 +37,21 @@ async def decompose_query(state: GraphState) -> dict:
 
 
 async def call_retrieve(state: GraphState) -> dict:
-    """A node that invokes parallel retrieval based on subqueries. It uses a ToolNode"""
-    tool_calls = [
-        {
-            "name": retrieve.name,
-            "args": {"query": query},
-            "id": str(uuid4()),
-            "type": "tool_call",
-        }
-        for query in state["sub_queries"]
-    ]
-
-    if len(tool_calls) == 0:
+    """A node that invokes parallel retrieval based on subqueries."""
+    if len(state["sub_queries"]) == 0:
         return {}
-
-    # ToolNode handles parallel tool execution
-    tool_messages = await ToolNode([retrieve]).ainvoke(tool_calls)
+    
+    print(state["sub_queries"])
+    
+    results = await asyncio.gather(
+        *[
+            retrieve(query)
+            for query in state["sub_queries"]
+        ]
+    )
 
     memories = []
-    for msg in tool_messages:
-        memories.extend(msg.artifact)
+    for _, memories in results:
+        memories.extend(memories)
 
     return {"memories": memories}
