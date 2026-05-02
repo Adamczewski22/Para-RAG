@@ -1,7 +1,7 @@
 from langchain_core.messages import HumanMessage
 import asyncio
 
-from app.orchestration.memory_orchestrator import MemoryOrchestrator
+from app.orchestration.simple_decomposition.memory_orchestrator import MemoryOrchestrator
 
 async def main():
     orchestrator = MemoryOrchestrator()

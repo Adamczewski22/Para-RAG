@@ -1,7 +1,7 @@
 from langchain_core.messages import BaseMessage, HumanMessage
 from dotenv import load_dotenv, find_dotenv
 
-from app.orchestration.graph import get_graph, init_graph_state
+from app.orchestration.simple_decomposition.retrieval.graph import get_graph, init_graph_state
 from app.shared.models import MemoryEntry
 
 load_dotenv(find_dotenv())

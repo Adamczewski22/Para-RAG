@@ -6,8 +6,8 @@ from pydantic import BaseModel, Field
 from uuid import uuid4
 import asyncio
 
-from app.orchestration.prompts import QUERY_DECOMPOSITION_PROMPT
-from app.orchestration.tools import retrieve
+from app.orchestration.shared.prompts import QUERY_DECOMPOSITION_PROMPT
+from app.orchestration.shared.tools import retrieve
 from app.shared.models import MemoryEntry
 from app.ai.llm import get_llm
 
