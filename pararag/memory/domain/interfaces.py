@@ -1,7 +1,7 @@
 from abc import ABC, abstractmethod
 
-from app.shared.types import Vector, Collection
-from app.shared.models import MemoryEntry
+from pararag.shared.types import Vector, Collection
+from pararag.shared.models import MemoryEntry
 
 class MemoryStore(ABC):
     "A generic interface for the underlying memory store (e.g., qdrant vector store)"

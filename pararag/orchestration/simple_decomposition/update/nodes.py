@@ -3,12 +3,12 @@ from pydantic import BaseModel, Field
 from typing import TypedDict
 import asyncio
 
-from app.memory.services.memory_update_service import MemoryUpdateService
-from app.memory.infrastructure.qdrant_adapter import QdrantAdapter
-from app.orchestration.shared.prompts import EXTRACT_ASSERTIONS_PROMPT
-from app.shared.types import Collection
-from app.ai.embeddings import get_embedder
-from app.ai.llm import get_llm
+from pararag.memory.services.memory_update_service import MemoryUpdateService
+from pararag.memory.infrastructure.qdrant_adapter import QdrantAdapter
+from pararag.orchestration.shared.prompts import EXTRACT_ASSERTIONS_PROMPT
+from pararag.shared.types import Collection
+from pararag.ai.embeddings import get_embedder
+from pararag.ai.llm import get_llm
 
 
 class GraphState(TypedDict):

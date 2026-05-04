@@ -1,8 +1,8 @@
 from langchain_core.embeddings import Embeddings
 
-from app.memory.domain.interfaces import MemoryStore
-from app.shared.models import MemoryEntry
-from app.shared.types import Collection
+from pararag.memory.domain.interfaces import MemoryStore
+from pararag.shared.models import MemoryEntry
+from pararag.shared.types import Collection
 
 
 class MemoryRetrievalService:

@@ -1,8 +1,8 @@
 from langchain_core.messages import BaseMessage, HumanMessage, AIMessage
 from dotenv import load_dotenv, find_dotenv
 
-from app.orchestration.shared.base import MemoryOrchestrator
-from app.shared.models import MemoryEntry
+from pararag.orchestration.shared.base import MemoryOrchestrator
+from pararag.shared.models import MemoryEntry
 from .retrieval import graph as retrieval_graph
 from .update import graph as update_graph
 

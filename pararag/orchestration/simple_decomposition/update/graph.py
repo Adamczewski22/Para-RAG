@@ -3,7 +3,7 @@ from langgraph.graph.state import CompiledStateGraph
 from langgraph.graph import StateGraph, START, END
 from functools import lru_cache
 
-from app.orchestration.shared.utils import messages_to_string
+from pararag.orchestration.shared.utils import messages_to_string
 from .nodes import GraphState, extract_assertions, update_memory
 
 

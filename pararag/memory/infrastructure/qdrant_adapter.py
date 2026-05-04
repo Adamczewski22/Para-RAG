@@ -3,9 +3,9 @@ from qdrant_client.models import Distance, VectorParams, PointStruct
 import logging
 import uuid
 
-from app.shared.models import MemoryEntry
-from app.shared.types import Collection, Vector
-from app.memory.domain.interfaces import MemoryStore
+from pararag.shared.models import MemoryEntry
+from pararag.shared.types import Collection, Vector
+from pararag.memory.domain.interfaces import MemoryStore
 from .mappers import memory_to_payload, payload_to_memory
 
 

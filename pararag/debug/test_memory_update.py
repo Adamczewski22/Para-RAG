@@ -1,10 +1,10 @@
 from datetime import datetime
 import asyncio
 
-from app.memory.services.memory_update_service import MemoryUpdateService
-from app.memory.infrastructure.qdrant_adapter import QdrantAdapter
-from app.ai.embeddings import get_embedder
-from app.shared.types import Collection
+from pararag.memory.services.memory_update_service import MemoryUpdateService
+from pararag.memory.infrastructure.qdrant_adapter import QdrantAdapter
+from pararag.ai.embeddings import get_embedder
+from pararag.shared.types import Collection
 
 
 async def main():

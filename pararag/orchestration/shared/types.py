@@ -1,4 +1,4 @@
 from enum import StrEnum
 
-class MemoryOrchestratorVersion(StrEnum):
+class MemoryVersion(StrEnum):
     SIMPLE_DECOMPOSITION = "simple_decomposition"

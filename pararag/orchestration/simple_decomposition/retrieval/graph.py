@@ -4,7 +4,7 @@ from langgraph.graph import StateGraph, START, END
 from functools import lru_cache
 
 from .nodes import GraphState, decompose_query, call_retrieve
-from app.orchestration.shared.utils import messages_to_string
+from pararag.orchestration.shared.utils import messages_to_string
 
 
 @lru_cache(maxsize=1)

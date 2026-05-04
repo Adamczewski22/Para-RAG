@@ -1,7 +1,7 @@
 from langchain_core.messages import HumanMessage, AIMessage
 import asyncio
 
-from app.orchestration.simple_decomposition.memory_orchestrator import SimpleDecompositionMemory
+from pararag.orchestration.simple_decomposition.memory_orchestrator import SimpleDecompositionMemory
 
 
 async def main():

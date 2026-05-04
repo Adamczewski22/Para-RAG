@@ -1,7 +1,7 @@
 from langchain_core.messages import AIMessage, HumanMessage
 from abc import ABC, abstractmethod
 
-from app.shared.models import MemoryEntry
+from pararag.shared.models import MemoryEntry
 
 
 class MemoryOrchestrator(ABC):

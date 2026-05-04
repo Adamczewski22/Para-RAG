@@ -1,5 +1,5 @@
 from datetime import datetime
-from app.shared.models import MemoryEntry
+from pararag.shared.models import MemoryEntry
 
 def memory_to_payload(memory: MemoryEntry) -> dict[str, object]:
     return {

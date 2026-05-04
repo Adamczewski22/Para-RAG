@@ -3,10 +3,10 @@ from typing import TypedDict, Annotated, List
 from pydantic import BaseModel, Field
 import asyncio
 
-from app.orchestration.shared.prompts import QUERY_DECOMPOSITION_PROMPT
-from app.orchestration.shared.tools import retrieve
-from app.shared.models import MemoryEntry
-from app.ai.llm import get_llm
+from pararag.orchestration.shared.prompts import QUERY_DECOMPOSITION_PROMPT
+from pararag.orchestration.shared.tools import retrieve
+from pararag.shared.models import MemoryEntry
+from pararag.ai.llm import get_llm
 
 
 class GraphState(TypedDict):
