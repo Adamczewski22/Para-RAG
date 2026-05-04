@@ -1,4 +1,5 @@
 .venv
 .env
 infra
+pararag/debug/
 **/__pycache__
