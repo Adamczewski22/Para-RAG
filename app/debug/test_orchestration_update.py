@@ -1,11 +1,11 @@
 from langchain_core.messages import HumanMessage, AIMessage
 import asyncio
 
-from app.orchestration.simple_decomposition.memory_orchestrator import MemoryOrchestrator
+from app.orchestration.simple_decomposition.memory_orchestrator import SimpleDecompositionMemory
 
 
 async def main():
-    memory_system = MemoryOrchestrator()
+    memory_system = SimpleDecompositionMemory()
     while True:
         user_msg = HumanMessage(input("User: "))
         memories = await memory_system.retrieve(user_msg)

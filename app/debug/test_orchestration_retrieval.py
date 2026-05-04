@@ -1,10 +1,10 @@
 from langchain_core.messages import HumanMessage
 import asyncio
 
-from app.orchestration.simple_decomposition.memory_orchestrator import MemoryOrchestrator
+from app.orchestration.simple_decomposition.memory_orchestrator import SimpleDecompositionMemory
 
 async def main():
-    orchestrator = MemoryOrchestrator()
+    orchestrator = SimpleDecompositionMemory()
     memories = await orchestrator.retrieve(HumanMessage("What did I consider romantic in Amsterdam and what do I like cats?"))
     print(memories)
 

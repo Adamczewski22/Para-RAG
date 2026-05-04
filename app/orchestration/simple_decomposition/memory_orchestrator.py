@@ -1,6 +1,7 @@
 from langchain_core.messages import BaseMessage, HumanMessage, AIMessage
 from dotenv import load_dotenv, find_dotenv
 
+from app.orchestration.shared.base import MemoryOrchestrator
 from app.shared.models import MemoryEntry
 from .retrieval import graph as retrieval_graph
 from .update import graph as update_graph
@@ -10,7 +11,7 @@ load_dotenv(find_dotenv())
 CONVERSATION_WINDOW = 10 # Does not restrict the overall memory. Serves as context to the LLM pipeline.
 
 
-class MemoryOrchestrator:
+class SimpleDecompositionMemory(MemoryOrchestrator):
     def __init__(self):
         self.conversation_history: list[BaseMessage] = []
     
