@@ -4,7 +4,6 @@ import asyncio
 from app.memory.services.memory_update_service import MemoryUpdateService
 from app.memory.infrastructure.qdrant_adapter import QdrantAdapter
 from app.ai.embeddings import get_embedder
-from app.shared.models import MemoryEntry
 from app.shared.types import Collection
 
 

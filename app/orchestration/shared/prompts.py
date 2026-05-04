@@ -41,3 +41,53 @@ Bad sub-query style:
 
 Return the result in the required structured format.
 """
+
+
+EXTRACT_ASSERTIONS_PROMPT = """
+You are an assertion extraction module for a conversational memory system.
+
+Your task is to extract atomic factual assertions from the latest user message that may be useful to store in conversational memory.
+
+Inputs:
+1. Conversation history:
+{conversation_history}
+
+2. Latest user message:
+{user_message}
+
+Goal:
+Return a list of simple, standalone assertions that should be inserted into memory.
+
+An assertion is a short factual statement about the user, their preferences, plans, relationships, past experiences, constraints, goals, or important conversational context.
+
+Rules:
+- Extract only information stated or clearly implied by the latest user message.
+- Use the conversation history only to resolve references, pronouns, ellipses, or ambiguous entities.
+- Do not extract information from the conversation history unless the latest user message refers to it.
+- Each assertion must be atomic: one fact per assertion.
+- Each assertion must be standalone and understandable without the original conversation.
+- Prefer concise natural language.
+- Preserve important names, dates, locations, relationships, and temporal qualifiers.
+- Do not infer private or sensitive attributes unless the user explicitly states them.
+- Do not store trivial, temporary, or purely conversational content.
+- Do not store questions unless they reveal a stable user fact, goal, preference, or constraint.
+- Do not store assistant instructions unless they are likely to be useful in future conversations.
+- Do not duplicate assertions.
+- If there is nothing worth storing, return an empty list.
+
+Good assertions:
+- "User likes cats."
+- "User plans to visit Amsterdam in May."
+- "User is allergic to peanuts."
+- "User's friend Anna lives in Berlin."
+
+Bad assertions:
+- "User asked a question."
+- "User said hello."
+- "User wants an answer."
+- "The assistant should respond."
+- "User might like dogs."
+- "Amsterdam is a city."
+
+Return the result in the required structured format.
+"""

@@ -1,25 +1,40 @@
-from langchain_core.messages import BaseMessage, HumanMessage
+from langchain_core.messages import BaseMessage, HumanMessage, AIMessage
 from dotenv import load_dotenv, find_dotenv
 
-from app.orchestration.simple_decomposition.retrieval.graph import get_graph, init_graph_state
 from app.shared.models import MemoryEntry
+from .retrieval import graph as retrieval_graph
+from .update import graph as update_graph
 
 load_dotenv(find_dotenv())
+
+CONVERSATION_WINDOW = 10 # Does not restrict the overall memory. Serves as context to the LLM pipeline.
 
 
 class MemoryOrchestrator:
     def __init__(self):
-        self.conversation_history = []
+        self.conversation_history: list[BaseMessage] = []
     
-    async def update(self, msg: BaseMessage) -> None:
-        conversation_window = 6 # Does not restrict the overall memory. This concerns internals of graph logic.
-        self.conversation_history.append(msg)
-        self.conversation_history = self.conversation_history[-conversation_window]
-        # TODO: update the store
+
+    async def add_user_msg(self, user_msg: HumanMessage) -> None:
+        """Extracts relevant facts from user message, and stores them in memory"""
+        graph = update_graph.get_graph()
+        graph_state = update_graph.init_graph_state(user_msg, self.conversation_history)
+        await graph.ainvoke(input=graph_state)
+
+        self.conversation_history.append(user_msg)
+        self.conversation_history = self.conversation_history[-CONVERSATION_WINDOW:]
+    
+
+    async def add_assistant_msg(self, assistant_msg: AIMessage) -> None:
+        """Adds assistant message to the converstation history"""
+        self.conversation_history.append(assistant_msg)
+        self.conversation_history = self.conversation_history[-CONVERSATION_WINDOW:]
+
 
     async def retrieve(self, user_msg: HumanMessage) -> list[MemoryEntry]:
-        graph = get_graph()
-        graph_state = init_graph_state(user_msg, self.conversation_history)
+        """Retrieves relevant memories for answering a user message as an aid to a chatbot assistant"""
+        graph = retrieval_graph.get_graph()
+        graph_state = retrieval_graph.init_graph_state(user_msg, self.conversation_history)
         
         result = await graph.ainvoke(input=graph_state)
         return result["memories"]

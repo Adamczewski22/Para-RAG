@@ -1,9 +1,6 @@
 from langchain_core.messages import BaseMessage, HumanMessage, SystemMessage
-from langgraph.prebuilt import ToolNode
-from langgraph.graph import add_messages
 from typing import TypedDict, Annotated, List
 from pydantic import BaseModel, Field
-from uuid import uuid4
 import asyncio
 
 from app.orchestration.shared.prompts import QUERY_DECOMPOSITION_PROMPT
@@ -13,7 +10,7 @@ from app.ai.llm import get_llm
 
 
 class GraphState(TypedDict):
-    conversation_history: List[BaseMessage]
+    conversation_history: list[BaseMessage]
     conversation_history_str: str
     last_user_msg: HumanMessage
     sub_queries: list[str]
