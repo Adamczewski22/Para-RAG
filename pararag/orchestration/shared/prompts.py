@@ -24,7 +24,7 @@ Rules:
 - Do not create redundant sub-queries.
 - Prefer 1-5 sub-queries.
 - If the user query is already simple, return a single sub-query.
-- If the query does clearly not require memory retrieval because it is fully answerable from the latest message alone, return an empty list. Do not return an empty list when the query contains a personal or contextual reference that may have been discussed earlier.
+- If the user query clearly does not require memory retrieval because it is fully answerable from the latest message alone, return an empty list (e.g., in the case of simple smalltalk). Do not return an empty list when the query contains a personal or contextual reference that may have been discussed earlier.
 - Prefer generating sub-queries when prior memory could make the response more contextual, personalized, or grounded, even if the latest user query appears simple or self-contained.
 
 Good sub-query style:
