@@ -24,7 +24,8 @@ Rules:
 - Do not create redundant sub-queries.
 - Prefer 1-5 sub-queries.
 - If the user query is already simple, return a single sub-query.
-- If the query does not require memory retrieval, return an empty list.
+- If the query does clearly not require memory retrieval because it is fully answerable from the latest message alone, return an empty list. Do not return an empty list when the query contains a personal or contextual reference that may have been discussed earlier.
+- Prefer generating sub-queries when prior memory could make the response more contextual, personalized, or grounded, even if the latest user query appears simple or self-contained.
 
 Good sub-query style:
 - "user's preferred restaurants in Amsterdam"
@@ -88,6 +89,7 @@ Bad assertions:
 - "The assistant should respond."
 - "User might like dogs."
 - "Amsterdam is a city."
+- "The user wants to pause the discussion for now and return to it later."
 
 Return the result in the required structured format.
 """
