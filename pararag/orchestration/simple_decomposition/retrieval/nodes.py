@@ -1,3 +1,5 @@
+from unittest import result
+
 from langchain_core.messages import BaseMessage, HumanMessage, SystemMessage
 from typing import TypedDict, Annotated, List
 from pydantic import BaseModel, Field
@@ -7,6 +9,7 @@ from pararag.orchestration.shared.prompts import QUERY_DECOMPOSITION_PROMPT
 from pararag.orchestration.shared.tools import retrieve
 from pararag.shared.models import MemoryEntry
 from pararag.ai.llm import get_llm
+from pararag.shared.console import get_console
 
 
 class GraphState(TypedDict):
@@ -30,6 +33,7 @@ async def decompose_query(state: GraphState) -> dict:
     )
 
     result = await llm.ainvoke([SystemMessage(prompt)])
+    get_console().print_queries(result.sub_queries)
     return {"sub_queries": result.sub_queries}
 
 
@@ -50,5 +54,8 @@ async def call_retrieve(state: GraphState) -> dict:
     for _, memories in results:
         for memory in memories:
             all_memories[memory.id] = memory
+    
+    memories_list = list(all_memories.values())
+    get_console().print_memories(memories_list)
 
-    return {"memories": list(all_memories.values())}
+    return {"memories": memories_list}

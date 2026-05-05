@@ -1,6 +1,6 @@
 from langchain_core.messages import HumanMessage, SystemMessage
 from langchain_openai import ChatOpenAI
-from pararag import ParaRAGMemory, MemoryEntry
+from pararag import ParaRAGMemory, MemoryEntry, get_console
 import asyncio
 
 
@@ -46,7 +46,7 @@ async def main():
         messages = [system_msg] + conversation_history
         response = await llm.ainvoke(messages)
         assistant_msg = response.content
-        print(f"Assistant: {assistant_msg}")
+        get_console().print_assistant_msg(assistant_msg)
 
         # Update ParaRAG memory
         await memory.add_conversation_turn(
@@ -57,7 +57,8 @@ async def main():
         # Add assistant msg to conversation history
         conversation_history.append(response)
 
-        user_msg = input("User: ")
+        get_console().print_prompt_user()
+        user_msg = input()
 
 
 if __name__ == "__main__":

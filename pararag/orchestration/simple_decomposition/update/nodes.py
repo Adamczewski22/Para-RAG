@@ -9,6 +9,7 @@ from pararag.orchestration.shared.prompts import EXTRACT_ASSERTIONS_PROMPT
 from pararag.shared.types import Collection
 from pararag.ai.embeddings import get_embedder
 from pararag.ai.llm import get_llm
+from pararag.shared.console import get_console
 
 
 class GraphState(TypedDict):
@@ -31,6 +32,7 @@ async def extract_assertions(state: GraphState) -> dict:
     )
 
     result = await llm.ainvoke([SystemMessage(prompt)])
+    get_console().print_assertions(result.assertions)
     return {"assertions": result.assertions}
 
 

@@ -14,3 +14,6 @@ class MemoryEntry(BaseModel):
                 date: {self.date:%Y-%m-%d %H:%M}
                 content: {self.content}
         """).strip()
+
+    def __repr__(self) -> str:
+        return self.__str__()
