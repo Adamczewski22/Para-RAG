@@ -89,7 +89,8 @@ Bad assertions:
 - "The assistant should respond."
 - "User might like dogs."
 - "Amsterdam is a city."
-- "The user wants to pause the discussion for now and return to it later."
+- "The user wants to pause the discussion for now and return to it later." (bad: temporary and unstable information)
+- "The user wants a reminder about the prior discussion regarding their injury." (bad: temporary and not valuable long-term)
 
 Return the result in the required structured format.
 """

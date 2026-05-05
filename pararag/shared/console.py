@@ -45,9 +45,9 @@ class Console:
 
         if isinstance(content, Sequence) and not isinstance(content, str):
             for item in content:
-                self.console.print(item, style=style, end=end)
+                self.console.print(str(item), style=style, end=end)
         else:
-            self.console.print(content, style=style, end=end)
+            self.console.print(str(content), style=style, end=end)
         
         if empty_line:
             self.console.print()
