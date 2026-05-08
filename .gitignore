@@ -1,5 +1,7 @@
 .venv
 .env
-infra
+infra/
+data/
+external/
 pararag/debug/
 **/__pycache__
