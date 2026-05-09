@@ -1,10 +1,10 @@
-from langchain_core.messages import BaseMessage, HumanMessage
 from langgraph.graph.state import CompiledStateGraph
 from langgraph.graph import StateGraph, START, END
 from functools import lru_cache
 
 from .nodes import GraphState, decompose_query, call_retrieve
 from pararag.orchestration.shared.utils import messages_to_string
+from pararag.shared.models import Message
 
 
 @lru_cache(maxsize=1)
@@ -18,7 +18,7 @@ def get_graph() -> CompiledStateGraph:
     return graph_builder.compile()
 
 
-def init_graph_state(user_msg: HumanMessage, conversation_history: list[BaseMessage]) -> GraphState:
+def init_graph_state(user_msg: Message, conversation_history: list[Message]) -> GraphState:
     return {
         "conversation_history": conversation_history,
         "conversation_history_str": messages_to_string(conversation_history),

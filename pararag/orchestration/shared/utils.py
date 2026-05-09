@@ -1,8 +1,15 @@
 from langchain_core.messages import BaseMessage, HumanMessage, AIMessage, SystemMessage
+from pararag.shared.models import Message
 
 
-def messages_to_string(messages: list[BaseMessage]) -> str:
+def messages_to_string(messages: list[Message]) -> str:
     """Converts list of message objects into a string representation"""
+    messages_str = [str(msg) for msg in messages]
+    return "\n".join(messages_str)
+
+
+def langchain_messages_to_string(messages: list[BaseMessage]) -> str:
+    """Converts list of langchain message objects into a string representation"""
     lines = []
     for m in messages:
         if isinstance(m, HumanMessage):

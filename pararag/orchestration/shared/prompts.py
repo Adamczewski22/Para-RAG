@@ -44,6 +44,69 @@ Return the result in the required structured format.
 """
 
 
+LOCOMO_QUERY_DECOMPOSITION_PROMPT = """
+You are a query decomposition module for a memory-based question answering system.
+
+Your task is to transform a single benchmark question into one or more short, atomic search queries.
+The queries will be used to retrieve evidence from long-term conversation memory.
+
+Input question:
+{question}
+
+Goal:
+Produce simple retrieval queries that help find the evidence needed to answer the question.
+
+Rules:
+- Always return at least one sub-query.
+- Each sub-query must be short, concrete, and useful for semantic search.
+- Each sub-query should target one atomic piece of evidence.
+- Preserve important names, entities, dates, time periods, relationships, and constraints from the question.
+- For single-hop questions, usually return one sub-query.
+- For multi-hop questions, return multiple sub-queries, one for each needed fact.
+- Do not answer the question.
+- Do not invent facts.
+- Do not create redundant sub-queries.
+- Prefer 1-4 sub-queries.
+
+Good examples:
+
+Question:
+"What pets wouldn't cause any discomfort to Joanna?"
+
+Sub-queries:
+- "Joanna's allergies or causes of discomfort from pets"
+- "pets that do not trigger Joanna's allergies"
+
+Question:
+"What are Joanna's hobbies?"
+
+Sub-queries:
+- "Joanna's hobbies"
+
+Question:
+"How long has Nate had his first two turtles?"
+
+Sub-queries:
+- "when Nate got his first two turtles"
+
+Question:
+"Was the first half of September 2022 a good month career-wise for Nate and Joanna? Answer yes or no."
+
+Sub-queries:
+- "Nate's career events in the first half of September 2022"
+- "Joanna's career events in the first half of September 2022"
+
+Bad sub-query style:
+- "Answer the question"
+- "Find relevant information"
+- "Everything about Joanna"
+- "Nate and Joanna career and pets and hobbies"
+- "Was it good?"
+
+Return the result in the required structured format.
+"""
+
+
 EXTRACT_ASSERTIONS_PROMPT = """
 You are an assertion extraction module for a conversational memory system.
 
@@ -91,6 +154,61 @@ Bad assertions:
 - "Amsterdam is a city."
 - "The user wants to pause the discussion for now and return to it later." (bad: temporary and unstable information)
 - "The user wants a reminder about the prior discussion regarding their injury." (bad: temporary and not valuable long-term)
+
+Return the result in the required structured format.
+"""
+
+
+LOCOMO_EXTRACT_ASSERTIONS_PROMPT = """
+You are an assertion extraction module for a dialogue memory system.
+
+Your task is to extract atomic factual assertions from the latest dialogue message.
+These assertions will be inserted into memory and later used for question answering.
+
+Inputs:
+1. Conversation history:
+{conversation_history}
+
+2. Latest message:
+{user_message}
+
+Goal:
+Return a list of simple, standalone assertions stated or clearly implied by the latest message.
+
+Important:
+- The dialogue has named speakers, such as Maria, John, Nate, or Joanna.
+- Always preserve the identity of the speaker or person the assertion is about.
+- There is no generic "user" or "assistant"; use the actual speaker names.
+
+Rules:
+- Extract assertions only from the latest message.
+- Use the conversation history only to resolve pronouns, names, ellipses, or references.
+- Do not extract new assertions from the conversation history itself.
+- Each assertion must be atomic: one fact per assertion.
+- Each assertion must be standalone and understandable without the original dialogue.
+- Preserve speaker names, other person names, dates, locations, events, relationships, preferences, emotions, and temporal qualifiers when relevant.
+- If the latest message refers to something from earlier, include the resolved reference in the assertion.
+- Do not invent facts.
+- Do not extract vague reactions, greetings, or filler unless they reveal useful factual information.
+- Do not duplicate assertions.
+- If there is nothing useful to store, return an empty list.
+
+Good assertions:
+- "John went camping with Max."
+- "John enjoyed being out in nature."
+- "John felt that camping was a nice break from everyday hustle and bustle."
+- "Maria thinks camping with pets can be soul-nourishing."
+- "Joanna is allergic to pets with fur."
+- "Nate has had his first two turtles for three years."
+
+Bad assertions:
+- "Maria said wow."
+- "John replied to Maria."
+- "The speaker had a good time."
+- "Someone went somewhere."
+- "The conversation is about camping."
+- "Maria asked a question."
+- "John definitely agreed."
 
 Return the result in the required structured format.
 """
