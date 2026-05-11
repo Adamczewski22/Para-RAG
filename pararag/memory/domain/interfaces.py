@@ -10,6 +10,11 @@ class MemoryStore(ABC):
     async def init_collections(self) -> None:
         """Creates all the collections if not present"""
         pass
+    
+    @abstractmethod
+    async def clear_collection(self, collection: Collection) -> None:
+        """Clears the collection from memory entries"""
+        pass
 
     @abstractmethod
     async def insert(self, vector: Vector, memory_entry: MemoryEntry, collection: Collection) -> None:

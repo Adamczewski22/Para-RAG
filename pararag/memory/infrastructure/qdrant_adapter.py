@@ -1,5 +1,5 @@
 from qdrant_client import AsyncQdrantClient
-from qdrant_client.models import Distance, VectorParams, PointStruct
+from qdrant_client.models import Distance, VectorParams, PointStruct, Filter, FilterSelector
 import logging
 import uuid
 
@@ -34,6 +34,12 @@ class QdrantAdapter(MemoryStore):
                         distance=DISTANCE_METRIC,
                     )
                 )
+    
+    async def clear_collection(self, collection: Collection) -> None:
+        await self.client.delete(
+            collection_name=collection,
+            filter=FilterSelector(filter=Filter()),
+        )
     
     async def insert(self, vector: Vector, memory_entry: MemoryEntry, collection: Collection) -> None:
         point_id = str(uuid.uuid4())
