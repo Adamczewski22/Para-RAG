@@ -4,13 +4,15 @@ from functools import lru_cache
 
 from .nodes import GraphState, decompose_query, call_retrieve
 from pararag.orchestration.shared.utils import messages_to_string
+from pararag.orchestration.shared.types import RetrievalContext
 from pararag.shared.models import Message
 
 
 @lru_cache(maxsize=1)
 def get_graph() -> CompiledStateGraph:
     """Builds and returns the compiled graph"""
-    graph_builder = StateGraph(GraphState)
+    graph_builder = StateGraph(state_schema=GraphState, context_schema=RetrievalContext)
+
     graph_builder.add_sequence([decompose_query, call_retrieve])
     graph_builder.add_edge(START, "decompose_query")
     graph_builder.add_edge("call_retrieve", END)

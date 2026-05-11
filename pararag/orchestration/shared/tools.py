@@ -1,17 +1,14 @@
 from langchain_core.tools import tool
+from langgraph.runtime import Runtime
 
-from pararag.memory.services.memory_retrieval_service import MemoryRetrievalService
-from pararag.memory.infrastructure.qdrant_adapter import QdrantAdapter
+from pararag.orchestration.shared.types import RetrievalContext
 from pararag.shared.types import Collection
-from pararag.ai.embeddings import get_embedder
 
 
-async def retrieve(query: str):
+async def retrieve(query: str, runtime: Runtime[RetrievalContext]):
     """Retrieve relevant memories based on semantic search"""
-    store = QdrantAdapter()
-    embedder = get_embedder()
-    retrieval_service = MemoryRetrievalService(store, embedder)
-
+    retrieval_service = runtime.context["retrieval_service"]
+    
     memories = await retrieval_service.retrieve_dense(
         query=query,
         collection=Collection.ASSERTIONS,

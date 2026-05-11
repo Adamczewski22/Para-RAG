@@ -1,13 +1,13 @@
 from langchain_core.messages import SystemMessage
+from langgraph.runtime import Runtime
 from pydantic import BaseModel, Field
 from typing import TypedDict
 from dotenv import load_dotenv, find_dotenv
 import asyncio
 import os
 
-from pararag.memory.services.memory_update_service import MemoryUpdateService
-from pararag.memory.infrastructure.qdrant_adapter import QdrantAdapter
 from pararag.orchestration.shared.prompts import EXTRACT_ASSERTIONS_PROMPT, LOCOMO_EXTRACT_ASSERTIONS_PROMPT
+from pararag.orchestration.shared.types import UpdateContext
 from pararag.shared.types import Collection
 from pararag.shared.models import Message
 from pararag.ai.embeddings import get_embedder
@@ -49,12 +49,9 @@ async def extract_assertions(state: GraphState) -> dict:
     return {"assertions": result.assertions}
 
 
-async def update_memory(state: GraphState) -> dict:
+async def update_memory(state: GraphState, runtime: Runtime[UpdateContext]) -> dict:
     """Update the memory with assertions"""
-    update_service = MemoryUpdateService(
-        store=QdrantAdapter(),
-        embedder=get_embedder(),
-    )
+    update_service = runtime.context["update_service"]
 
     await asyncio.gather(
         *[

@@ -3,13 +3,14 @@ from langgraph.graph import StateGraph, START, END
 from functools import lru_cache
 
 from pararag.orchestration.shared.utils import messages_to_string
+from pararag.orchestration.shared.types import UpdateContext
 from pararag.shared.models import Message
 from .nodes import GraphState, extract_assertions, update_memory
 
 
 @lru_cache(maxsize=1)
 def get_graph() -> CompiledStateGraph:
-    graph_builder = StateGraph(GraphState)
+    graph_builder = StateGraph(state_schema=GraphState, context_schema=UpdateContext)
     graph_builder.add_sequence([extract_assertions, update_memory])
     graph_builder.add_edge(START, "extract_assertions")
     graph_builder.add_edge("update_memory", END)

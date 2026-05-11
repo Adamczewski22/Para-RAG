@@ -1,4 +1,5 @@
 from langchain_core.messages import SystemMessage
+from langgraph.runtime import Runtime
 from dotenv import find_dotenv, load_dotenv
 from pydantic import BaseModel, Field
 from typing import TypedDict
@@ -6,6 +7,7 @@ import asyncio
 import os
 
 from pararag.orchestration.shared.prompts import QUERY_DECOMPOSITION_PROMPT, LOCOMO_QUERY_DECOMPOSITION_PROMPT
+from pararag.orchestration.shared.types import RetrievalContext
 from pararag.orchestration.shared.tools import retrieve
 from pararag.shared.models import MemoryEntry, Message
 from pararag.shared.console import get_console
@@ -47,14 +49,14 @@ async def decompose_query(state: GraphState) -> dict:
     return {"sub_queries": result.sub_queries}
 
 
-async def call_retrieve(state: GraphState) -> dict:
+async def call_retrieve(state: GraphState, runtime: Runtime[RetrievalContext]) -> dict:
     """A node that invokes parallel retrieval based on subqueries."""
     if len(state["sub_queries"]) == 0:
         return {}
     
     results = await asyncio.gather(
         *[
-            retrieve(query)
+            retrieve(query, runtime)
             for query in state["sub_queries"]
         ]
     )

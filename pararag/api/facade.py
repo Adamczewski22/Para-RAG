@@ -1,14 +1,38 @@
-from pararag.orchestration import MemoryOrchestrator, MemoryVersion, create_memory_orchestrator
+from pararag.orchestration import MemoryVersion, MemoryOrchestrator, create_memory_orchestrator
 from pararag.shared.models import MemoryEntry, UserMessage, AssistantMessage
+from pararag.shared.types import Collection
+from pararag.memory.infrastructure.qdrant_adapter import QdrantAdapter
+from pararag.memory.domain.interfaces import MemoryStore
+from pararag.memory.services.memory_update_service import MemoryUpdateService
+from pararag.memory.services.memory_retrieval_service import MemoryRetrievalService
+from pararag.memory.services.memory_admin_service import MemoryAdminService
+from pararag.ai.embeddings import get_embedder
 
 DEFAULT_MEMORY_VERSION = MemoryVersion.SIMPLE_DECOMPOSITION
 
 
 class ParaRAGMemory:
     """The ParaRAG framework facade implementing conversational memory"""
-    def __init__(self, memory_version: MemoryVersion = DEFAULT_MEMORY_VERSION):
+    def __init__(
+            self, 
+            memory_version: MemoryVersion = DEFAULT_MEMORY_VERSION, 
+            memory_store: MemoryStore | None = None,
+        ):
+        # If memory store was not specified, use the default one
+        self.memory_store = memory_store if memory_store else QdrantAdapter()
+
+        # Init the memory admin service
+        self.memory_admin_service = MemoryAdminService(self.memory_store)
+
+        # Init retrieval and update services and inject them into the memory orchestrator
+        embedder = get_embedder()
+        memory_update_service = MemoryUpdateService(store=self.memory_store, embedder=embedder)
+        memory_retrieval_service = MemoryRetrievalService(store=self.memory_store, embedder=embedder)
+
         self.orchestrator: MemoryOrchestrator = create_memory_orchestrator(
-            version=memory_version
+            version=memory_version,
+            update_service=memory_update_service,
+            retrieval_service=memory_retrieval_service,
         )
 
     async def retrieve_memories(self, user_msg: str) -> list[MemoryEntry]:
@@ -34,3 +58,11 @@ class ParaRAGMemory:
         """Updates memory based on assistant's message"""
         assistant_msg_obj = AssistantMessage(content=assistant_msg)
         await self.orchestrator.add_assistant_msg(assistant_msg_obj)
+
+    async def init_memory_store(self) -> None:
+        """Initializes the underlying memory store"""
+        await self.memory_admin_service.init_memory()
+    
+    async def clear_collection(self, collection: Collection) -> None:
+        """Deletes all data points from a collection"""
+        await self.memory_admin_service.clear_collection(collection)
