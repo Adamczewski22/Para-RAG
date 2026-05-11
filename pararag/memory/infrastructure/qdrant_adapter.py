@@ -38,7 +38,7 @@ class QdrantAdapter(MemoryStore):
     async def clear_collection(self, collection: Collection) -> None:
         await self.client.delete(
             collection_name=collection,
-            filter=FilterSelector(filter=Filter()),
+            points_selector=FilterSelector(filter=Filter()),
         )
     
     async def insert(self, vector: Vector, memory_entry: MemoryEntry, collection: Collection) -> None:
