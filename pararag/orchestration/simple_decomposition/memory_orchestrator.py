@@ -1,4 +1,5 @@
 from dotenv import load_dotenv, find_dotenv
+from datetime import datetime
 
 from pararag.orchestration.shared.base import MemoryOrchestrator
 from pararag.orchestration.shared.types import RetrievalContext, UpdateContext
@@ -11,11 +12,15 @@ load_dotenv(find_dotenv())
 CONVERSATION_WINDOW = 10 # Does not restrict the overall memory. Serves as context to the LLM pipeline.
 
 
-class SimpleDecompositionMemory(MemoryOrchestrator):  
-    async def add_user_msg(self, user_msg: UserMessage) -> None:
+class SimpleDecompositionMemory(MemoryOrchestrator):
+    async def add_user_msg(self, user_msg: UserMessage, timestamp: datetime) -> None:
         """Extracts relevant facts from user message, and stores them in memory"""
         graph = update_graph.get_graph()
-        graph_state = update_graph.init_graph_state(user_msg, self.conversation_history)
+        graph_state = update_graph.init_graph_state(
+            user_msg=user_msg, 
+            conversation_history=self.conversation_history,
+            timestamp=timestamp,
+        )
 
         await graph.ainvoke(
             input=graph_state,
@@ -26,7 +31,7 @@ class SimpleDecompositionMemory(MemoryOrchestrator):
         self.conversation_history = self.conversation_history[-CONVERSATION_WINDOW:]
     
 
-    async def add_assistant_msg(self, assistant_msg: AssistantMessage) -> None:
+    async def add_assistant_msg(self, assistant_msg: AssistantMessage, timestamp: datetime) -> None:
         """Adds assistant message to the converstation history"""
         self.conversation_history.append(assistant_msg)
         self.conversation_history = self.conversation_history[-CONVERSATION_WINDOW:]

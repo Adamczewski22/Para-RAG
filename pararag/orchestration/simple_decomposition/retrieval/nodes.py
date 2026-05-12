@@ -10,6 +10,7 @@ from pararag.orchestration.shared.prompts import QUERY_DECOMPOSITION_PROMPT, LOC
 from pararag.orchestration.shared.types import RetrievalContext
 from pararag.orchestration.shared.tools import retrieve
 from pararag.shared.models import MemoryEntry, Message
+from pararag.shared.types import Collection
 from pararag.shared.console import get_console
 from pararag.ai.llm import get_llm
 
@@ -54,9 +55,12 @@ async def call_retrieve(state: GraphState, runtime: Runtime[RetrievalContext]) -
     if len(state["sub_queries"]) == 0:
         return {}
     
+    # Choose a different collection for locomo benchmark
+    collection = Collection.LOCOMO if os.getenv("FOR_LOCOMO") == "true" else Collection.ASSERTIONS
+    
     results = await asyncio.gather(
         *[
-            retrieve(query, runtime)
+            retrieve(query, collection, runtime)
             for query in state["sub_queries"]
         ]
     )

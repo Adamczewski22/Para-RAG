@@ -1,4 +1,5 @@
 from abc import ABC, abstractmethod
+from datetime import datetime
 
 from pararag.shared.models import MemoryEntry, AssistantMessage, UserMessage, Message
 from pararag.memory.services.memory_retrieval_service import MemoryRetrievalService
@@ -13,12 +14,12 @@ class MemoryOrchestrator(ABC):
         self.retrieval_service = retrieval_service
 
     @abstractmethod
-    async def add_user_msg(self, user_msg: UserMessage) -> None:
+    async def add_user_msg(self, user_msg: UserMessage, timestamp: datetime) -> None:
         """Updates memory based on user's message"""
         pass
     
     @abstractmethod
-    async def add_assistant_msg(self, assistant_msg: AssistantMessage) -> None:
+    async def add_assistant_msg(self, assistant_msg: AssistantMessage, timestamp: datetime) -> None:
         """Updates memory based on assistant's message"""
         pass
 

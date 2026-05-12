@@ -1,5 +1,6 @@
 from langgraph.graph.state import CompiledStateGraph
 from langgraph.graph import StateGraph, START, END
+from datetime import datetime
 from functools import lru_cache
 
 from pararag.orchestration.shared.utils import messages_to_string
@@ -18,10 +19,11 @@ def get_graph() -> CompiledStateGraph:
     return graph_builder.compile()
 
 
-def init_graph_state(user_msg: Message, conversation_history: list[Message]) -> GraphState:
+def init_graph_state(user_msg: Message, conversation_history: list[Message], timestamp: datetime) -> GraphState:
     return {
         "conversation_history": conversation_history,
         "conversation_history_str": messages_to_string(conversation_history),
         "last_user_msg": user_msg,
-        "assertions": []
+        "timestamp": timestamp,
+        "assertions": [],
     }

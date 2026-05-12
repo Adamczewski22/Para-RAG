@@ -22,11 +22,11 @@ class MemoryUpdateService:
             collection=collection,
         )
     
-    async def update_memory_from_content(self, content: str, collection: Collection):
+    async def update_memory_from_content(self, content: str, collection: Collection, timestamp: datetime):
         """Handles the intialization of memory entry, embeds it and inserts into the underlying memory store"""
         memory = MemoryEntry(
             id=str(uuid.uuid4()),
             content=content,
-            date=datetime.now(),
+            date=timestamp,
         )
         await self.update_memory(memory, collection)

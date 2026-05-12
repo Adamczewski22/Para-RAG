@@ -1,8 +1,9 @@
 from langchain_core.messages import SystemMessage
 from langgraph.runtime import Runtime
+from dotenv import load_dotenv, find_dotenv
+from datetime import datetime
 from pydantic import BaseModel, Field
 from typing import TypedDict
-from dotenv import load_dotenv, find_dotenv
 import asyncio
 import os
 
@@ -21,6 +22,7 @@ class GraphState(TypedDict):
     conversation_history: list[Message]
     conversation_history_str: str
     last_user_msg: Message
+    timestamp: datetime
     assertions: list[str]
 
 class Assertions(BaseModel):
@@ -58,7 +60,11 @@ async def update_memory(state: GraphState, runtime: Runtime[UpdateContext]) -> d
 
     await asyncio.gather(
         *[
-            update_service.update_memory_from_content(assertion, collection)
+            update_service.update_memory_from_content(
+                content=assertion, 
+                collection=collection,
+                timestamp=state["timestamp"],
+            )
             for assertion in state["assertions"]
         ]
     )
