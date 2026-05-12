@@ -4,3 +4,4 @@ Vector = list[float]
 
 class Collection(str, Enum):
     ASSERTIONS = "assertions"
+    LOCOMO = "locomo"

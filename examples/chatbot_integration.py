@@ -1,7 +1,8 @@
 from langchain_core.messages import HumanMessage, SystemMessage
 from langchain_openai import ChatOpenAI
-from pararag import ParaRAGMemory, MemoryEntry, get_console
 import asyncio
+
+from pararag import ParaRAGMemory, MemoryEntry, get_console
 
 
 PROMPT = """You are a virtual personal assistant. 

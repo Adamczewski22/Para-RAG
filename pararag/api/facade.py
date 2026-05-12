@@ -1,3 +1,6 @@
+from dotenv import find_dotenv, load_dotenv
+import os
+
 from pararag.orchestration import MemoryVersion, MemoryOrchestrator, create_memory_orchestrator
 from pararag.shared.models import MemoryEntry, UserMessage, AssistantMessage
 from pararag.shared.types import Collection
@@ -7,6 +10,8 @@ from pararag.memory.services.memory_update_service import MemoryUpdateService
 from pararag.memory.services.memory_retrieval_service import MemoryRetrievalService
 from pararag.memory.services.memory_admin_service import MemoryAdminService
 from pararag.ai.embeddings import get_embedder
+
+load_dotenv(find_dotenv())
 
 DEFAULT_MEMORY_VERSION = MemoryVersion.SIMPLE_DECOMPOSITION
 
@@ -63,6 +68,9 @@ class ParaRAGMemory:
         """Initializes the underlying memory store"""
         await self.memory_admin_service.init_memory()
     
-    async def clear_collection(self, collection: Collection) -> None:
+    async def clear_collection(self, memory_collection: Collection | None = None) -> None:
         """Deletes all data points from a collection"""
+        default_collection = Collection.LOCOMO if os.getenv("FOR_LOCOMO") == "true" else Collection.ASSERTIONS
+        collection = memory_collection if memory_collection is not None else default_collection
+
         await self.memory_admin_service.clear_collection(collection)

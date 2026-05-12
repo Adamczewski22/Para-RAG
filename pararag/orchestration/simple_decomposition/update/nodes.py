@@ -53,9 +53,12 @@ async def update_memory(state: GraphState, runtime: Runtime[UpdateContext]) -> d
     """Update the memory with assertions"""
     update_service = runtime.context["update_service"]
 
+    # Choose a different collection for locomo benchmark
+    collection = Collection.LOCOMO if os.getenv("FOR_LOCOMO") == "true" else Collection.ASSERTIONS
+
     await asyncio.gather(
         *[
-            update_service.update_memory_from_content(assertion, Collection.ASSERTIONS)
+            update_service.update_memory_from_content(assertion, collection)
             for assertion in state["assertions"]
         ]
     )

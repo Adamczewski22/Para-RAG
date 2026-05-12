@@ -2,6 +2,7 @@
 .env
 infra/
 data/
+results/
 external/
 pararag/debug/
 **/__pycache__
