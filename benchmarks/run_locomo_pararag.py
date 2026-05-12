@@ -8,14 +8,17 @@ import json
 import time
 import os
 
+from benchmarks.utils import parse_locomo_timestamp
 from pararag import ParaRAGMemory, MemoryEntry
 
 
+# The same prompt as in the baseline memobase RAG is used for fair evaluation.
+# The only change is replacement of word "conversation" by "memory" as the context is supplied in different form.
 PROMPT = """
 You are a helpful assistant that can answer questions based on the provided context.
-If the question involves timing, use the conversation date for reference.
+If the question involves timing, use the memory date for reference.
 Provide the shortest possible answer.
-Use words directly from the conversation when possible.
+Use words directly from the memory when possible.
 Avoid using subjects in your answer.
 
 # Question:
@@ -33,9 +36,12 @@ load_dotenv(find_dotenv())
 async def ingest_conversation(conversations: list[dict], memory: ParaRAGMemory) -> None:
     """Extracts memories from conversations and ingests them into vector database"""
     for msg in conversations:
+        timestamp = parse_locomo_timestamp(msg["timestamp"])
+
         await memory.add_user_msg(
-            user_msg=f"{msg['text']} (sent at: {msg['timestamp']})",
+            user_msg=msg['text'],
             speaker=msg["speaker"],
+            timestamp=timestamp,
         )
 
 
