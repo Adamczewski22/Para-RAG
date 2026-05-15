@@ -35,7 +35,7 @@ load_dotenv(find_dotenv())
 
 async def ingest_conversation(conversations: list[dict], memory: ParaRAGMemory) -> None:
     """Extracts memories from conversations and ingests them into vector database"""
-    for msg in conversations:
+    for msg in tqdm(conversations, desc="Extracting memories", leave=True):
         timestamp = parse_locomo_timestamp(msg["timestamp"])
 
         await memory.add_user_msg(
@@ -90,6 +90,7 @@ async def main(dataset_path: str, output_path: str) -> None:
     for sample_id, sample in tqdm(data.items(), desc="Processing conversations"):
         # Ingest memories
         memory = ParaRAGMemory()
+        await memory.clear_collection() # extra reset to be safe
         await ingest_conversation(sample["conversation"], memory)
 
         qa_items = sample["question"]
