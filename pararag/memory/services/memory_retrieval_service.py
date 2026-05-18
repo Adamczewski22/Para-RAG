@@ -6,8 +6,9 @@ from pararag.shared.types import Collection
 
 
 class MemoryRetrievalService:
-    def __init__(self, store: MemoryStore, embedder: Embeddings):
+    def __init__(self, store: MemoryStore, namespace: str, embedder: Embeddings):
         self.store = store
+        self.namespace = namespace
         self.embedder = embedder
     
     async def retrieve_dense(self, query: str, collection: Collection, k: int = 4) -> list[MemoryEntry]:
@@ -15,6 +16,7 @@ class MemoryRetrievalService:
         embedding = await self.embedder.aembed_query(query)
         return await self.store.search(
             vector=embedding,
+            namespace=self.namespace,
             collection=collection,
             k=k,
         )

@@ -8,8 +8,9 @@ from pararag.shared.types import Collection
 
 
 class MemoryUpdateService:
-    def __init__(self, store: MemoryStore, embedder: Embeddings):
+    def __init__(self, store: MemoryStore, namespace: str, embedder: Embeddings):
         self.store = store
+        self.namespace = namespace
         self.embedder = embedder
     
     async def update_memory(self, memory_entry: MemoryEntry, collection: Collection):
@@ -19,6 +20,7 @@ class MemoryUpdateService:
         await self.store.insert(
             vector=embedding,
             memory_entry=memory_entry,
+            namespace=self.namespace,
             collection=collection,
         )
     

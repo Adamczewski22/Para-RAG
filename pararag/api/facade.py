@@ -20,20 +20,22 @@ DEFAULT_MEMORY_VERSION = MemoryVersion.SIMPLE_DECOMPOSITION
 class ParaRAGMemory:
     """The ParaRAG framework facade implementing conversational memory"""
     def __init__(
-            self, 
+            self,
+            memory_id: str = "main",
             memory_version: MemoryVersion = DEFAULT_MEMORY_VERSION, 
             memory_store: MemoryStore | None = None,
         ):
         # If memory store was not specified, use the default one
         self.memory_store = memory_store if memory_store else QdrantAdapter()
+        self.memory_id = memory_id
 
         # Init the memory admin service
-        self.memory_admin_service = MemoryAdminService(self.memory_store)
+        self.memory_admin_service = MemoryAdminService(store=self.memory_store, namespace=self.memory_id)
 
         # Init retrieval and update services and inject them into the memory orchestrator
         embedder = get_embedder()
-        memory_update_service = MemoryUpdateService(store=self.memory_store, embedder=embedder)
-        memory_retrieval_service = MemoryRetrievalService(store=self.memory_store, embedder=embedder)
+        memory_update_service = MemoryUpdateService(store=self.memory_store, namespace=self.memory_id, embedder=embedder)
+        memory_retrieval_service = MemoryRetrievalService(store=self.memory_store, namespace=memory_id, embedder=embedder)
 
         self.orchestrator: MemoryOrchestrator = create_memory_orchestrator(
             version=memory_version,

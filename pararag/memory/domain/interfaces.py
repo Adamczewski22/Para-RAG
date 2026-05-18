@@ -12,16 +12,16 @@ class MemoryStore(ABC):
         pass
     
     @abstractmethod
-    async def clear_collection(self, collection: Collection) -> None:
+    async def clear_collection(self, namespace: str, collection: Collection) -> None:
         """Clears the collection from memory entries"""
         pass
 
     @abstractmethod
-    async def insert(self, vector: Vector, memory_entry: MemoryEntry, collection: Collection) -> None:
+    async def insert(self, vector: Vector, memory_entry: MemoryEntry, namespace: str, collection: Collection) -> None:
         """Inserts a memory entry with payload indexed by a vector into a collection"""
         pass
 
     @abstractmethod
-    async def search(self, vector: Vector, collection: Collection, k: int) -> list[MemoryEntry]:
+    async def search(self, vector: Vector, namespace: str, collection: Collection, k: int) -> list[MemoryEntry]:
         """Returns the top k most similar memory entries based on vector similarity"""
         pass

@@ -1,5 +1,5 @@
 from qdrant_client import AsyncQdrantClient
-from qdrant_client.models import Distance, VectorParams, PointStruct, Filter, FilterSelector
+from qdrant_client.models import Distance, VectorParams, PointStruct, Filter, FilterSelector, FieldCondition, MatchValue
 import logging
 import uuid
 
@@ -14,6 +14,8 @@ QDRANT_URL = f"http://localhost:{REST_PORT}"
 
 VECTOR_SIZE = 3072 # Matches openai text-embedding-3-large
 DISTANCE_METRIC = Distance.COSINE
+
+NAMESPACE_FIELD = "namespace"
 
 logger = logging.getLogger(__name__)
 
@@ -35,15 +37,16 @@ class QdrantAdapter(MemoryStore):
                     )
                 )
     
-    async def clear_collection(self, collection: Collection) -> None:
+    async def clear_collection(self, namespace: str, collection: Collection) -> None:
+        filter = self._get_namespace_filter(namespace)
         await self.client.delete(
             collection_name=collection,
-            points_selector=FilterSelector(filter=Filter()),
+            points_selector=FilterSelector(filter=filter),
         )
     
-    async def insert(self, vector: Vector, memory_entry: MemoryEntry, collection: Collection) -> None:
+    async def insert(self, vector: Vector, memory_entry: MemoryEntry, namespace: str, collection: Collection) -> None:
         point_id = str(uuid.uuid4())
-        payload = memory_to_payload(memory_entry)
+        payload = memory_to_payload(memory_entry, namespace)
         point = PointStruct(id=point_id, vector=vector, payload=payload)
 
         await self.client.upsert(
@@ -52,11 +55,22 @@ class QdrantAdapter(MemoryStore):
             points=[point]
         )
 
-    async def search(self, vector: Vector, collection: Collection, k: int) -> list[MemoryEntry]:
+    async def search(self, vector: Vector, namespace: str, collection: Collection, k: int) -> list[MemoryEntry]:
         results = await self.client.query_points(
             collection_name=collection,
             query=vector,
             with_payload=True,
+            query_filter=self._get_namespace_filter(namespace),
             limit=k,
         )
         return [payload_to_memory(result.payload) for result in results.points]
+    
+    def _get_namespace_filter(self, namespace: str) -> Filter:
+        return Filter(
+            must=[
+                FieldCondition(
+                    key=NAMESPACE_FIELD,
+                    match=MatchValue(value=namespace)
+                )
+            ] 
+        )
