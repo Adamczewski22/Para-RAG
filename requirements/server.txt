@@ -1,0 +1,7 @@
+-r core.txt
+
+annotated-doc==0.0.4
+click==8.3.3
+fastapi==0.136.1
+starlette==1.0.0
+uvicorn==0.47.0
