@@ -1,0 +1,26 @@
+services:
+  qdrant:
+    image: qdrant/qdrant:latest
+    container_name: pararag-qdrant
+    ports:
+      - "6333:6333"
+      - "6334:6334"
+    volumes:
+      - qdrant_storage:/qdrant/storage
+  
+  pararag-server:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: pararag-server
+    ports:
+      - "8000:8000"
+    env_file:
+      - .env
+    environment:
+      QDRANT_URL: "http://qdrant:6333" # Override the qdrant URL in .env
+    depends_on:
+      - qdrant
+    
+volumes:
+  qdrant_storage:
