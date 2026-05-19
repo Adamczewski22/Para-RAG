@@ -1,8 +1,8 @@
-from typing import Annotated
-
 from fastapi import FastAPI, HTTPException, status, Depends
 from contextlib import asynccontextmanager
+from typing import Annotated
 import logging
+import asyncio
 
 from pararag import ParaRAGMemory
 from pararag_server.schemas import ClearCollectionRequest, MessagesRequest, RetrieveRequest, RetrieveResponse, MemorySelector
@@ -16,10 +16,23 @@ async def lifespan(app: FastAPI):
     try:
         log.info("Intitializing memory store")
         memory = ParaRAGMemory()
-        await memory.init_memory_store()
-        
+
+        # Initialize memory store with a retry loop
+        max_memory_store_attempts = 10
+        delay = 1
+        for i in range(max_memory_store_attempts):
+            await asyncio.sleep(delay)
+            try:
+                await memory.init_memory_store()
+                break
+            except Exception:
+                if i < max_memory_store_attempts - 1:
+                    log.warning("Failed to initialize memory store. Retrying...")
+                else:
+                    raise
+
     except Exception:
-        log.critical("Failed to initialize memory store", exc_info=True)
+        log.critical(f"Failed to initialize memory store", exc_info=True)
         raise
 
     try:
