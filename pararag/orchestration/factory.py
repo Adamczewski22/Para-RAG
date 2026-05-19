@@ -18,4 +18,4 @@ def create_memory_orchestrator(
             )
 
         case _:
-            raise ValueError("Invalid memory orchestrator version")
+            raise ValueError(f"Invalid memory orchestrator version: {version}")
