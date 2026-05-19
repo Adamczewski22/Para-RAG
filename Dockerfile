@@ -7,10 +7,12 @@ ENV PYTHONUNBUFFERED=1
 # Prevents pycache and .pyc files
 ENV PYTHONDONTWRITEBYTECODE=1
 
-COPY requirements.txt .
+COPY requirements/core.txt .
+COPY requirements/server.txt .
 
 RUN pip install --no-cache-dir --upgrade pip \
-    && pip install --no-cache-dir -r requirements.txt
+    && pip install --no-cache-dir -r core.txt \
+    && pip install --no-cache-dir -r server.txt
 
 COPY pararag ./pararag
 COPY pararag_server ./pararag_server
