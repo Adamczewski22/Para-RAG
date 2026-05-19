@@ -1,16 +1,14 @@
-from qdrant_client import AsyncQdrantClient
 from qdrant_client.models import Distance, VectorParams, PointStruct, Filter, FilterSelector, FieldCondition, MatchValue
+from qdrant_client import AsyncQdrantClient
+from dotenv import find_dotenv, load_dotenv
 import logging
 import uuid
+import os
 
 from pararag.shared.models import MemoryEntry
 from pararag.shared.types import Collection, Vector
 from pararag.memory.domain.interfaces import MemoryStore
 from .mappers import memory_to_payload, payload_to_memory
-
-
-REST_PORT = 6333
-QDRANT_URL = f"http://localhost:{REST_PORT}"
 
 VECTOR_SIZE = 3072 # Matches openai text-embedding-3-large
 DISTANCE_METRIC = Distance.COSINE
@@ -19,10 +17,13 @@ NAMESPACE_FIELD = "namespace"
 
 logger = logging.getLogger(__name__)
 
+load_dotenv(find_dotenv())
+
 
 class QdrantAdapter(MemoryStore):
     def __init__(self):
-        self.client = AsyncQdrantClient(url=QDRANT_URL)
+        qdrant_url = os.getenv("QDRANT_URL")
+        self.client = AsyncQdrantClient(url=qdrant_url)
     
     async def init_collections(self) -> None:
         # Create collections if not present
