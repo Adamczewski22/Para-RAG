@@ -6,10 +6,9 @@ from .retrieval import graph as retrieval_graph_module
 from .update import graph as update_graph_module
 
 
-class SimpleDecompositionMemory(BaseMemoryOrchestrator):
-    """Simple decomposition memory implementation. 
-    Decomposes user query into information needs and performs parallel retrieval. 
-    Memory update is based on extraction of atomic assertions from user messages"""
+class DeduplicationMemory(BaseMemoryOrchestrator):
+    """Memory implementation with deduplicatin of memories"""
+    """Extends simple decomposition memory with deduplication of similar memories"""
 
     update_graph = update_graph_module
     retrieval_graph = retrieval_graph_module

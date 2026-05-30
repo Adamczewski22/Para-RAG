@@ -11,6 +11,7 @@ SERVER_URL = "http://20.123.194.67:8000"
 
 class MemoryVersion(StrEnum):
     SIMPLE_DECOMPOSITION = "simple_decomposition"
+    DEDUPLICATION = "deduplication"
 
 
 class MemoryEntry(BaseModel):
