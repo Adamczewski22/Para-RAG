@@ -85,7 +85,7 @@ async def answer_question(qa_item: dict, memory: ParaRAGMemory, llm: ChatOpenAI)
     }
 
 
-async def main(dataset_path: str, output_path: str, logs_path: str) -> None:
+async def main(memory_version: str, dataset_path: str, output_path: str, logs_path: str) -> None:
     llm = ChatOpenAI(model=os.getenv("MODEL"))
 
     # Read locomo json file
@@ -95,7 +95,7 @@ async def main(dataset_path: str, output_path: str, logs_path: str) -> None:
     result = {}
     for sample_id, sample in tqdm(data.items(), desc="Processing conversations"):
         # Ingest memories
-        memory = ParaRAGMemory()
+        memory = ParaRAGMemory(memory_version=memory_version)
         await memory.clear_collection() # extra reset to be safe
         await ingest_conversation(sample["conversation"], memory)
 
@@ -131,6 +131,11 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
 
     parser.add_argument(
+        "--memory-version",
+        type=str,
+        required=True,
+    )
+    parser.add_argument(
         "--dataset-path",
         type=str,
         default="data/locomo/locomo10_rag.json"
@@ -149,6 +154,7 @@ if __name__ == "__main__":
 
     asyncio.run(
         main(
+            memory_version=args.memory_version,
             dataset_path=args.dataset_path,
             output_path=args.output_path,
             logs_path=args.logs_path,

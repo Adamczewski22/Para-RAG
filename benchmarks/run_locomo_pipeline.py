@@ -37,6 +37,7 @@ def main(
         run_cmd([
             sys.executable, # current Python executable (venv)
             "-m", RUN_LOCOMO_SCRIPT_PACKAGE,
+            "--memory-version", iteration_name,
             "--dataset-path", str(DATASET_PATH),
             "--output-path", str(result_path),
             "--logs-path", str(logs_path),
