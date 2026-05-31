@@ -9,7 +9,7 @@ import time
 import os
 
 from benchmarks.utils import parse_locomo_timestamp
-from pararag import ParaRAGMemory, MemoryEntry
+from pararag import ParaRAGMemory, MemoryEntry, get_console
 
 
 # The same prompt as in the baseline memobase RAG is used for fair evaluation.
@@ -38,8 +38,14 @@ async def ingest_conversation(conversations: list[dict], memory: ParaRAGMemory) 
     for msg in tqdm(conversations, desc="Extracting memories", leave=True):
         timestamp = parse_locomo_timestamp(msg["timestamp"])
 
+        get_console().print_locomo_msg(
+            content=msg["text"],
+            speaker=msg["speaker"]
+        )
+
+        # Add message to memory
         await memory.add_user_msg(
-            user_msg=msg['text'],
+            user_msg=msg["text"],
             speaker=msg["speaker"],
             timestamp=timestamp,
         )
@@ -79,7 +85,7 @@ async def answer_question(qa_item: dict, memory: ParaRAGMemory, llm: ChatOpenAI)
     }
 
 
-async def main(dataset_path: str, output_path: str) -> None:
+async def main(dataset_path: str, output_path: str, logs_path: str) -> None:
     llm = ChatOpenAI(model=os.getenv("MODEL"))
 
     # Read locomo json file
@@ -113,6 +119,9 @@ async def main(dataset_path: str, output_path: str) -> None:
     # Write the results
     with open(file=output_path, mode="w") as file:
         json.dump(result, file, indent=4, ensure_ascii=False)
+    
+    # Save the logs of debugging and analysis
+    get_console().save_html(path=logs_path)
 
 
 if __name__ == "__main__":
@@ -131,11 +140,17 @@ if __name__ == "__main__":
         type=str,
         required=True,
     )
+    parser.add_argument(
+        "--logs-path",
+        type=str,
+        required=True,
+    )
     args = parser.parse_args()
 
     asyncio.run(
         main(
             dataset_path=args.dataset_path,
             output_path=args.output_path,
+            logs_path=args.logs_path,
         )
     )

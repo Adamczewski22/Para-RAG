@@ -27,7 +27,10 @@ def main(
     previous_result_path: str,
 ) -> None:
     result_file_name = f"{iteration_name}_result_{version}.json"
-    result_path = RESULTS_DIR /  result_file_name
+    result_path = RESULTS_DIR / result_file_name
+
+    logs_file_name = f"{iteration_name}_logs_{version}.html"
+    logs_path = RESULTS_DIR / logs_file_name
 
     # Standard locomo run
     if not rerun:
@@ -36,7 +39,9 @@ def main(
             "-m", RUN_LOCOMO_SCRIPT_PACKAGE,
             "--dataset-path", str(DATASET_PATH),
             "--output-path", str(result_path),
+            "--logs-path", str(logs_path),
         ], cwd=ROOT)
+
     # locomo rerun
     else:
         run_cmd([

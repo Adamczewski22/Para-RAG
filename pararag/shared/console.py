@@ -2,9 +2,12 @@ from rich.console import Console as RichConsole
 from functools import lru_cache
 from typing import Sequence
 from enum import StrEnum
+from dotenv import find_dotenv, load_dotenv
+import os
 
 from pararag.shared.models import MemoryEntry
 
+load_dotenv(find_dotenv())
 
 class Color(StrEnum):
     BLACK = "black"
@@ -27,8 +30,8 @@ class Color(StrEnum):
 
 
 class Console:
-    def __init__(self):
-        self.console = RichConsole()
+    def __init__(self, record: bool = False):
+        self.console = RichConsole(record=record)
     
     def print(
         self, 
@@ -52,9 +55,9 @@ class Console:
         if empty_line:
             self.console.print()
     
-    def print_queries(self, queries: list[str]) -> None:
+    def print_queries(self, queries: list[str], query: str) -> None:
         if len(queries) > 0:
-            self.print("Decomposition into sub-queries: ", color=Color.BRIGHT_MAGENTA, bold=True)
+            self.print(f"Decomposing '{query}' into sub-queries: ", color=Color.BRIGHT_MAGENTA, bold=True)
             self.print(queries, color=Color.BRIGHT_MAGENTA, empty_line=True)
 
     def print_memories(self, memories: list[MemoryEntry]) -> None:
@@ -69,6 +72,10 @@ class Console:
     
     def print_assistant_msg(self, text: str) -> None:
         self.print(f"Assistant: {text}", color=Color.BLUE, bold=True, empty_line=True)
+    
+    def print_locomo_msg(self, content: str, speaker: str) -> None:
+        self.print(f"{speaker}: ", color=Color.BRIGHT_WHITE, bold=True, end="")
+        self.print(content, color=Color.BRIGHT_WHITE, empty_line=True)
         
     def print_prompt_user(self) -> None:
         self.print(f"User: ", color=Color.BRIGHT_WHITE, bold=True, end="")
@@ -83,8 +90,12 @@ class Console:
 
                 elif memory["decision"] == "no":
                     self.print(f"{memory['memory']} (dropped, reason: {memory['reason']})", color=Color.RED, empty_line=True)
+    
+    def save_html(self, path: str) -> None:
+        self.console.save_html(path)
 
 
 @lru_cache(maxsize=1)
 def get_console() -> Console:
-    return Console()
+    record = True if os.getenv("FOR_LOCOMO") == "true" else False
+    return Console(record=record)

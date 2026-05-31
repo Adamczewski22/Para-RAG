@@ -45,8 +45,15 @@ async def decompose_query(state: GraphState) -> dict:
             user_query=str(state["last_user_msg"]),
         )
 
+    # Extract sub queries
     result = await llm.ainvoke([SystemMessage(prompt)])
-    get_console().print_queries(result.sub_queries)
+
+    # Emit logs
+    get_console().print_queries(
+        queries=result.sub_queries,
+        query=state["last_user_msg"],
+    )
+    
     return {"sub_queries": result.sub_queries}
 
 
