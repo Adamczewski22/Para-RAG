@@ -2,7 +2,10 @@ from langchain_core.messages import HumanMessage, SystemMessage
 from langchain_openai import ChatOpenAI
 import asyncio
 
-from pararag import ParaRAGMemory, MemoryEntry, get_console
+from pararag import ParaRAGMemory, MemoryEntry, MemoryVersion, get_console
+
+
+MEMORY_VERSION = MemoryVersion.DEDUPLICATION
 
 
 PROMPT = """You are a virtual personal assistant. 
@@ -23,7 +26,7 @@ def memories_to_str(memories: list[MemoryEntry]) -> str:
 
 async def main():
     llm = ChatOpenAI(model="gpt-5.2")
-    memory = ParaRAGMemory()
+    memory = ParaRAGMemory(memory_version=MEMORY_VERSION)
 
     # With ParaRAG being well-suited for long-term memory, for very short-term memory it is good to use a history of recent messages.
     conversation_history = []

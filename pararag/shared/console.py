@@ -64,7 +64,7 @@ class Console:
     
     def print_assertions(self, assertions: list[str]) -> None:
         if len(assertions) > 0:
-            self.print("The following assertions will be added to memory: ", color=Color.MAGENTA, bold=True)
+            self.print("The following assertions were extracted: ", color=Color.MAGENTA, bold=True)
             self.print(assertions, color=Color.MAGENTA, empty_line=True)
     
     def print_assistant_msg(self, text: str) -> None:
@@ -72,6 +72,11 @@ class Console:
         
     def print_prompt_user(self) -> None:
         self.print(f"User: ", color=Color.BRIGHT_WHITE, bold=True, end="")
+    
+    def print_deduplication(self, assertions: list[str]) -> None:
+        if len(assertions) > 0:
+            self.print("The following assertions are droped by deduplication: ", color=Color.RED, bold=True)
+            self.print(assertions, color=Color.RED, empty_line=True)
 
 
 @lru_cache(maxsize=1)

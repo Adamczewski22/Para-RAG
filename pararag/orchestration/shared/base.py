@@ -41,18 +41,19 @@ class BaseMemoryOrchestrator(MemoryOrchestrator):
 
     async def add_user_msg(self, user_msg: UserMessage, timestamp: datetime) -> None:
         """Extracts relevant facts from user message, and stores them in memory"""
+        # Initialize the graph
         graph = self.update_graph.get_graph()
         graph_state = self.update_graph.init_graph_state(
             user_msg=user_msg, 
             conversation_history=self.conversation_history,
             timestamp=timestamp,
         )
-
+        # Invoke the graph pipeline
         await graph.ainvoke(
             input=graph_state,
             context=UpdateContext(update_service=self.update_service)
         )
-
+        # Add user message conversation history (do not mistake wth main persistent memory)
         self.conversation_history.append(user_msg)
         self.conversation_history = self.conversation_history[-self.CONVERSATION_WINDOW:]
     
@@ -65,12 +66,14 @@ class BaseMemoryOrchestrator(MemoryOrchestrator):
 
     async def retrieve(self, user_msg: UserMessage) -> list[MemoryEntry]:
         """Retrieves relevant memories for answering a user message as an aid to a chatbot assistant"""
+        # Initiliaze the graph
         graph = self.retrieval_graph.get_graph()
         graph_state = self.retrieval_graph.init_graph_state(user_msg, self.conversation_history)
 
+        # Invoke the graph pipeline
         result = await graph.ainvoke(
             input=graph_state,
             context=RetrievalContext(retrieval_service=self.retrieval_service)
         )
-
+        # Return obtained memories
         return result["memories"]
