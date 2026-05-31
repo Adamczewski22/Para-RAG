@@ -9,26 +9,9 @@ import time
 import os
 
 from benchmarks.utils import parse_locomo_timestamp
+from benchmarks.prompts import ANSWER_PROMPT_3
 from pararag import ParaRAGMemory, MemoryEntry, get_console
 
-
-# The same prompt as in the baseline memobase RAG is used for fair evaluation.
-# The only change is replacement of word "conversation" by "memory" as the context is supplied in different form.
-PROMPT = """
-You are a helpful assistant that can answer questions based on the provided context.
-If the question involves timing, use the memory date for reference.
-Provide the shortest possible answer.
-Use words directly from the memory when possible.
-Avoid using subjects in your answer.
-
-# Question:
-{question}
-
-# Context:
-{context}
-
-# Short answer:
-"""
 
 load_dotenv(find_dotenv())
 
@@ -65,7 +48,7 @@ async def answer_question(qa_item: dict, memory: ParaRAGMemory, llm: ChatOpenAI)
     retrieval_latency = time.perf_counter() - start
     memories_str = memories_to_str(memories)
 
-    prompt = PROMPT.format(
+    prompt = ANSWER_PROMPT_3.format(
         question=question,
         context=memories_str,
     )
