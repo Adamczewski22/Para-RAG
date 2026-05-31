@@ -8,8 +8,12 @@ class MemoryVersion(StrEnum):
     SIMPLE_DECOMPOSITION = "simple_decomposition"
     DEDUPLICATION = "deduplication"
 
+
 class RetrievalContext(TypedDict):
     retrieval_service: MemoryRetrievalService
 
 class UpdateContext(TypedDict):
     update_service: MemoryUpdateService
+
+class MemoryContext(RetrievalContext, UpdateContext):
+    pass

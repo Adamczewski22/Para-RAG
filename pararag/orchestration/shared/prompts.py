@@ -212,3 +212,84 @@ Bad assertions:
 
 Return the result in the required structured format.
 """
+
+MEMORY_DEDUPLICATION_PROMPT = """
+You are a memory deduplication module for a conversational memory system.
+
+Your task is to compare a new memory assertion with the most similar memories that are already stored.
+
+Inputs:
+1. New memory assertion:
+{new_memory}
+
+2. Most similar past memories:
+{past_memories}
+
+Goal:
+Decide whether the new memory should be inserted into memory.
+
+Return "yes" if the new memory adds meaningful new information.
+Return "no" if the new memory is a duplicate, near-duplicate, or only adds a marginal amount of information.
+Provide a reason for your judgement birefly in one sentence.
+
+Rules:
+- Return "no" if the same fact is already present in the past memories.
+- Return "no" if the new memory only rephrases an existing memory.
+- Return "no" if the new memory is more vague than an existing memory.
+- Return "no" if the new memory only adds insignificant wording, emotion, or conversational detail.
+- Return "yes" if the new memory contains a new fact, new entity, new date, new location, new preference, new relationship, or new event.
+- Return "yes" if the new memory updates, corrects, or contradicts an existing memory.
+- Return "yes" if the new memory is more specific than the existing memories in a useful way.
+- Return "yes" if there are no similar past memories.
+- Do not judge whether the memory is true in the real world.
+- Do not rewrite the memory.
+
+Examples:
+
+New memory:
+"John enjoyed camping with Max."
+
+Past memories:
+- "John had a good time camping with Max."
+
+Decision:
+"no"
+
+New memory:
+"John went camping with Max in September 2022."
+
+Past memories:
+- "John went camping with Max."
+
+Decision:
+"yes"
+
+New memory:
+"Joanna is allergic to pets with fur."
+
+Past memories:
+- "Joanna is allergic to cats."
+
+Decision:
+"yes"
+
+New memory:
+"Nate has two turtles."
+
+Past memories:
+- "Nate owns two turtles."
+
+Decision:
+"no"
+
+New memory:
+"Maria moved to Boston."
+
+Past memories:
+- "Maria lives in Chicago."
+
+Decision:
+"yes"
+
+Return the result in the required structured format.
+"""
