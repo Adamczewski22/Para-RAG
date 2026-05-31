@@ -235,8 +235,6 @@ Provide a reason for your judgement birefly in one sentence.
 Rules:
 - Return "no" if the same fact is already present in the past memories.
 - Return "no" if the new memory only rephrases an existing memory.
-- Return "no" if the new memory is more vague than an existing memory.
-- Return "no" if the new memory only adds insignificant wording, emotion, or conversational detail.
 - Return "yes" if the new memory contains a new fact, new entity, new date, new location, new preference, new relationship, or new event.
 - Return "yes" if the new memory updates, corrects, or contradicts an existing memory.
 - Return "yes" if the new memory is more specific than the existing memories in a useful way.

@@ -73,10 +73,16 @@ class Console:
     def print_prompt_user(self) -> None:
         self.print(f"User: ", color=Color.BRIGHT_WHITE, bold=True, end="")
     
-    def print_deduplication(self, assertions: list[str]) -> None:
-        if len(assertions) > 0:
-            self.print("The following assertions are droped by deduplication: ", color=Color.RED, bold=True)
-            self.print(assertions, color=Color.RED, empty_line=True)
+    def print_deduplication(self, memories_with_decisions: list[dict]) -> None:
+        if len(memories_with_decisions) > 0:
+            self.print("Results of deduplication: ", color=Color.MAGENTA, bold=True)
+
+            for memory in memories_with_decisions:
+                if memory["decision"] == "yes":
+                    self.print(f"{memory['memory']} (added, reason: {memory['reason']})", color=Color.GREEN, empty_line=True)
+
+                elif memory["decision"] == "no":
+                    self.print(f"{memory['memory']} (dropped, reason: {memory['reason']})", color=Color.RED, empty_line=True)
 
 
 @lru_cache(maxsize=1)

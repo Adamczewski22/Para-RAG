@@ -12,6 +12,7 @@ from pararag.orchestration.shared.prompts import MEMORY_DEDUPLICATION_PROMPT
 from pararag.orchestration.shared.types import MemoryContext
 from pararag.orchestration.shared.utils import memories_to_str
 from pararag.shared.types import Collection
+from pararag.shared.console import Console
 from pararag.ai.llm import get_llm
 
 
@@ -84,6 +85,10 @@ async def update_memory(state: DeduplicationState, runtime: Runtime[MemoryContex
 
     # Insert memories with positive decisons
     memories_to_insert = [item.memory for item in memories_with_decisions if item.decision == "yes"]
+    memories_to_drop = [item.memory for item in memories_with_decisions if item.decision == "no"]
+
+    console = Console()
+    console.print_deduplication([memory.model_dump() for memory in memories_with_decisions])
 
     # Concurrent insertion
     await asyncio.gather(
