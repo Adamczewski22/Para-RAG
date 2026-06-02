@@ -291,3 +291,92 @@ Decision:
 
 Return the result in the required structured format.
 """
+
+# This prompt strives to make deduplication less agressive which has proven to be an issue in locomo benchmark.
+MEMORY_DEDUPLICATION_PROMPT_2 = """
+You are a memory deduplication module for a conversational memory system.
+
+Your task is to compare a new memory assertion with the most similar memories that are already stored.
+
+Inputs:
+
+1. New memory assertion:
+   {new_memory}
+
+2. Most similar past memories:
+   {past_memories}
+
+Goal:
+Decide whether the new memory should be inserted into memory.
+
+Return "yes" if the new memory adds meaningful new information.
+Return "no" if the new memory is a duplicate, near-duplicate, or only adds a very small amount of information.
+Provide a reason for your judgement briefly in one sentence.
+
+Rules:
+
+- Return "no" if the same fact is already present in the past memories.
+- Return "no" if the new memory only rephrases an existing memory without adding any useful detail.
+- Return "yes" if the new memory contains a new fact, new entity, new date, new location, new preference, new relationship, or new event.
+- Return "yes" if the new memory adds a specific detail that is not explicitly preserved in the past memories, such as a description, feeling, reason, intention, quote-like phrase, object, or action.
+- Return "yes" if the new memory updates, corrects, or contradicts an existing memory.
+- Return "yes" if the new memory is more specific than the existing memories in a useful way.
+- Return "yes" if there are no similar past memories.
+- When unsure whether a detail may be useful later, prefer "yes".
+- Do not judge whether the memory is true in the real world.
+- Do not rewrite the memory.
+
+Examples:
+
+New memory:
+"John enjoyed camping with Max."
+
+Past memories:
+
+- "John had a good time camping with Max."
+
+Decision:
+"no"
+
+New memory:
+"John went camping with Max in September 2022."
+
+Past memories:
+
+- "John went camping with Max."
+
+Decision:
+"yes"
+
+New memory:
+"Joanna is allergic to pets with fur."
+
+Past memories:
+
+- "Joanna is allergic to cats."
+
+Decision:
+"yes"
+
+New memory:
+"Nate has two turtles."
+
+Past memories:
+
+- "Nate owns two turtles."
+
+Decision:
+"no"
+
+New memory:
+"Maria moved to Boston."
+
+Past memories:
+
+- "Maria lives in Chicago."
+
+Decision:
+"yes"
+
+Return the result in the required structured format.
+"""
