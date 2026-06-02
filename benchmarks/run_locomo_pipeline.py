@@ -7,7 +7,7 @@ import sys
 ROOT = Path(__file__).resolve().parent.parent
 MEMOBASE_DIR = ROOT / "external/memobase/docs/experiments/locomo-benchmark"
 RESULTS_DIR = ROOT / "results/locomo"
-DATASET_PATH = ROOT / "data/locomo/locomo10_rag.json"
+DATASET_PATH = ROOT / "data/locomo/locomo10_rag_with_metadata.json"
 
 RUN_LOCOMO_SCRIPT_PACKAGE = "benchmarks.run_locomo_pararag"
 RERUN_LOCOMO_SCRIPT_PATH = ROOT / "benchmarks/rerun_locomo_from_results.py"
