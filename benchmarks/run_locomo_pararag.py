@@ -23,7 +23,8 @@ async def ingest_conversation(conversations: list[dict], memory: ParaRAGMemory) 
 
         get_console().print_locomo_msg(
             content=msg["text"],
-            speaker=msg["speaker"]
+            speaker=msg["speaker"],
+            id=msg["id"],
         )
 
         # Add message to memory
@@ -121,7 +122,7 @@ if __name__ == "__main__":
     parser.add_argument(
         "--dataset-path",
         type=str,
-        default="data/locomo/locomo10_rag.json"
+        default="data/locomo/locomo10_rag_with_metadata.json"
     )
     parser.add_argument(
         "--output-path",

@@ -73,9 +73,9 @@ class Console:
     def print_assistant_msg(self, text: str) -> None:
         self.print(f"Assistant: {text}", color=Color.BLUE, bold=True, empty_line=True)
     
-    def print_locomo_msg(self, content: str, speaker: str) -> None:
+    def print_locomo_msg(self, content: str, speaker: str, id: str) -> None:
         self.print(f"{speaker}: ", color=Color.BRIGHT_WHITE, bold=True, end="")
-        self.print(content, color=Color.BRIGHT_WHITE, empty_line=True)
+        self.print(f"{content} [{id}]", color=Color.BRIGHT_WHITE, empty_line=True)
         
     def print_prompt_user(self) -> None:
         self.print(f"User: ", color=Color.BRIGHT_WHITE, bold=True, end="")
