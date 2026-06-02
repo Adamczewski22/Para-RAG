@@ -25,13 +25,22 @@ def main(dataset_path: str, output_path: str):
 
         # Iterate over messages
         for msg in session:
-            conversation_flat.append(
-                {
-                    "timestamp": timestamp,
-                    "speaker": msg["speaker"],
-                    "text": msg["text"],
-                }
-            )
+            # Create message item
+            msg_item = {
+                "id": msg["dia_id"],
+                "timestamp": timestamp,
+                "speaker": msg["speaker"],
+                "text": msg["text"],
+            }
+
+            # Include blib caption if present
+            blip_caption = msg.get("blip_caption")
+            if blip_caption is not None:
+                msg_item["blip_caption"] = blip_caption
+
+            # Append the message
+            conversation_flat.append(msg_item)
+
         session_index += 1
 
     # Skip adversarial questions
@@ -60,7 +69,7 @@ if __name__ == "__main__":
     parser.add_argument(
         "--output-path",
         type=str,
-        default="data/locomo/locomo10_rag.json",
+        default="data/locomo/locomo10_rag_with_metadata.json",
         help="Path to the output file to store the converted json",
     )
     args = parser.parse_args()
