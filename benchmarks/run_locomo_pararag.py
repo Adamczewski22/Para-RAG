@@ -21,15 +21,23 @@ async def ingest_conversation(conversations: list[dict], memory: ParaRAGMemory) 
     for msg in tqdm(conversations, desc="Extracting memories", leave=True):
         timestamp = parse_locomo_timestamp(msg["timestamp"])
 
+        # Include blip caption in the user msg if present
+        blip_caption = msg.get("blip_caption")
+        if blip_caption:
+            user_msg = f"{msg['text']} (image attachment: {blip_caption})"
+        else:
+            user_msg = msg["text"]
+
+        # Print logs
         get_console().print_locomo_msg(
-            content=msg["text"],
+            content=user_msg,
             speaker=msg["speaker"],
             id=msg["id"],
         )
 
         # Add message to memory
         await memory.add_user_msg(
-            user_msg=msg["text"],
+            user_msg=user_msg,
             speaker=msg["speaker"],
             timestamp=timestamp,
         )
