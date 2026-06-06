@@ -13,11 +13,13 @@ DEBUG_DIR = RESULTS_DIR / "debug"
 def main(iteration: str, version: str, locomo_file: str):
     results_file = f"{iteration}_result_{version}.json"
     eval_file = f"{iteration}_eval_{version}.json"
+    logs_file = f"{iteration}_logs_{version}.json"
     output_file = f"{iteration}_debug_{version}.json"
     
     results_path = RESULTS_DIR / results_file
     eval_path = RESULTS_DIR / eval_file
     locomo_path = LOCOMO_DIR / locomo_file
+    logs_path = RESULTS_DIR / "debug" / logs_file
     output_path = DEBUG_DIR / output_file
 
     # Get question metadata for which the system failed
@@ -69,7 +71,22 @@ def main(iteration: str, version: str, locomo_file: str):
     for question in failed_questions:
         question["memories"] = memories_by_question[question["question"]]
 
-    # Write resulrign failed qa items to a file
+    # Include the ingestion logs for each message specified as evidence (if present)
+    if logs_path.exists():
+        with open(logs_path, mode="r", encoding="utf-8") as file:
+            log_data = json.load(file)
+        
+        _, log = next(iter(log_data.items())) # Assume a single conversational sample
+
+        for question in failed_questions:
+            evidence_ingestions = {}
+            for msg_id in question["evidence"]:
+                msg_ingestion_logs = log["ingestion"][msg_id]
+                evidence_ingestions[msg_id] = msg_ingestion_logs
+
+            question["ingestions"] = evidence_ingestions
+
+    # Write resuling failed qa items to a file
     with open(output_path, mode="w", encoding="utf-8") as file:
         json.dump(failed_questions, file, indent=4, ensure_ascii=False)
         print(f"Written metadata of {len(failed_questions)} failed question items")
