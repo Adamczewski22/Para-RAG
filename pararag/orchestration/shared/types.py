@@ -3,6 +3,7 @@ from enum import StrEnum
 
 from pararag.memory.services.memory_retrieval_service import MemoryRetrievalService
 from pararag.memory.services.memory_update_service import MemoryUpdateService
+from pararag.shared.logger import JsonLogger
 
 class MemoryVersion(StrEnum):
     SIMPLE_DECOMPOSITION = "simple_decomposition"
@@ -14,6 +15,7 @@ class RetrievalContext(TypedDict):
 
 class UpdateContext(TypedDict):
     update_service: MemoryUpdateService
+    json_logger: JsonLogger
 
 class MemoryContext(RetrievalContext, UpdateContext):
     pass

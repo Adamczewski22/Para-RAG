@@ -19,11 +19,17 @@ def get_graph() -> CompiledStateGraph:
     return graph_builder.compile()
 
 
-def init_graph_state(user_msg: Message, conversation_history: list[Message], timestamp: datetime) -> GraphState:
+def init_graph_state(
+    user_msg: Message, 
+    conversation_history: list[Message], 
+    timestamp: datetime, 
+    msg_id: str | None = None
+) -> GraphState:
     return {
         "conversation_history": conversation_history,
         "conversation_history_str": messages_to_string(conversation_history),
         "last_user_msg": user_msg,
         "timestamp": timestamp,
         "assertions": [],
+        "msg_id": msg_id,
     }

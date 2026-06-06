@@ -6,6 +6,7 @@ from typing import Literal
 import asyncio
 import os
 
+from pararag.memory.services import memory_retrieval_service
 from pararag.memory.services.memory_retrieval_service import MemoryRetrievalService
 from pararag.orchestration.simple_decomposition.update.nodes import GraphState
 from pararag.orchestration.shared.prompts import MEMORY_DEDUPLICATION_PROMPT_2
@@ -86,8 +87,17 @@ async def update_memory(state: DeduplicationState, runtime: Runtime[MemoryContex
     # Insert memories with positive decisons
     memories_to_insert = [item.memory for item in memories_with_decisions if item.decision == "yes"]
 
-    # Print logs
-    get_console().print_deduplication([memory.model_dump() for memory in memories_with_decisions])
+    # Logs
+    memories_with_decisions_dump = [memory.model_dump() for memory in memories_with_decisions]
+
+    get_console().print_deduplication(memories_with_decisions_dump)
+    json_logger = runtime.context["json_logger"]
+    
+    if state["msg_id"] is not None:
+        json_logger.log_deduplication(
+            msg_id=state["msg_id"],
+            memories_with_decisions=memories_with_decisions_dump,
+        )
 
     # Concurrent insertion
     await asyncio.gather(

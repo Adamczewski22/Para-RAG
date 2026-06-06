@@ -4,11 +4,14 @@ from pararag.orchestration.simple_decomposition.memory_orchestrator import Simpl
 from pararag.orchestration.deduplication.memory_orchestrator import DeduplicationMemory
 from pararag.memory.services.memory_retrieval_service import MemoryRetrievalService
 from pararag.memory.services.memory_update_service import MemoryUpdateService
+from pararag.shared.logger import JsonLogger
+
 
 def create_memory_orchestrator(
         version: MemoryVersion, 
         update_service: MemoryUpdateService, 
-        retrieval_service: MemoryRetrievalService
+        retrieval_service: MemoryRetrievalService,
+        json_logger: JsonLogger | None = None,
     ) -> MemoryOrchestrator:
 
     match version:
@@ -16,12 +19,14 @@ def create_memory_orchestrator(
             return SimpleDecompositionMemory(
                 update_service=update_service,
                 retrieval_service=retrieval_service,
+                json_logger=json_logger,
             )
 
         case MemoryVersion.DEDUPLICATION:
             return DeduplicationMemory(
                 update_service=update_service,
                 retrieval_service=retrieval_service,
+                json_logger=json_logger,
             )
 
         case _:

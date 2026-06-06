@@ -24,12 +24,13 @@ class GraphState(TypedDict):
     last_user_msg: Message
     timestamp: datetime
     assertions: list[str]
+    msg_id: str
 
 class Assertions(BaseModel):
     assertions: list[str] = Field(description="a list of atomic assertions extracted from the users message to be inserted into the conversational memory.")
 
 
-async def extract_assertions(state: GraphState) -> dict:
+async def extract_assertions(state: GraphState, runtime: Runtime[UpdateContext]) -> dict:
     """Extracts assertions from the latest user message to be stored in the conversational memory."""
     llm = get_llm().with_structured_output(Assertions)
 
@@ -46,8 +47,19 @@ async def extract_assertions(state: GraphState) -> dict:
             user_message=str(state["last_user_msg"]),
         )
 
+    # Extract assertions
     result = await llm.ainvoke([SystemMessage(prompt)])
+
+    # Logs
     get_console().print_assertions(result.assertions)
+    json_logger = runtime.context["json_logger"]
+
+    if state["msg_id"] is not None:
+        json_logger.log_extraction(
+            msg_id=state["msg_id"],
+            assertions=result.assertions,
+        )
+
     return {"assertions": result.assertions}
 
 

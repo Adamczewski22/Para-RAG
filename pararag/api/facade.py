@@ -5,6 +5,7 @@ import os
 from pararag.orchestration import MemoryVersion, MemoryOrchestrator, create_memory_orchestrator
 from pararag.shared.models import MemoryEntry, UserMessage, AssistantMessage
 from pararag.shared.types import Collection
+from pararag.shared.logger import JsonLogger
 from pararag.memory.infrastructure.qdrant_adapter import QdrantAdapter
 from pararag.memory.domain.interfaces import MemoryStore
 from pararag.memory.services.memory_update_service import MemoryUpdateService
@@ -24,7 +25,8 @@ class ParaRAGMemory:
             memory_id: str = "main",
             memory_version: MemoryVersion | None = None, 
             memory_store: MemoryStore | None = None,
-        ):
+            json_logger: JsonLogger | None = None,
+    ):
         # If memory store was not specified, use the default one
         self.memory_store = memory_store if memory_store else QdrantAdapter()
         self.memory_id = memory_id
@@ -44,6 +46,7 @@ class ParaRAGMemory:
             version=memory_version,
             update_service=memory_update_service,
             retrieval_service=memory_retrieval_service,
+            json_logger=json_logger,
         )
 
 
@@ -61,7 +64,7 @@ class ParaRAGMemory:
         await self.add_assistant_msg(assistant_msg=assistant_msg, timestamp=timestamp)
     
 
-    async def add_user_msg(self, user_msg: str, speaker: str | None = None, timestamp: datetime | None = None) -> None:
+    async def add_user_msg(self, user_msg: str, speaker: str | None = None, timestamp: datetime | None = None, msg_id: str | None = None) -> None:
         """Updates memory based on user's message"""
         # Speaker defaults to "user" if not present
         if speaker is None:
@@ -72,6 +75,7 @@ class ParaRAGMemory:
         await self.orchestrator.add_user_msg(
             user_msg=user_msg_obj, 
             timestamp=timestamp if timestamp else datetime.now(), # timestamp defaults to current datetime
+            msg_id=msg_id,
         )
     
 

@@ -5,17 +5,24 @@ from pararag.shared.models import MemoryEntry, AssistantMessage, UserMessage, Me
 from pararag.orchestration.shared.types import RetrievalContext, UpdateContext
 from pararag.memory.services.memory_retrieval_service import MemoryRetrievalService
 from pararag.memory.services.memory_update_service import MemoryUpdateService
+from pararag.shared.logger import JsonLogger
 
 
 class MemoryOrchestrator(ABC):
     """The core interface for a memory orchestrator. Governs LLM pipelines and exposes a unified memory API"""
-    def __init__(self, update_service: MemoryUpdateService, retrieval_service: MemoryRetrievalService):
+    def __init__(
+        self, 
+        update_service: MemoryUpdateService, 
+        retrieval_service: MemoryRetrievalService,
+        json_logger: JsonLogger | None = None,
+    ):
         self.conversation_history: list[Message] = []
         self.update_service = update_service
         self.retrieval_service = retrieval_service
+        self.json_logger = json_logger
 
     @abstractmethod
-    async def add_user_msg(self, user_msg: UserMessage, timestamp: datetime) -> None:
+    async def add_user_msg(self, user_msg: UserMessage, timestamp: datetime, msg_id: str | None = None) -> None:
         """Updates memory based on user's message"""
         pass
     
@@ -39,19 +46,23 @@ class BaseMemoryOrchestrator(MemoryOrchestrator):
 
     CONVERSATION_WINDOW = 10 # Does not restrict the overall memory. Serves as context to the LLM pipeline.
 
-    async def add_user_msg(self, user_msg: UserMessage, timestamp: datetime) -> None:
+    async def add_user_msg(self, user_msg: UserMessage, timestamp: datetime, msg_id: str | None = None) -> None:
         """Extracts relevant facts from user message, and stores them in memory"""
         # Initialize the graph
         graph = self.update_graph.get_graph()
         graph_state = self.update_graph.init_graph_state(
-            user_msg=user_msg, 
+            user_msg=user_msg,
             conversation_history=self.conversation_history,
             timestamp=timestamp,
+            msg_id=msg_id,
         )
         # Invoke the graph pipeline
         await graph.ainvoke(
             input=graph_state,
-            context=UpdateContext(update_service=self.update_service)
+            context=UpdateContext(
+                update_service=self.update_service,
+                json_logger=self.json_logger,
+            )
         )
         # Add user message conversation history (do not mistake wth main persistent memory)
         self.conversation_history.append(user_msg)

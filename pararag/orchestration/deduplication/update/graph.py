@@ -20,9 +20,14 @@ def get_graph() -> CompiledStateGraph:
     return graph_builder.compile()
 
 
-def init_graph_state(user_msg: Message, conversation_history: list[Message], timestamp: datetime) -> DeduplicationState:
+def init_graph_state(
+    user_msg: Message, 
+    conversation_history: list[Message], 
+    timestamp: datetime, 
+    msg_id: str | None = None
+) -> DeduplicationState:
     # Deduplication memory adds some extra fields to simple decomposition memory graph state
-    state = init_graph_state_sd(user_msg, conversation_history, timestamp)
+    state = init_graph_state_sd(user_msg, conversation_history, timestamp, msg_id)
     state["update_decisions"] = []
     state["deduplicated_assertions"] = []
     return state

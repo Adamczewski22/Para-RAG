@@ -10,16 +10,19 @@ import os
 
 from benchmarks.utils import parse_locomo_timestamp
 from benchmarks.prompts import ANSWER_PROMPT_3
-from pararag import ParaRAGMemory, MemoryEntry, get_console
+from pararag import ParaRAGMemory, MemoryEntry, JsonLogger, get_console
 
 
 load_dotenv(find_dotenv())
 
 
-async def ingest_conversation(conversations: list[dict], memory: ParaRAGMemory) -> None:
+async def ingest_conversation(conversations: list[dict], memory: ParaRAGMemory, json_logger: JsonLogger) -> None:
     """Extracts memories from conversations and ingests them into vector database"""
+
     for msg in tqdm(conversations, desc="Extracting memories", leave=True):
         timestamp = parse_locomo_timestamp(msg["timestamp"])
+        speaker = msg["speaker"]
+        msg_id = msg["id"]
 
         # Include blip caption in the user msg if present
         blip_caption = msg.get("blip_caption")
@@ -29,17 +32,17 @@ async def ingest_conversation(conversations: list[dict], memory: ParaRAGMemory) 
             user_msg = msg["text"]
 
         # Print logs
-        get_console().print_locomo_msg(
-            content=user_msg,
-            speaker=msg["speaker"],
-            id=msg["id"],
-        )
+        get_console().print_locomo_msg(user_msg, speaker, msg_id)
+
+        # Save json logs
+        json_logger.log_msg(speaker, user_msg, msg_id)
 
         # Add message to memory
         await memory.add_user_msg(
             user_msg=user_msg,
-            speaker=msg["speaker"],
+            speaker=speaker,
             timestamp=timestamp,
+            msg_id=msg_id,
         )
 
 
@@ -77,19 +80,39 @@ async def answer_question(qa_item: dict, memory: ParaRAGMemory, llm: ChatOpenAI)
     }
 
 
-async def main(memory_version: str, dataset_path: str, output_path: str, logs_path: str) -> None:
+async def main(
+    memory_version: str, 
+    dataset_path: str, 
+    output_path: str, logs_path: str, 
+    json_logs_path: str
+) -> None:
     llm = ChatOpenAI(model=os.getenv("MODEL"))
 
     # Read locomo json file
     with open(file=dataset_path, mode="r") as file:
         data = json.load(file)
 
+    # Init json logger
+    json_logger = JsonLogger(output_path=json_logs_path)
+
     result = {}
     for sample_id, sample in tqdm(data.items(), desc="Processing conversations"):
+        # Update logger
+        json_logger.set_sample_id(sample_id)
+
+        # Init and clear memory
+        memory = ParaRAGMemory(
+            memory_version=memory_version,
+            json_logger=json_logger,
+        )
+        await memory.clear_collection()
+
         # Ingest memories
-        memory = ParaRAGMemory(memory_version=memory_version)
-        await memory.clear_collection() # extra reset to be safe
-        await ingest_conversation(sample["conversation"], memory)
+        await ingest_conversation(
+            conversations=sample["conversation"], 
+            memory=memory, 
+            json_logger=json_logger,
+        )
 
         qa_items = sample["question"]
         sample_result = []
@@ -105,8 +128,8 @@ async def main(memory_version: str, dataset_path: str, output_path: str, logs_pa
         # Append it to results
         result[sample_id] = sample_result
 
-        # Reset the memory since the next sample will be an independent conversation
-        await memory.clear_collection()
+        # Save json logs
+        json_logger.save_sample_logs()
     
     # Write the results
     with open(file=output_path, mode="w") as file:
@@ -114,6 +137,7 @@ async def main(memory_version: str, dataset_path: str, output_path: str, logs_pa
     
     # Save the logs of debugging and analysis
     get_console().save_html(path=logs_path)
+    json_logger.write_logs()
 
 
 if __name__ == "__main__":
@@ -142,6 +166,11 @@ if __name__ == "__main__":
         type=str,
         required=True,
     )
+    parser.add_argument(
+        "--json-logs-path",
+        type=str,
+        required=True,
+    )
     args = parser.parse_args()
 
     asyncio.run(
@@ -150,5 +179,6 @@ if __name__ == "__main__":
             dataset_path=args.dataset_path,
             output_path=args.output_path,
             logs_path=args.logs_path,
+            json_logs_path=args.json_logs_path,
         )
     )
