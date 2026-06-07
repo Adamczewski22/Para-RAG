@@ -50,13 +50,21 @@ class ParaRAGMemory:
         )
 
 
-    async def retrieve_memories(self, user_msg: str) -> list[MemoryEntry]:
+    async def retrieve_memories(
+        self, 
+        user_msg: str
+    ) -> list[MemoryEntry]:
         """Retrieves relevant memories for answering a user message as an aid to a chatbot assistant"""
         user_msg_obj = UserMessage(content=user_msg)
         return await self.orchestrator.retrieve(user_msg_obj)
 
 
-    async def add_conversation_turn(self, user_msg: str, assistant_msg: str, timestamp: datetime | None = None) -> None:
+    async def add_conversation_turn(
+        self, 
+        user_msg: str, 
+        assistant_msg: str, 
+        timestamp: datetime | None = None
+    ) -> None:
         """Updates memory based on one conversation turn: user messages followed by an assistant message"""
         # Timestamp defaults to current datetime
         timestamp = timestamp if timestamp else datetime.now()
@@ -64,7 +72,14 @@ class ParaRAGMemory:
         await self.add_assistant_msg(assistant_msg=assistant_msg, timestamp=timestamp)
     
 
-    async def add_user_msg(self, user_msg: str, speaker: str | None = None, timestamp: datetime | None = None, msg_id: str | None = None) -> None:
+    async def add_user_msg(
+        self, 
+        user_msg: str, 
+        speaker: str | None = None, 
+        timestamp: datetime | None = None, 
+        msg_id: str | None = None,
+        assertions: list[str] | None = None,
+    ) -> None:
         """Updates memory based on user's message"""
         # Speaker defaults to "user" if not present
         if speaker is None:
@@ -76,10 +91,15 @@ class ParaRAGMemory:
             user_msg=user_msg_obj, 
             timestamp=timestamp if timestamp else datetime.now(), # timestamp defaults to current datetime
             msg_id=msg_id,
+            assertions=assertions,
         )
     
 
-    async def add_assistant_msg(self, assistant_msg: str, timestamp: datetime | None = None) -> None:
+    async def add_assistant_msg(
+        self, 
+        assistant_msg: str, 
+        timestamp: datetime | None = None
+    ) -> None:
         """Updates memory based on assistant's message"""
         assistant_msg_obj = AssistantMessage(content=assistant_msg)
 
@@ -94,7 +114,10 @@ class ParaRAGMemory:
         await self.memory_admin_service.init_memory()
     
 
-    async def clear_collection(self, memory_collection: Collection | None = None) -> None:
+    async def clear_collection(
+        self, 
+        memory_collection: Collection | None = None
+    ) -> None:
         """Deletes all data points from a collection"""
         default_collection = Collection.LOCOMO if os.getenv("FOR_LOCOMO") == "true" else Collection.ASSERTIONS
         collection = memory_collection if memory_collection is not None else default_collection

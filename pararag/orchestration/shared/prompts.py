@@ -213,6 +213,64 @@ Bad assertions:
 Return the result in the required structured format.
 """
 
+
+# Makes assertions less atomic, richer, and capturing more context
+LOCOMO_EXTRACT_ASSERTIONS_PROMPT_2 = """
+You are a memory extraction module for a conversational memory system.
+
+Your task is to extract compact, standalone memory entries from the latest message.
+
+Inputs:
+1. Conversation history:
+{conversation_history}
+
+2. Latest message:
+{user_message}
+
+Goal:
+Return a list of useful memory entries that should be inserted into conversational memory.
+
+A memory entry should capture one meaningful fact, preference, plan, event, relationship, experience, or attitude.
+It should be specific enough to be useful when retrieved later.
+
+Rules:
+- Extract information only from the latest message.
+- Use the conversation history only to resolve references, pronouns, ellipses, or ambiguous entities.
+- When the latest message depends on earlier context, resolve what it refers to and include enough of that context so the memory entry remains clear and useful when retrieved alone.
+- Do not extract new information from the conversation history itself.
+- Each memory entry must be standalone and understandable without the original conversation.
+- Preserve the identity of the speaker and other people involved.
+- Preserve important names, dates, locations, relationships, events, and temporal qualifiers.
+- Keep tightly connected details together when separating them would make the memory vague or incomplete.
+- Do not split emotions, opinions, or intentions away from the thing they are about.
+- Prefer concise natural language.
+- Do not store trivial greetings, filler, or purely conversational reactions.
+- Do not duplicate memory entries.
+- If there is nothing worth storing, return an empty list.
+
+Good memory entries:
+- "Maya prefers quiet cafés because they help her focus while studying."
+- "Ethan plans to visit his sister in Lisbon next spring."
+- "Priya is allergic to cats and avoids homes with cat hair."
+- "Luca enjoyed his hiking trip in the Dolomites because the views were peaceful."
+- "Ava wants Omar to review her presentation before Friday's meeting."
+- "Noah finds jazz piano relaxing after work."
+- "Sofia and Daniel agreed to try a cooking class together next month."
+
+Bad memory entries:
+- "Maya likes quiet places." (bad: loses the reason and context)
+- "Ethan is excited for next spring." (bad: unclear what he is excited about)
+- "Priya avoids homes." (bad: loses the allergy-related reason)
+- "The trip was peaceful." (bad: loses who experienced it and what trip it was)
+- "Ava wants a review." (bad: loses who should review what and by when)
+- "Omar replied to Ava." (bad: conversational metadata)
+- "The speaker had fun." (bad: loses speaker identity and context)
+- "User asked a question." (bad: not useful memory)
+
+Return the result in the required structured format.
+"""
+
+
 MEMORY_DEDUPLICATION_PROMPT = """
 You are a memory deduplication module for a conversational memory system.
 
@@ -374,6 +432,90 @@ New memory:
 Past memories:
 
 - "Maria lives in Chicago."
+
+Decision:
+"yes"
+
+Return the result in the required structured format.
+"""
+
+# This deduplication prompt aims to make deduplication even less aggressive as some failures in locomo were still caused by deduplication.
+MEMORY_DEDUPLICATION_PROMPT_3 = """
+You are a memory deduplication module for a conversational memory system.
+
+Your task is to compare a new memory with the most similar memories that are already stored.
+
+Inputs:
+1. New memory:
+{new_memory}
+
+2. Most similar past memories:
+{past_memories}
+
+Goal:
+Decide whether the new memory should be inserted into memory.
+
+Return "yes" if the new memory should be inserted.
+Return "no" only if the new memory is already fully covered by the past memories.
+Provide a brief one-sentence reason.
+
+Rules:
+- Prefer "yes" unless the new memory is clearly redundant.
+- Return "no" only if a past memory expresses the same fact with the same important meaning.
+- Return "no" if the new memory is only a rephrasing of an existing memory and adds no useful detail.
+- Return "yes" if the new memory contains any new useful detail, including a new reason, cause, description, feeling, intention, date, event, object, action, quote-like phrase, or relationship.
+- Return "yes" if the new memory could help answer a future question differently or more precisely.
+- Return "yes" if the new memory is more specific than the past memories.
+- Return "yes" if the new memory updates, corrects, narrows, or contradicts a past memory.
+- Return "yes" if there are no similar past memories.
+- Do not reject a memory just because it is related to an existing memory.
+- Do not reject a memory just because it supports the same general topic as an existing memory.
+- Do not judge whether the memory is true in the real world.
+- Do not rewrite the memory.
+
+Examples:
+
+New memory:
+"Emma enjoyed hiking with Leo."
+
+Past memories:
+- "Emma had a good time hiking with Leo."
+
+Decision:
+"no"
+
+New memory:
+"Emma enjoyed hiking with Leo because the mountain views were peaceful."
+
+Past memories:
+- "Emma enjoyed hiking with Leo."
+
+Decision:
+"yes"
+
+New memory:
+"Amir believes Nora's patience and creativity make her a good teacher."
+
+Past memories:
+- "Amir believes Nora will be a good teacher."
+
+Decision:
+"yes"
+
+New memory:
+"Sofia has two rabbits."
+
+Past memories:
+- "Sofia owns two rabbits."
+
+Decision:
+"no"
+
+New memory:
+"Daniel moved to Prague."
+
+Past memories:
+- "Daniel lives in Vienna."
 
 Decision:
 "yes"

@@ -9,8 +9,10 @@ MEMOBASE_DIR = ROOT / "external/memobase/docs/experiments/locomo-benchmark"
 RESULTS_DIR = ROOT / "results/locomo"
 DATASET_PATH = ROOT / "data/locomo/locomo10_rag_with_metadata.json"
 
-RUN_LOCOMO_SCRIPT = "benchmarks.run_locomo_pararag"
-RERUN_LOCOMO_SCRIPT_PATH = ROOT / "benchmarks/rerun_locomo_from_results.py"
+RUN_LOCOMO_MODULE = "benchmarks.run_locomo_pararag"
+RERUN_LOCOMO_MODULE_PATH = ROOT / "benchmarks/rerun_locomo_from_results.py"
+RERUN_DEDUPLICATION_MODULE = "benchmarks.run_locomo_deduplication"
+
 EVAL_SCRIPT_PATH = MEMOBASE_DIR / "evals.py"
 GEN_SCORE_SCRIPT_PATH = MEMOBASE_DIR / "generate_scores.py"
 
@@ -25,6 +27,8 @@ def main(
     version: str,
     rerun: bool,
     previous_result_path: str,
+    deduplication_rerun: bool,
+    previous_logs_path: str | None,
 ) -> None:
     result_file_name = f"{iteration_name}_result_{version}.json"
     result_path = RESULTS_DIR / result_file_name
@@ -36,10 +40,10 @@ def main(
     json_logs_path = RESULTS_DIR / "debug" / json_logs_file_name
 
     # Standard locomo run
-    if not rerun:
+    if not rerun and not deduplication_rerun:
         run_cmd([
             sys.executable, # current Python executable (venv)
-            "-m", RUN_LOCOMO_SCRIPT,
+            "-m", RUN_LOCOMO_MODULE,
             "--memory-version", iteration_name,
             "--dataset-path", str(DATASET_PATH),
             "--output-path", str(result_path),
@@ -47,13 +51,26 @@ def main(
             "--json-logs-path", str(json_logs_path),
         ], cwd=ROOT)
 
-    # locomo rerun
-    else:
+    # Locomo rerun
+    elif rerun:
         run_cmd([
             sys.executable,
-            str(RERUN_LOCOMO_SCRIPT_PATH),
+            str(RERUN_LOCOMO_MODULE_PATH),
             "--results-path", previous_result_path,
             "--output-path", str(result_path),
+        ])
+    
+    # Deduplication rerun
+    elif deduplication_rerun:
+        run_cmd([
+            sys.executable,
+            "-m", RERUN_DEDUPLICATION_MODULE,
+            "--memory-version", iteration_name,
+            "--dataset-path", str(DATASET_PATH),
+            "--output-path", str(result_path),
+            "--logs-path", str(logs_path),
+            "--json-logs-path", str(json_logs_path),
+            "--previous-json-logs-path", previous_logs_path,
         ])
 
     # Run evaluation
@@ -86,6 +103,7 @@ if __name__ == "__main__":
         "version",
         type=str,
     )
+    # Rerun locomo mode
     parser.add_argument(
         "--rerun",
         action="store_true",
@@ -95,6 +113,15 @@ if __name__ == "__main__":
         type=str,
         default=str(RESULTS_DIR / "simple_decomposition_result_2.json"),
     )
+    # Rerun deduplication mode
+    parser.add_argument(
+        "--rerun-deduplication",
+        action="store_true",
+    )
+    parser.add_argument(
+        "--previous-logs-path",
+        type=str,
+    )
 
     args = parser.parse_args()
 
@@ -103,4 +130,6 @@ if __name__ == "__main__":
         version=args.version,
         rerun=args.rerun,
         previous_result_path=args.previous_result_path,
+        deduplication_rerun=args.rerun_deduplication,
+        previous_logs_path=args.previous_logs_path,
     )

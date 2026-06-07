@@ -16,7 +16,13 @@ class DeduplicationMemory(BaseMemoryOrchestrator):
     retrieval_graph = retrieval_graph_module
 
     @override
-    async def add_user_msg(self, user_msg: UserMessage, timestamp: datetime, msg_id: str | None = None) -> None:
+    async def add_user_msg(
+        self, 
+        user_msg: UserMessage, 
+        timestamp: datetime, 
+        msg_id: str | None = None, 
+        assertions: list[str] | None = None,
+    ) -> None:
         """Extracts relevant facts from user message, and stores them in memory"""
         # Initialize the graph
         graph = self.update_graph.get_graph()
@@ -25,6 +31,7 @@ class DeduplicationMemory(BaseMemoryOrchestrator):
             conversation_history=self.conversation_history,
             timestamp=timestamp,
             msg_id=msg_id,
+            assertions=assertions,
         )
 
         # Deduplication memory requires both update and retrieval service for the update pipeline

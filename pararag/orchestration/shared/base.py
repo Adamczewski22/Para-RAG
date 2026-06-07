@@ -22,17 +22,30 @@ class MemoryOrchestrator(ABC):
         self.json_logger = json_logger
 
     @abstractmethod
-    async def add_user_msg(self, user_msg: UserMessage, timestamp: datetime, msg_id: str | None = None) -> None:
+    async def add_user_msg(
+        self, 
+        user_msg: UserMessage, 
+        timestamp: datetime, 
+        msg_id: str | None = None,
+        assertions: list[str] | None = None,
+    ) -> None:
         """Updates memory based on user's message"""
         pass
     
     @abstractmethod
-    async def add_assistant_msg(self, assistant_msg: AssistantMessage, timestamp: datetime) -> None:
+    async def add_assistant_msg(
+        self, 
+        assistant_msg: AssistantMessage, 
+        timestamp: datetime
+    ) -> None:
         """Updates memory based on assistant's message"""
         pass
 
     @abstractmethod
-    async def retrieve(self, user_msg: UserMessage) -> list[MemoryEntry]:
+    async def retrieve(
+        self, 
+        user_msg: UserMessage
+    ) -> list[MemoryEntry]:
         """Retrieves relevant memories for answering a user message as an aid to a chatbot assistant"""
         pass
 
@@ -46,7 +59,13 @@ class BaseMemoryOrchestrator(MemoryOrchestrator):
 
     CONVERSATION_WINDOW = 10 # Does not restrict the overall memory. Serves as context to the LLM pipeline.
 
-    async def add_user_msg(self, user_msg: UserMessage, timestamp: datetime, msg_id: str | None = None) -> None:
+    async def add_user_msg(
+        self, 
+        user_msg: UserMessage, 
+        timestamp: datetime, 
+        msg_id: str | None = None,
+        assertions: list[str] | None = None,
+    ) -> None:
         """Extracts relevant facts from user message, and stores them in memory"""
         # Initialize the graph
         graph = self.update_graph.get_graph()
@@ -55,6 +74,7 @@ class BaseMemoryOrchestrator(MemoryOrchestrator):
             conversation_history=self.conversation_history,
             timestamp=timestamp,
             msg_id=msg_id,
+            assertions=assertions,
         )
         # Invoke the graph pipeline
         await graph.ainvoke(
@@ -69,13 +89,20 @@ class BaseMemoryOrchestrator(MemoryOrchestrator):
         self.conversation_history = self.conversation_history[-self.CONVERSATION_WINDOW:]
     
 
-    async def add_assistant_msg(self, assistant_msg: AssistantMessage, timestamp: datetime) -> None:
+    async def add_assistant_msg(
+        self, 
+        assistant_msg: AssistantMessage, 
+        timestamp: datetime
+    ) -> None:
         """Adds assistant message to the converstation history"""
         self.conversation_history.append(assistant_msg)
         self.conversation_history = self.conversation_history[-self.CONVERSATION_WINDOW:]
 
 
-    async def retrieve(self, user_msg: UserMessage) -> list[MemoryEntry]:
+    async def retrieve(
+        self, 
+        user_msg: UserMessage
+    ) -> list[MemoryEntry]:
         """Retrieves relevant memories for answering a user message as an aid to a chatbot assistant"""
         # Initiliaze the graph
         graph = self.retrieval_graph.get_graph()

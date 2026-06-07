@@ -9,7 +9,7 @@ import os
 from pararag.memory.services import memory_retrieval_service
 from pararag.memory.services.memory_retrieval_service import MemoryRetrievalService
 from pararag.orchestration.simple_decomposition.update.nodes import GraphState
-from pararag.orchestration.shared.prompts import MEMORY_DEDUPLICATION_PROMPT_2
+from pararag.orchestration.shared.prompts import MEMORY_DEDUPLICATION_PROMPT_3
 from pararag.orchestration.shared.types import MemoryContext
 from pararag.orchestration.shared.utils import memories_to_str
 from pararag.shared.types import Collection
@@ -51,7 +51,7 @@ async def decide_memory_insertion(
 
     # Decide whether the new memory is unlike the past memories
     llm = get_llm().with_structured_output(UpdateDecision)
-    prompt = MEMORY_DEDUPLICATION_PROMPT_2.format(
+    prompt = MEMORY_DEDUPLICATION_PROMPT_3.format(
         new_memory=memory_content,
         past_memories=memories_str,
     )

@@ -7,7 +7,7 @@ from typing import TypedDict
 import asyncio
 import os
 
-from pararag.orchestration.shared.prompts import EXTRACT_ASSERTIONS_PROMPT, LOCOMO_EXTRACT_ASSERTIONS_PROMPT
+from pararag.orchestration.shared.prompts import EXTRACT_ASSERTIONS_PROMPT, LOCOMO_EXTRACT_ASSERTIONS_PROMPT_2
 from pararag.orchestration.shared.types import UpdateContext
 from pararag.shared.types import Collection
 from pararag.shared.models import Message
@@ -23,7 +23,7 @@ class GraphState(TypedDict):
     conversation_history_str: str
     last_user_msg: Message
     timestamp: datetime
-    assertions: list[str]
+    assertions: list[str] | None
     msg_id: str
 
 class Assertions(BaseModel):
@@ -32,11 +32,15 @@ class Assertions(BaseModel):
 
 async def extract_assertions(state: GraphState, runtime: Runtime[UpdateContext]) -> dict:
     """Extracts assertions from the latest user message to be stored in the conversational memory."""
+    # Skip extraction if assertions are already provided
+    if state["assertions"] is not None:
+        return
+
     llm = get_llm().with_structured_output(Assertions)
 
     # Prompt suited for locomo evaluation: assertion extraction for conversation
     if os.getenv("FOR_LOCOMO") == "true":
-        prompt = LOCOMO_EXTRACT_ASSERTIONS_PROMPT.format(
+        prompt = LOCOMO_EXTRACT_ASSERTIONS_PROMPT_2.format(
             conversation_history=state["conversation_history_str"],
             user_message=str(state["last_user_msg"]),
         )
