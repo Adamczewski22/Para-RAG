@@ -83,8 +83,10 @@ async def answer_question(qa_item: dict, memory: ParaRAGMemory, llm: ChatOpenAI)
 async def main(
     memory_version: str, 
     dataset_path: str, 
-    output_path: str, logs_path: str, 
-    json_logs_path: str
+    output_path: str, 
+    logs_path: str, 
+    json_logs_path: str,
+    rerun_retrieval: bool,
 ) -> None:
     llm = ChatOpenAI(model=os.getenv("MODEL"))
 
@@ -100,19 +102,21 @@ async def main(
         # Update logger
         json_logger.set_sample_id(sample_id)
 
-        # Init and clear memory
+        # Init memory
         memory = ParaRAGMemory(
             memory_version=memory_version,
             json_logger=json_logger,
         )
-        await memory.clear_collection()
+        # Clear memory and ingest unless only rerunning retrieval
+        if not rerun_retrieval:
+            await memory.clear_collection()
 
-        # Ingest memories
-        await ingest_conversation(
-            conversations=sample["conversation"], 
-            memory=memory, 
-            json_logger=json_logger,
-        )
+            # Ingest memories
+            await ingest_conversation(
+                conversations=sample["conversation"], 
+                memory=memory, 
+                json_logger=json_logger,
+            )
 
         qa_items = sample["question"]
         sample_result = []
@@ -171,6 +175,10 @@ if __name__ == "__main__":
         type=str,
         required=True,
     )
+    parser.add_argument(
+        "--rerun-retrieval",
+        action="store_true"
+    )
     args = parser.parse_args()
 
     asyncio.run(
@@ -180,5 +188,6 @@ if __name__ == "__main__":
             output_path=args.output_path,
             logs_path=args.logs_path,
             json_logs_path=args.json_logs_path,
+            rerun_retrieval=args.rerun_retrieval,
         )
     )

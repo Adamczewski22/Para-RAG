@@ -1,4 +1,4 @@
-.PHONY: locomo locomo-rerun locomo-dedup check-vars
+.PHONY: locomo locomo-rerun locomo-dedup locomo-retrieval check-vars
 
 check-vars:
 	@test -n "$(ITERATION)" || (echo "Missing ITERATION" && exit 1)
@@ -19,3 +19,7 @@ locomo-dedup: check-vars
 	python3 -m benchmarks.run_locomo_pipeline $(ITERATION) $(VERSION) \
 		--rerun-deduplication \
 		--previous-logs-path $(PREVIOUS_LOGS)
+
+locomo-retrieval: check-vars
+	python3 -m benchmarks.run_locomo_pipeline $(ITERATION) $(VERSION) \
+		--rerun-retrieval

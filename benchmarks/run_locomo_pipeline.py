@@ -29,6 +29,7 @@ def main(
     previous_result_path: str,
     deduplication_rerun: bool,
     previous_logs_path: str | None,
+    rerun_retrieval: bool,
 ) -> None:
     result_file_name = f"{iteration_name}_result_{version}.json"
     result_path = RESULTS_DIR / result_file_name
@@ -41,7 +42,7 @@ def main(
 
     # Standard locomo run
     if not rerun and not deduplication_rerun:
-        run_cmd([
+        cmd = [
             sys.executable, # current Python executable (venv)
             "-m", RUN_LOCOMO_MODULE,
             "--memory-version", iteration_name,
@@ -49,7 +50,13 @@ def main(
             "--output-path", str(result_path),
             "--logs-path", str(logs_path),
             "--json-logs-path", str(json_logs_path),
-        ], cwd=ROOT)
+        ]
+        # Add rerurn retrieval flag if true
+        if rerun_retrieval:
+            cmd.append("--rerun-retrieval")
+
+        # Run command
+        run_cmd(cmd, cwd=ROOT)
 
     # Locomo rerun
     elif rerun:
@@ -122,7 +129,11 @@ if __name__ == "__main__":
         "--previous-logs-path",
         type=str,
     )
-
+    # Rerun retrieval mode
+    parser.add_argument(
+        "--rerun-retrieval",
+        action="store_true",
+    )
     args = parser.parse_args()
 
     main(
@@ -132,4 +143,5 @@ if __name__ == "__main__":
         previous_result_path=args.previous_result_path,
         deduplication_rerun=args.rerun_deduplication,
         previous_logs_path=args.previous_logs_path,
+        rerun_retrieval=args.rerun_retrieval,
     )
