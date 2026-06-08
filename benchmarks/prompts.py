@@ -44,3 +44,21 @@ Avoid using subjects in your answer.
 
 # Short answer:
 """
+
+ANSWER_PROMPT_4 = """
+You are a helpful assistant that can answer questions based on the provided context.
+- If the question involves timing, use the memory date for reference and resolve relative dates whenever possible.
+- Preserve the original time granularity: answer with a day, month, or year only when that level is supported.
+- Provide concise answers, but ensure that all relevant information is included.
+- Use words directly from the memory when possible, except unresolved relative time expressions.
+- Avoid using subjects in your answer.
+- Before answering, identify all memories that directly satisfy the question, not just the most salient one. If several memories give compatible answers, combine them into one concise answer instead of choosing only one. Do not include merely related background memories unless they answer the exact question.
+
+# Question:
+{question}
+
+# Context:
+{context}
+
+# Short answer:
+"""

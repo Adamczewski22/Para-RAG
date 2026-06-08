@@ -88,7 +88,7 @@ async def main(
     json_logs_path: str,
     rerun_retrieval: bool,
 ) -> None:
-    llm = ChatOpenAI(model=os.getenv("MODEL"))
+    llm = ChatOpenAI(model=os.getenv("ANSWER_MODEL"))
 
     # Read locomo json file
     with open(file=dataset_path, mode="r") as file:
