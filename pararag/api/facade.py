@@ -100,6 +100,7 @@ class ParaRAGMemory:
         timestamp: datetime | None = None, 
         msg_id: str | None = None,
         assertions: list[str] | None = None,
+        deduplicated_assertions: list[str] | None = None,
     ) -> None:
         """Updates memory based on user's message"""
         # Speaker defaults to "user" if not present
@@ -113,6 +114,7 @@ class ParaRAGMemory:
             timestamp=timestamp if timestamp else datetime.now(), # timestamp defaults to current datetime
             msg_id=msg_id,
             assertions=assertions,
+            deduplicated_assertions=deduplicated_assertions,
         )
     
 

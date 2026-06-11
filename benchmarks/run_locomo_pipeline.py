@@ -12,6 +12,7 @@ DATASET_PATH = ROOT / "data/locomo/locomo10_rag_with_metadata.json"
 RUN_LOCOMO_MODULE = "benchmarks.run_locomo_pararag"
 RERUN_LOCOMO_MODULE_PATH = ROOT / "benchmarks/rerun_locomo_from_results.py"
 RERUN_DEDUPLICATION_MODULE = "benchmarks.run_locomo_deduplication"
+RERUN_PROFILES_MODULE = "benchmarks.run_locomo_profiles"
 
 EVAL_SCRIPT_PATH = MEMOBASE_DIR / "evals.py"
 GEN_SCORE_SCRIPT_PATH = MEMOBASE_DIR / "generate_scores.py"
@@ -30,6 +31,7 @@ def main(
     deduplication_rerun: bool,
     previous_logs_path: str | None,
     rerun_retrieval: bool,
+    rerun_profiles: bool,
 ) -> None:
     result_file_name = f"{iteration_name}_result_{version}.json"
     result_path = RESULTS_DIR / result_file_name
@@ -41,7 +43,7 @@ def main(
     json_logs_path = RESULTS_DIR / "debug" / json_logs_file_name
 
     # Standard locomo run
-    if not rerun and not deduplication_rerun:
+    if not rerun and not deduplication_rerun and not rerun_profiles:
         cmd = [
             sys.executable, # current Python executable (venv)
             "-m", RUN_LOCOMO_MODULE,
@@ -51,7 +53,7 @@ def main(
             "--logs-path", str(logs_path),
             "--json-logs-path", str(json_logs_path),
         ]
-        # Add rerurn retrieval flag if true
+        # Add rerun retrieval flag if true
         if rerun_retrieval:
             cmd.append("--rerun-retrieval")
 
@@ -72,6 +74,19 @@ def main(
         run_cmd([
             sys.executable,
             "-m", RERUN_DEDUPLICATION_MODULE,
+            "--memory-version", iteration_name,
+            "--dataset-path", str(DATASET_PATH),
+            "--output-path", str(result_path),
+            "--logs-path", str(logs_path),
+            "--json-logs-path", str(json_logs_path),
+            "--previous-json-logs-path", previous_logs_path,
+        ])
+
+    # Profiles rerun
+    elif rerun_profiles:
+        run_cmd([
+            sys.executable,
+            "-m", RERUN_PROFILES_MODULE,
             "--memory-version", iteration_name,
             "--dataset-path", str(DATASET_PATH),
             "--output-path", str(result_path),
@@ -134,6 +149,11 @@ if __name__ == "__main__":
         "--rerun-retrieval",
         action="store_true",
     )
+    # Rerun profiles mode
+    parser.add_argument(
+        "--rerun-profiles",
+        action="store_true",
+    )
     args = parser.parse_args()
 
     main(
@@ -144,4 +164,5 @@ if __name__ == "__main__":
         deduplication_rerun=args.rerun_deduplication,
         previous_logs_path=args.previous_logs_path,
         rerun_retrieval=args.rerun_retrieval,
+        rerun_profiles=args.rerun_profiles,
     )

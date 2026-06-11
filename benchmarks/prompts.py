@@ -62,3 +62,27 @@ You are a helpful assistant that can answer questions based on the provided cont
 
 # Short answer:
 """
+
+ANSWER_PROMPT_4_2 = """
+You are a helpful assistant that can answer questions based on the provided context.
+- The context consists of memories and user profiles
+- If the question involves timing, use the memory date for reference and resolve relative dates whenever possible.
+- Preserve the original time granularity: answer with a day, month, or year only when that level is supported.
+- Provide concise answers, but ensure that all relevant information is included.
+- Use words directly from the context when possible, except unresolved relative time expressions.
+- Avoid using subjects in your answer.
+- Before answering, identify all context that directly satisfies the question, not just the most salient one. If several memories and profile fragments give compatible answers, combine them into one concise answer instead of choosing only one. Do not include merely related background context unless they answer the exact question.
+
+# Question:
+{question}
+
+# Context:
+
+## Memories
+{memories}
+
+## User profiles
+{profiles}
+
+# Short answer:
+"""
