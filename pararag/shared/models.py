@@ -23,6 +23,16 @@ class Profile(BaseModel):
     name: str
     profile: str
 
+    def __str__(self) -> str:
+        return dedent(f"""
+            Profile:
+                name: {self.name}
+                content: {self.profile}
+        """).strip()
+
+    def __repr__(self) -> str:
+        return self.__str__()
+
 
 class Message(BaseModel):
     speaker: str

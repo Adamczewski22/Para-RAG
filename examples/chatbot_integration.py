@@ -5,7 +5,7 @@ import asyncio
 from pararag import ParaRAGMemory, MemoryEntry, MemoryVersion, get_console
 
 
-MEMORY_VERSION = MemoryVersion.DEDUPLICATION
+MEMORY_VERSION = MemoryVersion.PROFILES
 
 
 PROMPT = """You are a virtual personal assistant. 
@@ -19,6 +19,10 @@ PROMPT = """You are a virtual personal assistant.
     MEMORIES:
     {memories}
     END OF MEMORIES
+
+    USER PROFILE:
+    {user_profile}
+    END OF USER PROFILE
 """
 
 def memories_to_str(memories: list[MemoryEntry]) -> str:
@@ -26,7 +30,10 @@ def memories_to_str(memories: list[MemoryEntry]) -> str:
 
 async def main():
     llm = ChatOpenAI(model="gpt-5.2")
-    memory = ParaRAGMemory(memory_version=MEMORY_VERSION)
+    memory = ParaRAGMemory(memory_version=MEMORY_VERSION,)
+
+    # Init profile store
+    await memory.init_profile_store()
 
     # With ParaRAG being well-suited for long-term memory, for very short-term memory it is good to use a history of recent messages.
     conversation_history = []
@@ -43,8 +50,17 @@ async def main():
         memories = await memory.retrieve_memories(user_msg)
         memories_str = memories_to_str(memories)
 
+        # Fetch user profiles
+        user_profile = (await memory.retrieve_user_profiles())[0]
+        get_console().print_profiles([user_profile.model_dump()])
+
         # Construct the system message
-        system_msg = SystemMessage(PROMPT.format(memories=memories_str))
+        prompt = PROMPT.format(
+            memories=memories_str,
+            user_profile=user_profile.profile,
+        )
+
+        system_msg = SystemMessage(prompt)
 
         # Call the assistant with retrieved memories
         messages = [system_msg] + conversation_history

@@ -2,9 +2,8 @@ from dotenv import find_dotenv, load_dotenv
 from datetime import datetime
 import os
 
-from pararag.memory.services import profile_service
 from pararag.orchestration import MemoryVersion, MemoryOrchestrator, create_memory_orchestrator
-from pararag.shared.models import MemoryEntry, UserMessage, AssistantMessage
+from pararag.shared.models import MemoryEntry, UserMessage, AssistantMessage, Profile
 from pararag.shared.types import Collection
 from pararag.shared.logger import JsonLogger
 from pararag.memory.infrastructure.qdrant_adapter import QdrantAdapter
@@ -31,12 +30,13 @@ class ParaRAGMemory:
             memory_store: MemoryStore | None = None,
             profile_store: ProfileStore | None = None,
             json_logger: JsonLogger | None = None,
-            users: list[str] = [],
+            users: list[str] = ["User"],
     ):
         # If stores were not specified, use defaults
         self.memory_store = memory_store if memory_store else QdrantAdapter()
         self.profile_store = profile_store if profile_store else SqliteAdapter()
         self.memory_id = memory_id
+        self.memory_version = memory_version
 
         # Init the memory admin service
         self.memory_admin_service = MemoryAdminService(store=self.memory_store, namespace=self.memory_id)
@@ -70,6 +70,14 @@ class ParaRAGMemory:
         """Retrieves relevant memories for answering a user message as an aid to a chatbot assistant"""
         user_msg_obj = UserMessage(content=user_msg)
         return await self.orchestrator.retrieve(user_msg_obj)
+    
+    
+    async def retrieve_user_profiles(self) -> list[Profile]:
+        """Get all user profiles"""
+        if self.memory_version in [MemoryVersion.SIMPLE_DECOMPOSITION, MemoryVersion.DEDUPLICATION]:
+            return []
+
+        return await self.profile_service.get_profiles()
 
 
     async def add_conversation_turn(

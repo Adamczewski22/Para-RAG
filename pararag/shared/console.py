@@ -93,8 +93,12 @@ class Console:
     
     def print_profile_update(self, user: str, previous_profile: str, new_profile: str) -> None:
         self.print(f"Updating {user} profile", color=Color.GREEN, bold=True)
-        self.print(previous_profile, color=Color.BRIGHT_GREEN)
-        self.print(new_profile, color=Color.GREEN, empty_line=True)
+        self.print(previous_profile, color=Color.GREEN)
+        self.print(new_profile, color=Color.BRIGHT_GREEN, empty_line=True)
+
+    def print_profiles(self, profiles: dict[str, str]) -> None:
+        self.print(f"Obtained profiles", color=Color.BLUE, bold=True)
+        self.print(profiles, color=Color.MAGENTA, empty_line=True)
     
     def print_exception(self, exc: Exception) -> None:
         content =f"Error [{type(exc).__name__}]: {str(exc)}"
