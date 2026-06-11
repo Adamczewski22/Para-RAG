@@ -2,16 +2,20 @@ from dotenv import find_dotenv, load_dotenv
 from datetime import datetime
 import os
 
+from pararag.memory.services import profile_service
 from pararag.orchestration import MemoryVersion, MemoryOrchestrator, create_memory_orchestrator
 from pararag.shared.models import MemoryEntry, UserMessage, AssistantMessage
 from pararag.shared.types import Collection
 from pararag.shared.logger import JsonLogger
 from pararag.memory.infrastructure.qdrant_adapter import QdrantAdapter
-from pararag.memory.domain.interfaces import MemoryStore
+from pararag.memory.infrastructure.sqlite_adapter import SqliteAdapter
+from pararag.memory.domain.interfaces import MemoryStore, ProfileStore
 from pararag.memory.services.memory_update_service import MemoryUpdateService
 from pararag.memory.services.memory_retrieval_service import MemoryRetrievalService
 from pararag.memory.services.memory_admin_service import MemoryAdminService
+from pararag.memory.services.profile_service import ProfileService
 from pararag.ai.embeddings import get_embedder
+
 
 load_dotenv(find_dotenv())
 
@@ -25,30 +29,39 @@ class ParaRAGMemory:
             memory_id: str = "main",
             memory_version: MemoryVersion | None = None, 
             memory_store: MemoryStore | None = None,
+            profile_store: ProfileStore | None = None,
             json_logger: JsonLogger | None = None,
+            users: list[str] = [],
     ):
-        # If memory store was not specified, use the default one
+        # If stores were not specified, use defaults
         self.memory_store = memory_store if memory_store else QdrantAdapter()
+        self.profile_store = profile_store if profile_store else SqliteAdapter()
         self.memory_id = memory_id
 
         # Init the memory admin service
         self.memory_admin_service = MemoryAdminService(store=self.memory_store, namespace=self.memory_id)
 
-        # Init retrieval and update services and inject them into the memory orchestrator
+        # Init retrieval and update
         embedder = get_embedder()
         memory_update_service = MemoryUpdateService(store=self.memory_store, namespace=self.memory_id, embedder=embedder)
         memory_retrieval_service = MemoryRetrievalService(store=self.memory_store, namespace=memory_id, embedder=embedder)
 
+        # Init profile service
+        profile_service = ProfileService(store=self.profile_store, users=users, memory_id=memory_id)
+        self.profile_service = profile_service
+
         # Set memory version
         memory_version = memory_version if memory_version else DEFAULT_MEMORY_VERSION
 
+        # Create memory orchestrator, injecting the services
         self.orchestrator: MemoryOrchestrator = create_memory_orchestrator(
             version=memory_version,
             update_service=memory_update_service,
             retrieval_service=memory_retrieval_service,
+            profile_service=profile_service,
             json_logger=json_logger,
+            users=users,
         )
-
 
     async def retrieve_memories(
         self, 
@@ -112,6 +125,12 @@ class ParaRAGMemory:
     async def init_memory_store(self) -> None:
         """Initializes the underlying memory store"""
         await self.memory_admin_service.init_memory()
+
+    
+    async def init_profile_store(self) -> None:
+        """Initializes the underlying profile store"""
+        await self.profile_service.init_store()
+        await self.profile_service.init_profiles()
     
 
     async def clear_collection(

@@ -3,11 +3,13 @@ from enum import StrEnum
 
 from pararag.memory.services.memory_retrieval_service import MemoryRetrievalService
 from pararag.memory.services.memory_update_service import MemoryUpdateService
+from pararag.memory.services.profile_service import ProfileService
 from pararag.shared.logger import JsonLogger
 
 class MemoryVersion(StrEnum):
     SIMPLE_DECOMPOSITION = "simple_decomposition"
     DEDUPLICATION = "deduplication"
+    PROFILES = "profiles"
 
 
 class RetrievalContext(TypedDict):
@@ -19,3 +21,6 @@ class UpdateContext(TypedDict):
 
 class MemoryContext(RetrievalContext, UpdateContext):
     pass
+
+class ProfileUpdateContext(MemoryContext):
+    profile_service: ProfileService

@@ -522,3 +522,115 @@ Decision:
 
 Return the result in the required structured format.
 """
+
+
+UPDATE_PROFILE_PROMPT = """
+You are a profile update module for a conversational memory system.
+
+Your task is to update concise person profiles using newly extracted memory assertions.
+
+Inputs:
+1. New information:
+{assertions}
+
+2. Current profiles:
+{profiles}
+
+Goal:
+Return only the profiles that should be created or updated.
+
+A profile should capture key, relatively stable information about a person, such as:
+- important personal facts
+- stable preferences
+- goals
+- occupations or studies
+- important relationships
+- recurring activities or interests
+- major life events
+- long-term plans or constraints
+
+Rules:
+- Use the new information to decide whether any profile should change.
+- You may update no profiles, single, or multiple profiles.
+- If the new information is irrelevant to stable profiles, return an empty list.
+- Do not update a profile for trivial, temporary, or one-off conversational details.
+- Do not create a profile just because a person is mentioned.
+- Preserve useful existing profile information unless it is corrected or outdated.
+- Add new stable information when it meaningfully improves the profile.
+- Update a profile if the new information corrects, contradicts, or refines it.
+- Keep each profile concise, they should not exceed 10 sentences.
+- Each returned profile must be the full new version of that person's profile, not just the added part.
+- People's names must be perfectly preserved in the updated profiles.
+- Do not invent information.
+- Return an empty list if no profile should be created or updated.
+
+Examples:
+
+New information:
+- "Maya is studying architecture."
+- "Maya recently bought a blue notebook."
+
+Current profiles:
+[]
+
+Profile update:
+name: "Maya"
+profile: "Maya studies architecture."
+
+New information:
+- "Leo said the movie was fun."
+- "Leo ordered pasta for dinner."
+
+Current profiles:
+- name: "Leo"
+  profile: "Leo enjoys science fiction."
+
+Profile update:
+[]
+
+New information:
+- "Nora lost her job last week."
+- "Nora is looking for a new role in marketing."
+
+Current profiles:
+- name: "Nora"
+  profile: "Nora works in marketing."
+
+Profile update:
+name: "Nora"
+profile: "Nora lost her job in marketing, and is looking for a new positon in the field."
+
+New information:
+- "Omar is training for his first marathon."
+- "Omar felt tired after today's run."
+
+Current profiles:
+[]
+
+Profile update:
+name: "Omar"
+profile: "Omar is training for his first marathon."
+
+New information:
+- "Sofia moved to Berlin for graduate school."
+- "Sofia misses her old apartment."
+
+Current profiles:
+- name: "Sofia"
+  profile: "Sofia is interested in psychology."
+
+Profile update:
+name: "Sofia"
+profile: "Sofia is interested in psychology. She has moved to Berlin for graduate school."
+
+New information:
+- "Daniel joked that he could eat pizza every day."
+
+Current profiles:
+[]
+
+Profile update:
+[]
+
+Return the result in the required structured format.
+"""

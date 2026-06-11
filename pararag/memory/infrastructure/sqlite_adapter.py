@@ -92,7 +92,7 @@ class SqliteAdapter(ProfileStore):
                 profiles.append(
                     Profile(
                         name=row[0],
-                        profile=row[1] if row[1] is not None else ""
+                        profile=row[1] if row[1] is not None else "" # Empty profiles become ""
                     )
                 )
             return profiles

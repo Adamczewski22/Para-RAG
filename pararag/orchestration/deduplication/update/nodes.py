@@ -30,7 +30,7 @@ class UpdateDecision(BaseModel):
 
 class DeduplicationState(GraphState):
     update_decisions: list[MemoryWithDecision]
-    deduplicated_assertions: list[str]
+    deduplicated_assertions: list[str] | None
 
 
 async def decide_memory_insertion(
@@ -63,6 +63,24 @@ async def update_memory(state: DeduplicationState, runtime: Runtime[MemoryContex
     update_service = runtime.context["update_service"]
     retrieval_service = runtime.context["retrieval_service"]
 
+    # Choose a different collection for locomo benchmark
+    collection = Collection.LOCOMO if os.getenv("FOR_LOCOMO") == "true" else Collection.ASSERTIONS
+
+    # Skip deduplication if deduplicated assertions are already provided and ingest
+    if state["deduplicated_assertions"] is not None:
+        # Concurrent insertion
+        await asyncio.gather(
+            *[
+                update_service.update_memory_from_content(
+                    content=memory,
+                    collection=collection,
+                    timestamp=state["timestamp"],
+                )
+                for memory in state["deduplicated_assertions"]
+            ]
+        )
+        return {}
+
     # Decide on memory insertions concurrently
     decisions = await asyncio.gather(
         *[
@@ -80,9 +98,6 @@ async def update_memory(state: DeduplicationState, runtime: Runtime[MemoryContex
         )
         for memory, decision in zip(state["assertions"], decisions)
     ]
-
-    # Choose a different collection for locomo benchmark
-    collection = Collection.LOCOMO if os.getenv("FOR_LOCOMO") == "true" else Collection.ASSERTIONS
 
     # Insert memories with positive decisons
     memories_to_insert = [item.memory for item in memories_with_decisions if item.decision == "yes"]

@@ -26,9 +26,10 @@ def init_graph_state(
     timestamp: datetime, 
     msg_id: str | None = None,
     assertions: list[str] | None = None,
+    deduplicated_assertions: list[str] | None = None,
 ) -> DeduplicationState:
     # Deduplication memory adds some extra fields to simple decomposition memory graph state
     state = init_graph_state_sd(user_msg, conversation_history, timestamp, msg_id, assertions)
     state["update_decisions"] = []
-    state["deduplicated_assertions"] = []
+    state["deduplicated_assertions"] = deduplicated_assertions
     return state

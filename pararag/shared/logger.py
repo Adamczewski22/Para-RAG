@@ -51,3 +51,18 @@ class JsonLogger:
             raise RuntimeError(f"msg with id {msg_id} not present in the log")
         
         self.current_ingestion_log[msg_id]["deduplication"] = memories_with_decisions
+
+    def log_profile_update(self, msg_id: str, user: str, previous_profile: str, new_profile: str, assertions: list[str]) -> None:
+        if msg_id not in self.current_ingestion_log:
+            raise RuntimeError(f"msg with id {msg_id} not present in the log")
+        
+        profile_update = {
+            "user": user,
+            "old": previous_profile,
+            "new": new_profile,
+            "assertions_used": assertions,
+        }
+        if "profile_updates" in self.current_ingestion_log[msg_id]:
+            self.current_ingestion_log[msg_id]["profile_updates"].append(profile_update)
+        else:
+            self.current_ingestion_log[msg_id]["profile_updates"] = [profile_update]

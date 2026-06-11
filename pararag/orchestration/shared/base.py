@@ -5,6 +5,7 @@ from pararag.shared.models import MemoryEntry, AssistantMessage, UserMessage, Me
 from pararag.orchestration.shared.types import RetrievalContext, UpdateContext
 from pararag.memory.services.memory_retrieval_service import MemoryRetrievalService
 from pararag.memory.services.memory_update_service import MemoryUpdateService
+from pararag.memory.services.profile_service import ProfileService
 from pararag.shared.logger import JsonLogger
 
 
@@ -14,12 +15,16 @@ class MemoryOrchestrator(ABC):
         self, 
         update_service: MemoryUpdateService, 
         retrieval_service: MemoryRetrievalService,
+        profile_service: ProfileService,
         json_logger: JsonLogger | None = None,
+        users: list[str] = [],
     ):
         self.conversation_history: list[Message] = []
         self.update_service = update_service
         self.retrieval_service = retrieval_service
+        self.profile_service = profile_service
         self.json_logger = json_logger
+        self.users = users
 
     @abstractmethod
     async def add_user_msg(
@@ -28,6 +33,7 @@ class MemoryOrchestrator(ABC):
         timestamp: datetime, 
         msg_id: str | None = None,
         assertions: list[str] | None = None,
+        deduplicated_assertions: list[str] | None = None,
     ) -> None:
         """Updates memory based on user's message"""
         pass
@@ -65,6 +71,7 @@ class BaseMemoryOrchestrator(MemoryOrchestrator):
         timestamp: datetime, 
         msg_id: str | None = None,
         assertions: list[str] | None = None,
+        deduplicated_assertions: list[str] | None = None,
     ) -> None:
         """Extracts relevant facts from user message, and stores them in memory"""
         # Initialize the graph

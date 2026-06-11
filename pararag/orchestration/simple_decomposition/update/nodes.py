@@ -34,7 +34,7 @@ async def extract_assertions(state: GraphState, runtime: Runtime[UpdateContext])
     """Extracts assertions from the latest user message to be stored in the conversational memory."""
     # Skip extraction if assertions are already provided
     if state["assertions"] is not None:
-        return
+        return {}
 
     llm = get_llm().with_structured_output(Assertions)
 

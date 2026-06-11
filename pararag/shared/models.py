@@ -19,6 +19,11 @@ class MemoryEntry(BaseModel):
         return self.__str__()
 
 
+class Profile(BaseModel):
+    name: str
+    profile: str
+
+
 class Message(BaseModel):
     speaker: str
     content: str

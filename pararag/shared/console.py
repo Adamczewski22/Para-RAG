@@ -91,6 +91,15 @@ class Console:
                 elif memory["decision"] == "no":
                     self.print(f"{memory['memory']} (dropped, reason: {memory['reason']})", color=Color.RED, empty_line=True)
     
+    def print_profile_update(self, user: str, previous_profile: str, new_profile: str) -> None:
+        self.print(f"Updating {user} profile", color=Color.GREEN, bold=True)
+        self.print(previous_profile, color=Color.BRIGHT_GREEN)
+        self.print(new_profile, color=Color.GREEN, empty_line=True)
+    
+    def print_exception(self, exc: Exception) -> None:
+        content =f"Error [{type(exc).__name__}]: {str(exc)}"
+        self.print(content, color=Color.RED, empty_line=True)
+    
     def save_html(self, path: str) -> None:
         self.console.save_html(path)
 

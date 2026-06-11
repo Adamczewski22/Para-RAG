@@ -8,6 +8,14 @@ def messages_to_string(messages: list[Message]) -> str:
     return "\n".join(messages_str)
 
 
+def assertions_to_string(assertions: list[str]) -> str:
+    """Converts list of assertions into a string representation"""
+    results = ""
+    for assertion in assertions:
+        results += f"- {assertion}\n"
+    return results
+
+
 def langchain_messages_to_string(messages: list[BaseMessage]) -> str:
     """Converts list of langchain message objects into a string representation"""
     lines = []
