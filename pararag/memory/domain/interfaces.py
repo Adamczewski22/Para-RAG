@@ -51,3 +51,8 @@ class ProfileStore(ABC):
     async def get_profiles(self, namespace: str) -> list[Profile]:
         """Returns all profiles from the namespace"""
         pass
+
+    @abstractmethod
+    async def delete_profiles(self, namespace: str) -> None:
+        """Deletes all profiles from the current namespace"""
+        pass

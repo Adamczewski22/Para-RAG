@@ -34,3 +34,8 @@ class ProfileService:
     async def get_profiles(self) -> list[Profile]:
         """Returns all profiles from the namespace"""
         return await self.store.get_profiles(namespace=self.memory_id)
+
+
+    async def delete_profiles(self) -> None:
+        """Deletes all profiles from the namespace"""
+        return await self.store.delete_profiles(namespace=self.memory_id)

@@ -141,6 +141,11 @@ class ParaRAGMemory:
         """Initializes the underlying profile store"""
         await self.profile_service.init_store()
         await self.profile_service.init_profiles()
+
+
+    async def delete_profiles(self) -> None:
+        """Deletes all profiles from the namespace"""
+        await self.profile_service.delete_profiles()
     
 
     async def clear_collection(

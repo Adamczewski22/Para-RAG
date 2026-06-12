@@ -96,3 +96,15 @@ class SqliteAdapter(ProfileStore):
                     )
                 )
             return profiles
+    
+    async def delete_profiles(self, namespace: str) -> None:
+        """Deletes all profiles from the current namespace"""
+        async with aiosqlite.connect(self.db_path) as db:
+            await db.execute(
+                """
+                DELETE FROM user_profiles
+                WHERE namespace = ?
+                """,
+                (namespace,)
+            )
+            await db.commit()

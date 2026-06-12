@@ -7,7 +7,7 @@ from pararag.shared.models import Profile
 from pararag.shared.console import get_console
 from pararag.orchestration.deduplication.update.nodes import DeduplicationState
 from pararag.orchestration.shared.types import ProfileUpdateContext
-from pararag.orchestration.shared.prompts import UPDATE_PROFILE_PROMPT
+from pararag.orchestration.shared.prompts import UPDATE_PROFILE_PROMPT_2
 from pararag.orchestration.shared.utils import assertions_to_string
 
 class ProfilesUpdate(BaseModel):
@@ -39,7 +39,7 @@ async def update_profiles(state: ProfileState, runtime: Runtime[ProfileUpdateCon
     profiles_str = "\n".join(profile_dumps)
 
     # Prompt
-    prompt = UPDATE_PROFILE_PROMPT.format(
+    prompt = UPDATE_PROFILE_PROMPT_2.format(
         assertions=assertions_to_string(state["deduplicated_assertions"]),
         profiles=profiles_str,
     )

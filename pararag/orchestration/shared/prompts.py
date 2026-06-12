@@ -634,3 +634,110 @@ Profile update:
 
 Return the result in the required structured format.
 """
+
+
+UPDATE_PROFILE_PROMPT_2 = """
+You are a profile update module for a conversational memory system.
+
+Your task is to update concise person profiles using newly extracted memory assertions.
+
+Inputs:
+1. New information:
+{assertions}
+
+2. Current profiles:
+{profiles}
+
+Goal:
+Return only the profiles that should be created or updated.
+
+A profile is a compact high-level summary of a person. It should contain only core, stable, or life-significant information, such as:
+- important personal facts
+- occupation, studies, or major career status
+- major life events, such as losing a job, moving, starting a business, or getting a new role
+- stable passions, long-term goals, or central interests
+- important relationships or long-term constraints
+
+Rules:
+- Update a profile only when the new information changes the person's core profile.
+- Return an empty list if the new information is only ordinary memory, conversation detail, encouragement, advice, a temporary emotion, a minor plan, or a one-off event.
+- Do not update a profile just because the new information is true or potentially useful.
+- Do not update a profile just to add small refinements, compliments, reactions, motivational statements, or details about a specific conversation.
+- Preserve useful existing profile information unless it is corrected, outdated, or should be compressed.
+- If updating, return a concise full replacement profile, not just the added part.
+- Keep each profile concise, they should not exceed 7 sentences.
+- People's names must be perfectly preserved in the updated profiles.
+- Do not invent information.
+- Return an empty list if no profile should be created or updated.
+
+Examples:
+
+New information:
+- "Maya lost her job at a design agency."
+- "Maya is looking for a new role in architecture."
+
+Current profiles:
+- name: "Maya"
+  profile: "Maya works in architecture."
+
+Profile update:
+name: "Maya"
+profile: "Maya has experience in architecture and is looking for a new role after losing her job at a design agency."
+
+New information:
+- "Leo thanked Maya for believing in him."
+- "Leo said Maya's support gives him confidence."
+
+Current profiles:
+- name: "Leo"
+  profile: "Leo is starting a small bakery and is passionate about baking."
+
+Profile update:
+[]
+
+New information:
+- "Nora started a small online clothing business."
+- "Nora wants to become financially independent."
+
+Current profiles:
+[]
+
+Profile update:
+name: "Nora"
+profile: "Nora started a small online clothing business and wants to become financially independent."
+
+New information:
+- "Omar asked for advice about tomorrow's presentation."
+- "Omar felt nervous but encouraged after the conversation."
+
+Current profiles:
+- name: "Omar"
+  profile: "Omar studies computer science."
+
+Profile update:
+[]
+
+New information:
+- "Sofia is 20 years old."
+- "Sofia has loved dancing since childhood."
+
+Current profiles:
+[]
+
+Profile update:
+name: "Sofia"
+profile: "Sofia is 20 years old and has loved dancing since childhood."
+
+New information:
+- "Daniel moved to Berlin for graduate school."
+
+Current profiles:
+- name: "Daniel"
+  profile: "Daniel studies psychology."
+
+Profile update:
+name: "Daniel"
+profile: "Daniel studies psychology and moved to Berlin for graduate school."
+
+Return the result in the required structured format.
+"""
