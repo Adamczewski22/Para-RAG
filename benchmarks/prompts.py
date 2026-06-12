@@ -78,11 +78,11 @@ You are a helpful assistant that can answer questions based on the provided cont
 
 # Context:
 
-## Memories
-{memories}
-
 ## User profiles
 {profiles}
+
+## Memories
+{memories}
 
 # Short answer:
 """

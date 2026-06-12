@@ -57,6 +57,7 @@ def main(iteration: str, version: str, locomo_file: str):
 
     # Include the retrieved memories for a failed question in QA task
     memories_by_question: dict[str, str] = {}
+    prompts_by_question: dict[str, str] = {}
     
     with open(results_path, mode="r", encoding="utf-8") as file:
         results_data = json.load(file)
@@ -66,10 +67,14 @@ def main(iteration: str, version: str, locomo_file: str):
     for qa_item in qa_items:
         question = qa_item["question"]
         memories = qa_item["context"]
+        prompt = qa_item["prompt"]
         memories_by_question[question] = memories
+        prompts_by_question[question] = prompt
 
     for question in failed_questions:
         question["memories"] = memories_by_question[question["question"]]
+        question["profiles"] = qa_items[0]["profiles"] # profiles are stable during question answering
+        question["prompt"] = prompts_by_question[question["question"]]
 
     # Include the ingestion logs for each message specified as evidence (if present)
     if logs_path.exists():

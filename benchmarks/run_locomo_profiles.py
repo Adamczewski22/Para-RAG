@@ -86,7 +86,6 @@ async def answer_question(qa_item: dict, memory: ParaRAGMemory, llm: ChatOpenAI)
 
     memories_str = memories_to_str(memories)
     profiles_str = profiles_to_str(profiles)
-    context_str = memories_str + "\n" + profiles_str
 
     prompt = ANSWER_PROMPT_4_2.format(
         question=question,
@@ -102,7 +101,8 @@ async def answer_question(qa_item: dict, memory: ParaRAGMemory, llm: ChatOpenAI)
         "question": question,
         "answer": qa_item["answer"],
         "category": qa_item["category"],
-        "context": context_str,
+        "context": memories_str,
+        "profiles": profiles_str,
         "response": response.content,
         "search_time": retrieval_latency,
         "response_time": response_latency,

@@ -8,7 +8,7 @@ import json
 import time
 import os
 
-from prompts import ANSWER_PROMPT_4
+from prompts import ANSWER_PROMPT_4_2
 
 
 load_dotenv(find_dotenv())
@@ -16,9 +16,10 @@ load_dotenv(find_dotenv())
 
 async def answer_question(qa_item: dict, llm: ChatOpenAI) -> dict:
     """Aswers a single question from locomo benchmark based on given context while measuring latency and maintaining metadata"""
-    prompt = ANSWER_PROMPT_4.format(
+    prompt = ANSWER_PROMPT_4_2.format(
         question=qa_item["question"],
-        context=qa_item["context"],
+        memories=qa_item["context"],
+        profiles=qa_item["profiles"],
     )
 
     start = time.perf_counter()
@@ -30,6 +31,8 @@ async def answer_question(qa_item: dict, llm: ChatOpenAI) -> dict:
         "answer": qa_item["answer"],
         "category": qa_item["category"],
         "context": qa_item["context"],
+        "profiles": qa_item["profiles"],
+        "prompt": prompt,
         "response": response.content,
         "search_time": qa_item["search_time"],
         "response_time": response_time,
