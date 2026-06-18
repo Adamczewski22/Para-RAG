@@ -1,12 +1,19 @@
+from pathlib import Path
 import argparse
 import json
 
 
-def main(dataset_path: str, output_path: str):
+ROOT_DIR = Path(__file__).resolve().parent.parent
+LOCOMO_DIR = ROOT_DIR / "data" / "locomo"
+
+
+def main(dataset_path: str, sample_nr: int) -> None:
+    output_path = LOCOMO_DIR / f"locomo_sample_{sample_nr}.json"
+
     with open(file=dataset_path, mode="r", encoding="utf-8") as file:
         data = json.load(file)
     
-    sample = data[1] # Choose the second QA task
+    sample = data[sample_nr - 1]
     sample_id = sample["sample_id"]
     qa = sample["qa"]
     conversation = sample["conversation"]
@@ -67,14 +74,13 @@ if __name__ == "__main__":
         help="Path to locomo benchmark json file",
     )
     parser.add_argument(
-        "--output-path",
-        type=str,
-        default="data/locomo/locomo10_rag_with_metadata.json",
-        help="Path to the output file to store the converted json",
+        "--sample_nr",
+        type=int,
+        default=2,
     )
     args = parser.parse_args()
 
     main(
         dataset_path=args.dataset_path,
-        output_path=args.output_path,
+        sample_nr=args.sample_nr,
     )
