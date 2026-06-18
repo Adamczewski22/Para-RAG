@@ -8,15 +8,15 @@ from pararag.orchestration.shared.types import ProfileUpdateContext
 from pararag.orchestration.simple_decomposition.update.nodes import extract_assertions
 from pararag.orchestration.deduplication.update.nodes import update_memory
 from pararag.orchestration.deduplication.update.graph import init_graph_state as init_graph_state_dp
-from .nodes import ProfileState, update_profiles
+from .nodes import ProfileState
 
 
 @lru_cache(maxsize=1)
 def get_graph() -> CompiledStateGraph:
     graph_builder = StateGraph(state_schema=ProfileState, context_schema=ProfileUpdateContext)
-    graph_builder.add_sequence([extract_assertions, update_memory, update_profiles])
+    graph_builder.add_sequence([extract_assertions, update_memory])
     graph_builder.add_edge(START, "extract_assertions")
-    graph_builder.add_edge("update_profiles", END)
+    graph_builder.add_edge("update_memory", END)
 
     return graph_builder.compile()
 
@@ -35,4 +35,3 @@ def init_graph_state(
 
     state["users"] = users
     return state
-

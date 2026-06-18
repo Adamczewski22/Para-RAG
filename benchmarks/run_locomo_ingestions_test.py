@@ -33,6 +33,7 @@ async def main():
         )
         # Alternate the speaker
         current_speaker = second_speaker if current_speaker == first_speaker else first_speaker
+    await memory.force_profile_update()
     
     # Clear memory afterwards
     await memory.clear_collection(Collection.LOCOMO)

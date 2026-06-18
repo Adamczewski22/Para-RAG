@@ -18,11 +18,13 @@ load_dotenv(find_dotenv())
 
 async def ingest_conversation(conversations: list[dict], memory: ParaRAGMemory, json_logger: JsonLogger) -> None:
     """Extracts memories from conversations and ingests them into vector database"""
+    last_msg_id = None
 
     for msg in tqdm(conversations, desc="Extracting memories", leave=True):
         timestamp = parse_locomo_timestamp(msg["timestamp"])
         speaker = msg["speaker"]
         msg_id = msg["id"]
+        last_msg_id = msg_id
 
         # Include blip caption in the user msg if present
         blip_caption = msg.get("blip_caption")
@@ -44,6 +46,8 @@ async def ingest_conversation(conversations: list[dict], memory: ParaRAGMemory, 
             timestamp=timestamp,
             msg_id=msg_id,
         )
+
+    await memory.force_profile_update(msg_id=last_msg_id)
 
 
 def memories_to_str(memories: list[MemoryEntry]) -> str:

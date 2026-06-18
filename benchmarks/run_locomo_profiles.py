@@ -31,6 +31,7 @@ async def ingest_conversation(
 
     sample_logs = prev_logs_data[sample_id]
     ingestion_logs = sample_logs["ingestion"]
+    last_msg_id = None
 
     # Get additonal metadata from dataset
     with open(dataset_path, mode="r", encoding="utf-8") as file:
@@ -42,6 +43,7 @@ async def ingest_conversation(
         timestamp = parse_locomo_timestamp(msg_metadata["timestamp"])
         speaker = msg_metadata["speaker"]
         msg_id = msg_metadata["id"]
+        last_msg_id = msg_id
         content = msg_ingestion["content"]
 
         # Print logs
@@ -66,6 +68,8 @@ async def ingest_conversation(
             assertions=[], # This will skip assertion extraction. Empty list passed as they are not needed
             deduplicated_assertions=deduplicated_assertions, # Including deduplicated assertions will deduplication step
         )
+
+    await memory.force_profile_update(msg_id=last_msg_id)
 
 
 def memories_to_str(memories: list[MemoryEntry]) -> str:

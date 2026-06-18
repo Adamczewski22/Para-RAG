@@ -93,6 +93,13 @@ class ParaRAGMemory:
         return await self.profile_service.get_profiles()
 
 
+    async def force_profile_update(self, msg_id: str | None = None) -> None:
+        """Force profile memory to update from buffered deduplicated assertions."""
+        force_profile_update = getattr(self.orchestrator, "force_profile_update", None)
+        if force_profile_update is not None:
+            await force_profile_update(msg_id=msg_id)
+
+
     async def add_conversation_turn(
         self, 
         user_msg: str, 
