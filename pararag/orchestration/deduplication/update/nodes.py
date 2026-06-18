@@ -15,6 +15,7 @@ from pararag.orchestration.shared.types import MemoryContext
 from pararag.orchestration.shared.utils import memories_to_str
 from pararag.shared.types import Collection
 from pararag.shared.console import get_console
+from pararag.shared.logger import aggregate_token_usage, extract_token_usage
 from pararag.ai.llm import get_llm
 
 
@@ -37,7 +38,7 @@ class DeduplicationState(GraphState):
 async def decide_memory_insertion(
     memory_content: str, 
     retrieval_service: MemoryRetrievalService,
-) -> UpdateDecision:
+) -> tuple[UpdateDecision, dict]:
     """Decide whether the new memory should be inserted into the store. If it is a duplicate or very similar to existing memories it should not."""
     
     # Choose a different collection for locomo benchmark
@@ -51,12 +52,20 @@ async def decide_memory_insertion(
     memories_str = memories_to_str(similar_memories)
 
     # Decide whether the new memory is unlike the past memories
-    llm = get_llm().with_structured_output(UpdateDecision)
+    llm = get_llm().with_structured_output(UpdateDecision, include_raw=True)
     prompt = MEMORY_DEDUPLICATION_PROMPT_3.format(
         new_memory=memory_content,
         past_memories=memories_str,
     )
-    return await llm.ainvoke([SystemMessage(prompt)])
+    response = await llm.ainvoke([SystemMessage(prompt)])
+
+    # Obtain token usage
+    token_usage = extract_token_usage(response.get("raw"))
+    if response.get("parsing_error") is not None:
+        raise response["parsing_error"]
+    
+    # Return update decision and token usage
+    return response["parsed"], token_usage
 
 
 async def update_memory(state: DeduplicationState, runtime: Runtime[MemoryContext]) -> dict:
@@ -84,11 +93,17 @@ async def update_memory(state: DeduplicationState, runtime: Runtime[MemoryContex
 
     # Decide on memory insertions concurrently
     deduplication_start = time.perf_counter()
-    decisions = await asyncio.gather(
+    decision_results = await asyncio.gather(
         *[
             decide_memory_insertion(memory_content, retrieval_service)
             for memory_content in state["assertions"]
         ]
+    )
+    decisions = [decision for decision, _ in decision_results]
+
+    # Aggregate token usage for all dedupication decisions
+    deduplication_tokens = aggregate_token_usage(
+        [token_usage for _, token_usage in decision_results]
     )
 
     # Merge decisions with their corresponding 
@@ -111,11 +126,16 @@ async def update_memory(state: DeduplicationState, runtime: Runtime[MemoryContex
     get_console().print_deduplication(memories_with_decisions_dump)
     json_logger = runtime.context["json_logger"]
     
-    if state["msg_id"] is not None:
+    if state["msg_id"] is not None and json_logger is not None:
         json_logger.log_deduplication_latency(
             msg_id=state["msg_id"],
             latency=deduplication_latency,
         )
+        if deduplication_tokens:
+            json_logger.log_deduplication_tokens(
+                msg_id=state["msg_id"],
+                token_usage=deduplication_tokens,
+            )
         json_logger.log_deduplication(
             msg_id=state["msg_id"],
             memories_with_decisions=memories_with_decisions_dump,

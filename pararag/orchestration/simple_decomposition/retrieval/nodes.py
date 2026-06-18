@@ -12,6 +12,7 @@ from pararag.orchestration.shared.tools import retrieve
 from pararag.shared.models import MemoryEntry, Message
 from pararag.shared.types import Collection
 from pararag.shared.console import get_console
+from pararag.shared.logger import extract_token_usage
 from pararag.ai.llm import get_llm
 
 load_dotenv(find_dotenv())
@@ -28,9 +29,9 @@ class SubQueries(BaseModel):
     sub_queries: list[str] = Field(description="A list of simple, atomic sub-queries later used for semantic search.")
 
 
-async def decompose_query(state: GraphState) -> dict:
+async def decompose_query(state: GraphState, runtime: Runtime[RetrievalContext]) -> dict:
     """A node that decomposes the user query into atomic sub-queries to be used for parallel retrieval"""
-    llm = get_llm().with_structured_output(SubQueries)
+    llm = get_llm().with_structured_output(SubQueries, include_raw=True)
 
     # Prompt suited for locomo evaluation: retrieval for a question from the benchmark
     if os.getenv("FOR_LOCOMO") == "true":
@@ -46,13 +47,26 @@ async def decompose_query(state: GraphState) -> dict:
         )
 
     # Extract sub queries
-    result = await llm.ainvoke([SystemMessage(prompt)])
+    response = await llm.ainvoke([SystemMessage(prompt)])
+
+    # Obtain token usage
+    retrieval_tokens = extract_token_usage(response.get("raw"))
+    if response.get("parsing_error") is not None:
+        raise response["parsing_error"]
+    
+    result = response["parsed"]
 
     # Emit logs
     get_console().print_queries(
         queries=result.sub_queries,
         query=state["last_user_msg"],
     )
+    json_logger = runtime.context["json_logger"]
+    if json_logger is not None and retrieval_tokens:
+        json_logger.log_retrieval_tokens(
+            query=state["last_user_msg"].content,
+            token_usage=retrieval_tokens,
+        )
     
     return {"sub_queries": result.sub_queries}
 

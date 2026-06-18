@@ -115,10 +115,16 @@ class BaseMemoryOrchestrator(MemoryOrchestrator):
         graph = self.retrieval_graph.get_graph()
         graph_state = self.retrieval_graph.init_graph_state(user_msg, self.conversation_history)
 
+        # Get context
+        context = RetrievalContext(
+            retrieval_service=self.retrieval_service,
+            json_logger=self.json_logger,
+        )
+
         # Invoke the graph pipeline
         result = await graph.ainvoke(
             input=graph_state,
-            context=RetrievalContext(retrieval_service=self.retrieval_service)
+            context=context,
         )
         # Return obtained memories
         return result["memories"]

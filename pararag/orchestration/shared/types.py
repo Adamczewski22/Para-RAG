@@ -14,10 +14,11 @@ class MemoryVersion(StrEnum):
 
 class RetrievalContext(TypedDict):
     retrieval_service: MemoryRetrievalService
+    json_logger: JsonLogger | None
 
 class UpdateContext(TypedDict):
     update_service: MemoryUpdateService
-    json_logger: JsonLogger
+    json_logger: JsonLogger | None
 
 class MemoryContext(RetrievalContext, UpdateContext):
     pass

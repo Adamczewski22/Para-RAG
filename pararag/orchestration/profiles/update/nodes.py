@@ -6,6 +6,7 @@ import time
 from pararag.ai.llm import get_llm
 from pararag.shared.models import Profile
 from pararag.shared.console import get_console
+from pararag.shared.logger import extract_token_usage
 from pararag.orchestration.deduplication.update.nodes import DeduplicationState
 from pararag.orchestration.shared.types import ProfileUpdateContext
 from pararag.orchestration.shared.prompts import UPDATE_PROFILE_PROMPT_2
@@ -33,7 +34,7 @@ async def update_profiles(state: ProfileState, runtime: Runtime[ProfileUpdateCon
     # Get current profiles
     profiles = await profile_service.get_profiles()
 
-    llm = get_llm().with_structured_output(ProfilesUpdate)
+    llm = get_llm().with_structured_output(ProfilesUpdate, include_raw=True)
 
     # Serialize profiles for the prompt
     profile_dumps = [profile.model_dump_json() for profile in profiles]
@@ -45,12 +46,21 @@ async def update_profiles(state: ProfileState, runtime: Runtime[ProfileUpdateCon
         profiles=profiles_str,
     )
 
-    # Report and ignore exceptions like structured output or invalid user failures
+    # Track latency and token usage
     profile_update_start = time.perf_counter()
+    profile_update_tokens = {}
+
+    # Report and ignore exceptions like structured output or invalid user failures
     try:
         # Update profiles
         response = await llm.ainvoke([SystemMessage(prompt)])
-        profile_updates: list[Profile] = response.profile_updates
+
+        # Obtain token usage
+        profile_update_tokens = extract_token_usage(response.get("raw"))
+        if response.get("parsing_error") is not None:
+            raise response["parsing_error"]
+        
+        profile_updates: list[Profile] = response["parsed"].profile_updates
         profiles_by_name: dict[str, Profile] = {profile.name: profile for profile in profiles}
 
         for new_profile in profile_updates:
@@ -65,7 +75,7 @@ async def update_profiles(state: ProfileState, runtime: Runtime[ProfileUpdateCon
             )
 
             # Log
-            if state["msg_id"]:
+            if state["msg_id"] and json_logger is not None:
                 json_logger.log_profile_update(
                     msg_id=state["msg_id"],
                     user=new_profile.name,
@@ -86,10 +96,15 @@ async def update_profiles(state: ProfileState, runtime: Runtime[ProfileUpdateCon
         return {}
 
     finally:
-        if state["msg_id"]:
+        if state["msg_id"] and json_logger is not None:
             json_logger.log_profile_update_latency(
                 msg_id=state["msg_id"],
                 latency=time.perf_counter() - profile_update_start,
             )
+            if profile_update_tokens:
+                json_logger.log_profile_update_tokens(
+                    msg_id=state["msg_id"],
+                    token_usage=profile_update_tokens,
+                )
     
     return {"profiles": list[profiles_by_name.values()]}

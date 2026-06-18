@@ -15,6 +15,7 @@ from pararag.shared.models import Message
 from pararag.ai.embeddings import get_embedder
 from pararag.ai.llm import get_llm
 from pararag.shared.console import get_console
+from pararag.shared.logger import extract_token_usage
 
 load_dotenv(find_dotenv())
 
@@ -37,7 +38,7 @@ async def extract_assertions(state: GraphState, runtime: Runtime[UpdateContext])
     if state["assertions"] is not None:
         return {}
 
-    llm = get_llm().with_structured_output(Assertions)
+    llm = get_llm().with_structured_output(Assertions, include_raw=True)
 
     # Prompt suited for locomo evaluation: assertion extraction for conversation
     if os.getenv("FOR_LOCOMO") == "true":
@@ -54,18 +55,31 @@ async def extract_assertions(state: GraphState, runtime: Runtime[UpdateContext])
 
     # Extract assertions
     assertion_start = time.perf_counter()
-    result = await llm.ainvoke([SystemMessage(prompt)])
+    response = await llm.ainvoke([SystemMessage(prompt)])
     assertion_latency = time.perf_counter() - assertion_start
+
+    # Obtain token usage
+    assertion_tokens = extract_token_usage(response.get("raw"))
+
+    if response.get("parsing_error") is not None:
+        raise response["parsing_error"]
+    
+    result = response["parsed"]
 
     # Logs
     get_console().print_assertions(result.assertions)
     json_logger = runtime.context["json_logger"]
 
-    if state["msg_id"] is not None:
+    if state["msg_id"] is not None and json_logger is not None:
         json_logger.log_assertions_latency(
             msg_id=state["msg_id"],
             latency=assertion_latency,
         )
+        if assertion_tokens:
+            json_logger.log_assertions_tokens(
+                msg_id=state["msg_id"],
+                token_usage=assertion_tokens,
+            )
         json_logger.log_extraction(
             msg_id=state["msg_id"],
             assertions=result.assertions,
