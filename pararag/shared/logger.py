@@ -183,6 +183,15 @@ class JsonLogger:
             }
         )
 
+    def log_retrieval_latency(self, query: str, stage: str, latency: float) -> None:
+        self.current_retrieval_log.append(
+            {
+                "query": query,
+                "stage": stage,
+                "latency": latency,
+            }
+        )
+
     def log_llm_tokens(self, category: str, token_usage: dict) -> None:
         self.current_llm_log.append(
             {

@@ -5,6 +5,7 @@ from pydantic import BaseModel, Field
 from typing import TypedDict
 import asyncio
 import os
+import time
 
 from pararag.orchestration.shared.prompts import QUERY_DECOMPOSITION_PROMPT, LOCOMO_QUERY_DECOMPOSITION_PROMPT
 from pararag.orchestration.shared.types import RetrievalContext
@@ -47,7 +48,9 @@ async def decompose_query(state: GraphState, runtime: Runtime[RetrievalContext])
         )
 
     # Extract sub queries
+    decomposition_start = time.perf_counter()
     response = await llm.ainvoke([SystemMessage(prompt)])
+    decomposition_latency = time.perf_counter() - decomposition_start
 
     # Obtain token usage
     retrieval_tokens = extract_token_usage(response.get("raw"))
@@ -63,11 +66,17 @@ async def decompose_query(state: GraphState, runtime: Runtime[RetrievalContext])
     )
     json_logger = runtime.context["json_logger"]
     
-    if json_logger is not None and retrieval_tokens:
-        json_logger.log_retrieval_tokens(
+    if json_logger is not None:
+        json_logger.log_retrieval_latency(
             query=state["last_user_msg"].content,
-            token_usage=retrieval_tokens,
+            stage="decomposition",
+            latency=decomposition_latency,
         )
+        if retrieval_tokens:
+            json_logger.log_retrieval_tokens(
+                query=state["last_user_msg"].content,
+                token_usage=retrieval_tokens,
+            )
     
     return {"sub_queries": result.sub_queries}
 
@@ -80,12 +89,14 @@ async def call_retrieve(state: GraphState, runtime: Runtime[RetrievalContext]) -
     # Choose a different collection for locomo benchmark
     collection = Collection.LOCOMO if os.getenv("FOR_LOCOMO") == "true" else Collection.ASSERTIONS
     
+    retrieval_start = time.perf_counter()
     results = await asyncio.gather(
         *[
             retrieve(query, collection, runtime)
             for query in state["sub_queries"]
         ]
     )
+    retrieval_latency = time.perf_counter() - retrieval_start
 
     # Aggregate and deduplicate memories
     all_memories: dict[str, MemoryEntry] = {}
@@ -95,5 +106,14 @@ async def call_retrieve(state: GraphState, runtime: Runtime[RetrievalContext]) -
     
     memories_list = list(all_memories.values())
     get_console().print_memories(memories_list)
+
+    # Log concurrent retrieval latency
+    json_logger = runtime.context["json_logger"]
+    if json_logger is not None:
+        json_logger.log_retrieval_latency(
+            query=state["last_user_msg"].content,
+            stage="concurrent_retrieval",
+            latency=retrieval_latency,
+        )
 
     return {"memories": memories_list}
