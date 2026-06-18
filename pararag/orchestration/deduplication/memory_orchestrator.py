@@ -1,5 +1,6 @@
 from typing_extensions import override
 from datetime import datetime
+import time
 
 from pararag.shared.models import UserMessage
 from pararag.orchestration.shared.base import BaseMemoryOrchestrator
@@ -25,6 +26,8 @@ class DeduplicationMemory(BaseMemoryOrchestrator):
         deduplicated_assertions: list[str] | None = None,
     ) -> None:
         """Extracts relevant facts from user message, and stores them in memory"""
+        update_start = time.perf_counter()
+
         # Initialize the graph
         graph = self.update_graph.get_graph()
         graph_state = self.update_graph.init_graph_state(
@@ -51,3 +54,9 @@ class DeduplicationMemory(BaseMemoryOrchestrator):
         # Add user message conversation history (do not mistake wth main persistent memory)
         self.conversation_history.append(user_msg)
         self.conversation_history = self.conversation_history[-self.CONVERSATION_WINDOW:]
+
+        if msg_id is not None and self.json_logger is not None:
+            self.json_logger.log_update_latency(
+                msg_id=msg_id,
+                latency=time.perf_counter() - update_start,
+            )

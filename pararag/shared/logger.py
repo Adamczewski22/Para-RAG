@@ -159,6 +159,12 @@ class JsonLogger:
 
         self.current_ingestion_log[msg_id]["profile_update_latency"] = latency
 
+    def log_update_latency(self, msg_id: str, latency: float) -> None:
+        if msg_id not in self.current_ingestion_log:
+            raise RuntimeError(f"msg with id {msg_id} not present in the log")
+
+        self.current_ingestion_log[msg_id]["update_latency"] = latency
+
     def log_profile_update_tokens(self, msg_id: str, token_usage: dict) -> None:
         if msg_id not in self.current_ingestion_log:
             raise RuntimeError(f"msg with id {msg_id} not present in the log")

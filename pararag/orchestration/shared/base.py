@@ -1,5 +1,6 @@
 from abc import ABC, abstractmethod
 from datetime import datetime
+import time
 
 from pararag.shared.models import MemoryEntry, AssistantMessage, UserMessage, Message
 from pararag.orchestration.shared.types import RetrievalContext, UpdateContext
@@ -74,6 +75,8 @@ class BaseMemoryOrchestrator(MemoryOrchestrator):
         deduplicated_assertions: list[str] | None = None,
     ) -> None:
         """Extracts relevant facts from user message, and stores them in memory"""
+        update_start = time.perf_counter()
+
         # Initialize the graph
         graph = self.update_graph.get_graph()
         graph_state = self.update_graph.init_graph_state(
@@ -94,6 +97,13 @@ class BaseMemoryOrchestrator(MemoryOrchestrator):
         # Add user message conversation history (do not mistake wth main persistent memory)
         self.conversation_history.append(user_msg)
         self.conversation_history = self.conversation_history[-self.CONVERSATION_WINDOW:]
+
+        # Log update latency
+        if msg_id is not None and self.json_logger is not None:
+            self.json_logger.log_update_latency(
+                msg_id=msg_id,
+                latency=time.perf_counter() - update_start,
+            )
     
 
     async def add_assistant_msg(

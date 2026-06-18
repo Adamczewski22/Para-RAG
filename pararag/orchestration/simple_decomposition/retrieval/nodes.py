@@ -62,6 +62,7 @@ async def decompose_query(state: GraphState, runtime: Runtime[RetrievalContext])
         query=state["last_user_msg"],
     )
     json_logger = runtime.context["json_logger"]
+    
     if json_logger is not None and retrieval_tokens:
         json_logger.log_retrieval_tokens(
             query=state["last_user_msg"].content,
