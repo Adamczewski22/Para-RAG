@@ -66,3 +66,24 @@ class JsonLogger:
             self.current_ingestion_log[msg_id]["profile_updates"].append(profile_update)
         else:
             self.current_ingestion_log[msg_id]["profile_updates"] = [profile_update]
+
+    def log_assertions_latency(self, msg_id: str, latency: float) -> None:
+        if msg_id not in self.current_ingestion_log:
+            raise RuntimeError(f"msg with id {msg_id} not present in the log")
+
+        self.current_ingestion_log[msg_id]["assertion_latency"] = latency
+
+    def log_deduplication_latency(self, msg_id: str, latency: float) -> None:
+        if msg_id not in self.current_ingestion_log:
+            raise RuntimeError(f"msg with id {msg_id} not present in the log")
+
+        self.current_ingestion_log[msg_id]["deduplication_latency"] = latency
+
+    def log_deduplication_latecy(self, msg_id: str, latency: float) -> None:
+        self.log_deduplication_latency(msg_id=msg_id, latency=latency)
+
+    def log_profile_update_latency(self, msg_id: str, latency: float) -> None:
+        if msg_id not in self.current_ingestion_log:
+            raise RuntimeError(f"msg with id {msg_id} not present in the log")
+
+        self.current_ingestion_log[msg_id]["profile_update_latency"] = latency

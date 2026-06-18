@@ -5,6 +5,7 @@ from dotenv import find_dotenv, load_dotenv
 from typing import Literal
 import asyncio
 import os
+import time
 
 from pararag.memory.services import memory_retrieval_service
 from pararag.memory.services.memory_retrieval_service import MemoryRetrievalService
@@ -82,6 +83,7 @@ async def update_memory(state: DeduplicationState, runtime: Runtime[MemoryContex
         return {}
 
     # Decide on memory insertions concurrently
+    deduplication_start = time.perf_counter()
     decisions = await asyncio.gather(
         *[
             decide_memory_insertion(memory_content, retrieval_service)
@@ -101,6 +103,7 @@ async def update_memory(state: DeduplicationState, runtime: Runtime[MemoryContex
 
     # Insert memories with positive decisons
     memories_to_insert = [item.memory for item in memories_with_decisions if item.decision == "yes"]
+    deduplication_latency = time.perf_counter() - deduplication_start
 
     # Logs
     memories_with_decisions_dump = [memory.model_dump() for memory in memories_with_decisions]
@@ -109,6 +112,10 @@ async def update_memory(state: DeduplicationState, runtime: Runtime[MemoryContex
     json_logger = runtime.context["json_logger"]
     
     if state["msg_id"] is not None:
+        json_logger.log_deduplication_latency(
+            msg_id=state["msg_id"],
+            latency=deduplication_latency,
+        )
         json_logger.log_deduplication(
             msg_id=state["msg_id"],
             memories_with_decisions=memories_with_decisions_dump,

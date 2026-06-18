@@ -6,6 +6,7 @@ from pydantic import BaseModel, Field
 from typing import TypedDict
 import asyncio
 import os
+import time
 
 from pararag.orchestration.shared.prompts import EXTRACT_ASSERTIONS_PROMPT, LOCOMO_EXTRACT_ASSERTIONS_PROMPT_2
 from pararag.orchestration.shared.types import UpdateContext
@@ -52,13 +53,19 @@ async def extract_assertions(state: GraphState, runtime: Runtime[UpdateContext])
         )
 
     # Extract assertions
+    assertion_start = time.perf_counter()
     result = await llm.ainvoke([SystemMessage(prompt)])
+    assertion_latency = time.perf_counter() - assertion_start
 
     # Logs
     get_console().print_assertions(result.assertions)
     json_logger = runtime.context["json_logger"]
 
     if state["msg_id"] is not None:
+        json_logger.log_assertions_latency(
+            msg_id=state["msg_id"],
+            latency=assertion_latency,
+        )
         json_logger.log_extraction(
             msg_id=state["msg_id"],
             assertions=result.assertions,

@@ -1,6 +1,7 @@
 from langchain_core.messages import SystemMessage
 from langgraph.runtime import Runtime
 from pydantic import BaseModel, Field
+import time
 
 from pararag.ai.llm import get_llm
 from pararag.shared.models import Profile
@@ -45,6 +46,7 @@ async def update_profiles(state: ProfileState, runtime: Runtime[ProfileUpdateCon
     )
 
     # Report and ignore exceptions like structured output or invalid user failures
+    profile_update_start = time.perf_counter()
     try:
         # Update profiles
         response = await llm.ainvoke([SystemMessage(prompt)])
@@ -82,5 +84,12 @@ async def update_profiles(state: ProfileState, runtime: Runtime[ProfileUpdateCon
     except Exception as exc:
         get_console().print_exception(exc)
         return {}
+
+    finally:
+        if state["msg_id"]:
+            json_logger.log_profile_update_latency(
+                msg_id=state["msg_id"],
+                latency=time.perf_counter() - profile_update_start,
+            )
     
     return {"profiles": list[profiles_by_name.values()]}
