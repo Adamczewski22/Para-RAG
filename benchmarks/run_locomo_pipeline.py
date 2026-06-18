@@ -32,7 +32,16 @@ def main(
     previous_logs_path: str | None,
     rerun_retrieval: bool,
     rerun_profiles: bool,
+    final_run: bool,
 ) -> None:
+    if final_run:
+        iteration_name = "pararag_final"
+        memory_version = "profiles"
+        dataset_path = ROOT / "data" / "locomo" / f"locomo_sample_{version}.json"
+    else:
+        dataset_path = DATASET_PATH
+        memory_version = iteration_name
+
     result_file_name = f"{iteration_name}_result_{version}.json"
     result_path = RESULTS_DIR / result_file_name
 
@@ -47,8 +56,8 @@ def main(
         cmd = [
             sys.executable, # current Python executable (venv)
             "-m", RUN_LOCOMO_MODULE,
-            "--memory-version", iteration_name,
-            "--dataset-path", str(DATASET_PATH),
+            "--memory-version", memory_version,
+            "--dataset-path", str(dataset_path),
             "--output-path", str(result_path),
             "--logs-path", str(logs_path),
             "--json-logs-path", str(json_logs_path),
@@ -74,8 +83,8 @@ def main(
         run_cmd([
             sys.executable,
             "-m", RERUN_DEDUPLICATION_MODULE,
-            "--memory-version", iteration_name,
-            "--dataset-path", str(DATASET_PATH),
+            "--memory-version", memory_version,
+            "--dataset-path", str(dataset_path),
             "--output-path", str(result_path),
             "--logs-path", str(logs_path),
             "--json-logs-path", str(json_logs_path),
@@ -87,8 +96,8 @@ def main(
         run_cmd([
             sys.executable,
             "-m", RERUN_PROFILES_MODULE,
-            "--memory-version", iteration_name,
-            "--dataset-path", str(DATASET_PATH),
+            "--memory-version", memory_version,
+            "--dataset-path", str(dataset_path),
             "--output-path", str(result_path),
             "--logs-path", str(logs_path),
             "--json-logs-path", str(json_logs_path),
@@ -120,6 +129,8 @@ if __name__ == "__main__":
     parser.add_argument(
         "iteration_name",
         type=str,
+        nargs="?",
+        default=""
     )
     parser.add_argument(
         "version",
@@ -154,6 +165,11 @@ if __name__ == "__main__":
         "--rerun-profiles",
         action="store_true",
     )
+    # Final run flag
+    parser.add_argument(
+        "--final",
+        action="store_true",
+    )
     args = parser.parse_args()
 
     main(
@@ -165,4 +181,5 @@ if __name__ == "__main__":
         previous_logs_path=args.previous_logs_path,
         rerun_retrieval=args.rerun_retrieval,
         rerun_profiles=args.rerun_profiles,
+        final_run=args.final,
     )

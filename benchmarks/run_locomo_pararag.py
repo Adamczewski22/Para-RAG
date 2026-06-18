@@ -9,8 +9,8 @@ import time
 import os
 
 from benchmarks.utils import parse_locomo_timestamp
-from benchmarks.prompts import ANSWER_PROMPT_3
-from pararag import ParaRAGMemory, MemoryEntry, JsonLogger, get_console
+from benchmarks.prompts import ANSWER_PROMPT_3, ANSWER_PROMPT_4_2
+from pararag import ParaRAGMemory, MemoryEntry, Profile, JsonLogger, get_console
 
 
 load_dotenv(find_dotenv())
@@ -49,6 +49,16 @@ async def ingest_conversation(conversations: list[dict], memory: ParaRAGMemory, 
 def memories_to_str(memories: list[MemoryEntry]) -> str:
     return "\n".join([str(memory) for memory in memories])
 
+def profiles_to_str(profiles: list[Profile]) -> str:
+    return "\n\n".join([str(profile) for profile in profiles])
+
+def get_locomo_speakers(dataset_path: str, sample_id: str) -> list[str]:
+    with open(dataset_path, mode="r", encoding="utf-8") as file:
+        data = json.load(file)
+    
+    conversation = data[sample_id]["conversation"]
+    return [conversation[0]["speaker"], conversation[1]["speaker"]]
+
 
 async def answer_question(qa_item: dict, memory: ParaRAGMemory, llm: ChatOpenAI) -> dict:
     """Retrieves memories and answers a single question from locomo benchmark while measuring latency and maintaining metadata"""
@@ -57,12 +67,16 @@ async def answer_question(qa_item: dict, memory: ParaRAGMemory, llm: ChatOpenAI)
     # Retrieve memories and measure latency
     start = time.perf_counter()
     memories = await memory.retrieve_memories(question)
+    profiles = await memory.retrieve_user_profiles()
     retrieval_latency = time.perf_counter() - start
-    memories_str = memories_to_str(memories)
 
-    prompt = ANSWER_PROMPT_3.format(
+    memories_str = memories_to_str(memories)
+    profiles_str = profiles_to_str(profiles)
+
+    prompt = ANSWER_PROMPT_4_2.format(
         question=question,
-        context=memories_str,
+        profiles=profiles_str,
+        memories=memories_str,
     )
     # Generate answer and measure latency
     start = time.perf_counter()
@@ -74,6 +88,8 @@ async def answer_question(qa_item: dict, memory: ParaRAGMemory, llm: ChatOpenAI)
         "answer": qa_item["answer"],
         "category": qa_item["category"],
         "context": memories_str,
+        "profiles": profiles_str,
+        "prompt": prompt,
         "response": response.content,
         "search_time": retrieval_latency,
         "response_time": response_latency,
@@ -102,14 +118,18 @@ async def main(
         # Update logger
         json_logger.set_sample_id(sample_id)
 
-        # Init memory
+        # Init and clear memory
         memory = ParaRAGMemory(
             memory_version=memory_version,
             json_logger=json_logger,
+            users=get_locomo_speakers(dataset_path, sample_id),
         )
+
         # Clear memory and ingest unless only rerunning retrieval
         if not rerun_retrieval:
             await memory.clear_collection()
+            await memory.delete_profiles()
+            await memory.init_profile_store()
 
             # Ingest memories
             await ingest_conversation(

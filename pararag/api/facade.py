@@ -41,10 +41,23 @@ class ParaRAGMemory:
         # Init the memory admin service
         self.memory_admin_service = MemoryAdminService(store=self.memory_store, namespace=self.memory_id)
 
-        # Init retrieval and update
+        # Init update service
         embedder = get_embedder()
-        memory_update_service = MemoryUpdateService(store=self.memory_store, namespace=self.memory_id, embedder=embedder)
-        memory_retrieval_service = MemoryRetrievalService(store=self.memory_store, namespace=memory_id, embedder=embedder)
+
+        memory_update_service = MemoryUpdateService(
+            store=self.memory_store,
+            namespace=self.memory_id,
+            embedder=embedder,
+            json_logger=json_logger,
+        )
+
+        # Init retrieval service
+        memory_retrieval_service = MemoryRetrievalService(
+            store=self.memory_store,
+            namespace=memory_id,
+            embedder=embedder,
+            json_logger=json_logger,
+        )
 
         # Init profile service
         profile_service = ProfileService(store=self.profile_store, users=users, memory_id=memory_id)

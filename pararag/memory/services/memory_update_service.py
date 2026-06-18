@@ -5,17 +5,36 @@ import uuid
 from pararag.memory.domain.interfaces import MemoryStore
 from pararag.shared.models import MemoryEntry
 from pararag.shared.types import Collection
+from pararag.shared.logger import JsonLogger
+from pararag.ai.embeddings import EMBEDDINGS_MODEL, count_embedding_tokens
 
 
 class MemoryUpdateService:
-    def __init__(self, store: MemoryStore, namespace: str, embedder: Embeddings):
+    def __init__(
+        self,
+        store: MemoryStore,
+        namespace: str,
+        embedder: Embeddings,
+        json_logger: JsonLogger | None = None,
+    ):
         self.store = store
         self.namespace = namespace
         self.embedder = embedder
+        self.json_logger = json_logger
     
     async def update_memory(self, memory_entry: MemoryEntry, collection: Collection):
         """Embeds the memory entry and inserts it into the underlying memory store"""
+        embedding_tokens = count_embedding_tokens(memory_entry.content)
         embedding = await self.embedder.aembed_query(memory_entry.content)
+
+        if self.json_logger is not None:
+            self.json_logger.log_embedding_tokens(
+                category="update",
+                text=memory_entry.content,
+                token_usage=embedding_tokens,
+                model=EMBEDDINGS_MODEL,
+                collection=collection.value,
+            )
 
         await self.store.insert(
             vector=embedding,

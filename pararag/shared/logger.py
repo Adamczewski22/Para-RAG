@@ -62,6 +62,7 @@ class JsonLogger:
         self.current_ingestion_log = {}
         self.current_retrieval_log = []
         self.current_llm_log = []
+        self.current_embedding_log = []
 
 
     def set_sample_id(self, id: str) -> None:
@@ -70,6 +71,7 @@ class JsonLogger:
         self.current_ingestion_log = {}
         self.current_retrieval_log = []
         self.current_llm_log = []
+        self.current_embedding_log = []
 
 
     def save_sample_logs(self) -> None:
@@ -81,6 +83,8 @@ class JsonLogger:
             sample_log["retrieval"] = self.current_retrieval_log
         if self.current_llm_log:
             sample_log["llm"] = self.current_llm_log
+        if self.current_embedding_log:
+            sample_log["embeddings"] = self.current_embedding_log
 
         self.log[self.current_sample_id] = sample_log
 
@@ -184,5 +188,23 @@ class JsonLogger:
             {
                 "category": category,
                 "tokens": token_usage,
+            }
+        )
+
+    def log_embedding_tokens(
+        self,
+        category: str,
+        text: str,
+        token_usage: dict,
+        model: str,
+        collection: str | None = None,
+    ) -> None:
+        self.current_embedding_log.append(
+            {
+                "category": category,
+                "collection": collection,
+                "model": model,
+                "text": text,
+                "embedding_tokens": token_usage,
             }
         )

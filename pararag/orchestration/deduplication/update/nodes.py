@@ -48,6 +48,7 @@ async def decide_memory_insertion(
     similar_memories = await retrieval_service.retrieve_dense(
         query=memory_content,
         collection=collection,
+        embedding_category="deduplication",
     )
     memories_str = memories_to_str(similar_memories)
 

@@ -1,5 +1,8 @@
 .PHONY: locomo locomo-rerun locomo-dedup locomo-retrieval locomo-profiles check-vars
 
+check-version:
+	@test -n "$(VERSION)" || (echo "Missing VERSION" && exit 1)
+
 check-vars:
 	@test -n "$(ITERATION)" || (echo "Missing ITERATION" && exit 1)
 	@test -n "$(VERSION)" || (echo "Missing VERSION" && exit 1)
@@ -28,3 +31,7 @@ locomo-profiles: check-vars
 	python3 -m benchmarks.run_locomo_pipeline $(ITERATION) $(VERSION) \
 		--rerun-profiles \
 		--previous-logs-path $(PREVIOUS_LOGS)
+
+locomo-final: check-version
+	python3 -m benchmarks.run_locomo_pipeline $(VERSION) \
+		--final
