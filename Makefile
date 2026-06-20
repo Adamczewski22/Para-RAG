@@ -35,3 +35,9 @@ locomo-profiles: check-vars
 locomo-final: check-version
 	python3 -m benchmarks.run_locomo_pipeline $(VERSION) \
 		--final
+
+locomo-profile-ablation: check-vars
+	python3 -m benchmarks.run_locomo_pipeline $(ITERATION) $(VERSION) \
+		--rerun \
+		--profile-ablation \
+		--previous-result-path $(PREVIOUS)	

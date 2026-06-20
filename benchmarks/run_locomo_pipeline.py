@@ -33,6 +33,7 @@ def main(
     rerun_retrieval: bool,
     rerun_profiles: bool,
     final_run: bool,
+    profile_ablation: bool,
 ) -> None:
     if final_run:
         iteration_name = "pararag_final"
@@ -71,12 +72,16 @@ def main(
 
     # Locomo rerun
     elif rerun:
-        run_cmd([
+        cmd = [
             sys.executable,
             str(RERUN_LOCOMO_MODULE_PATH),
             "--results-path", previous_result_path,
             "--output-path", str(result_path),
-        ])
+        ]
+        if profile_ablation:
+            cmd.append("--profile-ablation")
+
+        run_cmd(cmd)
     
     # Deduplication rerun
     elif deduplication_rerun:
@@ -170,6 +175,11 @@ if __name__ == "__main__":
         "--final",
         action="store_true",
     )
+    # Summary ablation
+    parser.add_argument(
+        "--profile-ablation",
+        action="store_true"
+    )
     args = parser.parse_args()
 
     main(
@@ -182,4 +192,5 @@ if __name__ == "__main__":
         rerun_retrieval=args.rerun_retrieval,
         rerun_profiles=args.rerun_profiles,
         final_run=args.final,
+        profile_ablation=args.profile_ablation,
     )
