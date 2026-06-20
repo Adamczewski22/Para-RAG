@@ -20,11 +20,16 @@ def get_graph() -> CompiledStateGraph:
     return graph_builder.compile()
 
 
-def init_graph_state(user_msg: Message, conversation_history: list[Message]) -> GraphState:
+def init_graph_state(
+    user_msg: Message, 
+    conversation_history: list[Message],
+    query_decomposition: bool = True,
+) -> GraphState:
     return {
         "conversation_history": conversation_history,
         "conversation_history_str": messages_to_string(conversation_history),
         "last_user_msg": user_msg,
         "sub_queries": [],
         "memories": [],
+        "query_decomposition": query_decomposition,
     }

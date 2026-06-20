@@ -19,6 +19,7 @@ class MemoryOrchestrator(ABC):
         profile_service: ProfileService,
         json_logger: JsonLogger | None = None,
         users: list[str] = [],
+        query_decomposition: bool = True,
     ):
         self.conversation_history: list[Message] = []
         self.update_service = update_service
@@ -26,6 +27,7 @@ class MemoryOrchestrator(ABC):
         self.profile_service = profile_service
         self.json_logger = json_logger
         self.users = users
+        self.query_decomposition = query_decomposition
 
     @abstractmethod
     async def add_user_msg(
@@ -123,7 +125,7 @@ class BaseMemoryOrchestrator(MemoryOrchestrator):
         """Retrieves relevant memories for answering a user message as an aid to a chatbot assistant"""
         # Initiliaze the graph
         graph = self.retrieval_graph.get_graph()
-        graph_state = self.retrieval_graph.init_graph_state(user_msg, self.conversation_history)
+        graph_state = self.retrieval_graph.init_graph_state(user_msg, self.conversation_history, self.query_decomposition)
 
         # Get context
         context = RetrievalContext(

@@ -14,6 +14,7 @@ RERUN_LOCOMO_MODULE_PATH = ROOT / "benchmarks/rerun_locomo_from_results.py"
 RERUN_DEDUPLICATION_MODULE = "benchmarks.run_locomo_deduplication"
 RERUN_PROFILES_MODULE = "benchmarks.run_locomo_profiles"
 DEDUPLICATION_ABLATION_MODULE = "benchmarks.run_deduplication_ablation"
+DECOMPOSITION_ABLATION_MODULE = "benchmarks.run_decomposition_ablation"
 
 EVAL_SCRIPT_PATH = MEMOBASE_DIR / "evals.py"
 GEN_SCORE_SCRIPT_PATH = MEMOBASE_DIR / "generate_scores.py"
@@ -36,6 +37,7 @@ def main(
     final_run: bool,
     profile_ablation: bool,
     deduplication_ablation: bool,
+    decomposition_ablation: bool,
 ) -> None:
     if final_run:
         iteration_name = "pararag_final"
@@ -55,7 +57,7 @@ def main(
     json_logs_path = RESULTS_DIR / "debug" / json_logs_file_name
 
     # Standard locomo run
-    if not rerun and not deduplication_rerun and not rerun_profiles and not deduplication_ablation:
+    if not rerun and not deduplication_rerun and not rerun_profiles and not deduplication_ablation and not decomposition_ablation:
         cmd = [
             sys.executable, # current Python executable (venv)
             "-m", RUN_LOCOMO_MODULE,
@@ -123,6 +125,19 @@ def main(
             "--previous-logs-path", str(RESULTS_DIR / "debug" / "pararag_final_logs.json"),
             "--previous-results-path", str(RESULTS_DIR / "pararag_final_result.json"),
         ])
+    
+    # Query decomposition ablation
+    elif decomposition_ablation:
+        run_cmd([
+            sys.executable,
+            "-m", DECOMPOSITION_ABLATION_MODULE,
+            "--dataset-path", str(dataset_path),
+            "--output-path", str(result_path),
+            "--logs-path", str(logs_path),
+            "--json-logs-path", str(json_logs_path),
+            "--previous-logs-path", str(RESULTS_DIR / "debug" / "pararag_final_logs.json"),
+            "--previous-results-path", str(RESULTS_DIR / "pararag_final_result.json"),
+        ])
 
     # Run evaluation
     eval_file_name = f"{iteration_name}_eval_{version}.json"
@@ -181,6 +196,9 @@ if __name__ == "__main__":
     # Deduplication ablation
     parser.add_argument("--deduplication-ablation", action="store_true")
 
+    # Query decomposition ablation
+    parser.add_argument("--decomposition-ablation", action="store_true")
+
     args = parser.parse_args()
 
     main(
@@ -195,4 +213,5 @@ if __name__ == "__main__":
         final_run=args.final,
         profile_ablation=args.profile_ablation,
         deduplication_ablation=args.deduplication_ablation,
+        decomposition_ablation=args.decomposition_ablation,
     )

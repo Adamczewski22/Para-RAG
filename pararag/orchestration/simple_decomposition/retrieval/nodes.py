@@ -25,6 +25,7 @@ class GraphState(TypedDict):
     last_user_msg: Message
     sub_queries: list[str]
     memories: list[MemoryEntry]
+    query_decomposition: bool
 
 class SubQueries(BaseModel):
     sub_queries: list[str] = Field(description="A list of simple, atomic sub-queries later used for semantic search.")
@@ -32,6 +33,10 @@ class SubQueries(BaseModel):
 
 async def decompose_query(state: GraphState, runtime: Runtime[RetrievalContext]) -> dict:
     """A node that decomposes the user query into atomic sub-queries to be used for parallel retrieval"""
+    # If query decomposition is disabled, use only the question as is
+    if not state["query_decomposition"]:
+        return {"sub_queries": [state["last_user_msg"].content]}
+
     llm = get_llm().with_structured_output(SubQueries, include_raw=True)
 
     # Prompt suited for locomo evaluation: retrieval for a question from the benchmark

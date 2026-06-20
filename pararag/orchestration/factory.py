@@ -15,7 +15,8 @@ def create_memory_orchestrator(
         retrieval_service: MemoryRetrievalService,
         profile_service: ProfileService,
         json_logger: JsonLogger | None = None,
-        users: list[str] = []
+        users: list[str] = [],
+        query_decomposition: bool = True,
     ) -> MemoryOrchestrator:
 
     match version:
@@ -26,6 +27,7 @@ def create_memory_orchestrator(
                 profile_service=profile_service,
                 json_logger=json_logger,
                 users=users,
+                query_decomposition=query_decomposition,
             )
 
         case MemoryVersion.DEDUPLICATION:
@@ -35,6 +37,7 @@ def create_memory_orchestrator(
                 profile_service=profile_service,
                 json_logger=json_logger,
                 users=users,
+                query_decomposition=query_decomposition,
             )
         
         case MemoryVersion.PROFILES:
@@ -44,6 +47,7 @@ def create_memory_orchestrator(
                 profile_service=profile_service,
                 json_logger=json_logger,
                 users=users,
+                query_decomposition=query_decomposition,
             )
 
         case _:

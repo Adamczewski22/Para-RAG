@@ -45,3 +45,7 @@ locomo-profile-ablation: check-vars
 locomo-deduplication-ablation: check-vars
 	python3 -m benchmarks.run_locomo_pipeline $(ITERATION) $(VERSION) \
 		--deduplication-ablation
+
+locomo-decomposition-ablation: check-vars
+	python3 -m benchmarks.run_locomo_pipeline $(ITERATION) $(VERSION) \
+		--decomposition-ablation
