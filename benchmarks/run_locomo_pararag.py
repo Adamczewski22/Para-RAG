@@ -9,7 +9,7 @@ import time
 import os
 
 from benchmarks.utils import parse_locomo_timestamp
-from benchmarks.prompts import ANSWER_PROMPT_3, ANSWER_PROMPT_4_2
+from benchmarks.prompts import ANSWER_PROMPT_4_2
 from pararag import ParaRAGMemory, MemoryEntry, Profile, JsonLogger, get_console
 
 

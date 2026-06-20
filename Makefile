@@ -41,3 +41,7 @@ locomo-profile-ablation: check-vars
 		--rerun \
 		--profile-ablation \
 		--previous-result-path $(PREVIOUS)	
+
+locomo-deduplication-ablation: check-vars
+	python3 -m benchmarks.run_locomo_pipeline $(ITERATION) $(VERSION) \
+		--deduplication-ablation

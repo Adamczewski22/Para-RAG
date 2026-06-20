@@ -7,12 +7,13 @@ import sys
 ROOT = Path(__file__).resolve().parent.parent
 MEMOBASE_DIR = ROOT / "external/memobase/docs/experiments/locomo-benchmark"
 RESULTS_DIR = ROOT / "results/locomo"
-DATASET_PATH = ROOT / "data/locomo/locomo10_rag_with_metadata.json"
+DATASET_PATH = ROOT / "data/locomo/locomo_samples_merged.json"
 
 RUN_LOCOMO_MODULE = "benchmarks.run_locomo_pararag"
 RERUN_LOCOMO_MODULE_PATH = ROOT / "benchmarks/rerun_locomo_from_results.py"
 RERUN_DEDUPLICATION_MODULE = "benchmarks.run_locomo_deduplication"
 RERUN_PROFILES_MODULE = "benchmarks.run_locomo_profiles"
+DEDUPLICATION_ABLATION_MODULE = "benchmarks.run_deduplication_ablation"
 
 EVAL_SCRIPT_PATH = MEMOBASE_DIR / "evals.py"
 GEN_SCORE_SCRIPT_PATH = MEMOBASE_DIR / "generate_scores.py"
@@ -34,6 +35,7 @@ def main(
     rerun_profiles: bool,
     final_run: bool,
     profile_ablation: bool,
+    deduplication_ablation: bool,
 ) -> None:
     if final_run:
         iteration_name = "pararag_final"
@@ -53,7 +55,7 @@ def main(
     json_logs_path = RESULTS_DIR / "debug" / json_logs_file_name
 
     # Standard locomo run
-    if not rerun and not deduplication_rerun and not rerun_profiles:
+    if not rerun and not deduplication_rerun and not rerun_profiles and not deduplication_ablation:
         cmd = [
             sys.executable, # current Python executable (venv)
             "-m", RUN_LOCOMO_MODULE,
@@ -108,6 +110,19 @@ def main(
             "--json-logs-path", str(json_logs_path),
             "--previous-json-logs-path", previous_logs_path,
         ])
+    
+    # Deduplication ablation
+    elif deduplication_ablation:
+        run_cmd([
+            sys.executable,
+            "-m", DEDUPLICATION_ABLATION_MODULE,
+            "--dataset-path", str(dataset_path),
+            "--output-path", str(result_path),
+            "--logs-path", str(logs_path),
+            "--json-logs-path", str(json_logs_path),
+            "--previous-logs-path", str(RESULTS_DIR / "debug" / "pararag_final_logs.json"),
+            "--previous-results-path", str(RESULTS_DIR / "pararag_final_result.json"),
+        ])
 
     # Run evaluation
     eval_file_name = f"{iteration_name}_eval_{version}.json"
@@ -137,49 +152,35 @@ if __name__ == "__main__":
         nargs="?",
         default=""
     )
-    parser.add_argument(
-        "version",
-        type=str,
-    )
+    parser.add_argument("version", type=str)
+
     # Rerun locomo mode
-    parser.add_argument(
-        "--rerun",
-        action="store_true",
-    )
+    parser.add_argument("--rerun", action="store_true")
+
     parser.add_argument(
         "--previous-result-path",
         type=str,
         default=str(RESULTS_DIR / "simple_decomposition_result_2.json"),
     )
     # Rerun deduplication mode
-    parser.add_argument(
-        "--rerun-deduplication",
-        action="store_true",
-    )
-    parser.add_argument(
-        "--previous-logs-path",
-        type=str,
-    )
+    parser.add_argument("--rerun-deduplication", action="store_true")
+    parser.add_argument("--previous-logs-path", type=str)
+
     # Rerun retrieval mode
-    parser.add_argument(
-        "--rerun-retrieval",
-        action="store_true",
-    )
+    parser.add_argument("--rerun-retrieval", action="store_true")
+
     # Rerun profiles mode
-    parser.add_argument(
-        "--rerun-profiles",
-        action="store_true",
-    )
+    parser.add_argument("--rerun-profiles", action="store_true")
+
     # Final run flag
-    parser.add_argument(
-        "--final",
-        action="store_true",
-    )
+    parser.add_argument("--final", action="store_true")
+
     # Summary ablation
-    parser.add_argument(
-        "--profile-ablation",
-        action="store_true"
-    )
+    parser.add_argument("--profile-ablation", action="store_true")
+
+    # Deduplication ablation
+    parser.add_argument("--deduplication-ablation", action="store_true")
+
     args = parser.parse_args()
 
     main(
@@ -193,4 +194,5 @@ if __name__ == "__main__":
         rerun_profiles=args.rerun_profiles,
         final_run=args.final,
         profile_ablation=args.profile_ablation,
+        deduplication_ablation=args.deduplication_ablation,
     )
