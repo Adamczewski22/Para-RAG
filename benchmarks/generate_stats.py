@@ -33,6 +33,7 @@ def main(run_name: str):
     retrieval_latencies = []
     decomposition_latencies = []
     concurrent_retrieval_latencies = []
+    profile_retrieval_latencies = []
 
     # Tokens
     retrieval_total_tokens = []
@@ -48,6 +49,7 @@ def main(run_name: str):
     update_latencies = []
     assertion_latencies = []
     deduplication_latencies = []
+    deduplication_insertion_latencies = []
     profile_update_latencies = []
 
     # Tokens
@@ -78,6 +80,10 @@ def main(run_name: str):
                 deduplication_latencies.append(ingestion_logs["deduplication_latency"])
             else:
                 print("deduplication latency missing")
+
+            deduplication_insertion_latency = ingestion_logs.get("deduplication_insertion_latency")
+            if deduplication_insertion_latency is not None:
+                deduplication_insertion_latencies.append(deduplication_insertion_latency)
             
             # Profile
             profile_latency = ingestion_logs.get("profile_update_latency")
@@ -135,6 +141,9 @@ def main(run_name: str):
                 elif stage == "concurrent_retrieval":
                     concurrent_retrieval_latencies.append(latency)
 
+                elif stage == "profile_retrieval":
+                    profile_retrieval_latencies.append(latency)
+
                 else:
                     raise RuntimeError(f"Invalid retrieval stafe {stage}")
 
@@ -170,6 +179,7 @@ def main(run_name: str):
                     "p95_latency": np.percentile(update_latencies, 95),
                     "assertion_avg_latency": np.mean(assertion_latencies),
                     "deduplication_avg_latency": np.mean(deduplication_latencies),
+                    "deduplication_insertion_avg_latency": np.mean(deduplication_insertion_latencies),
                     "profile_update_avg_latency": np.mean(profile_update_latencies),
                 },
                 "tokens": {
@@ -188,6 +198,7 @@ def main(run_name: str):
                     "p95_latency": np.percentile(retrieval_latencies, 95),
                     "decomposition_avg_latency": np.mean(decomposition_latencies),
                     "concurrent_retrieval_avg_latency": np.mean(concurrent_retrieval_latencies),
+                    "profile_retrieval_avg_latency": np.mean(profile_retrieval_latencies),
                 },
                 "tokens": {
                     "avg_total_tokens": np.mean(retrieval_total_tokens),

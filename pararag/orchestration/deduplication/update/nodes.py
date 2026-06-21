@@ -126,7 +126,7 @@ async def update_memory(state: DeduplicationState, runtime: Runtime[MemoryContex
         for memory, decision in zip(state["assertions"], decisions)
     ]
 
-    # Insert memories with positive decisons
+    # Gather memories with positive decisons
     memories_to_insert = [item.memory for item in memories_with_decisions if item.decision == "yes"]
     deduplication_latency = time.perf_counter() - deduplication_start
 
@@ -152,6 +152,7 @@ async def update_memory(state: DeduplicationState, runtime: Runtime[MemoryContex
         )
 
     # Insertion
+    insertion_start = time.perf_counter()
     if state["parallel_mode"]:
         # Parallel mode
         await asyncio.gather(
@@ -172,6 +173,13 @@ async def update_memory(state: DeduplicationState, runtime: Runtime[MemoryContex
                 collection=collection,
                 timestamp=state["timestamp"],
             )
+
+    insertion_latency = time.perf_counter() - insertion_start
+    if state["msg_id"] is not None and json_logger is not None:
+        json_logger.log_deduplication_insertion_latency(
+            msg_id=state["msg_id"],
+            latency=insertion_latency,
+        )
 
     # Update graph state for the process to be visible in tracing
     return {

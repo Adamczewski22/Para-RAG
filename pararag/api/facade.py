@@ -1,6 +1,7 @@
 from dotenv import find_dotenv, load_dotenv
 from datetime import datetime
 import os
+import time
 
 from pararag.orchestration import MemoryVersion, MemoryOrchestrator, create_memory_orchestrator
 from pararag.shared.models import MemoryEntry, UserMessage, AssistantMessage, Profile
@@ -38,7 +39,7 @@ class ParaRAGMemory:
         self.memory_store = memory_store if memory_store else QdrantAdapter()
         self.profile_store = profile_store if profile_store else SqliteAdapter()
         self.memory_id = memory_id
-        self.memory_version = memory_version
+        self.json_logger = json_logger
 
         # Init the memory admin service
         self.memory_admin_service = MemoryAdminService(store=self.memory_store, namespace=self.memory_id)
@@ -67,6 +68,7 @@ class ParaRAGMemory:
 
         # Set memory version
         memory_version = memory_version if memory_version else DEFAULT_MEMORY_VERSION
+        self.memory_version = memory_version
 
         # Create memory orchestrator, injecting the services
         self.orchestrator: MemoryOrchestrator = create_memory_orchestrator(
@@ -94,7 +96,14 @@ class ParaRAGMemory:
         if self.memory_version in [MemoryVersion.SIMPLE_DECOMPOSITION, MemoryVersion.DEDUPLICATION]:
             return []
 
-        return await self.profile_service.get_profiles()
+        profile_retrieval_start = time.perf_counter()
+        try:
+            return await self.profile_service.get_profiles()
+        finally:
+            if self.json_logger is not None:
+                self.json_logger.log_profile_retrieval_latency(
+                    latency=time.perf_counter() - profile_retrieval_start,
+                )
 
 
     async def force_profile_update(self, msg_id: str | None = None) -> None:

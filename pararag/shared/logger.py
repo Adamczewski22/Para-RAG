@@ -151,6 +151,12 @@ class JsonLogger:
 
         self.current_ingestion_log[msg_id]["deduplication_latency"] = latency
 
+    def log_deduplication_insertion_latency(self, msg_id: str, latency: float) -> None:
+        if msg_id not in self.current_ingestion_log:
+            raise RuntimeError(f"msg with id {msg_id} not present in the log")
+
+        self.current_ingestion_log[msg_id]["deduplication_insertion_latency"] = latency
+
     def log_deduplication_tokens(self, msg_id: str, token_usage: dict) -> None:
         if msg_id not in self.current_ingestion_log:
             raise RuntimeError(f"msg with id {msg_id} not present in the log")
@@ -188,6 +194,14 @@ class JsonLogger:
             {
                 "query": query,
                 "stage": stage,
+                "latency": latency,
+            }
+        )
+
+    def log_profile_retrieval_latency(self, latency: float) -> None:
+        self.current_retrieval_log.append(
+            {
+                "stage": "profile_retrieval",
                 "latency": latency,
             }
         )
