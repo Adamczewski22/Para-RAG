@@ -12,10 +12,10 @@ DEBUG_DIR = LOCOMO_DIR / "debug"
 SAMPLE_COUNT = 10
 
 
-def main(run_name: str):
-    log_file_name = f"{run_name}_logs.json"
-    result_file_name = f"{run_name}_result.json"
-    output_file_name = f"{run_name}_stats.json"
+def main(run_name: str, suffix: str) -> None:
+    log_file_name = f"{run_name}_logs{suffix}.json"
+    result_file_name = f"{run_name}_result{suffix}.json"
+    output_file_name = f"{run_name}_stats{suffix}.json"
 
     log_path = DEBUG_DIR / log_file_name
     result_path = LOCOMO_DIR / result_file_name
@@ -218,10 +218,9 @@ def main(run_name: str):
 if __name__ == "__main__":
     parser = ArgumentParser()
 
-    parser.add_argument(
-        "run_name",
-        type=str,
-    )
+    parser.add_argument("run_name", type=str)
+    parser.add_argument("--suffix", type=str, default="")
+
     args = parser.parse_args()
 
-    main(args.run_name)
+    main(args.run_name, args.suffix)

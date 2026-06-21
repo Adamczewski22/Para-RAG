@@ -49,3 +49,11 @@ locomo-deduplication-ablation: check-vars
 locomo-decomposition-ablation: check-vars
 	python3 -m benchmarks.run_locomo_pipeline $(ITERATION) $(VERSION) \
 		--decomposition-ablation
+
+locomo-sequential: check-version
+	python3 -m benchmarks.run_locomo_pipeline $(VERSION) \
+		--sequential-experiment
+	
+locomo-parallel: check-version
+	python3 -m benchmarks.run_locomo_pipeline $(VERSION) \
+		--parallel-experiment

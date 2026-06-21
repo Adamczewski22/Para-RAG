@@ -38,11 +38,24 @@ def main(
     profile_ablation: bool,
     deduplication_ablation: bool,
     decomposition_ablation: bool,
+    sequential_experiment: bool,
+    parallel_experiment: bool,
 ) -> None:
     if final_run:
         iteration_name = "pararag_final"
         memory_version = "profiles"
         dataset_path = ROOT / "data" / "locomo" / f"locomo_sample_{version}.json"
+
+    elif sequential_experiment:
+        iteration_name = "pararag_sequential"
+        memory_version = "profiles"
+        dataset_path = ROOT / "data" / "locomo" / f"locomo_sample_{version}.json"
+
+    elif parallel_experiment:
+        iteration_name = "pararag_parallel"
+        memory_version = "profiles"
+        dataset_path = ROOT / "data" / "locomo" / f"locomo_sample_{version}.json"
+
     else:
         dataset_path = DATASET_PATH
         memory_version = iteration_name
@@ -70,6 +83,10 @@ def main(
         # Add rerun retrieval flag if true
         if rerun_retrieval:
             cmd.append("--rerun-retrieval")
+
+        # Add sequential mode flag in case of sequential experiment
+        if sequential_experiment:
+            cmd.append("--sequential-mode")
 
         # Run command
         run_cmd(cmd, cwd=ROOT)
@@ -199,6 +216,12 @@ if __name__ == "__main__":
     # Query decomposition ablation
     parser.add_argument("--decomposition-ablation", action="store_true")
 
+    # Sequential experiment
+    parser.add_argument("--sequential-experiment", action="store_true")
+
+    # Parallel experiment
+    parser.add_argument("--parallel-experiment", action="store_true")
+
     args = parser.parse_args()
 
     main(
@@ -214,4 +237,6 @@ if __name__ == "__main__":
         profile_ablation=args.profile_ablation,
         deduplication_ablation=args.deduplication_ablation,
         decomposition_ablation=args.decomposition_ablation,
+        sequential_experiment=args.sequential_experiment,
+        parallel_experiment=args.parallel_experiment,
     )

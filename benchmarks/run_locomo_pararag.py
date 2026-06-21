@@ -64,14 +64,25 @@ def get_locomo_speakers(dataset_path: str, sample_id: str) -> list[str]:
     return [conversation[0]["speaker"], conversation[1]["speaker"]]
 
 
-async def answer_question(qa_item: dict, memory: ParaRAGMemory, llm: ChatOpenAI) -> dict:
+async def answer_question(qa_item: dict, memory: ParaRAGMemory, llm: ChatOpenAI, parallel_mode: bool = True) -> dict:
     """Retrieves memories and answers a single question from locomo benchmark while measuring latency and maintaining metadata"""
     question = qa_item["question"]
 
     # Retrieve memories and measure latency
     start = time.perf_counter()
-    memories = await memory.retrieve_memories(question)
-    profiles = await memory.retrieve_user_profiles()
+
+    # Parallel mode
+    if parallel_mode:
+        memories, profiles = await asyncio.gather(
+            memory.retrieve_memories(question),
+            memory.retrieve_user_profiles(),
+        )
+
+    # Sequential mode
+    else:
+        memories = await memory.retrieve_memories(question)
+        profiles = await memory.retrieve_user_profiles()
+
     retrieval_latency = time.perf_counter() - start
 
     memories_str = memories_to_str(memories)
@@ -107,8 +118,10 @@ async def main(
     logs_path: str, 
     json_logs_path: str,
     rerun_retrieval: bool,
+    sequential_mode: bool,
 ) -> None:
     llm = ChatOpenAI(model=os.getenv("ANSWER_MODEL"))
+    parallel_mode = not sequential_mode
 
     # Read locomo json file
     with open(file=dataset_path, mode="r") as file:
@@ -127,6 +140,7 @@ async def main(
             memory_version=memory_version,
             json_logger=json_logger,
             users=get_locomo_speakers(dataset_path, sample_id),
+            parallel_mode=parallel_mode,
         )
 
         # Clear memory and ingest unless only rerunning retrieval
@@ -149,7 +163,7 @@ async def main(
         batch_size = 10
         for i in tqdm(range(0, len(qa_items), batch_size), desc=f"Answering {sample_id}", leave=True):
             qa_batch = qa_items[i: i + batch_size]
-            coroutines = [answer_question(qa_item, memory, llm) for qa_item in qa_batch]
+            coroutines = [answer_question(qa_item, memory, llm, parallel_mode) for qa_item in qa_batch]
             qa_results = await asyncio.gather(*coroutines)
             sample_result.extend(qa_results)
 
@@ -203,6 +217,10 @@ if __name__ == "__main__":
         "--rerun-retrieval",
         action="store_true"
     )
+    parser.add_argument(
+        "--sequential-mode",
+        action="store_true",
+    )
     args = parser.parse_args()
 
     asyncio.run(
@@ -213,5 +231,6 @@ if __name__ == "__main__":
             logs_path=args.logs_path,
             json_logs_path=args.json_logs_path,
             rerun_retrieval=args.rerun_retrieval,
+            sequential_mode=args.sequential_mode,
         )
     )
