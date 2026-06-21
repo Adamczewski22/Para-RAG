@@ -27,6 +27,7 @@ class GraphState(TypedDict):
     timestamp: datetime
     assertions: list[str] | None
     msg_id: str
+    parallel_mode: bool
 
 class Assertions(BaseModel):
     assertions: list[str] = Field(description="a list of atomic assertions extracted from the users message to be inserted into the conversational memory.")
@@ -95,14 +96,24 @@ async def update_memory(state: GraphState, runtime: Runtime[UpdateContext]) -> d
     # Choose a different collection for locomo benchmark
     collection = Collection.LOCOMO if os.getenv("FOR_LOCOMO") == "true" else Collection.ASSERTIONS
 
-    await asyncio.gather(
-        *[
-            update_service.update_memory_from_content(
+    # Parallel mode
+    if state["parallel_mode"]:
+        await asyncio.gather(
+            *[
+                update_service.update_memory_from_content(
+                    content=assertion, 
+                    collection=collection,
+                    timestamp=state["timestamp"],
+                )
+                for assertion in state["assertions"]
+            ]
+        )
+    # Sequential mode
+    else:
+        for assertion in state["assertions"]:
+            await update_service.update_memory_from_content(
                 content=assertion, 
                 collection=collection,
                 timestamp=state["timestamp"],
             )
-            for assertion in state["assertions"]
-        ]
-    )
     return {}

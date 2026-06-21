@@ -27,9 +27,17 @@ def init_graph_state(
     msg_id: str | None = None,
     assertions: list[str] | None = None,
     deduplicated_assertions: list[str] | None = None,
+    parallel_mode: bool = True,
 ) -> DeduplicationState:
     # Deduplication memory adds some extra fields to simple decomposition memory graph state
-    state = init_graph_state_sd(user_msg, conversation_history, timestamp, msg_id, assertions)
+    state = init_graph_state_sd(
+        user_msg=user_msg,
+        conversation_history=conversation_history,
+        timestamp=timestamp,
+        msg_id=msg_id,
+        assertions=assertions,
+        parallel_mode=parallel_mode,
+    )
     state["update_decisions"] = []
     state["deduplicated_assertions"] = deduplicated_assertions
     return state

@@ -26,12 +26,21 @@ def init_graph_state(
     conversation_history: list[Message], 
     timestamp: datetime, 
     msg_id: str | None = None,
+    parallel_mode: bool = True,
     assertions: list[str] | None = None,
     deduplicated_assertions: list[str] | None = None,
     users: list[str] = [],
 ) -> StateGraph:
     # Profile memory state extends deduplication memory state
-    state = init_graph_state_dp(user_msg, conversation_history, timestamp, msg_id, assertions, deduplicated_assertions)
+    state = init_graph_state_dp(
+        user_msg=user_msg,
+        conversation_history=conversation_history,
+        timestamp=timestamp,
+        msg_id=msg_id,
+        assertions=assertions,
+        deduplicated_assertions=deduplicated_assertions,
+        parallel_mode=parallel_mode,
+    )
 
     state["users"] = users
     return state

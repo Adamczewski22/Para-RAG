@@ -17,6 +17,7 @@ def create_memory_orchestrator(
         json_logger: JsonLogger | None = None,
         users: list[str] = [],
         query_decomposition: bool = True,
+        parallel_mode: bool = True,
     ) -> MemoryOrchestrator:
 
     match version:
@@ -28,6 +29,7 @@ def create_memory_orchestrator(
                 json_logger=json_logger,
                 users=users,
                 query_decomposition=query_decomposition,
+                parallel_mode=parallel_mode,
             )
 
         case MemoryVersion.DEDUPLICATION:
@@ -38,6 +40,7 @@ def create_memory_orchestrator(
                 json_logger=json_logger,
                 users=users,
                 query_decomposition=query_decomposition,
+                parallel_mode=parallel_mode,
             )
         
         case MemoryVersion.PROFILES:
@@ -48,6 +51,7 @@ def create_memory_orchestrator(
                 json_logger=json_logger,
                 users=users,
                 query_decomposition=query_decomposition,
+                parallel_mode=parallel_mode,
             )
 
         case _:

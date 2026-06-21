@@ -26,6 +26,7 @@ class GraphState(TypedDict):
     sub_queries: list[str]
     memories: list[MemoryEntry]
     query_decomposition: bool
+    parallel_mode: bool
 
 class SubQueries(BaseModel):
     sub_queries: list[str] = Field(description="A list of simple, atomic sub-queries later used for semantic search.")
@@ -95,12 +96,20 @@ async def call_retrieve(state: GraphState, runtime: Runtime[RetrievalContext]) -
     collection = Collection.LOCOMO if os.getenv("FOR_LOCOMO") == "true" else Collection.ASSERTIONS
     
     retrieval_start = time.perf_counter()
-    results = await asyncio.gather(
-        *[
-            retrieve(query, collection, runtime)
+    # Parallel mode
+    if state["parallel_mode"]:
+        results = await asyncio.gather(
+            *[
+                retrieve(query, collection, runtime)
+                for query in state["sub_queries"]
+            ]
+        )
+    # Sequential mode
+    else:
+        results  = [
+            await retrieve(query, collection, runtime)
             for query in state["sub_queries"]
         ]
-    )
     retrieval_latency = time.perf_counter() - retrieval_start
 
     # Aggregate and deduplicate memories

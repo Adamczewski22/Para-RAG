@@ -92,14 +92,23 @@ async def update_memory(state: DeduplicationState, runtime: Runtime[MemoryContex
         )
         return {}
 
-    # Decide on memory insertions concurrently
+    # Decide on memory insertions
     deduplication_start = time.perf_counter()
-    decision_results = await asyncio.gather(
-        *[
-            decide_memory_insertion(memory_content, retrieval_service)
+    # Parallel mode
+    if state["parallel_mode"]:
+        decision_results = await asyncio.gather(
+            *[
+                decide_memory_insertion(memory_content, retrieval_service)
+                for memory_content in state["assertions"]
+            ]
+    )
+    # Sequential mode
+    else:
+        decision_results = [
+            await decide_memory_insertion(memory_content, retrieval_service)
             for memory_content in state["assertions"]
         ]
-    )
+
     decisions = [decision for decision, _ in decision_results]
 
     # Aggregate token usage for all dedupication decisions
@@ -142,17 +151,27 @@ async def update_memory(state: DeduplicationState, runtime: Runtime[MemoryContex
             memories_with_decisions=memories_with_decisions_dump,
         )
 
-    # Concurrent insertion
-    await asyncio.gather(
-        *[
-            update_service.update_memory_from_content(
+    # Insertion
+    if state["parallel_mode"]:
+        # Parallel mode
+        await asyncio.gather(
+            *[
+                update_service.update_memory_from_content(
+                    content=memory,
+                    collection=collection,
+                    timestamp=state["timestamp"],
+                )
+                for memory in memories_to_insert
+            ]
+        )
+    else:
+        # Sequential mode
+        for memory in memories_to_insert:
+            await update_service.update_memory_from_content(
                 content=memory,
                 collection=collection,
                 timestamp=state["timestamp"],
             )
-            for memory in memories_to_insert
-        ]
-    )
 
     # Update graph state for the process to be visible in tracing
     return {

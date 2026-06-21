@@ -25,6 +25,7 @@ def init_graph_state(
     timestamp: datetime, 
     msg_id: str | None = None,
     assertions: list[str] | None = None,
+    parallel_mode: bool = True,
 ) -> GraphState:
     return {
         "conversation_history": conversation_history,
@@ -33,4 +34,5 @@ def init_graph_state(
         "timestamp": timestamp,
         "assertions": assertions,
         "msg_id": msg_id,
+        "parallel_mode": parallel_mode,
     }

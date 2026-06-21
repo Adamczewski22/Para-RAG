@@ -32,6 +32,7 @@ class ParaRAGMemory:
             json_logger: JsonLogger | None = None,
             users: list[str] = ["User"],
             query_decomposition: bool = True,
+            parallel_mode: bool = True,
     ):
         # If stores were not specified, use defaults
         self.memory_store = memory_store if memory_store else QdrantAdapter()
@@ -76,6 +77,7 @@ class ParaRAGMemory:
             json_logger=json_logger,
             users=users,
             query_decomposition=query_decomposition,
+            parallel_mode=parallel_mode,
         )
 
     async def retrieve_memories(

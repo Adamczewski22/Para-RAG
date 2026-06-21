@@ -37,6 +37,7 @@ class DeduplicationMemory(BaseMemoryOrchestrator):
             msg_id=msg_id,
             assertions=assertions,
             deduplicated_assertions=deduplicated_assertions,
+            parallel_mode=self.parallel_mode,
         )
 
         # Deduplication memory requires both update and retrieval service for the update pipeline

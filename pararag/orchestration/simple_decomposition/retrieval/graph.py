@@ -24,6 +24,7 @@ def init_graph_state(
     user_msg: Message, 
     conversation_history: list[Message],
     query_decomposition: bool = True,
+    parallel_mode: bool = True,
 ) -> GraphState:
     return {
         "conversation_history": conversation_history,
@@ -32,4 +33,5 @@ def init_graph_state(
         "sub_queries": [],
         "memories": [],
         "query_decomposition": query_decomposition,
+        "parallel_mode": parallel_mode,
     }

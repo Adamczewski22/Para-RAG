@@ -42,6 +42,7 @@ class ProfilesMemory(BaseMemoryOrchestrator):
             conversation_history=self.conversation_history,
             timestamp=timestamp,
             msg_id=msg_id,
+            parallel_mode=self.parallel_mode,
             assertions=assertions,
             deduplicated_assertions=deduplicated_assertions,
             users=self.users,
