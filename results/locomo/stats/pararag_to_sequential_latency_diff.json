@@ -1,0 +1,17 @@
+{
+    "update": {
+        "avg_latency_diff": "-16.295416%",
+        "p95_latency_diff": "-15.956006%",
+        "assertion_avg_latency_diff": "+2.217240%",
+        "deduplication_avg_latency_diff": "-30.730476%",
+        "deduplication_insertion_avg_latency_diff": "-32.399507%",
+        "profile_update_avg_latency_diff": "+1.720447%"
+    },
+    "retrieval": {
+        "avg_latency_diff": "-11.091558%",
+        "p95_latency_diff": "-13.869366%",
+        "decomposition_avg_latency_diff": "+4.528942%",
+        "concurrent_retrieval_avg_latency_diff": "-55.245893%",
+        "profile_retrieval_avg_latency_diff": "+855.506559%"
+    }
+}

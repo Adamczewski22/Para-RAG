@@ -1,0 +1,36 @@
+{
+    "update": {
+        "latency": {
+            "avg_latency": 3.114838101759143,
+            "p95_latency": 6.6592867172003025,
+            "assertion_avg_latency": 1.1888570098077946,
+            "deduplication_avg_latency": 1.3022929168693975,
+            "deduplication_insertion_avg_latency": 0.12771319467932138,
+            "profile_update_avg_latency": 2.943345011930923
+        },
+        "tokens": {
+            "avg_total_tokens": 2242.875181422351,
+            "avg_input_tokens": 2108.673439767779,
+            "avg_output_tokens": 134.20174165457183,
+            "assertion_tokens_fraction": 0.43661949045550463,
+            "deduplication_tokens_fraction": 0.4455987384014273,
+            "profile_update_tokens_fraction": 0.1177817711430681,
+            "avg_embedding_tokens": 18.91523178807947
+        }
+    },
+    "retrieval": {
+        "latency": {
+            "avg_latency": 1.5178544411533705,
+            "p95_latency": 1.8219865177510652,
+            "decomposition_avg_latency": 1.2846562677207596,
+            "concurrent_retrieval_avg_latency": 0.2017566166530014,
+            "profile_retrieval_avg_latency": 0.05019614878013575
+        },
+        "tokens": {
+            "avg_total_tokens": 509.79333333333335,
+            "avg_input_tokens": 468.97333333333336,
+            "avg_output_tokens": 40.82,
+            "avg_embedding_tokens": 8.85
+        }
+    }
+}

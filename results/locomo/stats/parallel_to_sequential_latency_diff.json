@@ -1,0 +1,17 @@
+{
+    "update": {
+        "avg_latency_diff": "-16.30%",
+        "p95_latency_diff": "-15.96%",
+        "assertion_avg_latency_diff": "+2.22%",
+        "deduplication_avg_latency_diff": "-30.73%",
+        "deduplication_insertion_avg_latency_diff": "-32.40%",
+        "profile_update_avg_latency_diff": "+1.72%"
+    },
+    "retrieval": {
+        "avg_latency_diff": "-11.09%",
+        "p95_latency_diff": "-13.87%",
+        "decomposition_avg_latency_diff": "+4.53%",
+        "concurrent_retrieval_avg_latency_diff": "-55.25%",
+        "profile_retrieval_avg_latency_diff": "+855.51%"
+    }
+}
