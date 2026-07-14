@@ -1,0 +1,4574 @@
+{
+  "conv-49": {
+    "conversation": [
+      {
+        "id": "D1:1",
+        "timestamp": "1:47 pm on 18 May, 2023",
+        "speaker": "Sam",
+        "text": "Hey Evan, good to see you! What's new since we last met? Anything cool happening?"
+      },
+      {
+        "id": "D1:2",
+        "timestamp": "1:47 pm on 18 May, 2023",
+        "speaker": "Evan",
+        "text": "Hey Sam! Good to see you! Yeah, I just got back from a trip with my family in my new Prius."
+      },
+      {
+        "id": "D1:3",
+        "timestamp": "1:47 pm on 18 May, 2023",
+        "speaker": "Sam",
+        "text": "Wow, not bad, what happened to the old one? Where'd you go, by the way?",
+        "blip_caption": "a photo of a person's feet on a car dashboard as the sun sets"
+      },
+      {
+        "id": "D1:4",
+        "timestamp": "1:47 pm on 18 May, 2023",
+        "speaker": "Evan",
+        "text": "My old prius broke down, decided to get it repaired and sell it. Glad you asked, we went to Rockies, check it out.",
+        "blip_caption": "a photo of a lake with rocks and mountains in the background"
+      },
+      {
+        "id": "D1:5",
+        "timestamp": "1:47 pm on 18 May, 2023",
+        "speaker": "Sam",
+        "text": "Wow! Looks amazing. When did you get to go there?"
+      },
+      {
+        "id": "D1:6",
+        "timestamp": "1:47 pm on 18 May, 2023",
+        "speaker": "Evan",
+        "text": "We all hiked the trails last week - the views were amazing!"
+      },
+      {
+        "id": "D1:7",
+        "timestamp": "1:47 pm on 18 May, 2023",
+        "speaker": "Sam",
+        "text": "Wow, that's cool. I love hiking, but it's been ages since I've done it. I did this hike with my dad way back when I was ten. Going hiking together was great fun, and really special for us.",
+        "blip_caption": "a photography of a man and a child walking through a forest"
+      },
+      {
+        "id": "D1:8",
+        "timestamp": "1:47 pm on 18 May, 2023",
+        "speaker": "Evan",
+        "text": "Aww, that's cute. How far did you two hike?"
+      },
+      {
+        "id": "D1:9",
+        "timestamp": "1:47 pm on 18 May, 2023",
+        "speaker": "Sam",
+        "text": "We hiked a good distance - quite a feat for me back then. It's definitely a great memory."
+      },
+      {
+        "id": "D1:10",
+        "timestamp": "1:47 pm on 18 May, 2023",
+        "speaker": "Evan",
+        "text": "What other hobbies have you found for yourself?"
+      },
+      {
+        "id": "D1:11",
+        "timestamp": "1:47 pm on 18 May, 2023",
+        "speaker": "Sam",
+        "text": "Nothing so far, but I was thinking about trying painting. Do you have any hobbies you love?",
+        "blip_caption": "a photo of a person holding a paint set in a store"
+      },
+      {
+        "id": "D1:12",
+        "timestamp": "1:47 pm on 18 May, 2023",
+        "speaker": "Evan",
+        "text": "Cool idea, Sam! I love it. Have you tried it before?"
+      },
+      {
+        "id": "D1:13",
+        "timestamp": "1:47 pm on 18 May, 2023",
+        "speaker": "Sam",
+        "text": "Not yet, but I'm keen to give it a go. It looks like a nice way to chill and get creative."
+      },
+      {
+        "id": "D1:14",
+        "timestamp": "1:47 pm on 18 May, 2023",
+        "speaker": "Evan",
+        "text": "Yep, it's a great stress-buster. I started doing this a few years back.",
+        "blip_caption": "a photo of a painting of a cactus in the desert"
+      },
+      {
+        "id": "D1:15",
+        "timestamp": "1:47 pm on 18 May, 2023",
+        "speaker": "Sam",
+        "text": "Wow, that's impressive! How did you get into watercolor painting?"
+      },
+      {
+        "id": "D1:16",
+        "timestamp": "1:47 pm on 18 May, 2023",
+        "speaker": "Evan",
+        "text": "My friend got me into it and gave me some advice, and I was hooked right away!"
+      },
+      {
+        "id": "D1:17",
+        "timestamp": "1:47 pm on 18 May, 2023",
+        "speaker": "Sam",
+        "text": "Wow! I hope I can find something I'm as passionate about as you are with watercolor painting."
+      },
+      {
+        "id": "D1:18",
+        "timestamp": "1:47 pm on 18 May, 2023",
+        "speaker": "Evan",
+        "text": "You'll find it, just keep trying new things until something sparks your excitement."
+      },
+      {
+        "id": "D1:19",
+        "timestamp": "1:47 pm on 18 May, 2023",
+        "speaker": "Sam",
+        "text": "Thanks, Evan! I'm excited to try new things, should be fun!"
+      },
+      {
+        "id": "D1:20",
+        "timestamp": "1:47 pm on 18 May, 2023",
+        "speaker": "Evan",
+        "text": "No worries, Sam! Super pumped for you! Let's catch up soon and see how you're enjoying your new hobbies!"
+      },
+      {
+        "id": "D1:21",
+        "timestamp": "1:47 pm on 18 May, 2023",
+        "speaker": "Sam",
+        "text": "Yeah, I'll keep you posted. See you soon!"
+      },
+      {
+        "id": "D1:22",
+        "timestamp": "1:47 pm on 18 May, 2023",
+        "speaker": "Evan",
+        "text": "Take it easy, Evan! Can't wait to see you. Have a good one!"
+      },
+      {
+        "id": "D2:1",
+        "timestamp": "7:11 pm on 24 May, 2023",
+        "speaker": "Evan",
+        "text": "Hey Sam, good to hear from you! Since we last talked, lots has been happening! Last weekend, I took my family on a road trip to Jasper. It was amazing! We drove through the Icefields Parkway and the glaciers and lakes were gorgeous. I got a shot of a glacier, check it out!",
+        "blip_caption": "a photo of a person holding a book in front of a lake"
+      },
+      {
+        "id": "D2:2",
+        "timestamp": "7:11 pm on 24 May, 2023",
+        "speaker": "Sam",
+        "text": "Hey Evan, looks amazing! I've never been to Jasper, but it looks breathtaking. Tell me more about your road trip. Was it relaxing?"
+      },
+      {
+        "id": "D2:3",
+        "timestamp": "7:11 pm on 24 May, 2023",
+        "speaker": "Evan",
+        "text": "Hey Sam, thanks for asking! It was great - fresh air, peacefulness and a cozy cabin surrounded by mountains and forests made it feel like a real retreat."
+      },
+      {
+        "id": "D2:4",
+        "timestamp": "7:11 pm on 24 May, 2023",
+        "speaker": "Sam",
+        "text": "That sounds great, Evan! It's so important to take time for ourselves and find peace, especially after a hard week. Mine's been tough."
+      },
+      {
+        "id": "D2:5",
+        "timestamp": "7:11 pm on 24 May, 2023",
+        "speaker": "Evan",
+        "text": "Sorry to hear that, Sam. Is there anything I can do to help?"
+      },
+      {
+        "id": "D2:6",
+        "timestamp": "7:11 pm on 24 May, 2023",
+        "speaker": "Sam",
+        "text": "Thanks, Evan. Appreciate the offer, but had a check-up with my doctor a few days ago and, yikes, the weight wasn't great. It was pretty eye-opening."
+      },
+      {
+        "id": "D2:7",
+        "timestamp": "7:11 pm on 24 May, 2023",
+        "speaker": "Evan",
+        "text": "That must have been a challenging experience, Sam. It's tough when we have to confront our own health challenges. Remember, it's never too late to make positive changes for a healthier lifestyle. Is there anything I can do to support you in this journey?"
+      },
+      {
+        "id": "D2:8",
+        "timestamp": "7:11 pm on 24 May, 2023",
+        "speaker": "Sam",
+        "text": "Thanks, Evan. Breaking old habits isn't easy. Do you have any tips for starting the process?"
+      },
+      {
+        "id": "D2:9",
+        "timestamp": "7:11 pm on 24 May, 2023",
+        "speaker": "Evan",
+        "text": "Yeah, what worked for me was finding a fitness routine I really enjoy. It's my go-to, I love the feeling of being healthy and strong. Making it fun and finding little ways to make smarter choices in my diet really added up. Don't forget, you got this!"
+      },
+      {
+        "id": "D2:10",
+        "timestamp": "7:11 pm on 24 May, 2023",
+        "speaker": "Sam",
+        "text": "Thanks, Evan. Like you said, I've been looking for a hobby to stay motivated. I've been thinking about trying painting. Do you think it will help me de-stress?"
+      },
+      {
+        "id": "D2:11",
+        "timestamp": "7:11 pm on 24 May, 2023",
+        "speaker": "Evan",
+        "text": "Of course, Sam! Painting is a great way to relieve stress and be creative. It gives you the freedom to explore colors and textures and express feelings. I've been doing it for a few years now and it helps me find peace. But unfortunately it won't help you with your weight problem, besides painting I recommend exercising!"
+      },
+      {
+        "id": "D2:12",
+        "timestamp": "7:11 pm on 24 May, 2023",
+        "speaker": "Sam",
+        "text": "Thanks, Evan! Appreciate the encouragement. I'll give it a go and let you know how it turns out."
+      },
+      {
+        "id": "D2:13",
+        "timestamp": "7:11 pm on 24 May, 2023",
+        "speaker": "Evan",
+        "text": "Awesome, Sam! Have fun with it and don't put too much pressure on yourself. Can't wait to hear how it's going!"
+      },
+      {
+        "id": "D2:14",
+        "timestamp": "7:11 pm on 24 May, 2023",
+        "speaker": "Sam",
+        "text": "Cheers, Evan! I won't stress - just gonna enjoy it."
+      },
+      {
+        "id": "D2:15",
+        "timestamp": "7:11 pm on 24 May, 2023",
+        "speaker": "Evan",
+        "text": "Alright Sam, have fun with it! Keep me updated!"
+      },
+      {
+        "id": "D2:16",
+        "timestamp": "7:11 pm on 24 May, 2023",
+        "speaker": "Sam",
+        "text": "Thanks, Evan! Will do. Bye for now."
+      },
+      {
+        "id": "D2:17",
+        "timestamp": "7:11 pm on 24 May, 2023",
+        "speaker": "Evan",
+        "text": "Take care, Sam! I'll catch up with you later."
+      },
+      {
+        "id": "D3:1",
+        "timestamp": "3:55 pm on 6 June, 2023",
+        "speaker": "Evan",
+        "text": "Hey Sam! Long time no talk! How're you doing? Life's been quite the rollercoaster lately. I had a health scare last week – a sudden heart palpitation incident that really shook me up. It's been a serious wake-up call about my lifestyle.",
+        "blip_caption": "a photo of a person holding a bottle of medicine in their hand"
+      },
+      {
+        "id": "D3:2",
+        "timestamp": "3:55 pm on 6 June, 2023",
+        "speaker": "Sam",
+        "text": "Hey Evan, great hearing from you! Sorry about that, glad you're feeling better now. Trying to eat healthier these days.",
+        "blip_caption": "a photo of a plate of vegetables and a glass of milk"
+      },
+      {
+        "id": "D3:3",
+        "timestamp": "3:55 pm on 6 June, 2023",
+        "speaker": "Evan",
+        "text": "That salad looks yummy! I'm being extra careful with my health lately. I'm trying to eat less processed food and sugary snacks, even though I love ginger snaps. Have you made any changes to your diet recently?"
+      },
+      {
+        "id": "D3:4",
+        "timestamp": "3:55 pm on 6 June, 2023",
+        "speaker": "Sam",
+        "text": "Nah, no changes for me. Still enjoying my soda and candy, although I know it's not the best habit to have."
+      },
+      {
+        "id": "D3:5",
+        "timestamp": "3:55 pm on 6 June, 2023",
+        "speaker": "Evan",
+        "text": "Yeah, breaking habits can be tough. Making small changes can have a big impact later on. Have you considered swapping soda for flavored seltzer water? It's still bubbly and tasty, but without the sugar. And instead of candy, you could try dark chocolate with high cocoa content - it's a healthier option. What do you think?"
+      },
+      {
+        "id": "D3:6",
+        "timestamp": "3:55 pm on 6 June, 2023",
+        "speaker": "Sam",
+        "text": "Yeah, good idea! I'll give it a try."
+      },
+      {
+        "id": "D3:7",
+        "timestamp": "3:55 pm on 6 June, 2023",
+        "speaker": "Evan",
+        "text": "Awesome, Sam! Let me know how it goes. Making small changes can really help you live a healthier life. Don't forget - every step matters!"
+      },
+      {
+        "id": "D3:8",
+        "timestamp": "3:55 pm on 6 June, 2023",
+        "speaker": "Sam",
+        "text": "Hey Evan, thanks! Appreciate it. I'll definitely keep you posted."
+      },
+      {
+        "id": "D3:9",
+        "timestamp": "3:55 pm on 6 June, 2023",
+        "speaker": "Evan",
+        "text": "I'm here for you, Sam. Let's continue supporting each other on our health journeys. It's important to remember that progress takes time."
+      },
+      {
+        "id": "D3:10",
+        "timestamp": "3:55 pm on 6 June, 2023",
+        "speaker": "Sam",
+        "text": "Yeah, you're right. It takes time, but I'm up for keep trying and making those tiny changes."
+      },
+      {
+        "id": "D3:11",
+        "timestamp": "3:55 pm on 6 June, 2023",
+        "speaker": "Evan",
+        "text": "C'mon, keep it up! Every little bit counts, you'll get there!"
+      },
+      {
+        "id": "D3:12",
+        "timestamp": "3:55 pm on 6 June, 2023",
+        "speaker": "Sam",
+        "text": "Thanks, Evan! I appreciate your support, it means a lot to me to have you in my corner."
+      },
+      {
+        "id": "D3:13",
+        "timestamp": "3:55 pm on 6 June, 2023",
+        "speaker": "Evan",
+        "text": "Yes, Sam! I'm here for you. Let's rock our workouts and reach our goals! Exercise clears the mind - it's amazing!",
+        "blip_caption": "a photography of a man with a beard holding a dumbble"
+      },
+      {
+        "id": "D3:14",
+        "timestamp": "3:55 pm on 6 June, 2023",
+        "speaker": "Sam",
+        "text": "Wow, that's awesome! Could you give me a hand with getting started?"
+      },
+      {
+        "id": "D3:15",
+        "timestamp": "3:55 pm on 6 June, 2023",
+        "speaker": "Evan",
+        "text": "Sure Sam, I'd be glad to help. Let's get together and I'll show you some basic exercises. We'll reach our goals!"
+      },
+      {
+        "id": "D3:16",
+        "timestamp": "3:55 pm on 6 June, 2023",
+        "speaker": "Sam",
+        "text": "Cool, can't wait! Thank you. By the way, I'm coming from the shop and I had a frustrating issue at the supermarket. The self-checkout machines were all broken, my mood is terrible now!"
+      },
+      {
+        "id": "D3:17",
+        "timestamp": "3:55 pm on 6 June, 2023",
+        "speaker": "Evan",
+        "text": "Sorry you were in that situation, hopefully it won't happen again!"
+      },
+      {
+        "id": "D3:18",
+        "timestamp": "3:55 pm on 6 June, 2023",
+        "speaker": "Sam",
+        "text": "Yeah, I hope so, take care of yourself."
+      },
+      {
+        "id": "D4:1",
+        "timestamp": "10:52 am on 27 July, 2023",
+        "speaker": "Sam",
+        "text": "Hey Evan, I need to talk to you. My friends were mocking my weight last Friday and it hurt. That made me realize I need to make changes."
+      },
+      {
+        "id": "D4:2",
+        "timestamp": "10:52 am on 27 July, 2023",
+        "speaker": "Evan",
+        "text": "Hey Sam, sorry about that. Don't worry, progress takes time. Let's work on it together."
+      },
+      {
+        "id": "D4:3",
+        "timestamp": "10:52 am on 27 July, 2023",
+        "speaker": "Sam",
+        "text": "Thanks for the support, Evan. I'm working on my health and getting active!"
+      },
+      {
+        "id": "D4:4",
+        "timestamp": "10:52 am on 27 July, 2023",
+        "speaker": "Evan",
+        "text": "That's great, Sam! I struggled with my health a few years ago, but stuck with it. Here's a reminder of my commitment - my gym membership card. It's not just about exercise, diet and lifestyle changes also play a big role.",
+        "blip_caption": "a photo of a set of five cards with the words let it shine"
+      },
+      {
+        "id": "D4:5",
+        "timestamp": "10:52 am on 27 July, 2023",
+        "speaker": "Sam",
+        "text": "That's awesome, Evan! What do you think made the biggest impact on your health journey?"
+      },
+      {
+        "id": "D4:6",
+        "timestamp": "10:52 am on 27 July, 2023",
+        "speaker": "Evan",
+        "text": "I made some dietary changes, like cutting down on sugary snacks and eating more veggies and fruit, and it made a big impact on my health. Have you considered any changes?",
+        "blip_caption": "a photo of a table full of fresh produce and vegetables"
+      },
+      {
+        "id": "D4:7",
+        "timestamp": "10:52 am on 27 July, 2023",
+        "speaker": "Sam",
+        "text": "Yep, I'm reducing my soda and candy intake. It's tough, but I'm determined to make a change."
+      },
+      {
+        "id": "D4:8",
+        "timestamp": "10:52 am on 27 July, 2023",
+        "speaker": "Evan",
+        "text": "Go for it, Sam! It's tough at first, but you got this. Try flavored seltzer water instead. It can be a great alternative to soda. Btw I can't stop thinking about that new mystery novel I started. It's so gripping!",
+        "blip_caption": "a photo of a table with a variety of sodas and water bottles"
+      },
+      {
+        "id": "D4:9",
+        "timestamp": "10:52 am on 27 July, 2023",
+        "speaker": "Sam",
+        "text": "Sounds good, Evan. I've tried it before and it was nice. Do you have any ideas for low-calorie snacks to pair with it? And what's the novel?"
+      },
+      {
+        "id": "D4:10",
+        "timestamp": "10:52 am on 27 July, 2023",
+        "speaker": "Evan",
+        "text": "Definitely, how about some flavored seltzer with some air-popped popcorn or fruit? It's yum and healthy! The novel I'm reading is \"The Great Gatsby\".",
+        "blip_caption": "a photo of a table with bowls of fruit and a bottle of alcohol"
+      },
+      {
+        "id": "D4:11",
+        "timestamp": "10:52 am on 27 July, 2023",
+        "speaker": "Sam",
+        "text": "Yum, that sounds good! Thanks! And I'll definitely read that novel sometime."
+      },
+      {
+        "id": "D4:12",
+        "timestamp": "10:52 am on 27 July, 2023",
+        "speaker": "Evan",
+        "text": "No worries, Sam! Focus on healthy swaps and taking small steps. Stay upbeat!",
+        "blip_caption": "a photography of a book with a green apple next to it"
+      },
+      {
+        "id": "D4:13",
+        "timestamp": "10:52 am on 27 July, 2023",
+        "speaker": "Sam",
+        "text": "That reminder is inspiring. Thanks for reminding me to focus on progress, not perfection."
+      },
+      {
+        "id": "D4:14",
+        "timestamp": "10:52 am on 27 July, 2023",
+        "speaker": "Evan",
+        "text": "By the way, have you thought about exercising? Trust me, it's just as important as eating right.",
+        "blip_caption": "a photo of a woman with a backpack on a mountain"
+      },
+      {
+        "id": "D4:15",
+        "timestamp": "10:52 am on 27 July, 2023",
+        "speaker": "Sam",
+        "text": "Starting tomorrow, I will go to the gym and exercise regularly. The sooner I start, the sooner I will see the rewards of this activity."
+      },
+      {
+        "id": "D4:16",
+        "timestamp": "10:52 am on 27 July, 2023",
+        "speaker": "Evan",
+        "text": "That's awesome, Sam! It's such a rewarding and tough activity - keep going and have fun!"
+      },
+      {
+        "id": "D4:17",
+        "timestamp": "10:52 am on 27 July, 2023",
+        "speaker": "Sam",
+        "text": "Thanks, Evan! Your support means a lot. I really appreciate it."
+      },
+      {
+        "id": "D4:18",
+        "timestamp": "10:52 am on 27 July, 2023",
+        "speaker": "Evan",
+        "text": "No worries, you've got this!"
+      },
+      {
+        "id": "D4:19",
+        "timestamp": "10:52 am on 27 July, 2023",
+        "speaker": "Sam",
+        "text": "Thanks, Evan. I really appreciate it."
+      },
+      {
+        "id": "D4:20",
+        "timestamp": "10:52 am on 27 July, 2023",
+        "speaker": "Evan",
+        "text": "No worries, Sam. I'm here if you need me. Keep going!"
+      },
+      {
+        "id": "D5:1",
+        "timestamp": "7:52 pm on 7 August, 2023",
+        "speaker": "Evan",
+        "text": "Hey Sam, how's it going? Last week I went on a trip to Canada and something unreal happened - I met this awesome Canadian woman and it was like something out of a movie. She's incredible and being with her makes me feel alive.",
+        "blip_caption": "a photography of a couple walking through the snow holding hands"
+      },
+      {
+        "id": "D5:2",
+        "timestamp": "7:52 pm on 7 August, 2023",
+        "speaker": "Sam",
+        "text": "Congrats Evan! She must be something special! Being with someone who makes you feel alive is amazing. I'm sorry to hear that you're dealing with health issues lately, it can be really tough. It's hard to fully enjoy things sometimes.",
+        "blip_caption": "a photo of a person walking on the beach with a surfboard"
+      },
+      {
+        "id": "D5:3",
+        "timestamp": "7:52 pm on 7 August, 2023",
+        "speaker": "Evan",
+        "text": "Woah. such a nice view! Thanks, Sam! She's definitely great. Every moment with her is really fun and energizing. It's a nice change, especially after dealing with health issues. But you never know what life's gonna throw at you. Btw look what life has thrown for me right now haha.",
+        "blip_caption": "a photo of a container of cookies on a counter"
+      },
+      {
+        "id": "D5:4",
+        "timestamp": "7:52 pm on 7 August, 2023",
+        "speaker": "Sam",
+        "text": "Looks good to eat! Dealing with health problems can be challenging and take away from enjoyable experiences."
+      },
+      {
+        "id": "D5:5",
+        "timestamp": "7:52 pm on 7 August, 2023",
+        "speaker": "Evan",
+        "text": "Ginger snaps are my weakness for sure! Dealing with health issues has been tough, but it's made me appreciate the good moments more. These are the ones who bring lots of joy even through the hard times.",
+        "blip_caption": "a photo of a woman and a child playing on a swing set"
+      },
+      {
+        "id": "D5:6",
+        "timestamp": "7:52 pm on 7 August, 2023",
+        "speaker": "Sam",
+        "text": "It looks like your kids are having a great time! And how long have you been prioritizing your health?"
+      },
+      {
+        "id": "D5:7",
+        "timestamp": "7:52 pm on 7 August, 2023",
+        "speaker": "Evan",
+        "text": "Yes, they bring me such joy. My healthy road has been a long one. I've been working on it for two years now, so there have been ups and downs, but I'm doing my best.",
+        "blip_caption": "a photo of a box with a fitness watch on it"
+      },
+      {
+        "id": "D5:8",
+        "timestamp": "7:52 pm on 7 August, 2023",
+        "speaker": "Sam",
+        "text": "I wish your motivation never goes anywhere! I'm thinking of ordering myself some similar ones too, what do you think, are they worth it?"
+      },
+      {
+        "id": "D5:9",
+        "timestamp": "7:52 pm on 7 August, 2023",
+        "speaker": "Evan",
+        "text": "Thanks Sam! My family motivates me to stay healthy. Well, it helps a lot with my health goals. It tracks my progress really well and serves as a constant reminder to keep going.",
+        "blip_caption": "a photo of a person's wrist with a smart watch on it"
+      },
+      {
+        "id": "D5:10",
+        "timestamp": "7:52 pm on 7 August, 2023",
+        "speaker": "Sam",
+        "text": "Cool! It sounds like a really good tool to stay on track. How has it been working out for you?"
+      },
+      {
+        "id": "D5:11",
+        "timestamp": "7:52 pm on 7 August, 2023",
+        "speaker": "Evan",
+        "text": "It's been awesome, Sam! That visual reminder has been really motivating."
+      },
+      {
+        "id": "D5:12",
+        "timestamp": "7:52 pm on 7 August, 2023",
+        "speaker": "Sam",
+        "text": "Thanks for the recommendation, what else motivates you?"
+      },
+      {
+        "id": "D5:13",
+        "timestamp": "7:52 pm on 7 August, 2023",
+        "speaker": "Evan",
+        "text": "I'm motivated by a thirst for adventure on interesting hikes, that's pretty cool!",
+        "blip_caption": "a photo of a small island with a lone boat in the water"
+      },
+      {
+        "id": "D5:14",
+        "timestamp": "7:52 pm on 7 August, 2023",
+        "speaker": "Sam",
+        "text": "What an amazing view! The key is to find something that keeps you motivated."
+      },
+      {
+        "id": "D5:15",
+        "timestamp": "7:52 pm on 7 August, 2023",
+        "speaker": "Evan",
+        "text": "Yep, that's it. Find something that motivates you and makes you happy, whether it's large or tiny. It'll help us conquer the struggles we encounter.",
+        "blip_caption": "a photo of a bonsai tree in a black vase on a wooden table"
+      },
+      {
+        "id": "D5:16",
+        "timestamp": "7:52 pm on 7 August, 2023",
+        "speaker": "Sam",
+        "text": "Nice! What made you decide to get that?"
+      },
+      {
+        "id": "D5:17",
+        "timestamp": "7:52 pm on 7 August, 2023",
+        "speaker": "Evan",
+        "text": "I got this because it symbolizes strength and resilience. Taking care of it motivates me to keep going through tough times."
+      },
+      {
+        "id": "D5:18",
+        "timestamp": "7:52 pm on 7 August, 2023",
+        "speaker": "Sam",
+        "text": "Wow, it's amazing! So powerful yet so simple."
+      },
+      {
+        "id": "D5:19",
+        "timestamp": "7:52 pm on 7 August, 2023",
+        "speaker": "Evan",
+        "text": "Thanks, Sam. It's a reminder that even in little things, we can be tough."
+      },
+      {
+        "id": "D5:20",
+        "timestamp": "7:52 pm on 7 August, 2023",
+        "speaker": "Sam",
+        "text": "Little stuff matters - it builds our resilience over time."
+      },
+      {
+        "id": "D5:21",
+        "timestamp": "7:52 pm on 7 August, 2023",
+        "speaker": "Evan",
+        "text": "Yeah, every little thing we do for ourselves helps us in the long run."
+      },
+      {
+        "id": "D5:22",
+        "timestamp": "7:52 pm on 7 August, 2023",
+        "speaker": "Sam",
+        "text": "Yep, small steps add up. Stay consistent and don't give up!"
+      },
+      {
+        "id": "D5:23",
+        "timestamp": "7:52 pm on 7 August, 2023",
+        "speaker": "Evan",
+        "text": "Yep, Sam! Consistency and perseverance will get us far. Great chat!"
+      },
+      {
+        "id": "D5:24",
+        "timestamp": "7:52 pm on 7 August, 2023",
+        "speaker": "Sam",
+        "text": "Great chatting with you, Sam! Take care, talk soon!"
+      },
+      {
+        "id": "D5:25",
+        "timestamp": "7:52 pm on 7 August, 2023",
+        "speaker": "Evan",
+        "text": "Catch ya later!"
+      },
+      {
+        "id": "D6:1",
+        "timestamp": "4:09 pm on 13 August, 2023",
+        "speaker": "Evan",
+        "text": "Hey Sam, long time no talk! Hope you're doing great. I just got back from a rad vacay with my new SO in Canada. Tried some awesome activities too - think hiking, biking... all that cool stuff. We loved exploring the outdoors together, it was so awesome!",
+        "blip_caption": "a photo of a tent pitched up in a grassy field"
+      },
+      {
+        "id": "D6:2",
+        "timestamp": "4:09 pm on 13 August, 2023",
+        "speaker": "Sam",
+        "text": "Hey Evan! Good to hear from you. Wow, Canada sounds amazing! That photo looks stunning. Wish I could do something like that. Things have been a bit challenging for me lately; some stuff has been hard on my health."
+      },
+      {
+        "id": "D6:3",
+        "timestamp": "4:09 pm on 13 August, 2023",
+        "speaker": "Evan",
+        "text": "Sorry to hear that things haven't been going well. Dealing with health issues can be tough. Is there anything I can do to help?"
+      },
+      {
+        "id": "D6:4",
+        "timestamp": "4:09 pm on 13 August, 2023",
+        "speaker": "Sam",
+        "text": "Thanks, Evan. Your support means a lot to me. It's tough staying positive, but knowing I have people like you in my corner makes it easier.",
+        "blip_caption": "a photo of a notepad with a pen and a note"
+      },
+      {
+        "id": "D6:5",
+        "timestamp": "4:09 pm on 13 August, 2023",
+        "speaker": "Evan",
+        "text": "Glad to support you, Sam. Surrounding ourselves with people who care is key. What's on that note? A reminder or quote to stay motivated?"
+      },
+      {
+        "id": "D6:6",
+        "timestamp": "4:09 pm on 13 August, 2023",
+        "speaker": "Sam",
+        "text": "Yeah, it's actually a quote that's been helping me stay motivated. It reminds me that progress is more important than perfection. Taking small steps towards a healthier life is still progress."
+      },
+      {
+        "id": "D6:7",
+        "timestamp": "4:09 pm on 13 August, 2023",
+        "speaker": "Evan",
+        "text": "Cool mindset, Sam! I totally agree, progress over perfection. Mind sharing the quote with me? I would love to get something out of it too."
+      },
+      {
+        "id": "D6:8",
+        "timestamp": "4:09 pm on 13 August, 2023",
+        "speaker": "Sam",
+        "text": "\"Don't fear it, just take the first step. It's been helping me move forward to healthier habits!\""
+      },
+      {
+        "id": "D6:9",
+        "timestamp": "4:09 pm on 13 August, 2023",
+        "speaker": "Evan",
+        "text": "Love the quote, Sam. That mindset really helps me too. Thanks!"
+      },
+      {
+        "id": "D6:10",
+        "timestamp": "4:09 pm on 13 August, 2023",
+        "speaker": "Sam",
+        "text": "You're welcome! Glad it helps. These times can be challenging."
+      },
+      {
+        "id": "D6:11",
+        "timestamp": "4:09 pm on 13 August, 2023",
+        "speaker": "Evan",
+        "text": "They can be tough, but remember to celebrate the small wins - every step forward counts!"
+      },
+      {
+        "id": "D6:12",
+        "timestamp": "4:09 pm on 13 August, 2023",
+        "speaker": "Sam",
+        "text": "You're absolutely right! Celebrating those small wins is crucial. It's easy to get caught up in the challenges and setbacks, but those little victories are what keep me motivated. Thanks for the reminder, it's much appreciated."
+      },
+      {
+        "id": "D6:13",
+        "timestamp": "4:09 pm on 13 August, 2023",
+        "speaker": "Evan",
+        "text": "Absolutely, Sam. Remember, every small victory is a step forward, so keep up the good work! I'm cheering for you! And hey, I could use some cheering too - I've been searching for my keys for the last half hour with no luck! I'm losing it every week.."
+      },
+      {
+        "id": "D6:14",
+        "timestamp": "4:09 pm on 13 August, 2023",
+        "speaker": "Sam",
+        "text": "Oh, I'll definitely be your cheerleader once I get some sleep, Evan! Funny you mention that, I had this amazing dream last night where I was soaring over skyscrapers. It felt incredible! Makes me wonder what it signifies..."
+      },
+      {
+        "id": "D6:15",
+        "timestamp": "4:09 pm on 13 August, 2023",
+        "speaker": "Evan",
+        "text": "That does sound like an amazing dream! Maybe you should check out a dream interpretation book; it could offer some insights. Sweet dreams, Sam!"
+      },
+      {
+        "id": "D6:16",
+        "timestamp": "4:09 pm on 13 August, 2023",
+        "speaker": "Sam",
+        "text": "Thanks for the suggestion, Evan. I'll look into it. This journey feels endless at times, but I'm convinced it's going to be rewarding in the end. So good luck with your keys, Evan!"
+      },
+      {
+        "id": "D6:17",
+        "timestamp": "4:09 pm on 13 August, 2023",
+        "speaker": "Evan",
+        "text": "I'll just keep going, step by step, and I'll definitely find those keys!"
+      },
+      {
+        "id": "D6:18",
+        "timestamp": "4:09 pm on 13 August, 2023",
+        "speaker": "Sam",
+        "text": "That's for sure!"
+      },
+      {
+        "id": "D6:19",
+        "timestamp": "4:09 pm on 13 August, 2023",
+        "speaker": "Evan",
+        "text": "Go to bed already, bud! And take care!"
+      },
+      {
+        "id": "D7:1",
+        "timestamp": "4:20 pm on 15 August, 2023",
+        "speaker": "Evan",
+        "text": "Hey Sam, what's up? It's been a few days since we talked. How have you been? Life's been tough lately - my son had a soccer accident last Saturday and hurt his ankle, it was tough seeing him hurt! I just been looking after him and taking him to the doctor. As a dad, it's hard to watch your kid go through something like that.",
+        "blip_caption": "a photography of a person with a cast on their foot"
+      },
+      {
+        "id": "D7:2",
+        "timestamp": "4:20 pm on 15 August, 2023",
+        "speaker": "Sam",
+        "text": "Hey Evan, sorry to hear about what happened. I can imagine how hard it must have been for you. Things haven't been easy for me either. Had a tough week and a doc's appointment, so it was kinda like a wake-up call to take better care of myself. On a bright side, I'm taking a cooking class to learn how to make healthier meals."
+      },
+      {
+        "id": "D7:3",
+        "timestamp": "4:20 pm on 15 August, 2023",
+        "speaker": "Evan",
+        "text": "Hey Sam, sorry to hear you had a rough week. At least it's forcing us both to take better care of ourselves, right? I hear the class you're taking is packed with healthy recipes. How's it been going? Have you picked up any yummy new meals?"
+      },
+      {
+        "id": "D7:4",
+        "timestamp": "4:20 pm on 15 August, 2023",
+        "speaker": "Sam",
+        "text": "The cooking class has been great, I've learned awesome recipes. Last night I made this yummy grilled dish, so good!",
+        "blip_caption": "a photo of a plate of food with a piece of salmon and some vegetables"
+      },
+      {
+        "id": "D7:5",
+        "timestamp": "4:20 pm on 15 August, 2023",
+        "speaker": "Evan",
+        "text": "Mmm, it looks delicious! What did you put in it? I want to eat healthy, so what kind of recipes do you suggest?"
+      },
+      {
+        "id": "D7:6",
+        "timestamp": "4:20 pm on 15 August, 2023",
+        "speaker": "Sam",
+        "text": "Thanks, Evan! I marinated it with a few different ingredients and grilled it with some veggies. It turned out really flavorful! If you want, I can share more recipes from my cooking class. Just let me know what you're looking for!"
+      },
+      {
+        "id": "D7:7",
+        "timestamp": "4:20 pm on 15 August, 2023",
+        "speaker": "Evan",
+        "text": "That'd be great, Sam! I'm looking to add more vegetables to my meals. Do you have any recipes for that?"
+      },
+      {
+        "id": "D7:8",
+        "timestamp": "4:20 pm on 15 August, 2023",
+        "speaker": "Sam",
+        "text": "Yeah definitely, Evan. I have a tasty and easy roasted veg recipe that I can share with you. Oh, by the way, how have you been doing after the soccer incident? Must've been tough."
+      },
+      {
+        "id": "D7:9",
+        "timestamp": "4:20 pm on 15 August, 2023",
+        "speaker": "Evan",
+        "text": "Thanks, Sam. His ankle is getting better, but still sore. It was rough at first, but thank goodness it was nothing serious."
+      },
+      {
+        "id": "D7:10",
+        "timestamp": "4:20 pm on 15 August, 2023",
+        "speaker": "Sam",
+        "text": "Glad to hear his ankle is getting better. It's hard seeing someone we care about hurt. Look after yourself too, yeah? We gotta look after our health."
+      },
+      {
+        "id": "D7:11",
+        "timestamp": "4:20 pm on 15 August, 2023",
+        "speaker": "Evan",
+        "text": "Yep, taking care of ourselves is a must. How have you been feeling lately?"
+      },
+      {
+        "id": "D7:12",
+        "timestamp": "4:20 pm on 15 August, 2023",
+        "speaker": "Sam",
+        "text": "I have been feeling a mix of emotions - somewhat concerned about my health but also motivated to make positive changes. Taking things one step at a time."
+      },
+      {
+        "id": "D7:13",
+        "timestamp": "4:20 pm on 15 August, 2023",
+        "speaker": "Evan",
+        "text": "It's okay to feel overwhelmed, Sam. Just keep moving forward slowly and taking small steps. You're doing awesome."
+      },
+      {
+        "id": "D7:14",
+        "timestamp": "4:20 pm on 15 August, 2023",
+        "speaker": "Sam",
+        "text": "Thanks, Evan, your encouragement means a lot to me. I'll keep going and take it one step at a time!"
+      },
+      {
+        "id": "D7:15",
+        "timestamp": "4:20 pm on 15 August, 2023",
+        "speaker": "Evan",
+        "text": "No worries, just keep going and taking it one step at a time! You'll get there."
+      },
+      {
+        "id": "D7:16",
+        "timestamp": "4:20 pm on 15 August, 2023",
+        "speaker": "Sam",
+        "text": "Thanks, Evan. I really appreciate that. It means a lot."
+      },
+      {
+        "id": "D8:1",
+        "timestamp": "6:17 pm on 19 August, 2023",
+        "speaker": "Sam",
+        "text": "Hey Evan, some big news: I'm on a diet and living healthier! Been tough, but I'm determined.",
+        "blip_caption": "a photo of a bowl of spinach, avocado, and strawberries"
+      },
+      {
+        "id": "D8:2",
+        "timestamp": "6:17 pm on 19 August, 2023",
+        "speaker": "Evan",
+        "text": "Wow, Sam, that's great news! Making changes to live healthier can be challenging, how has it been going?"
+      },
+      {
+        "id": "D8:3",
+        "timestamp": "6:17 pm on 19 August, 2023",
+        "speaker": "Sam",
+        "text": "It's tough, but I'm sticking with it."
+      },
+      {
+        "id": "D8:4",
+        "timestamp": "6:17 pm on 19 August, 2023",
+        "speaker": "Evan",
+        "text": "Nice work, Sam! Proud of you sticking to it. Have you noticed any positive changes?"
+      },
+      {
+        "id": "D8:5",
+        "timestamp": "6:17 pm on 19 August, 2023",
+        "speaker": "Sam",
+        "text": "Yes, there are many, such as more energy and less sluggishness after eating. This is really encouraging!"
+      },
+      {
+        "id": "D8:6",
+        "timestamp": "6:17 pm on 19 August, 2023",
+        "speaker": "Evan",
+        "text": "Wow, Sam, that's great to hear! Feeling more energized after meals is such a positive change. Keep up the good work! And speaking of healthy meals, do you have any favorite recipes you'd like to share?"
+      },
+      {
+        "id": "D8:7",
+        "timestamp": "6:17 pm on 19 August, 2023",
+        "speaker": "Sam",
+        "text": "Sure, I'm loving this recipe I found. It's a flavorful and healthy grilled chicken and veggie stir-fry. Wanna give it a go?",
+        "blip_caption": "a photo of two bowls of food with chopsticks and sauce"
+      },
+      {
+        "id": "D8:8",
+        "timestamp": "6:17 pm on 19 August, 2023",
+        "speaker": "Evan",
+        "text": "Mmm, looks yummy! Is the sauce a family secret? I'm always down to try new recipes!"
+      },
+      {
+        "id": "D8:9",
+        "timestamp": "6:17 pm on 19 August, 2023",
+        "speaker": "Sam",
+        "text": "Nah, it's just my homemade sauce. Want the recipe?"
+      },
+      {
+        "id": "D8:10",
+        "timestamp": "6:17 pm on 19 August, 2023",
+        "speaker": "Evan",
+        "text": "Yeah, I'd love to! Thanks for sharing the recipe."
+      },
+      {
+        "id": "D8:11",
+        "timestamp": "6:17 pm on 19 August, 2023",
+        "speaker": "Sam",
+        "text": "Sure thing! Here's the recipe. Let me know how it went!",
+        "blip_caption": "a photography of a recipe card with a drawing of a vase of flowers"
+      },
+      {
+        "id": "D8:12",
+        "timestamp": "6:17 pm on 19 August, 2023",
+        "speaker": "Evan",
+        "text": "Thanks Sam! I'll give it a shot and let you know how it went. Trying out new recipes is a great way to stay busy and creative. By the way, I also started taking a painting classes few days ago and I'm really enjoying it. It's all about trying new things, right?"
+      },
+      {
+        "id": "D8:13",
+        "timestamp": "6:17 pm on 19 August, 2023",
+        "speaker": "Sam",
+        "text": "You're already good at drawing, why did you decide to join a class? And why did you start painting then years ago anyway?"
+      },
+      {
+        "id": "D8:14",
+        "timestamp": "6:17 pm on 19 August, 2023",
+        "speaker": "Evan",
+        "text": "Thanks, Sam! It all started when a friend of mine gave me this painting one day, it inspired me a lot and that's when I started painting. And I joined the classes to find like-minded people and show them what I can do, you can always improve your skills.",
+        "blip_caption": "a photo of a painting of a forest scene on a easel"
+      },
+      {
+        "id": "D8:15",
+        "timestamp": "6:17 pm on 19 August, 2023",
+        "speaker": "Sam",
+        "text": "Wow, that's awesome! You're really talented. Did you take any other classes?"
+      },
+      {
+        "id": "D8:16",
+        "timestamp": "6:17 pm on 19 August, 2023",
+        "speaker": "Evan",
+        "text": "Thanks, Sam! Just been painting with these for now, but might look into other classes. It's awesome for finding my peace and expressing myself!",
+        "blip_caption": "a photo of a brush, pencil, and eyeliners on a cloth"
+      },
+      {
+        "id": "D8:17",
+        "timestamp": "6:17 pm on 19 August, 2023",
+        "speaker": "Sam",
+        "text": "Cool, Evan! What have you been learning in those classes?"
+      },
+      {
+        "id": "D8:18",
+        "timestamp": "6:17 pm on 19 August, 2023",
+        "speaker": "Evan",
+        "text": "In painting classes, we've been learning about watercolors. The instructor stresses observing nature and painting what we see. It's a relaxing way to take a break from everyday stress.",
+        "blip_caption": "a photo of a table with a bunch of watercolors on it"
+      },
+      {
+        "id": "D8:19",
+        "timestamp": "6:17 pm on 19 August, 2023",
+        "speaker": "Sam",
+        "text": "Wow, Evan! What type of nature do you enjoy painting the most?"
+      },
+      {
+        "id": "D8:20",
+        "timestamp": "6:17 pm on 19 August, 2023",
+        "speaker": "Evan",
+        "text": "I love painting landscapes. Nature's beauty captivates me and brings me peace. Here's one of my recent works.",
+        "blip_caption": "a photo of a painting of a sunset over the ocean"
+      },
+      {
+        "id": "D8:21",
+        "timestamp": "6:17 pm on 19 August, 2023",
+        "speaker": "Sam",
+        "text": "Wow, Evan! The colors are so bright. How do you capture the tranquil beauty of nature in your paintings?"
+      },
+      {
+        "id": "D8:22",
+        "timestamp": "6:17 pm on 19 August, 2023",
+        "speaker": "Evan",
+        "text": "Thanks Sam! I aim to capture the vibe of nature in my paintings, conveying the peacefulness of being outdoors.",
+        "blip_caption": "a photo of a tree with pink flowers in a field"
+      },
+      {
+        "id": "D8:23",
+        "timestamp": "6:17 pm on 19 August, 2023",
+        "speaker": "Sam",
+        "text": "Wow, that pic is great! Do you often spend time in places like this?"
+      },
+      {
+        "id": "D8:24",
+        "timestamp": "6:17 pm on 19 August, 2023",
+        "speaker": "Evan",
+        "text": "Thanks! I love being in places like this - it brings back memories of road tripping in my trusty car.",
+        "blip_caption": "a photography of a truck parked in the middle of a forest"
+      },
+      {
+        "id": "D8:25",
+        "timestamp": "6:17 pm on 19 August, 2023",
+        "speaker": "Sam",
+        "text": "Wow, that's cool! Have you been to any fun places in that ride?"
+      },
+      {
+        "id": "D8:26",
+        "timestamp": "6:17 pm on 19 August, 2023",
+        "speaker": "Evan",
+        "text": "Yep, last month I drove somewhere fun. The views were amazing!",
+        "blip_caption": "a photo of a person on skis on a snowy trail"
+      },
+      {
+        "id": "D8:27",
+        "timestamp": "6:17 pm on 19 August, 2023",
+        "speaker": "Sam",
+        "text": "Did you take advantage of the skiing opportunities in Banff? Sounds like it would have been a lot of fun!"
+      },
+      {
+        "id": "D8:28",
+        "timestamp": "6:17 pm on 19 August, 2023",
+        "speaker": "Evan",
+        "text": "Yeah, it was great for skiing! The snow was amazing and I had a lot of fun. Can't wait to go back next year! Did you try any winter sports, Sam?",
+        "blip_caption": "a photo of a group of people skiing down a snow covered slope"
+      },
+      {
+        "id": "D8:29",
+        "timestamp": "6:17 pm on 19 August, 2023",
+        "speaker": "Sam",
+        "text": "Ooh, skiing looks like a blast! I'd love to try it but I'm not sure my body can take it. What about you? What winter activities do you enjoy?"
+      },
+      {
+        "id": "D8:30",
+        "timestamp": "6:17 pm on 19 August, 2023",
+        "speaker": "Evan",
+        "text": "Skiing, snowboarding, and ice skating are all fun winter activities I enjoy."
+      },
+      {
+        "id": "D8:31",
+        "timestamp": "6:17 pm on 19 August, 2023",
+        "speaker": "Sam",
+        "text": "Wish I could join in on the fun! It sounds awesome."
+      },
+      {
+        "id": "D8:32",
+        "timestamp": "6:17 pm on 19 August, 2023",
+        "speaker": "Evan",
+        "text": "I'd like you to join me, too. Winter activities are a blast - hopefully someday you will!"
+      },
+      {
+        "id": "D8:33",
+        "timestamp": "6:17 pm on 19 August, 2023",
+        "speaker": "Sam",
+        "text": "Yeah, maybe. It's hard with that, you know. But who knows? Thanks for the understanding, Evan - it really means a lot."
+      },
+      {
+        "id": "D9:1",
+        "timestamp": "10:18 am on 27 August, 2023",
+        "speaker": "Sam",
+        "text": "Hey Evan! Exciting news: I started a new diet and exercise routine last Monday and it's made a huge difference. I feel great! What about you, what changes have you made recently?"
+      },
+      {
+        "id": "D9:2",
+        "timestamp": "10:18 am on 27 August, 2023",
+        "speaker": "Evan",
+        "text": "Wow, Sam, great! Glad your new diet/exercise is going well. As for me, I've hit a sore spot lately. Twisted my knee last Friday and it's really painful, so it's been tough to stay consistent with my usual fitness routine. It's really frustrating because staying active is like, mega-important to me."
+      },
+      {
+        "id": "D9:3",
+        "timestamp": "10:18 am on 27 August, 2023",
+        "speaker": "Sam",
+        "text": "Oh no, sorry to hear about that, Evan. It's frustrating when our bodies don't cooperate, isn't it? Is there anything I can do to help?"
+      },
+      {
+        "id": "D9:4",
+        "timestamp": "10:18 am on 27 August, 2023",
+        "speaker": "Evan",
+        "text": "Thanks, Sam. I appreciate the concern. Life throws us curveballs - that's life, right? By the way, remember that book I was talking about? It just gets better with every page, can't let it out of my hands!"
+      },
+      {
+        "id": "D9:5",
+        "timestamp": "10:18 am on 27 August, 2023",
+        "speaker": "Sam",
+        "text": "Life sure can be unpredictable and tough. Being adaptable and finding other ways to stay active is key when you're facing an obstacle. Maybe look into low-impact exercises or physical therapy to help with that? And damn, you really got me interested in this book haha!"
+      },
+      {
+        "id": "D9:6",
+        "timestamp": "10:18 am on 27 August, 2023",
+        "speaker": "Evan",
+        "text": "Yeah, PT for my knee is on the cards. Hopefully I'll get an appointment soon. Till then, just keeping it low-key and swimming to stay active."
+      },
+      {
+        "id": "D9:7",
+        "timestamp": "10:18 am on 27 August, 2023",
+        "speaker": "Sam",
+        "text": "Swimming is a good choice, Evan. It's low-impact and easy on the joints, plus it's refreshing. Keep up with the active lifestyle!"
+      },
+      {
+        "id": "D9:8",
+        "timestamp": "10:18 am on 27 August, 2023",
+        "speaker": "Evan",
+        "text": "Yeah, thanks for the push, Sam. Oh, hey, I came across this pic when I was tidying up. I took a road trip last month - the scenery was stunning and nature really chilled me out.",
+        "blip_caption": "a photography of a car is parked near a lake with mountains in the background"
+      },
+      {
+        "id": "D9:9",
+        "timestamp": "10:18 am on 27 August, 2023",
+        "speaker": "Sam",
+        "text": "Wow, looks great! Where did you go? Bet it was nice to get away."
+      },
+      {
+        "id": "D9:10",
+        "timestamp": "10:18 am on 27 August, 2023",
+        "speaker": "Evan",
+        "text": "Thanks! I went up to the Rocky Mountains, it was so refreshing! The views were stunning and I felt so relaxed. Do you enjoy road trips and exploring nature?"
+      },
+      {
+        "id": "D9:11",
+        "timestamp": "10:18 am on 27 August, 2023",
+        "speaker": "Sam",
+        "text": "I haven't gone on a road trip in ages, but I love being surrounded by nature. It's so tranquil and refreshing. I'd love to go hiking more, but it can be a bit challenging sometimes. However, I am working on becoming healthier, so maybe a road trip and a hike will be possible soon."
+      },
+      {
+        "id": "D9:12",
+        "timestamp": "10:18 am on 27 August, 2023",
+        "speaker": "Evan",
+        "text": "That's cool, Sam. Nature can be really peaceful. I'd suggest going for more hikes, like I do. It's always been calming and fun. We should definitely do one together sometime.",
+        "blip_caption": "a photo of a lake with a mountain in the background"
+      },
+      {
+        "id": "D9:13",
+        "timestamp": "10:18 am on 27 August, 2023",
+        "speaker": "Sam",
+        "text": "Sounds like fun! Which lake do you recommend? I'd love to explore some of the local trails."
+      },
+      {
+        "id": "D9:14",
+        "timestamp": "10:18 am on 27 August, 2023",
+        "speaker": "Evan",
+        "text": "Check out this one! It's gorgeous and there are lots of trails nearby. You'll love it!",
+        "blip_caption": "a photo of a lake with a mountain in the background"
+      },
+      {
+        "id": "D9:15",
+        "timestamp": "10:18 am on 27 August, 2023",
+        "speaker": "Sam",
+        "text": "Wow, it looks great! Is it nearby? What a view!"
+      },
+      {
+        "id": "D9:16",
+        "timestamp": "10:18 am on 27 August, 2023",
+        "speaker": "Evan",
+        "text": "It's only a two-hour drive from here, but trust me, it's worth every minute for the incredible views and peaceful atmosphere."
+      },
+      {
+        "id": "D9:17",
+        "timestamp": "10:18 am on 27 August, 2023",
+        "speaker": "Sam",
+        "text": "Cool, a day trip's doable. Nature's calling me, so I'm gonna go check it out! Thanks!"
+      },
+      {
+        "id": "D9:18",
+        "timestamp": "10:18 am on 27 August, 2023",
+        "speaker": "Evan",
+        "text": "No worries, enjoy your time in nature. Take care! Bye!"
+      },
+      {
+        "id": "D9:19",
+        "timestamp": "10:18 am on 27 August, 2023",
+        "speaker": "Sam",
+        "text": "Thanks Evan. Have a good one. See ya!"
+      },
+      {
+        "id": "D10:1",
+        "timestamp": "9:28 am on 11 September, 2023",
+        "speaker": "Evan",
+        "text": "Hey Sam! Long time no talk! Hope all is good. What have I been doing these past few weeks?",
+        "blip_caption": "a photo of a painting of a sunset over a body of water"
+      },
+      {
+        "id": "D10:2",
+        "timestamp": "9:28 am on 11 September, 2023",
+        "speaker": "Sam",
+        "text": "Hey Evan! Nice to hear from you. Life has been an up and down ride. Have you seen the pic I posted of my before and after body as a result of the diet? Working to motivate others to make better choices.",
+        "blip_caption": "a photo of a bowl of beef and vegetables with a package of healthy choice"
+      },
+      {
+        "id": "D10:3",
+        "timestamp": "9:28 am on 11 September, 2023",
+        "speaker": "Evan",
+        "text": "Hey Sam! Loving it. Making healthier choices has definitely made a difference for me. It's amazing how small changes can have such a big impact. How about you? Is it making a difference for you too?"
+      },
+      {
+        "id": "D10:4",
+        "timestamp": "9:28 am on 11 September, 2023",
+        "speaker": "Sam",
+        "text": "Hey Evan, thanks for the support! Handling all this has been kinda wild. I'm trying to make healthier choices, but there are still the occasional cravings for sugary drinks and snacks... it's a real struggle."
+      },
+      {
+        "id": "D10:5",
+        "timestamp": "9:28 am on 11 September, 2023",
+        "speaker": "Evan",
+        "text": "Yeah, breaking bad habits can be hard. Cravings can be tough too, but little victories count. What do you think sets off those cravings for you?"
+      },
+      {
+        "id": "D10:6",
+        "timestamp": "9:28 am on 11 September, 2023",
+        "speaker": "Sam",
+        "text": "It's usually stress, boredom, or just wanting comfort. You know, those sugary treats are so tempting, right?"
+      },
+      {
+        "id": "D10:7",
+        "timestamp": "9:28 am on 11 September, 2023",
+        "speaker": "Evan",
+        "text": "Yeah, I get it. When I'm stressed, I always turn to something comforting. But I've found that painting or going for a drive helps too!",
+        "blip_caption": "a photo of a painting of a mountain range with a horse"
+      },
+      {
+        "id": "D10:8",
+        "timestamp": "9:28 am on 11 September, 2023",
+        "speaker": "Sam",
+        "text": "Wow Evan, that's an awesome painting! Good on you for finding a way to de-stress. I could really use something like that - maybe I'll give painting a go or find another calming hobby."
+      },
+      {
+        "id": "D10:9",
+        "timestamp": "9:28 am on 11 September, 2023",
+        "speaker": "Evan",
+        "text": "Hey Sam, painting is super chill for calming down. Wanna give it a try? I can help you get started and recommend some supplies if you're interested. Let me know!"
+      },
+      {
+        "id": "D10:10",
+        "timestamp": "9:28 am on 11 September, 2023",
+        "speaker": "Sam",
+        "text": "Sounds great, Evan! I want to give it a go and see if it relaxes me. Can you suggest some basic supplies for me to get started?"
+      },
+      {
+        "id": "D10:11",
+        "timestamp": "9:28 am on 11 September, 2023",
+        "speaker": "Evan",
+        "text": "Yep, painting is awesome! Get some acrylic paints, brushes, a canvas/paper, and a palette to mix colors. I can give you some recommendations if you want. Just let me know when you're ready and we can plan a painting session!"
+      },
+      {
+        "id": "D10:12",
+        "timestamp": "9:28 am on 11 September, 2023",
+        "speaker": "Sam",
+        "text": "Sounds great, Evan! Can you help me pick out the stuff? Let's plan a painting session soon. I'm really excited!"
+      },
+      {
+        "id": "D10:13",
+        "timestamp": "9:28 am on 11 September, 2023",
+        "speaker": "Evan",
+        "text": "Yeah, Sam - let's do it! Let's get everything ready and paint next Saturday. Can't wait!"
+      },
+      {
+        "id": "D10:14",
+        "timestamp": "9:28 am on 11 September, 2023",
+        "speaker": "Sam",
+        "text": "Sounds good, Evan! Can't wait to paint with you next Saturday. It'll be a fun and creative activity."
+      },
+      {
+        "id": "D11:1",
+        "timestamp": "8:57 pm on 6 October, 2023",
+        "speaker": "Sam",
+        "text": "Hey Evan, long time no see! I've started eating healthier - what's new with you? Picked up any new hobbies?",
+        "blip_caption": "a photography of a bowl of fruit with a striped cloth"
+      },
+      {
+        "id": "D11:2",
+        "timestamp": "8:57 pm on 6 October, 2023",
+        "speaker": "Evan",
+        "text": "Hey Sam! That's awesome about your healthier eating! For me, I had a setback last week - messed up my knee playing b-ball with the kids. It's been tough to stay active since. I really miss going on adventures like we did last year - good times with the family!",
+        "blip_caption": "a photography of a person with a cast on their leg and a cast on their leg"
+      },
+      {
+        "id": "D11:3",
+        "timestamp": "8:57 pm on 6 October, 2023",
+        "speaker": "Sam",
+        "text": "Hey Evan, sorry to hear about your knee. It must be tough. Are there any ways to stay active while you heal up?"
+      },
+      {
+        "id": "D11:4",
+        "timestamp": "8:57 pm on 6 October, 2023",
+        "speaker": "Evan",
+        "text": "Thanks, Sam. PT has helped some. I can't do intense workouts, but I'm doing easy exercises to keep it strong. Not as good as being active outdoors, but still something."
+      },
+      {
+        "id": "D11:5",
+        "timestamp": "8:57 pm on 6 October, 2023",
+        "speaker": "Sam",
+        "text": "Glad PT is helping, Evan! Taking care of yourself is key – have you explored any fun indoor activities or hobbies?"
+      },
+      {
+        "id": "D11:6",
+        "timestamp": "8:57 pm on 6 October, 2023",
+        "speaker": "Evan",
+        "text": "I do my favorite watercolor painting to keep me busy. It's a chill way to relax and get into the colors. By the way, something happened two weeks ago! You're not gonna believe this, I had a bit of an adventure recently. Helped a lost tourist find their way, and we ended up taking an unexpected tour around the city. It was a blast!"
+      },
+      {
+        "id": "D11:7",
+        "timestamp": "8:57 pm on 6 October, 2023",
+        "speaker": "Sam",
+        "text": "Hey Evan, that sounds like a fun and unexpected event! It's always interesting how helping someone can turn into a little adventure of its own. And how's your watercolor painting going?"
+      },
+      {
+        "id": "D11:8",
+        "timestamp": "8:57 pm on 6 October, 2023",
+        "speaker": "Evan",
+        "text": "It's been great! I find painting to be a great stress reliever. Here's what I did last week.",
+        "blip_caption": "a photo of a painting of a cactus in the desert"
+      },
+      {
+        "id": "D11:9",
+        "timestamp": "8:57 pm on 6 October, 2023",
+        "speaker": "Sam",
+        "text": "Wow, those are awesome! So cool. Where did you get the inspiration for them?"
+      },
+      {
+        "id": "D11:10",
+        "timestamp": "8:57 pm on 6 October, 2023",
+        "speaker": "Evan",
+        "text": "Thanks, Sam! The sunset painting was inspired by a vacation a few years back. The colors were so stunning. The cactus painting came from a road trip last month. Such cool places!"
+      },
+      {
+        "id": "D11:11",
+        "timestamp": "8:57 pm on 6 October, 2023",
+        "speaker": "Sam",
+        "text": "Wow, Evan, your paintings are awesome! How do you decide what to paint?"
+      },
+      {
+        "id": "D11:12",
+        "timestamp": "8:57 pm on 6 October, 2023",
+        "speaker": "Evan",
+        "text": "Thanks, Sam! I usually paint what's on my mind or something I'm feeling. It can be good memories or places I wanna go to. It's more like expressing myself through art."
+      },
+      {
+        "id": "D11:13",
+        "timestamp": "8:57 pm on 6 October, 2023",
+        "speaker": "Sam",
+        "text": "That's really amazing, Evan. Expressing yourself through art is such a powerful form of self-expression."
+      },
+      {
+        "id": "D11:14",
+        "timestamp": "8:57 pm on 6 October, 2023",
+        "speaker": "Evan",
+        "text": "Thanks, Sam. Yeah, it's really a great way to express myself and my emotions. It's a cool way to communicate without using words. So, do you have any other ways in which you express yourself?"
+      },
+      {
+        "id": "D11:15",
+        "timestamp": "8:57 pm on 6 October, 2023",
+        "speaker": "Sam",
+        "text": "Drawing is cool. I'm still just learning how to draw, but I love expressing myself through writing. It's therapeutic and helps me sort out my feelings. Though, I've been a bit frustrated lately with my new phone. Its navigation app keeps malfunctioning, making getting around a bit of a challenge."
+      },
+      {
+        "id": "D11:16",
+        "timestamp": "8:57 pm on 6 October, 2023",
+        "speaker": "Evan",
+        "text": "Cool, Sam! Writing is a great way to express yourself. What kind of writing do you enjoy? And about the phone, I recommend trying to update it, it usually works for me!"
+      },
+      {
+        "id": "D11:17",
+        "timestamp": "8:57 pm on 6 October, 2023",
+        "speaker": "Sam",
+        "text": "Thanks for the tip, Evan! Writing in my journal and doing creative writing is a good way for me to express my innermost thoughts and feelings."
+      },
+      {
+        "id": "D11:18",
+        "timestamp": "8:57 pm on 6 October, 2023",
+        "speaker": "Evan",
+        "text": "It can be super therapeutic. It gives you a place to express yourself. Keep it up!"
+      },
+      {
+        "id": "D11:19",
+        "timestamp": "8:57 pm on 6 October, 2023",
+        "speaker": "Sam",
+        "text": "Thanks, Evan! It really helps me make sense of things and express my feelings. It's like having a conversation with myself."
+      },
+      {
+        "id": "D11:20",
+        "timestamp": "8:57 pm on 6 October, 2023",
+        "speaker": "Evan",
+        "text": "Gotcha, it's like having a place to figure stuff out and make sense of it all. We all need an outlet to express our thoughts and feelings."
+      },
+      {
+        "id": "D12:1",
+        "timestamp": "3:09 pm on 8 October, 2023",
+        "speaker": "Sam",
+        "text": "Hey Evan, hope you're doing okay. I wanted to chat about something that's been bothering me lately... I went for a check-up Monday and my doc said my weight's a serious health risk - if I don't make changes soon, it can get worse. I know I made jokes about it, but it's really hitting me. Been having a hard time."
+      },
+      {
+        "id": "D12:2",
+        "timestamp": "3:09 pm on 8 October, 2023",
+        "speaker": "Evan",
+        "text": "Hey Sam, tough news. Yeah, our health can really put a damper on things. I started lifting weights one year ago and it's been a journey. It was a struggle at first, but I'm seeing some gains. You interested in trying it out?",
+        "blip_caption": "a photo of a man doing a squat on a machine in a gym"
+      },
+      {
+        "id": "D12:3",
+        "timestamp": "3:09 pm on 8 October, 2023",
+        "speaker": "Sam",
+        "text": "Hey Evan, I'm interested in getting into it. Any advice on how to get started? Thanks!"
+      },
+      {
+        "id": "D12:4",
+        "timestamp": "3:09 pm on 8 October, 2023",
+        "speaker": "Evan",
+        "text": "Hey Sam, that's awesome! It's important to start out with good form and technique. Find a trainer who can help you avoid injuries while you build your strength. Start with something small, and as you get stronger, the intensity can increase. Stay consistent with your workout routine and let me know how it goes! Good luck!"
+      },
+      {
+        "id": "D12:5",
+        "timestamp": "3:09 pm on 8 October, 2023",
+        "speaker": "Sam",
+        "text": "Thanks, Evan. I'm going to find someone who can help me out. I'll keep you posted!"
+      },
+      {
+        "id": "D12:6",
+        "timestamp": "3:09 pm on 8 October, 2023",
+        "speaker": "Evan",
+        "text": "No problem, Sam. Can't wait to hear about your progress. Keep up the hard work!"
+      },
+      {
+        "id": "D12:7",
+        "timestamp": "3:09 pm on 8 October, 2023",
+        "speaker": "Sam",
+        "text": "Thanks, Evan. I appreciate your support. It really means a lot to me. I'll definitely keep you posted on my progress."
+      },
+      {
+        "id": "D12:8",
+        "timestamp": "3:09 pm on 8 October, 2023",
+        "speaker": "Evan",
+        "text": "You're welcome, Sam! It takes time, so be patient with yourself. Your health matters, and I believe in you. Keep going and stay upbeat. You got this!"
+      },
+      {
+        "id": "D12:9",
+        "timestamp": "3:09 pm on 8 October, 2023",
+        "speaker": "Sam",
+        "text": "Thanks, Evan. I'll stay positive and keep going. Your support means a lot."
+      },
+      {
+        "id": "D12:10",
+        "timestamp": "3:09 pm on 8 October, 2023",
+        "speaker": "Evan",
+        "text": "Hey Sam, glad I can be here for you! Progress is key, so keep pushing on and stay positive. You got this!",
+        "blip_caption": "a photo of a notepad with a note and a pair of scissors"
+      },
+      {
+        "id": "D12:11",
+        "timestamp": "3:09 pm on 8 October, 2023",
+        "speaker": "Sam",
+        "text": "Wow, Evan, that's really inspiring. Gonna keep believing in it!"
+      },
+      {
+        "id": "D12:12",
+        "timestamp": "3:09 pm on 8 October, 2023",
+        "speaker": "Evan",
+        "text": "Go get 'em! Believe in your abilities and you'll reach your goals. Stay motivated!"
+      },
+      {
+        "id": "D12:13",
+        "timestamp": "3:09 pm on 8 October, 2023",
+        "speaker": "Sam",
+        "text": "Thanks Evan! Your words gave me a boost. I'm staying motivated and believing in myself."
+      },
+      {
+        "id": "D12:14",
+        "timestamp": "3:09 pm on 8 October, 2023",
+        "speaker": "Evan",
+        "text": "Awesome! Keep staying motivated and believing in yourself. You've got this!"
+      },
+      {
+        "id": "D12:15",
+        "timestamp": "3:09 pm on 8 October, 2023",
+        "speaker": "Sam",
+        "text": "Thanks, Evan! Your support means a lot to me."
+      },
+      {
+        "id": "D12:16",
+        "timestamp": "3:09 pm on 8 October, 2023",
+        "speaker": "Evan",
+        "text": "No prob, Sam! I'm here for you. Just keep taking one step at a time, and you'll get there eventually!"
+      },
+      {
+        "id": "D12:17",
+        "timestamp": "3:09 pm on 8 October, 2023",
+        "speaker": "Sam",
+        "text": "Sure, Evan. I'll take it slow. See ya!"
+      },
+      {
+        "id": "D13:1",
+        "timestamp": "4:07 pm on 14 October, 2023",
+        "speaker": "Evan",
+        "text": "Hey Sam, how's it going? Been a while since we talked. Hope all is good.",
+        "blip_caption": "a photography of a painting of a person on a cliff"
+      },
+      {
+        "id": "D13:2",
+        "timestamp": "4:07 pm on 14 October, 2023",
+        "speaker": "Sam",
+        "text": "Hey Evan! It's been a rough week - I gave in and bought some unhealthy snacks. I feel kinda guilty. How's it going for you? That painting is awesome! Did you paint it?",
+        "blip_caption": "a photo of a person holding a box of sodas in front of a wall"
+      },
+      {
+        "id": "D13:3",
+        "timestamp": "4:07 pm on 14 October, 2023",
+        "speaker": "Evan",
+        "text": "Hey Sam, sorry to hear about the rough week. Don't worry about the snacks. I'm doing okay, just finished this painting of a sunset. It really helps me relax. So, how's everything going with you? Anything new and exciting?"
+      },
+      {
+        "id": "D13:4",
+        "timestamp": "4:07 pm on 14 October, 2023",
+        "speaker": "Sam",
+        "text": "Thanks, Evan! Yeah, I just couldn't resist them. Gotta do better. As for me, just dealing with work stress and trying to stay motivated."
+      },
+      {
+        "id": "D13:5",
+        "timestamp": "4:07 pm on 14 October, 2023",
+        "speaker": "Evan",
+        "text": "Hey Sam, work stress can really get to you. Have you tried anything new to de-stress? Maybe picking up a hobby or something could help."
+      },
+      {
+        "id": "D13:6",
+        "timestamp": "4:07 pm on 14 October, 2023",
+        "speaker": "Sam",
+        "text": "Thinking about trying something different outdoors. Any suggestions?"
+      },
+      {
+        "id": "D13:7",
+        "timestamp": "4:07 pm on 14 October, 2023",
+        "speaker": "Evan",
+        "text": "Sounds good! Have you ever tried kayaking? It's a fun and active way to paddle on a river or lake. What are your thoughts on that?"
+      },
+      {
+        "id": "D13:8",
+        "timestamp": "4:07 pm on 14 October, 2023",
+        "speaker": "Sam",
+        "text": "Kayaking sounds awesome! Haven't tried it yet, but it looks like a fun way to get in some exercise and enjoy nature. I'm definitely considering giving it a try. Thanks!"
+      },
+      {
+        "id": "D13:9",
+        "timestamp": "4:07 pm on 14 October, 2023",
+        "speaker": "Evan",
+        "text": "No worries, Sam! It's a fun way to get in some exercise and enjoy nature. Let me know when you're ready to give it a try and I can hook you up with a good spot."
+      },
+      {
+        "id": "D13:10",
+        "timestamp": "4:07 pm on 14 October, 2023",
+        "speaker": "Sam",
+        "text": "Thanks for the idea, my mate and I are just around the corner from kayaking on the lake, we're going to try that now!"
+      },
+      {
+        "id": "D13:11",
+        "timestamp": "4:07 pm on 14 October, 2023",
+        "speaker": "Evan",
+        "text": "Of course, let me know if you like it, we can plan a kayaking trip together, I'll pick a cool spot!"
+      },
+      {
+        "id": "D13:12",
+        "timestamp": "4:07 pm on 14 October, 2023",
+        "speaker": "Sam",
+        "text": "Yep, Evan! Can't wait. Thanks for the help!",
+        "blip_caption": "a photography of a row of kayaks lined up on the shore of a river"
+      },
+      {
+        "id": "D13:13",
+        "timestamp": "4:07 pm on 14 October, 2023",
+        "speaker": "Evan",
+        "text": "Ready for an adventure? Where will you go?"
+      },
+      {
+        "id": "D13:14",
+        "timestamp": "4:07 pm on 14 October, 2023",
+        "speaker": "Sam",
+        "text": "We're traveling through Lake Tahoe! I heard it's great for kayaking."
+      },
+      {
+        "id": "D13:15",
+        "timestamp": "4:07 pm on 14 October, 2023",
+        "speaker": "Evan",
+        "text": "Hey Sam, it's an awesome pick! You'll love it there - clear water and gorgeous views. Have a blast and take lots of pics!"
+      },
+      {
+        "id": "D13:16",
+        "timestamp": "4:07 pm on 14 October, 2023",
+        "speaker": "Sam",
+        "text": "Thanks, Evan! I'm looking forward to it!"
+      },
+      {
+        "id": "D14:1",
+        "timestamp": "1:50 pm on 17 October, 2023",
+        "speaker": "Sam",
+        "text": "Hey Evan! I've been missing our chats. I had quite the health scare last weekend - ended up in the ER with a severe stomachache. Turns out, it was gastritis, which was pretty alarming. It was a wake-up call for me to start prioritizing my health, like adopting a more nutritious diet and getting regular exercise. On top of that, my phone's been giving me a hard time, adding to the stress."
+      },
+      {
+        "id": "D14:2",
+        "timestamp": "1:50 pm on 17 October, 2023",
+        "speaker": "Evan",
+        "text": "Hey Sam, sorry to hear about that. Gastritis can be tough. Taking care of ourselves is important. BTW, I've been focusing on fitness and it's been really beneficial for my overall well-being. Funny thing, I had another encounter with a lost tourist recently. Seems like helping tourists is becoming a recurring theme in my life!"
+      },
+      {
+        "id": "D14:3",
+        "timestamp": "1:50 pm on 17 October, 2023",
+        "speaker": "Sam",
+        "text": "Thanks, Evan! Glad you've found that it's been good for you! I totally need to get into it too. Just getting started is hard - any tips for staying motivated? Also, you mentioned another lost tourist? Seems like you're becoming the go-to guy for tourists in need!"
+      },
+      {
+        "id": "D14:4",
+        "timestamp": "1:50 pm on 17 October, 2023",
+        "speaker": "Evan",
+        "text": "Yup, Sam! Set some goals, like a certain distance to run or number of push-ups to do. It'll give you something to strive for and stay motivated. Also, try to find an exercise that you enjoy and maybe even get a buddy for extra fun and accountability. Sound good?"
+      },
+      {
+        "id": "D14:5",
+        "timestamp": "1:50 pm on 17 October, 2023",
+        "speaker": "Sam",
+        "text": "Yeah, that sounds like a good idea. Having goals and someone to exercise with might help. I'll give it a try!"
+      },
+      {
+        "id": "D14:6",
+        "timestamp": "1:50 pm on 17 October, 2023",
+        "speaker": "Evan",
+        "text": "Awesome, Sam! Getting started will get easier with time. And don't forget it's about feeling good and reaching goals, too. Let's plan a hike soon!"
+      },
+      {
+        "id": "D14:7",
+        "timestamp": "1:50 pm on 17 October, 2023",
+        "speaker": "Sam",
+        "text": "Sounds awesome, Evan! Can't wait to go on a hike with you. It's going to be a fun challenge and a great opportunity to appreciate the beauty of nature."
+      },
+      {
+        "id": "D14:8",
+        "timestamp": "1:50 pm on 17 October, 2023",
+        "speaker": "Evan",
+        "text": "Definitely, Sam! Hiking is an awesome way to bond with nature and push ourselves. It's gonna be a cool memory for us both. It's great to see progress, was just at the gym yesterday. Gaining strength!"
+      },
+      {
+        "id": "D14:9",
+        "timestamp": "1:50 pm on 17 October, 2023",
+        "speaker": "Sam",
+        "text": "Super excited to get fit with ya. Let's hit the trails soon!",
+        "blip_caption": "a photo of a person wearing hiking shoes on a couch"
+      },
+      {
+        "id": "D14:10",
+        "timestamp": "1:50 pm on 17 October, 2023",
+        "speaker": "Evan",
+        "text": "Thanks, Sam! That's so nice of you. We'll definitely have a great time on our hike!"
+      },
+      {
+        "id": "D14:11",
+        "timestamp": "1:50 pm on 17 October, 2023",
+        "speaker": "Sam",
+        "text": "Totally! I'm so pumped for this hike. Connecting with nature is exactly what I need. Thanks so much for the support and always being there. Means a lot."
+      },
+      {
+        "id": "D14:12",
+        "timestamp": "1:50 pm on 17 October, 2023",
+        "speaker": "Evan",
+        "text": "Sure thing! Our hike is going to be awesome, I can tell. I'm always here to support you."
+      },
+      {
+        "id": "D14:13",
+        "timestamp": "1:50 pm on 17 October, 2023",
+        "speaker": "Sam",
+        "text": "Thanks, Evan. I appreciate your support."
+      },
+      {
+        "id": "D14:14",
+        "timestamp": "1:50 pm on 17 October, 2023",
+        "speaker": "Evan",
+        "text": "No problem, Sam. Whenever you need support, I'm here for you. Stay safe!"
+      },
+      {
+        "id": "D14:15",
+        "timestamp": "1:50 pm on 17 October, 2023",
+        "speaker": "Sam",
+        "text": "Thanks, I'll get in touch if I need anything. Stay safe. Bye!"
+      },
+      {
+        "id": "D14:16",
+        "timestamp": "1:50 pm on 17 October, 2023",
+        "speaker": "Evan",
+        "text": "Later! Stay safe and don't hesitate to holler if you need anything. Can't wait to hit the trail."
+      },
+      {
+        "id": "D15:1",
+        "timestamp": "2:56 pm on 25 October, 2023",
+        "speaker": "Sam",
+        "text": "Morning, Evan. I've been trying to keep up with my new health routine, but it's tough. My family's really pushing for it, and I feel so pressured."
+      },
+      {
+        "id": "D15:2",
+        "timestamp": "2:56 pm on 25 October, 2023",
+        "speaker": "Evan",
+        "text": "I hear you, Sam. It's important to have people who encourage you, but not stress you out. By the way, I just got back from my morning walk. It really helps to start the day actively."
+      },
+      {
+        "id": "D15:3",
+        "timestamp": "2:56 pm on 25 October, 2023",
+        "speaker": "Sam",
+        "text": "Yeah, it's easier when you have a great support system. Thanks for being there for me."
+      },
+      {
+        "id": "D15:4",
+        "timestamp": "2:56 pm on 25 October, 2023",
+        "speaker": "Evan",
+        "text": "No worries, Sam. I'll be there for you. Take it slow and treat yourself."
+      },
+      {
+        "id": "D15:5",
+        "timestamp": "2:56 pm on 25 October, 2023",
+        "speaker": "Sam",
+        "text": "Thanks for the reminder to take it easy. I sometimes get impatient with myself when I want results fast, but I gotta be patient."
+      },
+      {
+        "id": "D15:6",
+        "timestamp": "2:56 pm on 25 October, 2023",
+        "speaker": "Evan",
+        "text": "Yep, progress takes time. So just take it one step at a time."
+      },
+      {
+        "id": "D15:7",
+        "timestamp": "2:56 pm on 25 October, 2023",
+        "speaker": "Sam",
+        "text": "Yes, you're right, Evan. Taking it slow is better than doing too much. I appreciate your support."
+      },
+      {
+        "id": "D15:8",
+        "timestamp": "2:56 pm on 25 October, 2023",
+        "speaker": "Evan",
+        "text": "I get it, Sam. I went through a similar phase a twoyears ago. Changed my diet, started walking regularly, things like that.",
+        "blip_caption": "a photography of a man sitting at a table with a lot of fruits and vegetables"
+      },
+      {
+        "id": "D15:9",
+        "timestamp": "2:56 pm on 25 October, 2023",
+        "speaker": "Sam",
+        "text": "Wow, Evan, you look great! How did you manage the change?"
+      },
+      {
+        "id": "D15:10",
+        "timestamp": "2:56 pm on 25 October, 2023",
+        "speaker": "Evan",
+        "text": "I started focusing more on my well-being rather than fixating on quick results. Letting go of that pressure made a huge difference."
+      },
+      {
+        "id": "D15:11",
+        "timestamp": "2:56 pm on 25 October, 2023",
+        "speaker": "Sam",
+        "text": "That's impressive, Evan. It's inspiring to see how you transformed by changing your mindset."
+      },
+      {
+        "id": "D15:12",
+        "timestamp": "2:56 pm on 25 October, 2023",
+        "speaker": "Evan",
+        "text": "Thanks, Sam. Letting go of unrealistic expectations was liberating, both physically and mentally."
+      },
+      {
+        "id": "D15:13",
+        "timestamp": "2:56 pm on 25 October, 2023",
+        "speaker": "Sam",
+        "text": "You're really doing great, Evan! I want to feel that same sense of freedom."
+      },
+      {
+        "id": "D15:14",
+        "timestamp": "2:56 pm on 25 October, 2023",
+        "speaker": "Evan",
+        "text": "Thanks, Sam. Just take it one day at a time. Celebrate small victories."
+      },
+      {
+        "id": "D15:15",
+        "timestamp": "2:56 pm on 25 October, 2023",
+        "speaker": "Sam",
+        "text": "Thanks, Evan! Focusing on small wins sounds like a plan. I'll take it one day at a time."
+      },
+      {
+        "id": "D15:16",
+        "timestamp": "2:56 pm on 25 October, 2023",
+        "speaker": "Evan",
+        "text": "Exactly! Congrats on every little victory. Keep it up, I'm here for you."
+      },
+      {
+        "id": "D15:17",
+        "timestamp": "2:56 pm on 25 October, 2023",
+        "speaker": "Sam",
+        "text": "Your support means everything. Here's to moving forward!"
+      },
+      {
+        "id": "D15:18",
+        "timestamp": "2:56 pm on 25 October, 2023",
+        "speaker": "Evan",
+        "text": "Anytime, Sam! Let's keep pushing ahead. I'm here to help you. Take care!"
+      },
+      {
+        "id": "D16:1",
+        "timestamp": "9:13 pm on 9 November, 2023",
+        "speaker": "Sam",
+        "text": "Hey Evan! Hope you're doing good. Got some good news to share - I'm a Weight Watchers coach in my group now! It's a pretty big accomplishment for me, feel really proud."
+      },
+      {
+        "id": "D16:2",
+        "timestamp": "9:13 pm on 9 November, 2023",
+        "speaker": "Evan",
+        "text": "Congrats Sam! That's awesome! I'm super proud of you. Becoming a Weight Watchers coach is a big deal. Keep going!"
+      },
+      {
+        "id": "D16:3",
+        "timestamp": "9:13 pm on 9 November, 2023",
+        "speaker": "Sam",
+        "text": "Thanks, Evan! Appreciate your support. It's been a journey, and being chosen as a coach is a great step in my quest for better health."
+      },
+      {
+        "id": "D16:4",
+        "timestamp": "9:13 pm on 9 November, 2023",
+        "speaker": "Evan",
+        "text": "Wow, Sam! You've come such a long way. It's exciting to see what comes next for you in your quest for better health."
+      },
+      {
+        "id": "D16:5",
+        "timestamp": "9:13 pm on 9 November, 2023",
+        "speaker": "Sam",
+        "text": "Thanks, Evan! It feels great to see progress. Being a coach will hopefully keep me motivated and help others stay committed too. It's a big challenge, but I'm ready for it!"
+      },
+      {
+        "id": "D16:6",
+        "timestamp": "9:13 pm on 9 November, 2023",
+        "speaker": "Evan",
+        "text": "That's awesome, Sam! Helping others stay committed and motivated is so rewarding. You really inspire us. Keep up the great work!"
+      },
+      {
+        "id": "D16:7",
+        "timestamp": "9:13 pm on 9 November, 2023",
+        "speaker": "Sam",
+        "text": "Thanks, Evan! Your kind words mean a lot. It's been a difficult road, but I'm determined to continue making a positive impact."
+      },
+      {
+        "id": "D16:8",
+        "timestamp": "9:13 pm on 9 November, 2023",
+        "speaker": "Evan",
+        "text": "Sorry about missing any events, I've had some personal challenges since we last spoke. Still here for you though - do you need any support or want to share anything? Btw look what i got!",
+        "blip_caption": "a photo of a guitar laying on the floor with a guitar strap"
+      },
+      {
+        "id": "D16:9",
+        "timestamp": "9:13 pm on 9 November, 2023",
+        "speaker": "Sam",
+        "text": "Hey, it looks so vintage and cool! What model is it? How've you been doing lately? I'm here if you wanna chat."
+      },
+      {
+        "id": "D16:10",
+        "timestamp": "9:13 pm on 9 November, 2023",
+        "speaker": "Evan",
+        "text": "It's a 1968 Kustom K-200A vintage guitar and I got it as a gift from a close friend. It's been a tough time for me since we last caught up; I lost my job last month, which has been pretty rough. But I really appreciate your support through all this."
+      },
+      {
+        "id": "D16:11",
+        "timestamp": "9:13 pm on 9 November, 2023",
+        "speaker": "Sam",
+        "text": "Sorry to hear about your job, Evan. What happened?"
+      },
+      {
+        "id": "D16:12",
+        "timestamp": "9:13 pm on 9 November, 2023",
+        "speaker": "Evan",
+        "text": "It's been a bit of a rough patch lately. The company downsized, and I was part of that. I'm currently on the hunt for a new job, which hasn't been easy, but I'm keeping my spirits up and staying hopeful."
+      },
+      {
+        "id": "D16:13",
+        "timestamp": "9:13 pm on 9 November, 2023",
+        "speaker": "Sam",
+        "text": "Sorry about your job, Evan. It's tough when it comes out of nowhere, but I'm proud of how you're handling it. Let me know if you need someone to talk to or if I can do anything to help. You'll get through this."
+      },
+      {
+        "id": "D16:14",
+        "timestamp": "9:13 pm on 9 November, 2023",
+        "speaker": "Evan",
+        "text": "Thanks, Sam. Your support means a lot. It's been quite a ride, but I really appreciate having someone like you to talk to. I'll definitely reach out if I need anything."
+      },
+      {
+        "id": "D16:15",
+        "timestamp": "9:13 pm on 9 November, 2023",
+        "speaker": "Sam",
+        "text": "For sure, Evan! I'm here for ya. Life can be tough sometimes, but we got this. Stay positive and it'll all work out. Just know that I'm here if you need someone to talk to."
+      },
+      {
+        "id": "D16:16",
+        "timestamp": "9:13 pm on 9 November, 2023",
+        "speaker": "Evan",
+        "text": "Thanks, Sam. Your kind words and support mean a lot. It's great to have you here. I'm gonna stay positive and keep going. Cheers!",
+        "blip_caption": "a photo of a person walking on the beach with a surfboard"
+      },
+      {
+        "id": "D16:17",
+        "timestamp": "9:13 pm on 9 November, 2023",
+        "speaker": "Sam",
+        "text": "Wow, that sunset is stunning! It's so soothing just to see it. Is that a special spot you go to watch sunsets?"
+      },
+      {
+        "id": "D16:18",
+        "timestamp": "9:13 pm on 9 November, 2023",
+        "speaker": "Evan",
+        "text": "Yeah, it's this peaceful place close to my home. I often go there to relax and unwind."
+      },
+      {
+        "id": "D16:19",
+        "timestamp": "9:13 pm on 9 November, 2023",
+        "speaker": "Sam",
+        "text": "That sounds wonderful, Evan! I'd love to check it out with you sometime."
+      },
+      {
+        "id": "D16:20",
+        "timestamp": "9:13 pm on 9 November, 2023",
+        "speaker": "Evan",
+        "text": "Oh, I wish I could bring you along. That picture was actually taken last Friday at my favorite spot by the beach. Watching the waves and the sunset colors really helps me find peace, especially during tough times. It's a beautiful reminder of nature's resilience. We should definitely plan to go together someday."
+      },
+      {
+        "id": "D16:21",
+        "timestamp": "9:13 pm on 9 November, 2023",
+        "speaker": "Sam",
+        "text": "No worries, Evan. And yes, we should make a plan to go. That photo is just mesmerizing!"
+      },
+      {
+        "id": "D16:22",
+        "timestamp": "9:13 pm on 9 November, 2023",
+        "speaker": "Evan",
+        "text": "I'm glad you like it! It's a really calming place. Let's make a point to visit it together soon."
+      },
+      {
+        "id": "D16:23",
+        "timestamp": "9:13 pm on 9 November, 2023",
+        "speaker": "Sam",
+        "text": "Absolutely, Evan! A trip there sounds like the perfect way to de-stress."
+      },
+      {
+        "id": "D16:24",
+        "timestamp": "9:13 pm on 9 November, 2023",
+        "speaker": "Evan",
+        "text": "Awesome, let's do it! Let's plan it for next month, I'm already excited about exploring it together!"
+      },
+      {
+        "id": "D17:1",
+        "timestamp": "7:30 pm on 21 November, 2023",
+        "speaker": "Sam",
+        "text": "Hey Ev! Long time no chat. How's it going? Hope all is well."
+      },
+      {
+        "id": "D17:2",
+        "timestamp": "7:30 pm on 21 November, 2023",
+        "speaker": "Evan",
+        "text": "Hey Sam, good to hear from you! Life's been a wild ride lately. Last week, I had a health scare and had to go to the hospital. They found something suspicious during a check-up, which freaked me out. Thankfully, it was all a misunderstanding, but it made me realize how important it is to keep an eye on my health. How've you been?"
+      },
+      {
+        "id": "D17:3",
+        "timestamp": "7:30 pm on 21 November, 2023",
+        "speaker": "Sam",
+        "text": "Woah, Evan, that must've been scary! Phew, it was just a misunderstanding. A health scare can really make you re-evaluate what's important. As for me, I've been dealing with some discomfort and it's been limiting my movement. I've been trying to make changes diet-wise, but it can be hard."
+      },
+      {
+        "id": "D17:4",
+        "timestamp": "7:30 pm on 21 November, 2023",
+        "speaker": "Evan",
+        "text": "That sucks, Sam. It's tough when our health holds us back. I believe in you – just taking small steps can help. Have you tried any new hobbies recently to take your mind off it?"
+      },
+      {
+        "id": "D17:5",
+        "timestamp": "7:30 pm on 21 November, 2023",
+        "speaker": "Sam",
+        "text": "Thanks, Evan. I haven't tried much new lately, but I did get this yesterday. It's been my go-to 'feel good' flick. So, you said you had a health scare - how're you now?",
+        "blip_caption": "a photo of a book with a picture of a man on it"
+      },
+      {
+        "id": "D17:6",
+        "timestamp": "7:30 pm on 21 November, 2023",
+        "speaker": "Evan",
+        "text": "That movie sounds interesting! I'm doing well now. Doctors said everything is fine, but it taught me the value of life. Just trying to enjoy the moment."
+      },
+      {
+        "id": "D17:7",
+        "timestamp": "7:30 pm on 21 November, 2023",
+        "speaker": "Sam",
+        "text": "That's awesome, Evan! Let's make it a habit to appreciate something each day. It really helps us enjoy life more. What do you think?"
+      },
+      {
+        "id": "D17:8",
+        "timestamp": "7:30 pm on 21 November, 2023",
+        "speaker": "Evan",
+        "text": "Sounds good, Sam! Let's take the time to appreciate the little things in life."
+      },
+      {
+        "id": "D17:9",
+        "timestamp": "7:30 pm on 21 November, 2023",
+        "speaker": "Sam",
+        "text": "Thanks for always being there, Evan. It means a lot."
+      },
+      {
+        "id": "D17:10",
+        "timestamp": "7:30 pm on 21 November, 2023",
+        "speaker": "Evan",
+        "text": "Sure, Sam. I'm here for you. We gotta stick together, especially now."
+      },
+      {
+        "id": "D17:11",
+        "timestamp": "7:30 pm on 21 November, 2023",
+        "speaker": "Sam",
+        "text": "Yeah, Evan. Life can be tough sometimes, but having supportive people like you makes it way easier."
+      },
+      {
+        "id": "D17:12",
+        "timestamp": "7:30 pm on 21 November, 2023",
+        "speaker": "Evan",
+        "text": "Yeah, Sam. Tough times are way easier with friends we can rely on. We've got each other!",
+        "blip_caption": "a photography of a group of people sitting around a fire pit"
+      },
+      {
+        "id": "D17:13",
+        "timestamp": "7:30 pm on 21 November, 2023",
+        "speaker": "Sam",
+        "text": "Looks like you're having a blast! I was wondering, what do you do to stay fit and healthy?"
+      },
+      {
+        "id": "D17:14",
+        "timestamp": "7:30 pm on 21 November, 2023",
+        "speaker": "Evan",
+        "text": "That was wild! I stay in shape by hitting the gym and taking my car out for a spin. Gotta keep it up! How are you doing on your fitness goals, Sam?"
+      },
+      {
+        "id": "D17:15",
+        "timestamp": "7:30 pm on 21 November, 2023",
+        "speaker": "Sam",
+        "text": "Fitness goals have been hard to reach, but hey, that's life!"
+      },
+      {
+        "id": "D17:16",
+        "timestamp": "7:30 pm on 21 November, 2023",
+        "speaker": "Evan",
+        "text": "Yeah Sam, it's true. Progress takes time, so keep pushing.",
+        "blip_caption": "a photo of a small island with a lone boat in the water"
+      },
+      {
+        "id": "D17:17",
+        "timestamp": "7:30 pm on 21 November, 2023",
+        "speaker": "Sam",
+        "text": "Where is that? It looks gorgeous!"
+      },
+      {
+        "id": "D17:18",
+        "timestamp": "7:30 pm on 21 November, 2023",
+        "speaker": "Evan",
+        "text": "This little island is where I grew up and it's my happy place.",
+        "blip_caption": "a photo of a sun shining through the clouds over a body of water"
+      },
+      {
+        "id": "D17:19",
+        "timestamp": "7:30 pm on 21 November, 2023",
+        "speaker": "Sam",
+        "text": "Wow, that spot looks gorgeous. Growing up there must have been so peaceful and stunning."
+      },
+      {
+        "id": "D17:20",
+        "timestamp": "7:30 pm on 21 November, 2023",
+        "speaker": "Evan",
+        "text": "Yeah, it was. That place shaped me and will always hold a special place in my heart."
+      },
+      {
+        "id": "D17:21",
+        "timestamp": "7:30 pm on 21 November, 2023",
+        "speaker": "Sam",
+        "text": "Yeah, it can be soul-calming."
+      },
+      {
+        "id": "D17:22",
+        "timestamp": "7:30 pm on 21 November, 2023",
+        "speaker": "Evan",
+        "text": "Yeah, it really is. So serene and calming.",
+        "blip_caption": "a photography of a person walking on a beach at sunset"
+      },
+      {
+        "id": "D17:23",
+        "timestamp": "7:30 pm on 21 November, 2023",
+        "speaker": "Sam",
+        "text": "It's heavenly!"
+      },
+      {
+        "id": "D17:24",
+        "timestamp": "7:30 pm on 21 November, 2023",
+        "speaker": "Evan",
+        "text": "Yeah, it's like a little slice of paradise. I always feel so peaceful and serene when I'm there.",
+        "blip_caption": "a photo of a sunset over a body of water"
+      },
+      {
+        "id": "D17:25",
+        "timestamp": "7:30 pm on 21 November, 2023",
+        "speaker": "Sam",
+        "text": "Wow, it really seems like a peaceful retreat. Thanks for showing me!"
+      },
+      {
+        "id": "D17:26",
+        "timestamp": "7:30 pm on 21 November, 2023",
+        "speaker": "Evan",
+        "text": "No prob, always good to chat about those tranquil times. Take it easy!"
+      },
+      {
+        "id": "D17:27",
+        "timestamp": "7:30 pm on 21 November, 2023",
+        "speaker": "Sam",
+        "text": "Take care, buddy. Hang in there!"
+      },
+      {
+        "id": "D17:28",
+        "timestamp": "7:30 pm on 21 November, 2023",
+        "speaker": "Evan",
+        "text": "Thanks, Sam. If you need to talk, I'm here for you too."
+      },
+      {
+        "id": "D18:1",
+        "timestamp": "8:16 pm on 5 December, 2023",
+        "speaker": "Evan",
+        "text": "Hey Sam, good to hear from you. I've hit a bit of a snag - my new Prius, the one I just bought, broke down. It's a bit of a stressor since I rely on it for my active lifestyle and road trips. It's frustrating when new things go awry so soon."
+      },
+      {
+        "id": "D18:2",
+        "timestamp": "8:16 pm on 5 December, 2023",
+        "speaker": "Sam",
+        "text": "Hey Evan, that's rough. Dealing with a new car breaking down is such a hassle, especially when it's your main mode of transport."
+      },
+      {
+        "id": "D18:3",
+        "timestamp": "8:16 pm on 5 December, 2023",
+        "speaker": "Evan",
+        "text": "You're telling me. I was really counting on this new Prius to be reliable. It's always a challenge when you have to deal with unexpected issues like this. But, I guess it's just one of those things - even new cars can have problems."
+      },
+      {
+        "id": "D18:4",
+        "timestamp": "8:16 pm on 5 December, 2023",
+        "speaker": "Sam",
+        "text": "It's tough when your plans get derailed by something like this. But hey, sometimes these setbacks lead to new opportunities."
+      },
+      {
+        "id": "D18:5",
+        "timestamp": "8:16 pm on 5 December, 2023",
+        "speaker": "Evan",
+        "text": "True, I'm trying to see it as a chance to explore other ways of staying active and traveling. Maybe it's an opportunity to try something different."
+      },
+      {
+        "id": "D18:6",
+        "timestamp": "8:16 pm on 5 December, 2023",
+        "speaker": "Sam",
+        "text": "Exactly, it's all about finding the silver lining. Speaking of new things, I attended a Weight Watchers meeting yesterday. Learned some great tips.",
+        "blip_caption": "a photo of a variety of bowls of fruit and yogurt"
+      },
+      {
+        "id": "D18:7",
+        "timestamp": "8:16 pm on 5 December, 2023",
+        "speaker": "Evan",
+        "text": "That smoothie bowl looks fantastic! How was the meeting? Yeah, I've been thinking about trying yoga, something gentle yet effective for stress relief and flexibility. What's your take on it, Sam?"
+      },
+      {
+        "id": "D18:8",
+        "timestamp": "8:16 pm on 5 December, 2023",
+        "speaker": "Sam",
+        "text": "The meeting was really insightful, and that smoothie bowl was a hit! Yoga's a great choice, it's done wonders for my flexibility and stress levels. You should definitely try it."
+      },
+      {
+        "id": "D18:9",
+        "timestamp": "8:16 pm on 5 December, 2023",
+        "speaker": "Evan",
+        "text": "I think I will. Thanks for the suggestion, Sam."
+      },
+      {
+        "id": "D18:10",
+        "timestamp": "8:16 pm on 5 December, 2023",
+        "speaker": "Sam",
+        "text": "Anytime, Evan. If you need any yoga tips or anything else, just let me know."
+      },
+      {
+        "id": "D18:11",
+        "timestamp": "8:16 pm on 5 December, 2023",
+        "speaker": "Evan",
+        "text": "Your support's been invaluable. Thanks again, Sam!"
+      },
+      {
+        "id": "D18:12",
+        "timestamp": "8:16 pm on 5 December, 2023",
+        "speaker": "Sam",
+        "text": "No worries, Evan. We all need a bit of help when trying new things. It's great to have support."
+      },
+      {
+        "id": "D18:13",
+        "timestamp": "8:16 pm on 5 December, 2023",
+        "speaker": "Evan",
+        "text": "Absolutely. It makes a big difference knowing you're not alone in these situations."
+      },
+      {
+        "id": "D18:14",
+        "timestamp": "8:16 pm on 5 December, 2023",
+        "speaker": "Sam",
+        "text": "Definitely. Take care, and let me know how the yoga goes. Bye!"
+      },
+      {
+        "id": "D18:15",
+        "timestamp": "8:16 pm on 5 December, 2023",
+        "speaker": "Evan",
+        "text": "Will do. Thanks for everything, Sam. Talk soon. Bye!"
+      },
+      {
+        "id": "D19:1",
+        "timestamp": "1:45 pm on 9 December, 2023",
+        "speaker": "Evan",
+        "text": "Hey Sam, hope you're doing good. Wanted to share some amazing news - my partner is pregnant! We're so excited! It's been a while since we had a kiddo around."
+      },
+      {
+        "id": "D19:2",
+        "timestamp": "1:45 pm on 9 December, 2023",
+        "speaker": "Sam",
+        "text": "Congrats, Ev! That's great news! Parenthood is so amazing. How are you feeling about it?"
+      },
+      {
+        "id": "D19:3",
+        "timestamp": "1:45 pm on 9 December, 2023",
+        "speaker": "Evan",
+        "text": "So excited and a bit nervous! It's been a while since I had a toddler around but I'm really looking forward to it. Parenthood is so rewarding. I still remember when my first child was born, the joy was amazing. Looking forward to witness the miracle of life and build more memories with my family!"
+      },
+      {
+        "id": "D19:4",
+        "timestamp": "1:45 pm on 9 December, 2023",
+        "speaker": "Sam",
+        "text": "Wow, you're gonna be an amazing parent! Treasure those memories, they're truly special."
+      },
+      {
+        "id": "D19:5",
+        "timestamp": "1:45 pm on 9 December, 2023",
+        "speaker": "Evan",
+        "text": "Thanks Sam! Absolutely. Talking of memories, I want to show you this. It's a collage of some of our top family memories. Each photo has an amazing moment - birthdays, holidays, vacations - so good to look back and recall all the great times we had.",
+        "blip_caption": "a photo of a desk with a lamp, a picture frame, and a sign"
+      },
+      {
+        "id": "D19:6",
+        "timestamp": "1:45 pm on 9 December, 2023",
+        "speaker": "Sam",
+        "text": "That's so lovely, Evan. Your family looks so happy. What's the story behind that sign in the center?"
+      },
+      {
+        "id": "D19:7",
+        "timestamp": "1:45 pm on 9 December, 2023",
+        "speaker": "Evan",
+        "text": "Oh, that one? It's from our trip to Banff. We have this sign in the frame that says 'Bring it on Home' - it's our family's motto, always reminding us of the importance of togetherness, no matter where we are."
+      },
+      {
+        "id": "D19:8",
+        "timestamp": "1:45 pm on 9 December, 2023",
+        "speaker": "Sam",
+        "text": "That's really touching, Evan. It's important to have something that keeps the family bond strong."
+      },
+      {
+        "id": "D19:9",
+        "timestamp": "1:45 pm on 9 December, 2023",
+        "speaker": "Evan",
+        "text": "Absolutely, Sam. My family means the world to me. They're my rock. I'm looking forward to expanding our family and creating even more beautiful memories."
+      },
+      {
+        "id": "D19:10",
+        "timestamp": "1:45 pm on 9 December, 2023",
+        "speaker": "Sam",
+        "text": "That's wonderful to hear, Evan! It's clear how much you value your family. Are you thinking of any specific plans or events to add to that collage?"
+      },
+      {
+        "id": "D19:11",
+        "timestamp": "1:45 pm on 9 December, 2023",
+        "speaker": "Evan",
+        "text": "Thanks, Sam! Yeah, we're planning a big family reunion next summer. It's going to be a blast and a perfect opportunity to add to our collage."
+      },
+      {
+        "id": "D19:12",
+        "timestamp": "1:45 pm on 9 December, 2023",
+        "speaker": "Sam",
+        "text": "Sounds fantastic! If you need any tips on organizing such a big event, just let me know. I'm always here to support and celebrate your family's milestones."
+      },
+      {
+        "id": "D19:13",
+        "timestamp": "1:45 pm on 9 December, 2023",
+        "speaker": "Evan",
+        "text": "Thanks, Sam! Your support means a lot. I'll keep you updated. Take care, bye!"
+      },
+      {
+        "id": "D19:14",
+        "timestamp": "1:45 pm on 9 December, 2023",
+        "speaker": "Sam",
+        "text": "Take care, Evan! Can't wait to hear about it. Bye!"
+      },
+      {
+        "id": "D19:15",
+        "timestamp": "1:45 pm on 9 December, 2023",
+        "speaker": "Evan",
+        "text": "Bye Sam. I'll definitely keep you updated. Thanks for the kind words and support. Take care!"
+      },
+      {
+        "id": "D20:1",
+        "timestamp": "6:48 pm on 17 December, 2023",
+        "speaker": "Evan",
+        "text": "Hey Sam, what's up? Long time no see, huh? Lots has happened."
+      },
+      {
+        "id": "D20:2",
+        "timestamp": "6:48 pm on 17 December, 2023",
+        "speaker": "Sam",
+        "text": "Hey Evan! Long time no see. I'm doing okay, been through a few bumps. How about you?"
+      },
+      {
+        "id": "D20:3",
+        "timestamp": "6:48 pm on 17 December, 2023",
+        "speaker": "Evan",
+        "text": "It's not easy for us right now, my son had an accident last Tuesday, he fell off his bike and it was rough. But he's doing better now. How are you dealing with all this?",
+        "blip_caption": "a photo of a young boy with crutches and a backpack"
+      },
+      {
+        "id": "D20:4",
+        "timestamp": "6:48 pm on 17 December, 2023",
+        "speaker": "Sam",
+        "text": "Darn, sorry to hear that. Hope he's feeling better. Same here, it's been tough lately. After we talked, I started thinking about ways to cope with it, but it's been challenging."
+      },
+      {
+        "id": "D20:5",
+        "timestamp": "6:48 pm on 17 December, 2023",
+        "speaker": "Evan",
+        "text": "Life can be hard sometimes. Do you have any hobbies or activities that make you happy?"
+      },
+      {
+        "id": "D20:6",
+        "timestamp": "6:48 pm on 17 December, 2023",
+        "speaker": "Sam",
+        "text": "I used to love hiking, but it's been a while since I had the chance to do it."
+      },
+      {
+        "id": "D20:7",
+        "timestamp": "6:48 pm on 17 December, 2023",
+        "speaker": "Evan",
+        "text": "I remember you mentioning that! Hiking is indeed a great way to center oneself and be one with nature. We should definitely plan a hike soon!"
+      },
+      {
+        "id": "D20:8",
+        "timestamp": "6:48 pm on 17 December, 2023",
+        "speaker": "Sam",
+        "text": "Yeah, I'm struggling with my weight and it's affecting my confidence. I feel like I can't overcome all the challenges with my weight, I keep lacking motivation.",
+        "blip_caption": "a photo of a beach with a few people walking on it"
+      },
+      {
+        "id": "D20:9",
+        "timestamp": "6:48 pm on 17 December, 2023",
+        "speaker": "Evan",
+        "text": "Yeah, I understand it can be challenging. But remember, it's important to believe in yourself and take it one day at a time, Sam. Your worth is not defined by your weight."
+      },
+      {
+        "id": "D20:10",
+        "timestamp": "6:48 pm on 17 December, 2023",
+        "speaker": "Sam",
+        "text": "Cheers, Evan. Appreciate the help. It's tough breaking out of my comfort zone."
+      },
+      {
+        "id": "D20:11",
+        "timestamp": "6:48 pm on 17 December, 2023",
+        "speaker": "Evan",
+        "text": "Stepping out of your comfort zone can be intimidating, but it's totally worth it. Just challenge yourself to try something new, even if it's just a little thing. You got this!"
+      },
+      {
+        "id": "D20:12",
+        "timestamp": "6:48 pm on 17 December, 2023",
+        "speaker": "Sam",
+        "text": "Thanks, Evan. I'll take your advice. Trying new things can be difficult."
+      },
+      {
+        "id": "D20:13",
+        "timestamp": "6:48 pm on 17 December, 2023",
+        "speaker": "Evan",
+        "text": "Yeah, trying something new and succeeding gives a great feeling of accomplishment. Give it a go, even if it's just a little thing. You'll be amazed!",
+        "blip_caption": "a photo of a woman standing in front of a painting"
+      },
+      {
+        "id": "D20:14",
+        "timestamp": "6:48 pm on 17 December, 2023",
+        "speaker": "Sam",
+        "text": "She looks so confident! What kind of painting is that in the background?"
+      },
+      {
+        "id": "D20:15",
+        "timestamp": "6:48 pm on 17 December, 2023",
+        "speaker": "Evan",
+        "text": "\nThis is a contemporary figurative painting that I've finished few days ago, emphasizing the emotional state through expressive brushwork and vibrant color choices. It captures a moment of introspection, where the subject is deeply immersed in thought. Very proud of it!"
+      },
+      {
+        "id": "D20:16",
+        "timestamp": "6:48 pm on 17 December, 2023",
+        "speaker": "Sam",
+        "text": "That's amazing work, who's the girl standing next to painting?"
+      },
+      {
+        "id": "D20:17",
+        "timestamp": "6:48 pm on 17 December, 2023",
+        "speaker": "Evan",
+        "text": "That's a close friend of mine who helped me get this painting published in the exhibition!"
+      },
+      {
+        "id": "D21:1",
+        "timestamp": "4:25 pm on 26 December, 2023",
+        "speaker": "Sam",
+        "text": "Hey Evan! Long time no see, how's it going?"
+      },
+      {
+        "id": "D21:2",
+        "timestamp": "4:25 pm on 26 December, 2023",
+        "speaker": "Evan",
+        "text": "Hey Sam! Long time no see! Been up and down lately, got married last week - how about you?",
+        "blip_caption": "a photography of a bride and groom kissing in front of a tree"
+      },
+      {
+        "id": "D21:3",
+        "timestamp": "4:25 pm on 26 December, 2023",
+        "speaker": "Sam",
+        "text": "Congratulations, Evan! Is that the woman from Canada?"
+      },
+      {
+        "id": "D21:4",
+        "timestamp": "4:25 pm on 26 December, 2023",
+        "speaker": "Evan",
+        "text": "Yes, that's her, I don't know why we didn't get married before, because I was in love with her at first sight!"
+      },
+      {
+        "id": "D21:5",
+        "timestamp": "4:25 pm on 26 December, 2023",
+        "speaker": "Sam",
+        "text": "Wow, Evan! Love at first sight? That sounds like something straight out of a fairy tale. What are your thoughts on it? Do you believe in love at first sight?"
+      },
+      {
+        "id": "D21:6",
+        "timestamp": "4:25 pm on 26 December, 2023",
+        "speaker": "Evan",
+        "text": "I totally believe in it. It was like time stopped and I felt like a spark lit inside me - it was so right."
+      },
+      {
+        "id": "D21:7",
+        "timestamp": "4:25 pm on 26 December, 2023",
+        "speaker": "Sam",
+        "text": "That's awesome, Evan! Finding that kind of connection must feel really liberating. Love can be so powerful, huh?"
+      },
+      {
+        "id": "D21:8",
+        "timestamp": "4:25 pm on 26 December, 2023",
+        "speaker": "Evan",
+        "text": "Yeah, Sam, love is truly amazing. It brings so much happiness and fulfillment, like a beautiful sunset that lights up our lives and brings peace. Incredible!",
+        "blip_caption": "a photo of a person sitting on a rock near the water"
+      },
+      {
+        "id": "D21:9",
+        "timestamp": "4:25 pm on 26 December, 2023",
+        "speaker": "Sam",
+        "text": "Wish I could feel the same about love, but I've started to enjoy running in the mornings, and it's been a great way to clear my head. What can you do, right?"
+      },
+      {
+        "id": "D21:10",
+        "timestamp": "4:25 pm on 26 December, 2023",
+        "speaker": "Evan",
+        "text": "Yeah, I get it. Life's all about finding what works for you. Like your morning runs, they're a step towards something good, right? Keep trying new things, Sam, and you might find your own version of love in the most unexpected places. Embrace the journey — it’s full of surprises!",
+        "blip_caption": "a photo of a painting with a white background and a blue, orange, and black painting"
+      },
+      {
+        "id": "D21:11",
+        "timestamp": "4:25 pm on 26 December, 2023",
+        "speaker": "Sam",
+        "text": "Such a minimalistic and stunning piece of work, I wonder what inspired the artist to create it."
+      },
+      {
+        "id": "D21:12",
+        "timestamp": "4:25 pm on 26 December, 2023",
+        "speaker": "Evan",
+        "text": "The painting is mine, I made it when I was a mix of emotions - sad, mad, and hopeful. Art is amazing how it can portray feelings without words."
+      },
+      {
+        "id": "D21:13",
+        "timestamp": "4:25 pm on 26 December, 2023",
+        "speaker": "Sam",
+        "text": "Wow, Evan! Art is really amazing at expressing emotions - it's truly fascinating."
+      },
+      {
+        "id": "D21:14",
+        "timestamp": "4:25 pm on 26 December, 2023",
+        "speaker": "Evan",
+        "text": "It's amazing how art can express emotions so well. It really helps me recognize and handle my own feelings. This painting is giving me a massive rush of joy!",
+        "blip_caption": "a photo of a painting with a bird flying over it"
+      },
+      {
+        "id": "D21:15",
+        "timestamp": "4:25 pm on 26 December, 2023",
+        "speaker": "Sam",
+        "text": "That's stunning! What emotions did you create this painting with?"
+      },
+      {
+        "id": "D21:16",
+        "timestamp": "4:25 pm on 26 December, 2023",
+        "speaker": "Evan",
+        "text": "I painted this with a sense of joy and freedom. The spontaneous strokes and bold colors reflect a playful and liberated mood, embracing the creative process without restraint."
+      },
+      {
+        "id": "D21:17",
+        "timestamp": "4:25 pm on 26 December, 2023",
+        "speaker": "Sam",
+        "text": "Wow, Evan, this is amazing! You've got serious talent and creativity. Making this must have been so satisfying! Here's a painting that inspired me when I went to an exhibit few days ago.",
+        "blip_caption": "a photo of a woman holding flowers in front of her face"
+      },
+      {
+        "id": "D21:18",
+        "timestamp": "4:25 pm on 26 December, 2023",
+        "speaker": "Evan",
+        "text": "\nThanks, Sam! I appreciate the compliment. This painting has such an inspiring vibe; you really have a knack for understanding art! How about you? How long have you been painting?"
+      },
+      {
+        "id": "D21:19",
+        "timestamp": "4:25 pm on 26 December, 2023",
+        "speaker": "Sam",
+        "text": "\nI do sketch occasionally, but I haven't created anything remarkable yet. I have a feeling I'll have something to show off before long! Seeing your passion for it is inspiring."
+      },
+      {
+        "id": "D21:20",
+        "timestamp": "4:25 pm on 26 December, 2023",
+        "speaker": "Evan",
+        "text": "Thanks, Sam! Glad I could motivate you. If you ever want to give it a go, I'm happy to help get you started. Speaking of which, you know what? I lost my keys again, it's become a weekly ritual for me!"
+      },
+      {
+        "id": "D21:21",
+        "timestamp": "4:25 pm on 26 December, 2023",
+        "speaker": "Sam",
+        "text": "Ooh, Evan, I'd put a GPS sensor on your keys!"
+      },
+      {
+        "id": "D21:22",
+        "timestamp": "4:25 pm on 26 December, 2023",
+        "speaker": "Evan",
+        "text": "Great idea, I think I'll do that as soon as I find it!"
+      },
+      {
+        "id": "D22:1",
+        "timestamp": "11:00 am on 31 December, 2023",
+        "speaker": "Sam",
+        "text": "Hey Evan! I’m really getting into this healthier lifestyle—just took my friends on an epic hiking trip last Friday!",
+        "blip_caption": "a photography of a man standing on a rock looking out over a valley"
+      },
+      {
+        "id": "D22:2",
+        "timestamp": "11:00 am on 31 December, 2023",
+        "speaker": "Evan",
+        "text": "Hey Sam! That’s fantastic—nothing like a good hike to feel alive. We took the Prius for a long drive to the mountains last weekend. It was perfect until we got into a little scrape on the way back.",
+        "blip_caption": "a photo of a small stream running through a lush green forest"
+      },
+      {
+        "id": "D22:3",
+        "timestamp": "11:00 am on 31 December, 2023",
+        "speaker": "Sam",
+        "text": "Oh no, were you guys okay after the accident?"
+      },
+      {
+        "id": "D22:4",
+        "timestamp": "11:00 am on 31 December, 2023",
+        "speaker": "Evan",
+        "text": "Yeah, we were fine, thanks. Just a minor accident, but it put a bit of a damper on telling my work friends about getting married. They’ve been a great support, though."
+      },
+      {
+        "id": "D22:5",
+        "timestamp": "11:00 am on 31 December, 2023",
+        "speaker": "Sam",
+        "text": "I bet they were thrilled to hear about your marriage, despite the mishap!"
+      },
+      {
+        "id": "D22:6",
+        "timestamp": "11:00 am on 31 December, 2023",
+        "speaker": "Evan",
+        "text": "Absolutely, it's been a whirlwind of emotions. Good thing the accident was minor. Just a reminder to take it easy on the road, I guess."
+      },
+      {
+        "id": "D22:7",
+        "timestamp": "11:00 am on 31 December, 2023",
+        "speaker": "Sam",
+        "text": "True, it’s important to stay safe. Glad you can still enjoy the peaceful moments after something like that."
+      },
+      {
+        "id": "D22:8",
+        "timestamp": "11:00 am on 31 December, 2023",
+        "speaker": "Evan",
+        "text": "Definitely, nature brings peace and clarity - it's a great experience."
+      },
+      {
+        "id": "D22:9",
+        "timestamp": "11:00 am on 31 December, 2023",
+        "speaker": "Sam",
+        "text": "Nature can make everything else seem small and help us find peace inside. It reminds us of the bigger picture, you know?"
+      },
+      {
+        "id": "D22:10",
+        "timestamp": "11:00 am on 31 December, 2023",
+        "speaker": "Evan",
+        "text": "For sure, and nature has been a great healer. Speaking of which, I’ve got to share some of these new healthy snacks I’ve been trying.",
+        "blip_caption": "a photo of a woman sitting at a table with plates and glasses"
+      },
+      {
+        "id": "D22:11",
+        "timestamp": "11:00 am on 31 December, 2023",
+        "speaker": "Sam",
+        "text": "They look healthy and delicious! Perfect for after a hike or, I guess, post-accident recovery, huh?"
+      },
+      {
+        "id": "D22:12",
+        "timestamp": "11:00 am on 31 December, 2023",
+        "speaker": "Evan",
+        "text": "Exactly! They’re packed with nutrients and really easy to make. You also need to try these cookies, they are awesome! I’ll send you the recipes.",
+        "blip_caption": "a photo of a bunch of cookies on a cooling rack"
+      },
+      {
+        "id": "D22:13",
+        "timestamp": "11:00 am on 31 December, 2023",
+        "speaker": "Sam",
+        "text": "Thanks, I’d appreciate that. It’s good to find new ways to stay healthy. Do you have any healthier snack ideas?"
+      },
+      {
+        "id": "D22:14",
+        "timestamp": "11:00 am on 31 December, 2023",
+        "speaker": "Evan",
+        "text": "Yeah, I've been trying to eat healthier too. Check out this cool recipe I discovered for these energy balls.",
+        "blip_caption": "a photo of a bowl of coconut balls and a bowl of oats"
+      },
+      {
+        "id": "D22:15",
+        "timestamp": "11:00 am on 31 December, 2023",
+        "speaker": "Sam",
+        "text": "Do you like them? I know they can be an acquired taste."
+      },
+      {
+        "id": "D22:16",
+        "timestamp": "11:00 am on 31 December, 2023",
+        "speaker": "Evan",
+        "text": "I enjoy the taste of these. They're energizing and a healthy way to satisfy your sweet tooth."
+      },
+      {
+        "id": "D22:17",
+        "timestamp": "11:00 am on 31 December, 2023",
+        "speaker": "Sam",
+        "text": "Awesome! Always on the lookout for healthy snacks, thanks for the tip!"
+      },
+      {
+        "id": "D22:18",
+        "timestamp": "11:00 am on 31 December, 2023",
+        "speaker": "Evan",
+        "text": "Glad to help - hope you enjoy it!"
+      },
+      {
+        "id": "D22:19",
+        "timestamp": "11:00 am on 31 December, 2023",
+        "speaker": "Sam",
+        "text": "Thanks, Evan! I'll give these a try. They look yum. Your help means a lot to me. Btw you know what? I went to the store again and, unsurprisingly, had issues with the self-checkout. It's becoming a regular annoyance."
+      },
+      {
+        "id": "D22:20",
+        "timestamp": "11:00 am on 31 December, 2023",
+        "speaker": "Evan",
+        "text": "That's very strange, I've never had a problem with it once!"
+      },
+      {
+        "id": "D22:21",
+        "timestamp": "11:00 am on 31 December, 2023",
+        "speaker": "Sam",
+        "text": "Apparently I attract that to me, if you ever want to be in that situation, call me at the store with you!"
+      },
+      {
+        "id": "D23:1",
+        "timestamp": "1:32 pm on 6 January, 2024",
+        "speaker": "Evan",
+        "text": "Hey Sam, guess what? My partner and I told our extended fam about our marriage yesterday – it was so special! We've been totally overwhelmed by all their love and support.",
+        "blip_caption": "a photo of a man and a woman standing on a rocky beach"
+      },
+      {
+        "id": "D23:2",
+        "timestamp": "1:32 pm on 6 January, 2024",
+        "speaker": "Sam",
+        "text": "Congrats on the news, Evan! You two look so happy in the pic. These moments make life so wonderful; super stoked for you!"
+      },
+      {
+        "id": "D23:3",
+        "timestamp": "1:32 pm on 6 January, 2024",
+        "speaker": "Evan",
+        "text": "Thanks, Sam! It was an awesome moment, and I feel really lucky to have found someone who gets me. Plus, our families are really happy for us - that's the best part!"
+      },
+      {
+        "id": "D23:4",
+        "timestamp": "1:32 pm on 6 January, 2024",
+        "speaker": "Sam",
+        "text": "Wow, Evan. It's awesome that you've found someone who gets you! Having your family's support must feel great."
+      },
+      {
+        "id": "D23:5",
+        "timestamp": "1:32 pm on 6 January, 2024",
+        "speaker": "Evan",
+        "text": "Definitely, family support is so important. Knowing they're happy about our marriage is awesome and so comforting."
+      },
+      {
+        "id": "D23:6",
+        "timestamp": "1:32 pm on 6 January, 2024",
+        "speaker": "Sam",
+        "text": "Yeah, it's awesome to have that support. It definitely brings more happiness and joy."
+      },
+      {
+        "id": "D23:7",
+        "timestamp": "1:32 pm on 6 January, 2024",
+        "speaker": "Evan",
+        "text": "Yeah Sam, that means a lot to me. Our bond just keeps getting stronger and it brings such a good feeling to our lives. Family really is everything."
+      },
+      {
+        "id": "D23:8",
+        "timestamp": "1:32 pm on 6 January, 2024",
+        "speaker": "Sam",
+        "text": "Agree, Evan! Family is everything - they bring so much love and happiness. They're always there for us no matter what. I'm grateful for their support and love."
+      },
+      {
+        "id": "D23:9",
+        "timestamp": "1:32 pm on 6 January, 2024",
+        "speaker": "Evan",
+        "text": "For sure, Sam. That's what makes family so special. They bring so much love and happiness. It's great having their support and knowing they're always there for us. I feel really fortunate to have their never-ending love and support."
+      },
+      {
+        "id": "D23:10",
+        "timestamp": "1:32 pm on 6 January, 2024",
+        "speaker": "Sam",
+        "text": "Yeah, definitely, Evan. We both have amazing families that are always there for us. Always a blessing."
+      },
+      {
+        "id": "D23:11",
+        "timestamp": "1:32 pm on 6 January, 2024",
+        "speaker": "Evan",
+        "text": "Yeah, Sam. Our families give us so much joy, support, and love. They're a real blessing! I don't know what I'd do without them."
+      },
+      {
+        "id": "D23:12",
+        "timestamp": "1:32 pm on 6 January, 2024",
+        "speaker": "Sam",
+        "text": "Hey, Evan. My family has been my rock through everything. Don't know what I'd do without them."
+      },
+      {
+        "id": "D23:13",
+        "timestamp": "1:32 pm on 6 January, 2024",
+        "speaker": "Evan",
+        "text": "Yeah, they are our rock. We're blessed to have them.",
+        "blip_caption": "a photo of a group of people sitting at a table with food"
+      },
+      {
+        "id": "D23:14",
+        "timestamp": "1:32 pm on 6 January, 2024",
+        "speaker": "Sam",
+        "text": "Wow, you guys are awesome! What's cooking tonight?"
+      },
+      {
+        "id": "D23:15",
+        "timestamp": "1:32 pm on 6 January, 2024",
+        "speaker": "Evan",
+        "text": "Thanks, Sam! We're having a family get-together tonight and enjoying some homemade lasagna. Super excited! By the way, I've started a new diet—limiting myself to just two ginger snaps a day. What's on your menu tonight?\t"
+      },
+      {
+        "id": "D23:16",
+        "timestamp": "1:32 pm on 6 January, 2024",
+        "speaker": "Sam",
+        "text": "That's a great discipline, Evan! We're keeping it light tonight, just some homemade lasagna. Can't compete with your ginger snap limit though!",
+        "blip_caption": "a photo of a plate of food with bread and meat"
+      },
+      {
+        "id": "D23:17",
+        "timestamp": "1:32 pm on 6 January, 2024",
+        "speaker": "Evan",
+        "text": "Oh this must be very hearty and delicious, well I'll have to stick to the diet plan, even with the family gathering!"
+      },
+      {
+        "id": "D23:18",
+        "timestamp": "1:32 pm on 6 January, 2024",
+        "speaker": "Sam",
+        "text": "Yeah, the lasagna was pretty awesome, but check out what I had for dessert, I'm sure you're drooling!",
+        "blip_caption": "a photo of a pie with raspberries and limes on top"
+      },
+      {
+        "id": "D23:19",
+        "timestamp": "1:32 pm on 6 January, 2024",
+        "speaker": "Evan",
+        "text": "Looks yummy! Did you make that?"
+      },
+      {
+        "id": "D23:20",
+        "timestamp": "1:32 pm on 6 January, 2024",
+        "speaker": "Sam",
+        "text": "No, I didn't make it. This is actually a pic from my cousin's wedding. It's super special."
+      },
+      {
+        "id": "D23:21",
+        "timestamp": "1:32 pm on 6 January, 2024",
+        "speaker": "Evan",
+        "text": "Wow Sam! Weddings are indeed special. This looks great, yum!",
+        "blip_caption": "a photo of a wedding cake with candles and flowers on a table"
+      },
+      {
+        "id": "D23:22",
+        "timestamp": "1:32 pm on 6 January, 2024",
+        "speaker": "Sam",
+        "text": "Ooh, nice cake! Reminds me of special occasions. Do you have any upcoming plans?"
+      },
+      {
+        "id": "D23:23",
+        "timestamp": "1:32 pm on 6 January, 2024",
+        "speaker": "Evan",
+        "text": "Thanks Sam! We're off to Canada next month for our honeymoon. So excited to create some awesome memories. Looking forward to exploring the beautiful snowy landscapes there.",
+        "blip_caption": "a photo of a stream running through a snowy forest filled with snow"
+      },
+      {
+        "id": "D23:24",
+        "timestamp": "1:32 pm on 6 January, 2024",
+        "speaker": "Sam",
+        "text": "Wow, that looks great! What are your plans for the trip?"
+      },
+      {
+        "id": "D23:25",
+        "timestamp": "1:32 pm on 6 January, 2024",
+        "speaker": "Evan",
+        "text": "We're planning to ski, try the local cuisine, and enjoy the beautiful views. We're really excited!"
+      },
+      {
+        "id": "D23:26",
+        "timestamp": "1:32 pm on 6 January, 2024",
+        "speaker": "Sam",
+        "text": "Sounds amazing, Ev! Skiing, trying local dishes, and enjoying the breathtaking views - the perfect honeymoon. Have an incredible time creating unforgettable memories!",
+        "blip_caption": "a photo of a container of french fries covered in caramel"
+      },
+      {
+        "id": "D23:27",
+        "timestamp": "1:32 pm on 6 January, 2024",
+        "speaker": "Evan",
+        "text": "Yeah, Sam! Gonna try some poutine while we're there - can't wait!"
+      },
+      {
+        "id": "D23:28",
+        "timestamp": "1:32 pm on 6 January, 2024",
+        "speaker": "Sam",
+        "text": "Never tried it? Can't say I blame you, it's kind of a Canadian thing. Let me know how you like it!"
+      },
+      {
+        "id": "D23:29",
+        "timestamp": "1:32 pm on 6 January, 2024",
+        "speaker": "Evan",
+        "text": "Sure thing, Sam! Let's see if it lives up to the hype. I'll let you know what happens!"
+      },
+      {
+        "id": "D23:30",
+        "timestamp": "1:32 pm on 6 January, 2024",
+        "speaker": "Sam",
+        "text": "Yeah, Evan! Let me know all about it. Don't forget the details!"
+      },
+      {
+        "id": "D23:31",
+        "timestamp": "1:32 pm on 6 January, 2024",
+        "speaker": "Evan",
+        "text": "Cool, Sam. I'll keep you posted. Talk soon!"
+      },
+      {
+        "id": "D23:32",
+        "timestamp": "1:32 pm on 6 January, 2024",
+        "speaker": "Sam",
+        "text": "Awesome, Evan! Catch you soon. Have a great trip!"
+      },
+      {
+        "id": "D23:33",
+        "timestamp": "1:32 pm on 6 January, 2024",
+        "speaker": "Evan",
+        "text": "Thanks, Sam! Catch you later. Have a great one!"
+      },
+      {
+        "id": "D24:1",
+        "timestamp": "12:17 am on 10 January, 2024",
+        "speaker": "Evan",
+        "text": "Hey Sam, hope you're doing good. Something funny happened last night."
+      },
+      {
+        "id": "D24:2",
+        "timestamp": "12:17 am on 10 January, 2024",
+        "speaker": "Sam",
+        "text": "Hey Evan, what's up? What happened? Let me know."
+      },
+      {
+        "id": "D24:3",
+        "timestamp": "12:17 am on 10 January, 2024",
+        "speaker": "Evan",
+        "text": "Yesterday I went out with my friends and had a bit too much to drink. I ended up doing something I regret and it involved someone's roses."
+      },
+      {
+        "id": "D24:4",
+        "timestamp": "12:17 am on 10 January, 2024",
+        "speaker": "Sam",
+        "text": "What's up with that incident? All good now?"
+      },
+      {
+        "id": "D24:5",
+        "timestamp": "12:17 am on 10 January, 2024",
+        "speaker": "Evan",
+        "text": "Oof, Sam, so embarrassing! I had a pee accident near some roses - can you believe it? I'm so sorry about that."
+      },
+      {
+        "id": "D24:6",
+        "timestamp": "12:17 am on 10 January, 2024",
+        "speaker": "Sam",
+        "text": "Uh oh, Evan! That's awkward. Did anyone get mad at you? Are you okay?"
+      },
+      {
+        "id": "D24:7",
+        "timestamp": "12:17 am on 10 January, 2024",
+        "speaker": "Evan",
+        "text": "I was so embarrassed when I saw what happened the next morning, so I apologized and luckily they were understanding. Yeah, I was out of control--guess I gotta be more careful next time."
+      },
+      {
+        "id": "D24:8",
+        "timestamp": "12:17 am on 10 January, 2024",
+        "speaker": "Sam",
+        "text": "They were understanding? Phew! We all mess up sometimes, we're human after all."
+      },
+      {
+        "id": "D24:9",
+        "timestamp": "12:17 am on 10 January, 2024",
+        "speaker": "Evan",
+        "text": "Yeah, they were understanding, which was great. But it's a good reminder to be more careful. We all make mistakes, but it's important to learn from them. Speaking of, my partner and I tried snowshoeing this weekend. It was part of a new adventure for us and surprisingly fun."
+      },
+      {
+        "id": "D24:10",
+        "timestamp": "12:17 am on 10 January, 2024",
+        "speaker": "Sam",
+        "text": "Yeah, Evan, you're right. Mistakes happen, but it's good to learn from them. Snowshoeing sounds like a great way to stay active during the winter. I've been thinking and I made a meal plan and workout schedule. I'm getting motivated by something I saw, so starting today I'm gonna do my best to stay on track.",
+        "blip_caption": "a photo of a white board with a bunch of writing on it"
+      },
+      {
+        "id": "D24:11",
+        "timestamp": "12:17 am on 10 January, 2024",
+        "speaker": "Evan",
+        "text": "Good work, Sam! You've got a plan and you're dedicated to staying healthy - have you asked your doctor for advice? They could probably give you even more diet and exercise tips."
+      },
+      {
+        "id": "D24:12",
+        "timestamp": "12:17 am on 10 January, 2024",
+        "speaker": "Sam",
+        "text": "Thanks, Evan! Haven't seen a doctor in a while, but it's probably a good idea to get some advice. I'm going to make an appointment soon.",
+        "blip_caption": "a photo of a red and orange card with a yellow sun"
+      },
+      {
+        "id": "D24:13",
+        "timestamp": "12:17 am on 10 January, 2024",
+        "speaker": "Evan",
+        "text": "What advice are you planning to get from the doctor?"
+      },
+      {
+        "id": "D24:14",
+        "timestamp": "12:17 am on 10 January, 2024",
+        "speaker": "Sam",
+        "text": "I'm gonna ask the doc about a balanced diet plan and getting advice on low-impact exercises, given my current situation."
+      },
+      {
+        "id": "D24:15",
+        "timestamp": "12:17 am on 10 January, 2024",
+        "speaker": "Evan",
+        "text": "Sounds good, Sam. That's definitely a step in the right direction. Remember to focus on a balanced diet and low-impact exercises. Let me know how it goes.",
+        "blip_caption": "a photo of a salad with chicken, avocado, tomatoes, corn, and cheese"
+      },
+      {
+        "id": "D24:16",
+        "timestamp": "12:17 am on 10 January, 2024",
+        "speaker": "Sam",
+        "text": "That looks great! Where did you get the idea for this salad? Also, do you have any suggestions for low-impact exercises?"
+      },
+      {
+        "id": "D24:17",
+        "timestamp": "12:17 am on 10 January, 2024",
+        "speaker": "Evan",
+        "text": "I got it from a nearby restaurant. As for low-impact exercises, swimming, yoga, and walking are good options."
+      },
+      {
+        "id": "D24:18",
+        "timestamp": "12:17 am on 10 January, 2024",
+        "speaker": "Sam",
+        "text": "The salad idea from a restaurant is a smart move, Evan! And thanks for the exercise tips. Also I watched The Godfather last night, and it motivated me to keep up with my routine. \"I'm gonna make him an offer he can't refuse\" - now that's motivation!",
+        "blip_caption": "a photo of a young boy is playing in a pool"
+      },
+      {
+        "id": "D24:19",
+        "timestamp": "12:17 am on 10 January, 2024",
+        "speaker": "Evan",
+        "text": "Yoga's definitely a great start, Sam. It's helped me with stress and staying flexible, which is perfect alongside the diet. And yes, The Godfather is a legendary thing to watch, can be re-watched many times!"
+      },
+      {
+        "id": "D24:20",
+        "timestamp": "12:17 am on 10 January, 2024",
+        "speaker": "Sam",
+        "text": "Between a healthier diet and yoga, I’m hoping for some positive changes."
+      },
+      {
+        "id": "D24:21",
+        "timestamp": "12:17 am on 10 January, 2024",
+        "speaker": "Evan",
+        "text": " By the way there are plenty of other low-impact exercises that can be fun. Going on beach sunsets is one of my favorites - good for exercise and totally calming.",
+        "blip_caption": "a photo of a woman standing on a beach at sunset"
+      },
+      {
+        "id": "D24:22",
+        "timestamp": "12:17 am on 10 January, 2024",
+        "speaker": "Sam",
+        "text": "That looks zen. Gonna go for some beach walks - thanks for the tip, Evan! I want to brag, I had that recurring dream again where I'm flying over skyscrapers!"
+      },
+      {
+        "id": "D24:23",
+        "timestamp": "12:17 am on 10 January, 2024",
+        "speaker": "Evan",
+        "text": "I think a little more and you'll learn how to control those dreams, once you get the hang of it let me know haha! Enjoy the fresh air and the views. Have fun!"
+      },
+      {
+        "id": "D24:24",
+        "timestamp": "12:17 am on 10 January, 2024",
+        "speaker": "Sam",
+        "text": "Thanks Evan! Gonna make the most of it. You too, have a good one!"
+      },
+      {
+        "id": "D25:1",
+        "timestamp": "9:37 pm on 11 January, 2024",
+        "speaker": "Sam",
+        "text": "Hey Evan, been a few days since we last chatted. Hope you're doing OK. A lot's happened since then. Got issues with my health, it's been rough. Feels like this weight's keeping me from fully living. Trying to stay positive, not easy."
+      },
+      {
+        "id": "D25:2",
+        "timestamp": "9:37 pm on 11 January, 2024",
+        "speaker": "Evan",
+        "text": "Hey Sam, sorry to hear about your health. It's tough when it gets in the way of life. You're being positive, but remember to take care of yourself too. By the way, I had to apologize to my partner for that drunken night, it was pretty embarrassing."
+      },
+      {
+        "id": "D25:3",
+        "timestamp": "9:37 pm on 11 January, 2024",
+        "speaker": "Sam",
+        "text": "Hey Evan, that does sound like a tough situation. I'm doing my best with my health. How did your partner take the news about the rose bushes?"
+      },
+      {
+        "id": "D25:4",
+        "timestamp": "9:37 pm on 11 January, 2024",
+        "speaker": "Evan",
+        "text": "Well, she wasn't thrilled, but understood it was an accident. I promised to be more careful in the future. Changing the subject, have you found any low-impact exercises that you enjoy?"
+      },
+      {
+        "id": "D25:5",
+        "timestamp": "9:37 pm on 11 January, 2024",
+        "speaker": "Sam",
+        "text": "Hey Evan, haven't found any exercises I like. But lately, I've been on a few car rides. Helps me chill and enjoy the view. Check out this cool pic I snapped last week in the country.",
+        "blip_caption": "a photo of a field with a fence and a dirt road"
+      },
+      {
+        "id": "D25:6",
+        "timestamp": "9:37 pm on 11 January, 2024",
+        "speaker": "Evan",
+        "text": "Nice pic! Does being out in the countryside help you relax and get some fresh air away from the city?"
+      },
+      {
+        "id": "D25:7",
+        "timestamp": "9:37 pm on 11 January, 2024",
+        "speaker": "Sam",
+        "text": "Yeah, being in nature really helps me relax and get some fresh air away from the city."
+      },
+      {
+        "id": "D25:8",
+        "timestamp": "9:37 pm on 11 January, 2024",
+        "speaker": "Evan",
+        "text": "Glad to hear it! Nature really has a way of calming and reviving the soul. Last summer, I took this pic on a camping trip - it was such an amazing sunset. Moments like these remind us of the beauty of life, even during tough times.",
+        "blip_caption": "a photo of a kayak is seen from the front of the boat"
+      },
+      {
+        "id": "D25:9",
+        "timestamp": "9:37 pm on 11 January, 2024",
+        "speaker": "Sam",
+        "text": "Wow, that pic is amazing! It must have been a great experience being out on the lake."
+      },
+      {
+        "id": "D25:10",
+        "timestamp": "9:37 pm on 11 January, 2024",
+        "speaker": "Evan",
+        "text": "I had a great time kayaking and watching the sunset last summer - it was truly unforgettable. Being out on the water is so peaceful."
+      },
+      {
+        "id": "D25:11",
+        "timestamp": "9:37 pm on 11 January, 2024",
+        "speaker": "Sam",
+        "text": "Wow, that sounds amazing. Being in nature is so calming, right?"
+      },
+      {
+        "id": "D25:12",
+        "timestamp": "9:37 pm on 11 January, 2024",
+        "speaker": "Evan",
+        "text": "Nature can be super calming. It's like pushing a reset button for your mind and body."
+      },
+      {
+        "id": "D25:13",
+        "timestamp": "9:37 pm on 11 January, 2024",
+        "speaker": "Sam",
+        "text": "Definitely, I couldn't agree more. There's something about being outdoors that rejuvenates you. I'm planning to spend more time in nature myself!"
+      },
+      {
+        "id": "D25:14",
+        "timestamp": "9:37 pm on 11 January, 2024",
+        "speaker": "Evan",
+        "text": "Got it. When health stuff cramps your style, it sucks. But small moments outdoors can make a big impact. This photo reminds me of last spring when I was feeling a bit down, but the vibrant colors brought a smile to my face, even if just for a moment. Remember to find joy in the little things.",
+        "blip_caption": "a photo of a tree with pink flowers in a park"
+      },
+      {
+        "id": "D25:15",
+        "timestamp": "9:37 pm on 11 January, 2024",
+        "speaker": "Sam",
+        "text": "That pic is gorgeous! It really brightens my day. Sometimes, it's the little things that matter, right?"
+      },
+      {
+        "id": "D25:16",
+        "timestamp": "9:37 pm on 11 January, 2024",
+        "speaker": "Evan",
+        "text": "Absolutely, Sam. It's often those little moments that make the biggest difference. Keep finding those bright spots."
+      },
+      {
+        "id": "D25:17",
+        "timestamp": "9:37 pm on 11 January, 2024",
+        "speaker": "Sam",
+        "text": "Thanks, Evan. It's good to be reminded to appreciate the small things. They do add up."
+      },
+      {
+        "id": "D25:18",
+        "timestamp": "9:37 pm on 11 January, 2024",
+        "speaker": "Evan",
+        "text": "Anytime, Sam. It's all about those small joys, especially when times are tough. You've got this!"
+      },
+      {
+        "id": "D25:19",
+        "timestamp": "9:37 pm on 11 January, 2024",
+        "speaker": "Sam",
+        "text": "Really appreciate it, Evan. Your words help a lot. Take care!"
+      },
+      {
+        "id": "D25:20",
+        "timestamp": "9:37 pm on 11 January, 2024",
+        "speaker": "Evan",
+        "text": "You too, Sam. And remember, I'm always here if you need to chat. Look after yourself!"
+      }
+    ],
+    "question": [
+      {
+        "question": "What kind of car does Evan drive?",
+        "answer": "Prius",
+        "evidence": [
+          "D1:2",
+          "D1:4",
+          "D18:1",
+          "D18:3",
+          "D22:2"
+        ],
+        "category": 1
+      },
+      {
+        "question": "What kinds of things did Evan have broken?",
+        "answer": "His old Prius and his new Prius.",
+        "evidence": [
+          "D18:1",
+          "D18:2",
+          "D18:3",
+          "D1:2",
+          "D1:4"
+        ],
+        "category": 1
+      },
+      {
+        "question": "Where has Evan been on roadtrips with his family?",
+        "answer": "Rockies, Jasper",
+        "evidence": [
+          "D1:2",
+          "D1:4",
+          "D2:1"
+        ],
+        "category": 1
+      },
+      {
+        "question": "How many Prius has Evan owned?",
+        "answer": "two",
+        "evidence": [
+          "D1:2",
+          "D1:4"
+        ],
+        "category": 1
+      },
+      {
+        "question": "Which hobby did Sam take up in May 2023?",
+        "answer": "painting",
+        "evidence": [
+          "D1:11"
+        ],
+        "category": 2
+      },
+      {
+        "question": "Which country was Evan visiting in May 2023?",
+        "answer": "Canada",
+        "evidence": [
+          "D2:1"
+        ],
+        "category": 3
+      },
+      {
+        "question": "How many roadtrips did Evan take in May 2023?",
+        "answer": "two",
+        "evidence": [
+          "D1:4",
+          "D2:1"
+        ],
+        "category": 1
+      },
+      {
+        "question": "What new hobbies did Sam consider trying?",
+        "answer": "Painting, kayaking, hiking, cooking, running",
+        "evidence": [
+          "D1:11",
+          "D2:10",
+          "D10:8",
+          "D13:6",
+          "D13:8",
+          "D20:6",
+          "D7:2",
+          "D7:4",
+          "D7:6",
+          "D21:19"
+        ],
+        "category": 1
+      },
+      {
+        "question": "What hobby did Evan start practicing a few years ago that he enjoys?",
+        "answer": "Watercolor painting",
+        "evidence": [
+          "D1:14",
+          "D1:16",
+          "D8:13",
+          "D8:14"
+        ],
+        "category": 1
+      },
+      {
+        "question": "When did Evan go to Jasper with his family?",
+        "answer": "weekend before May 24, 2023",
+        "evidence": [
+          "D2:1"
+        ],
+        "category": 2
+      },
+      {
+        "question": "Which type of vacation would Evan prefer with his family, walking tours in metropolitan cities or camping trip in the outdoors?",
+        "answer": "camping trip in the outdoors",
+        "evidence": [
+          "D2:1",
+          "D2:3",
+          "D19:1",
+          "D19:3"
+        ],
+        "category": 3
+      },
+      {
+        "question": "What health issue did Sam face that motivated him to change his lifestyle?",
+        "answer": "Weight problem",
+        "evidence": [
+          "D2:6",
+          "D3:4",
+          "D24:12",
+          "D24:14",
+          "D5:5",
+          "D6:2",
+          "D7:2",
+          "D7:12",
+          "D8:1",
+          "D10:6",
+          "D12:1",
+          "D13:2",
+          "D14:1",
+          "D15:1",
+          "D16:3",
+          "D17:3",
+          "D24:20",
+          "D25:1",
+          "D25:3"
+        ],
+        "category": 1
+      },
+      {
+        "question": "When did Sam first go to the doctor and find out he had a weight problem?",
+        "answer": "A few days before May 24, 2023.",
+        "evidence": [
+          "D2:6"
+        ],
+        "category": 2
+      },
+      {
+        "question": "When did Evan have his sudden heart palpitation incident that really shocked him up?",
+        "answer": "first week of June 2023",
+        "evidence": [
+          "D3:1"
+        ],
+        "category": 2
+      },
+      {
+        "question": "What is Evan's favorite food?",
+        "answer": "Ginger snaps",
+        "evidence": [
+          "D3:3",
+          "D5:5",
+          "D23:15",
+          "D22:12"
+        ],
+        "category": 1
+      },
+      {
+        "question": "What kind of unhealthy snacks does Sam enjoy eating?",
+        "answer": "soda, candy",
+        "evidence": [
+          "D3:4"
+        ],
+        "category": 1
+      },
+      {
+        "question": "What recurring issue frustrates Sam at the grocery store?",
+        "answer": "Malfunctioning self-checkout machines.",
+        "evidence": [
+          "D3:16",
+          "D22:19"
+        ],
+        "category": 1
+      },
+      {
+        "question": "When did Sam's friends mock him for being overweight?",
+        "answer": "Friday before 27 July 2023",
+        "evidence": [
+          "D4:1"
+        ],
+        "category": 2
+      },
+      {
+        "question": "What kind of healthy food suggestions has Evan given to Sam?",
+        "answer": "flavored seltzer water, dark chocolate with high cocoa content, air-popped popcorn and fruit, veggies, healthy sandwich snacks, energy balls, grilled chicken salad with avocado",
+        "evidence": [
+          "D3:5",
+          "D4:10",
+          "D22:10",
+          "D22:14",
+          "D24:15"
+        ],
+        "category": 1
+      },
+      {
+        "question": "Considering their conversations and personal growth, what advice might Evan and Sam give to someone facing a major life transition or challenge?",
+        "answer": "Evan and Sam would likely advise embracing small, consistent changes​​, finding stress-relieving activities like hiking​​, painting, and road trips​​, and the importance of friendship and support in navigating challenges​​.",
+        "evidence": [
+          "D3:10",
+          "D3:15",
+          "D22:1",
+          "D8:17",
+          "D8:22",
+          "D9:8",
+          "D9:11",
+          "D14:7",
+          "D14:12",
+          "D12:7",
+          "D12:11"
+        ],
+        "category": 3
+      },
+      {
+        "question": "In light of the health and dietary changes discussed, what would be an appropriate gift for both Evan and Sam to encourage their healthy lifestyles?",
+        "answer": "a cookbook with healthy recipes or a subscription to a healthy meal delivery service.",
+        "evidence": [
+          "D2:9",
+          "D3:1",
+          "D3:3",
+          "D3:5",
+          "D4:10",
+          "D14:12",
+          "D5:9",
+          "D7:3",
+          "D7:2",
+          "D7:5",
+          "D7:12",
+          "D8:1",
+          "D8:5",
+          "D8:7",
+          "D8:8",
+          "D8:12",
+          "D9:1"
+        ],
+        "category": 3
+      },
+      {
+        "question": "How does Evan describe the woman and his feelings for her that he met in Canada?",
+        "answer": "He says she's cool, incredible, like something out of a movie, and that he feels alive around her. Every moment with her is fun and energetic, also Evan feels really lucky to have someone who gets him.",
+        "evidence": [
+          "D5:1",
+          "D5:3",
+          "D23:3"
+        ],
+        "category": 1
+      },
+      {
+        "question": "When Evan did meet his future wife?",
+        "answer": "week before August 7, 2023.",
+        "evidence": [
+          "D5:1"
+        ],
+        "category": 2
+      },
+      {
+        "question": "When did Sam start working out at the gym?",
+        "answer": "July 28, 2023",
+        "evidence": [
+          "D4:15"
+        ],
+        "category": 2
+      },
+      {
+        "question": "What significant event happened in Sam's life towards the end of summer 2023?",
+        "answer": "He fell in love with a Canadian woman",
+        "evidence": [
+          "D5:1"
+        ],
+        "category": 2
+      },
+      {
+        "question": "Which year did Evan start taking care of his health seriously?",
+        "answer": "2021",
+        "evidence": [
+          "D5:6",
+          "D5:7"
+        ],
+        "category": 2
+      },
+      {
+        "question": "What motivates Evan to take care of his health?",
+        "answer": "family, fitness tracker, thirst for adventure on interesting hikes",
+        "evidence": [
+          "D5:9",
+          "D5:11",
+          "D5:13"
+        ],
+        "category": 1
+      },
+      {
+        "question": "What electronic device could Evan gift Sam to help him keep up with his fitness goals?",
+        "answer": "fitness tracker",
+        "evidence": [
+          "D5:7"
+        ],
+        "category": 3
+      },
+      {
+        "question": "What kind of writing does Sam do to relax and cope with his health issues?",
+        "answer": "journalling, creative writing",
+        "evidence": [
+          "D6:4",
+          "D11:7"
+        ],
+        "category": 1
+      },
+      {
+        "question": "Who did Evan meet on his trip to Canada, and who did he come back from Canada with?",
+        "answer": "Evan met the woman he fell in love with and returned with her.",
+        "evidence": [
+          "D5:1",
+          "D6:1"
+        ],
+        "category": 1
+      },
+      {
+        "question": "When Evan get back from a vacation with his SO?",
+        "answer": "August 13, 2023",
+        "evidence": [
+          "D6:1"
+        ],
+        "category": 2
+      },
+      {
+        "question": "How might Evan and Sam's experiences with health and lifestyle changes influence their approach to stress and challenges?",
+        "answer": "Their experiences likely lead them to view challenges as opportunities for growth and change. They both have embraced healthier lifestyles, indicating a proactive approach to managing stress and challenges.",
+        "evidence": [
+          "D9:1 D4:4 D4:6"
+        ],
+        "category": 3
+      },
+      {
+        "question": "What recurring frustration does Evan experience?",
+        "answer": "Evan consistently misplaces his keys every week.",
+        "evidence": [
+          "D6:13",
+          "D21:20"
+        ],
+        "category": 1
+      },
+      {
+        "question": "What is the recurring dream that Sam keeps having?",
+        "answer": "he's flying over a cityscape.",
+        "evidence": [
+          "D6:14",
+          "D24:22"
+        ],
+        "category": 1
+      },
+      {
+        "question": "What accidents has Evan's son faced lately?",
+        "answer": "injured at a soccer game, fell off his bike",
+        "evidence": [
+          "D7:1",
+          "D20:3"
+        ],
+        "category": 1
+      },
+      {
+        "question": "When was Evan's son injured at soccer?",
+        "answer": "Saturday before August 15, 2023.",
+        "evidence": [
+          "D7:1"
+        ],
+        "category": 2
+      },
+      {
+        "question": "What kind of foods or recipes has Sam recommended to Evan?",
+        "answer": "grilled vegetables, grilled chicken and veggie stir-fry, poutine",
+        "evidence": [
+          "D7:8",
+          "D8:7",
+          "D23:26"
+        ],
+        "category": 1
+      },
+      {
+        "question": "What kind of healthy meals did Sam start eating after getting a health scare?",
+        "answer": "salad, grilled salmon and vegetables, grilled chicken and veggie stir-fry, Beef Merlot, fruit bowl, smoothie bowl",
+        "evidence": [
+          "D3:2",
+          "D8:1",
+          "D7:4",
+          "D8:7",
+          "D10:2",
+          "D11:1",
+          "D18:6"
+        ],
+        "category": 1
+      },
+      {
+        "question": "What role does nature and the outdoors play in Evan and Sam's mental well-being?",
+        "answer": "Nature and outdoor activities seem to be significant stress relievers and sources of joy for both Evan and Sam. These activities likely contribute positively to their mental well-being.",
+        "evidence": [
+          "D22:1 D22:2 D9:10 D9:11"
+        ],
+        "category": 3
+      },
+      {
+        "question": "How many months lapsed between Sam's first and second doctor's appointment?",
+        "answer": "three months",
+        "evidence": [
+          "D2:6",
+          "D7:2"
+        ],
+        "category": 2
+      },
+      {
+        "question": "When did Evan start taking painting classes?",
+        "answer": "Few days before 19 August, 2023.",
+        "evidence": [
+          "D8:12"
+        ],
+        "category": 2
+      },
+      {
+        "question": "Which classes did Evan join in mid-August 2023?",
+        "answer": "painting classes",
+        "evidence": [
+          "D8:12"
+        ],
+        "category": 2
+      },
+      {
+        "question": "How did Evan get into painting?",
+        "answer": "His friend got him into it by gifting him a painting and giving him some advice. The painting inspired Evan.",
+        "evidence": [
+          "D1:14",
+          "D1:15",
+          "D1:16",
+          "D8:14"
+        ],
+        "category": 1
+      },
+      {
+        "question": "How often does Sam get health checkups?",
+        "answer": "every three months",
+        "evidence": [
+          "D2:6",
+          "D7:2",
+          "D12:1"
+        ],
+        "category": 3
+      },
+      {
+        "question": "What kind of subjects does Evan enjoy painting?",
+        "answer": "nature landscapes, portraits, abstract minimalism",
+        "evidence": [
+          "D8:20",
+          "D20:13",
+          "D20:15",
+          "D21:10",
+          "D21:14"
+        ],
+        "category": 1
+      },
+      {
+        "question": "Which places in Canada was Evan visiting in July 2023?",
+        "answer": "Banff, Rocky Mountains",
+        "evidence": [
+          "D8:27",
+          "D9:8",
+          "D9:10"
+        ],
+        "category": 2
+      },
+      {
+        "question": "How do Evan and Sam use creative outlets to cope with life's challenges?",
+        "answer": "Evan and Sam use creative activities, like painting and writing, as therapeutic tools to express themselves and cope with stress.",
+        "evidence": [
+          "D21:18 D21:22 D11:15 D11:19"
+        ],
+        "category": 3
+      },
+      {
+        "question": "When did Evan go skiing in Banff?",
+        "answer": "July 2023",
+        "evidence": [
+          "D8:26",
+          "D8:27",
+          "D8:28"
+        ],
+        "category": 2
+      },
+      {
+        "question": "What new diet and lifestyle change did Sam adopt over time?",
+        "answer": "Healthy eating, exercise routine, running, hiking",
+        "evidence": [
+          "D8:1",
+          "D9:1",
+          "D21:9",
+          "D22:1"
+        ],
+        "category": 1
+      },
+      {
+        "question": "Who was injured in Evan's family?",
+        "answer": "Evan's son and Evan himself",
+        "evidence": [
+          "D7:1",
+          "D7:9",
+          "D7:10",
+          "D9:2",
+          "D11:2",
+          "D11:3"
+        ],
+        "category": 1
+      },
+      {
+        "question": "What kind of hobbies does Evan pursue?",
+        "answer": "painting, hiking, reading books, biking, skiing, snowboarding, ice skating, swimming, camping, kayaking",
+        "evidence": [
+          "D1:14",
+          "D1:6",
+          "D4:8",
+          "D6:1",
+          "D8:30",
+          "D9:6",
+          "D25:8",
+          "D25:10"
+        ],
+        "category": 1
+      },
+      {
+        "question": "What challenges does Sam face in his quest for a healthier lifestyle, and how does he address them?",
+        "answer": "Sam faces challenges like maintaining motivation and making dietary changes. He addresses them by enrolling in cooking classes and seeking support from friends like Evan.",
+        "evidence": [
+          "D4:2",
+          "D4:6",
+          "D14:1",
+          "D14:2"
+        ],
+        "category": 3
+      },
+      {
+        "question": "Which activity do Evan and Sam plan on doing together during September 2023?",
+        "answer": "painting",
+        "evidence": [
+          "D10:12",
+          "D10:13",
+          "D10:14"
+        ],
+        "category": 2
+      },
+      {
+        "question": "When did Evan and Sam decide to paint together?",
+        "answer": "Saturday after 11 September, 2023.",
+        "evidence": [
+          "D10:12",
+          "D10:13",
+          "D10:14"
+        ],
+        "category": 2
+      },
+      {
+        "question": "What personal health incidents does Evan face in 2023?",
+        "answer": "heart palpitations, twisted ankle, twisted ankle",
+        "evidence": [
+          "D3:1",
+          "D9:2",
+          "D11:2"
+        ],
+        "category": 1
+      },
+      {
+        "question": "What recurring adventure does Evan have with strangers?",
+        "answer": "Helping lost tourists and experiencing unexpected adventures in the city.",
+        "evidence": [
+          "D11:6",
+          "D14:2"
+        ],
+        "category": 1
+      },
+      {
+        "question": "What is Sam's persistent problem with his phone?",
+        "answer": "His new phone malfunctioning, particularly with the navigation app.",
+        "evidence": [
+          "D11:15",
+          "D14:1"
+        ],
+        "category": 1
+      },
+      {
+        "question": "Which US state was Sam travelling in during October 2023?",
+        "answer": "California",
+        "evidence": [
+          "D13:14"
+        ],
+        "category": 3
+      },
+      {
+        "question": "When did Evan start lifting weights?",
+        "answer": "October 2022",
+        "evidence": [
+          "D12:2"
+        ],
+        "category": 2
+      },
+      {
+        "question": "When did Sam and his friend decide to try kayaking?",
+        "answer": "October 14, 2023",
+        "evidence": [
+          "D13:10"
+        ],
+        "category": 2
+      },
+      {
+        "question": "Which new activity does Sam take up in October 2023?",
+        "answer": "kayaking",
+        "evidence": [
+          "D13:8"
+        ],
+        "category": 2
+      },
+      {
+        "question": "What kind of stress was Sam dealing with in October 2023?",
+        "answer": "work-related stress",
+        "evidence": [
+          "D13:4"
+        ],
+        "category": 2
+      },
+      {
+        "question": "What health scares did Sam and Evan experience?",
+        "answer": "Sam faced a health scare with stomach pains that turned out to be gastritis, prompting him to rethink his health habits. Evan, on the other hand, experienced two separate incidents: a sudden heart palpitation incident and a different event involving a misunderstanding during a medical check-up. These experiences have significantly influenced their perspectives on health and well-being.",
+        "evidence": [
+          "D3:1",
+          "D14:1",
+          "D14:2",
+          "D17:2"
+        ],
+        "category": 1
+      },
+      {
+        "question": "When was Sam in the ER?",
+        "answer": "weekend before 17 October, 2023.",
+        "evidence": [
+          "D14:1"
+        ],
+        "category": 2
+      },
+      {
+        "question": "Which ailment does Sam have to face due to his weight?",
+        "answer": "gastritis",
+        "evidence": [
+          "D2:6",
+          "D7:2",
+          "D12:1",
+          "D14:1"
+        ],
+        "category": 1
+      },
+      {
+        "question": "Does Evan live close to a beach or mountains?",
+        "answer": "beach",
+        "evidence": [
+          "D16:16",
+          "D16:18",
+          "D16:20"
+        ],
+        "category": 3
+      },
+      {
+        "question": "When did Evan lose his job?",
+        "answer": "end of October 2023",
+        "evidence": [
+          "D16:10"
+        ],
+        "category": 2
+      },
+      {
+        "question": "When did Evan and Sam planned a trip to the beach together?",
+        "answer": "December, 2023",
+        "evidence": [
+          "D16:24"
+        ],
+        "category": 2
+      },
+      {
+        "question": "What was Sam doing on December 4, 2023?",
+        "answer": "Attending a Weight Watchers meeting",
+        "evidence": [
+          "D18:6"
+        ],
+        "category": 2
+      },
+      {
+        "question": "Which two significant life events occur in Evan's life in December 2023 with his partner?",
+        "answer": "his partner gets pregnant and they get married",
+        "evidence": [
+          "D19:1",
+          "D21:2"
+        ],
+        "category": 1
+      },
+      {
+        "question": "How long did Evan and his partner date before getting married?",
+        "answer": "four months",
+        "evidence": [
+          "D5:1",
+          "D21:1"
+        ],
+        "category": 2
+      },
+      {
+        "question": "Which major holiday season conincides with Evan's wedding?",
+        "answer": "Christmas",
+        "evidence": [
+          "D21:2"
+        ],
+        "category": 3
+      },
+      {
+        "question": "Which activity did Sam resume in December 2023 after a long time?",
+        "answer": "hiking",
+        "evidence": [
+          "D20:6",
+          "D22:1"
+        ],
+        "category": 1
+      },
+      {
+        "question": "When is Evan planning a big family reunion?",
+        "answer": "Summer 2024",
+        "evidence": [
+          "D19:11"
+        ],
+        "category": 2
+      },
+      {
+        "question": "When did Evan's son fall off his bike?",
+        "answer": "Thursday before December 17, 2023.",
+        "evidence": [
+          "D20:3"
+        ],
+        "category": 2
+      },
+      {
+        "question": "When did Evan announce his marriage to his extended family?",
+        "answer": "January 5, 2024",
+        "evidence": [
+          "D23:1"
+        ],
+        "category": 2
+      },
+      {
+        "question": "When did Evan finish the painting that's hanging in the exhibit?",
+        "answer": "few days before 17 December, 2023.",
+        "evidence": [
+          "D20:13",
+          "D20:15"
+        ],
+        "category": 2
+      },
+      {
+        "question": "How does Evan spend his time with his bride after the wedding?",
+        "answer": "family get-together, honeymoon in Canada to see snowy landscapes, ski, taste local cuisine and do some snowshoeing",
+        "evidence": [
+          "D23:15",
+          "D23:23",
+          "D23:25",
+          "D24:9"
+        ],
+        "category": 1
+      },
+      {
+        "question": "Who did Evan tell about his marriage?",
+        "answer": "To Sam, to his friends from work, and to his and his wife's families.",
+        "evidence": [
+          "D21:2",
+          "D22:4",
+          "D22:5",
+          "D23:1",
+          "D23:5"
+        ],
+        "category": 1
+      },
+      {
+        "question": "When will Evan and his partner have their honeymoon in Canada?",
+        "answer": "February 2024",
+        "evidence": [
+          "D23:23"
+        ],
+        "category": 2
+      },
+      {
+        "question": "When did Evan have a drunken night with his friends?",
+        "answer": "January 9, 2023",
+        "evidence": [
+          "D24:3"
+        ],
+        "category": 2
+      },
+      {
+        "question": "What is a stress reliever for Evan?",
+        "answer": "Drawing, traveling, places with a beautiful view, yoga, sunsets or something comfortable for Evan",
+        "evidence": [
+          "D1:14",
+          "D2:10",
+          "D2:11",
+          "D2:14",
+          "D8:18",
+          "D10:8",
+          "D11:8",
+          "D16:23",
+          "D18:7",
+          "D24:19",
+          "D24:21"
+        ],
+        "category": 1
+      },
+      {
+        "question": "What is a stress reliever for Sam?",
+        "answer": "Unhealthy snacks, sweets, yoga, places with beautiful views",
+        "evidence": [
+          "D10:6",
+          "D13:2",
+          "D13:4",
+          "D16:17",
+          "D16:23",
+          "D18:8"
+        ],
+        "category": 1
+      },
+      {
+        "question": "What type of car did Evan get after his old Prius broke down?",
+        "answer": "new Prius",
+        "evidence": [
+          "D1:2"
+        ],
+        "category": 4
+      },
+      {
+        "question": "How did Evan get into watercolor painting?",
+        "answer": "friend's advice",
+        "evidence": [
+          "D1:16"
+        ],
+        "category": 4
+      },
+      {
+        "question": "What did Evan start doing a few years back as a stress-buster?",
+        "answer": "watercolor painting",
+        "evidence": [
+          "D1:14"
+        ],
+        "category": 4
+      },
+      {
+        "question": "What advice did Evan give Sam about finding a passion?",
+        "answer": "keep trying new things until something sparks excitement",
+        "evidence": [
+          "D1:18"
+        ],
+        "category": 4
+      },
+      {
+        "question": "Where did Evan take his family for a road trip on 24 May, 2023?",
+        "answer": "Jasper",
+        "evidence": [
+          "D2:1"
+        ],
+        "category": 4
+      },
+      {
+        "question": "What did Evan find relaxing about his road trip to Jasper?",
+        "answer": "fresh air, peacefulness, cozy cabin surrounded by mountains and forests",
+        "evidence": [
+          "D2:3"
+        ],
+        "category": 4
+      },
+      {
+        "question": "What habit is Sam trying to change in terms of diet?",
+        "answer": "consuming soda and candy",
+        "evidence": [
+          "D3:4"
+        ],
+        "category": 4
+      },
+      {
+        "question": "What new suggestion did Evan give to Sam regarding his soda and candy consumption?",
+        "answer": "try flavored seltzer water and dark chocolate with high cocoa content",
+        "evidence": [
+          "D3:5"
+        ],
+        "category": 4
+      },
+      {
+        "question": "What did Sam agree to try instead of soda and candy?",
+        "answer": "flavored seltzer water and dark chocolate with high cocoa content",
+        "evidence": [
+          "D3:6"
+        ],
+        "category": 4
+      },
+      {
+        "question": "What frustrating issue did Sam face at the supermarket?",
+        "answer": "broken self-checkout machines",
+        "evidence": [
+          "D3:16"
+        ],
+        "category": 4
+      },
+      {
+        "question": "What novel is Evan reading that he finds gripping?",
+        "answer": "The Great Gatsby",
+        "evidence": [
+          "D4:10"
+        ],
+        "category": 4
+      },
+      {
+        "question": "What kind of water does Evan suggest Sam try as an alternative to soda?",
+        "answer": "Flavored seltzer water",
+        "evidence": [
+          "D4:8"
+        ],
+        "category": 4
+      },
+      {
+        "question": "What does the smartwatch help Evan with?",
+        "answer": "tracks progress and serves as a constant reminder to keep going",
+        "evidence": [
+          "D5:9"
+        ],
+        "category": 4
+      },
+      {
+        "question": "What does the bonsai tree symbolize for Evan?",
+        "answer": "strength and resilience",
+        "evidence": [
+          "D5:17"
+        ],
+        "category": 4
+      },
+      {
+        "question": "Why did Evan decide to get the bonsai tree?",
+        "answer": "motivates him to keep going through tough times",
+        "evidence": [
+          "D5:17"
+        ],
+        "category": 4
+      },
+      {
+        "question": "According to Sam, what is more important than perfection?",
+        "answer": "progress",
+        "evidence": [
+          "D6:6"
+        ],
+        "category": 4
+      },
+      {
+        "question": "What did Evan suggest Sam to check out for insights into his dream?",
+        "answer": "dream interpretation book",
+        "evidence": [
+          "D6:15"
+        ],
+        "category": 4
+      },
+      {
+        "question": "What did Evan mention he had been searching for fruitlessly for half an hour?",
+        "answer": "his keys",
+        "evidence": [
+          "D6:13"
+        ],
+        "category": 4
+      },
+      {
+        "question": "What class is Sam taking to learn how to make healthier meals?",
+        "answer": "cooking class",
+        "evidence": [
+          "D7:2"
+        ],
+        "category": 4
+      },
+      {
+        "question": "What dish did Sam make on 18 August, 2023 that turned out flavorful?",
+        "answer": "grilled dish with salmon and vegetables",
+        "evidence": [
+          "D7:4"
+        ],
+        "category": 4
+      },
+      {
+        "question": "What kind of recipe did Evan request from Sam on 19 August, 2023?",
+        "answer": "recipes with more vegetables",
+        "evidence": [
+          "D7:7"
+        ],
+        "category": 4
+      },
+      {
+        "question": "What food did Sam share a photo of on 19 August, 2023?",
+        "answer": "bowl of spinach, avocado, and strawberries",
+        "evidence": [
+          "D8:1"
+        ],
+        "category": 4
+      },
+      {
+        "question": "What type of painting classes did Evan start taking in 2023?",
+        "answer": "watercolor painting classes",
+        "evidence": [
+          "D8:12"
+        ],
+        "category": 4
+      },
+      {
+        "question": "What did Evan start painting years ago due to being inspired by a friend's gift?",
+        "answer": "forest scene",
+        "evidence": [
+          "D8:14"
+        ],
+        "category": 4
+      },
+      {
+        "question": "What nature concept do watercolor painting classes emphasize according to Evan?",
+        "answer": "observing nature and painting what is seen",
+        "evidence": [
+          "D8:18"
+        ],
+        "category": 4
+      },
+      {
+        "question": "What type of landscapes does Evan love painting the most?",
+        "answer": "sunsets over the ocean",
+        "evidence": [
+          "D8:20"
+        ],
+        "category": 4
+      },
+      {
+        "question": "What fun activity did Evan mention doing in July 2023?",
+        "answer": "skiing",
+        "evidence": [
+          "D8:26"
+        ],
+        "category": 4
+      },
+      {
+        "question": "What injury did Evan suffer from in August 2023?",
+        "answer": "Twisted knee",
+        "evidence": [
+          "D9:2"
+        ],
+        "category": 4
+      },
+      {
+        "question": "What sports activity has Evan been doing to stay active while dealing with the knee injury?",
+        "answer": "Swimming",
+        "evidence": [
+          "D9:6"
+        ],
+        "category": 4
+      },
+      {
+        "question": "What suggestion did Sam give to Evan to help with his knee issue?",
+        "answer": "Consider low-impact exercises or physical therapy",
+        "evidence": [
+          "D9:5"
+        ],
+        "category": 4
+      },
+      {
+        "question": "What did Evan suggest Sam try as a calming hobby?",
+        "answer": "Painting",
+        "evidence": [
+          "D10:8"
+        ],
+        "category": 4
+      },
+      {
+        "question": "What did Evan recommend Sam acquire to get started with painting?",
+        "answer": "Acrylic paints, brushes, canvas/paper, palette",
+        "evidence": [
+          "D10:11"
+        ],
+        "category": 4
+      },
+      {
+        "question": "What activity does Evan do to keep himself busy while healing his knee?",
+        "answer": "Watercolor painting",
+        "evidence": [
+          "D11:6"
+        ],
+        "category": 4
+      },
+      {
+        "question": "What painting did Evan share with Sam in October?",
+        "answer": "a cactus in the desert",
+        "evidence": [
+          "D11:8"
+        ],
+        "category": 4
+      },
+      {
+        "question": "What kind of writing does Sam enjoy as a form of expression?",
+        "answer": "creative writing",
+        "evidence": [
+          "D11:17"
+        ],
+        "category": 4
+      },
+      {
+        "question": "What electronics issue has been frustrating Sam lately?",
+        "answer": "malfunctioning navigation app on the new phone",
+        "evidence": [
+          "D11:15"
+        ],
+        "category": 4
+      },
+      {
+        "question": "What activity did Evan start one year ago?",
+        "answer": "lifting weights",
+        "evidence": [
+          "D12:2"
+        ],
+        "category": 4
+      },
+      {
+        "question": "What advice did Evan give to Sam to avoid injuries while starting weightlifting?",
+        "answer": "Find a trainer",
+        "evidence": [
+          "D12:4"
+        ],
+        "category": 4
+      },
+      {
+        "question": "Where did Sam and his mate plan to try kayaking?",
+        "answer": "Lake Tahoe",
+        "evidence": [
+          "D13:14"
+        ],
+        "category": 4
+      },
+      {
+        "question": "What digestive issue did Sam experience lately?",
+        "answer": "Gastritis",
+        "evidence": [
+          "D14:1"
+        ],
+        "category": 4
+      },
+      {
+        "question": "What adventurous theme is emerging in Evan's life as mentioned by Sam?",
+        "answer": "helping lost tourists",
+        "evidence": [
+          "D14:2"
+        ],
+        "category": 4
+      },
+      {
+        "question": "What does Evan mention about his progress at the gym to Sam?",
+        "answer": "gaining strength",
+        "evidence": [
+          "D14:8"
+        ],
+        "category": 4
+      },
+      {
+        "question": "How did Evan start his transformation journey two years ago?",
+        "answer": "Changed his diet and started walking regularly",
+        "evidence": [
+          "D15:8"
+        ],
+        "category": 4
+      },
+      {
+        "question": "What gift did Evan receive from a close friend?",
+        "answer": "1968 Kustom K-200A vintage guitar",
+        "evidence": [
+          "D16:10"
+        ],
+        "category": 4
+      },
+      {
+        "question": "Why had Evan been going through a tough time lately?",
+        "answer": "Lost their job due to downsizing",
+        "evidence": [
+          "D16:10"
+        ],
+        "category": 4
+      },
+      {
+        "question": "How does Evan describe the island he grew up on?",
+        "answer": "A happy place",
+        "evidence": [
+          "D17:18"
+        ],
+        "category": 4
+      },
+      {
+        "question": "What was the main reason for Evan's frustration with his new Prius breaking down?",
+        "answer": "He relied on it for his active lifestyle and road trips",
+        "evidence": [
+          "D18:1"
+        ],
+        "category": 4
+      },
+      {
+        "question": "How did Sam suggest Evan view the setback with his broken Prius?",
+        "answer": "As a chance to explore other ways of staying active and traveling",
+        "evidence": [
+          "D18:5"
+        ],
+        "category": 4
+      },
+      {
+        "question": "What did Sam suggest Evan try for stress relief and flexibility?",
+        "answer": "Yoga",
+        "evidence": [
+          "D18:8"
+        ],
+        "category": 4
+      },
+      {
+        "question": "What did Sam offer Evan regarding yoga?",
+        "answer": "Support and tips",
+        "evidence": [
+          "D18:10"
+        ],
+        "category": 4
+      },
+      {
+        "question": "What news did Evan share with Sam on 9th December 2023?",
+        "answer": "partner is pregnant",
+        "evidence": [
+          "D19:1"
+        ],
+        "category": 4
+      },
+      {
+        "question": "What family event is Evan planning for next summer?",
+        "answer": "big family reunion",
+        "evidence": [
+          "D19:11"
+        ],
+        "category": 4
+      },
+      {
+        "question": "What is the motto of Evan's family?",
+        "answer": "'Bring it on Home'",
+        "evidence": [
+          "D19:7"
+        ],
+        "category": 4
+      },
+      {
+        "question": "According to Evan, what is important for Sam to believe in concerning his weight?",
+        "answer": "Your worth is not defined by your weight",
+        "evidence": [
+          "D20:9"
+        ],
+        "category": 4
+      },
+      {
+        "question": "Who helped Evan get the painting published in the exhibition?",
+        "answer": "a close friend",
+        "evidence": [
+          "D20:17"
+        ],
+        "category": 4
+      },
+      {
+        "question": "What did Sam recently start enjoying to clear his head?",
+        "answer": "running in the mornings",
+        "evidence": [
+          "D21:9"
+        ],
+        "category": 4
+      },
+      {
+        "question": "What did Sam suggest Evan should do with his keys?",
+        "answer": "put a GPS sensor on them",
+        "evidence": [
+          "D21:21"
+        ],
+        "category": 4
+      },
+      {
+        "question": "How did Evan feel when he painted the piece with the bird flying over it?",
+        "answer": "a sense of joy and freedom",
+        "evidence": [
+          "D21:16"
+        ],
+        "category": 4
+      },
+      {
+        "question": "What did Evan suggest Sam should keep doing to find his own version of love?",
+        "answer": "Keep trying new things",
+        "evidence": [
+          "D21:10"
+        ],
+        "category": 4
+      },
+      {
+        "question": "How did Evan describe the process of creating the painting with the bird flying over it?",
+        "answer": "embracing the creative process without restraint",
+        "evidence": [
+          "D21:16"
+        ],
+        "category": 4
+      },
+      {
+        "question": "What did Evan want to share with his work friends?",
+        "answer": "getting married",
+        "evidence": [
+          "D22:4"
+        ],
+        "category": 4
+      },
+      {
+        "question": "What did Evan share with Sam after their hiking trip?",
+        "answer": "a photo of a man standing on a rock looking out over a valley",
+        "evidence": [
+          "D22:1"
+        ],
+        "category": 4
+      },
+      {
+        "question": "What did Evan offer to share with Sam after talking about healthy snacks?",
+        "answer": "the recipes for cookies",
+        "evidence": [
+          "D22:12"
+        ],
+        "category": 4
+      },
+      {
+        "question": "What did Evan and his partner share with their extended family on January 5, 2024?",
+        "answer": "their marriage",
+        "evidence": [
+          "D23:1"
+        ],
+        "category": 4
+      },
+      {
+        "question": "What was Evan limiting himself to on his new diet?",
+        "answer": "just two ginger snaps a day",
+        "evidence": [
+          "D23:15"
+        ],
+        "category": 4
+      },
+      {
+        "question": "What sports activity did Evan and his partner try in a recent weekend?",
+        "answer": "Snowshoeing",
+        "evidence": [
+          "D24:9"
+        ],
+        "category": 4
+      },
+      {
+        "question": "What advice did Evan suggest Sam seek from a doctor?",
+        "answer": "diet plan and low-impact exercises",
+        "evidence": [
+          "D24:11",
+          "D24:14"
+        ],
+        "category": 4
+      },
+      {
+        "question": "What suggestions did Evan give for low-impact exercises?",
+        "answer": "swimming, yoga, walking",
+        "evidence": [
+          "D24:17"
+        ],
+        "category": 4
+      },
+      {
+        "question": "What movie did Sam watch that motivated him to keep up with his routine?",
+        "answer": "The Godfather",
+        "evidence": [
+          "D24:18"
+        ],
+        "category": 4
+      },
+      {
+        "question": "What activity helped Evan with stress and flexibility?",
+        "answer": "Yoga",
+        "evidence": [
+          "D24:19"
+        ],
+        "category": 4
+      },
+      {
+        "question": "What did Evan share a photo of that was taken on a camping trip?",
+        "answer": "a kayak",
+        "evidence": [
+          "D25:8"
+        ],
+        "category": 4
+      },
+      {
+        "question": "Why did Evan apologize to his partner?",
+        "answer": "for a drunken night",
+        "evidence": [
+          "D25:2"
+        ],
+        "category": 4
+      },
+      {
+        "question": "How does Evan describe being out on the water while kayaking and watching the sunset?",
+        "answer": "peaceful",
+        "evidence": [
+          "D25:10"
+        ],
+        "category": 4
+      }
+    ]
+  }
+}

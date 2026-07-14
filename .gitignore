@@ -1,8 +1,12 @@
 .venv
 .env
 infra/
-data/
 results/
 external/
 pararag/debug/
 **/__pycache__
+
+data/locomo/*
+!data/locomo/locomo_sample_*
+!data/locomo/locomo_samples_merged.json
+!data/locomo/locomo10.json
