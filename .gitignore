@@ -4,6 +4,7 @@ infra/
 external/
 pararag/debug/
 **/__pycache__
+pararag_thesis.pdf
 
 data/locomo/*
 !data/locomo/locomo_sample_*

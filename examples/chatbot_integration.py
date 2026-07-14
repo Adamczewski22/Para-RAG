@@ -32,6 +32,9 @@ async def main():
     llm = ChatOpenAI(model="gpt-5.2")
     memory = ParaRAGMemory(memory_version=MEMORY_VERSION,)
 
+    # Init memory store
+    await memory.init_memory_store()
+
     # Init profile store
     await memory.init_profile_store()
 

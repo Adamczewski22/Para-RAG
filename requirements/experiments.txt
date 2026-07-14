@@ -1,0 +1,5 @@
+-r core.txt
+
+nltk==3.9.4
+pandas==3.0.2
+rouge_score==0.1.2

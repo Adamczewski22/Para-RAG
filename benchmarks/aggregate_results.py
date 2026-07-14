@@ -11,33 +11,45 @@ SAMPLES_COUNT = 10
 def main():
     all_results = {}
     all_logs = {}
+    all_evaluations = {}
 
     for i in range(SAMPLES_COUNT):
         sample_nr = i + 1
         results_file_name = f"pararag_final_result_{sample_nr}.json"
         logs_file_name = f"pararag_final_logs_{sample_nr}.json"
+        evaluation_file_name = f"pararag_final_eval_{sample_nr}.json"
         results_path = RESULTS_DIR / results_file_name
         logs_path = DEBUG_DIR / logs_file_name
+        evaluation_path = RESULTS_DIR / evaluation_file_name
         
         with open(results_path, mode="r", encoding="utf-8") as file:
             results = json.load(file)
 
         with open(logs_path, mode="r", encoding="utf-8") as file:
             logs = json.load(file)
+
+        with open(evaluation_path, mode="r", encoding="utf-8") as file:
+            evaluations = json.load(file)
         
         all_results.update(results)
         all_logs.update(logs)
+        all_evaluations.update(evaluations)
     
     output_file_name = "pararag_final_result.json"
     logs_file_name = "pararag_final_logs.json"
+    evaluation_file_name = "pararag_final_eval.json"
     output_path = RESULTS_DIR / output_file_name
     logs_path = DEBUG_DIR / logs_file_name
+    evaluation_path = RESULTS_DIR / evaluation_file_name
 
     with open(output_path, mode="w", encoding="utf-8") as file:
         json.dump(all_results, file, indent=4, ensure_ascii=False)
 
     with open(logs_path, mode="w", encoding="utf-8") as file:
         json.dump(all_logs, file, indent=4, ensure_ascii=False)
+
+    with open(evaluation_path, mode="w", encoding="utf-8") as file:
+        json.dump(all_evaluations, file, indent=4)
     
 
 if __name__ == "__main__":
