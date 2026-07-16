@@ -1,5 +1,8 @@
-# The same prompt as in the original baseline memobase RAG is used for fair evaluation.
-# The only change is replacement of word "conversation" by "memory" as the context is supplied in different form.
+# The initial answer prompt below was adapted from the Memobase LoCoMo RAG
+# baseline, whose evaluation project was forked from Mem0. It was modified for
+# ParaRAG, including replacing "conversation" with "memory" and adding later
+# prompt variants. The upstream material is licensed under Apache-2.0.
+# See THIRD_PARTY_NOTICES.md and third_party/licenses/Apache-2.0.txt.
 # Used in simple decomposition (1, 2)
 ANSWER_PROMPT_1 = """
 You are a helpful assistant that can answer questions based on the provided context.
