@@ -1,7 +1,7 @@
 # ParaRAG framework
 
 ## Overview
-The **ParaRAG** framework serves as a module for conversational memory, especially suitable for **LLM chatbots** and **agents**. It features parallel memory retrieval from underlying vector stores to minimize latency while providing rich context.
+The **ParaRAG** framework serves as a module for conversational memory, especially suitable for **LLM chatbots** and **agents**. Based on RAG, semantic search and LLM-powered pipelines. Utilizes asynchronous programming to parallelize LLM calls and decrease latency.
 
 ## Setup
 See [docs/setup.md](docs/setup.md) for local installation and infrastructure instructions.
